@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by omda (omda) -->
+<orders>
+	<order id="1" code="20120309005" reserveTime="2012-03-09 14:00" amountOfClient="8" favoriteRoom="1" placeOrderTime="2012-03-09 10:00" orderStatus="1" handleResult="1" handleTime="2012-03-09 10:10" modifyTime="2012-03-09 10:10" finishTime="2012-03-09 14:30" memo="需无烟区">
+		<orderPerson name="张生" gender="先生" phoneNumber="156786412315"/>
+		<contactPerson name="王生" gender="先生" phoneNumber="136786412315"/>
+		<menus>
+		<menu name="酱骨架" amount="1" unit="盘" favorite="一般"/>
+		<menu name="羊肉水饺" amount="2" unit="份" favorite="一般"/>
+		</menus>
+	</order>
+	<order id="2" code="20120319005" reserveTime="2012-03-19 14:00" amountOfClient="8" favoriteRoom="1" placeOrderTime="2012-03-09 10:00" orderStatus="1" handleResult="1" handleTime="2012-03-09 10:10" modifyTime="2012-03-09 10:10" finishTime="2012-03-09 14:30" memo="需无烟区">
+		<orderPerson name="张生" gender="先生" phoneNumber="156786412315"/>		
+	</order>
+</orders>

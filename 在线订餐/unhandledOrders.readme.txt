@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<orders>——订单集合
+	<order——订单
+	 id="1"——订单数据库ID
+	  code="20120309005"——订单编号，已日期时间+流水号为格式
+	   reserveTime="2012-03-09 14:00"——就餐时间
+	    amountOfClient="8"——就餐人数
+	     favoriteRoom="1"——包间要求，按原型中的选项顺序编号：1，2.。。
+	      placeOrderTime="2012-03-09 10:00"——下单时间，日期+时间
+	       orderStatus="1"——订单状态
+	        handleResult="1"——处理结果
+	         handleTime="2012-03-09 10:10"——处理时间
+	          modifyTime="2012-03-09 10:10"——修改时间
+	            memo="需无烟区"——其他要求，备注信息>
+		<orderPerson——订餐人信息
+		 name="张生"——订餐人姓名
+		  gender="先生"——订餐人性别
+		   phoneNumber="156786412315"——手机号码/>
+		<contactPerson——就餐人
+		 name="王生"——就餐人姓名
+		  gender="先生"——就餐人性别
+		   phoneNumber="136786412315"——就餐人手机号码/>
+		<menus——选菜信息>
+		<menu——选菜
+		 name="酱骨架"——菜名
+		  amount="1"——数量
+		   unit="盘"——单位
+		    favorite="一般"——口味/>
+		<menu name="羊肉水饺" amount="2" unit="份" favorite="一般"/>
+		</menus>
+	</order>
+	<order id="2" code="20120319005" reserveTime="2012-03-19 14:00" amountOfClient="8" favoriteRoom="1" placeOrderTime="2012-03-09 10:00" orderStatus="1" handleResult="1" handleTime="2012-03-09 10:10" modifyTime="2012-03-09 10:10" finishTime="2012-03-09 14:30" memo="需无烟区">
+		<orderPerson name="张生" gender="先生" phoneNumber="156786412315"/>		
+	</order>
+</orders>

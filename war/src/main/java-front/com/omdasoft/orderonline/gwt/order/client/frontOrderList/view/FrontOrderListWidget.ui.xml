@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<ui:style src="new2.css" field="new2"></ui:style>
+	<ui:style src="xxx.css" field="new1"></ui:style>
+
+
+	<g:ScrollPanel>
+		<g:HTMLPanel>
+
+			<div>
+				<div class="{new1.mainpage}">
+
+					<div class="{new1.header}">
+						<div class="{new1.restaurantlogo}">
+							<a href="/">
+								<img src="/app/www/images/logo.gif" alt="logo" border="0" />
+							</a>
+						</div>
+
+						<div class="{new1.restaurantline} {new1.cb}"></div>
+						<!--网站当前位置 -->
+						<div class="{new1.site-place} {new1.clearfix}">
+							<p class="{new1.sp-link}">
+								<a href="/">首页</a>
+								&gt;
+								<a href="#">餐厅</a>
+								&gt;
+								<a href="#">自助预订查询</a>
+							</p>
+							<p class="{new1.order-hotline} {new1.clearfix}">
+								<span>预订电话：</span>
+								<span class="{new1.phone-num}">40008888888</span>
+							</p>
+						</div>
+					</div>
+
+					<div class="{new1.content}">
+						<div class="{new1.bookinginformation}">
+							<!--订餐信息 -->
+							<FORM onSubmit="return checkOrder(this);" method="post"
+								action="/">
+								<h3>订餐查询</h3>
+								<dl>
+									<dt style="width:100%;height:100%;text-align: left;">
+									
+								<div class="{new2.frame-wrap}">
+							
+
+									<!--查询条件 [[ -->
+									<div class="{new2.query-wrap}">
+										<div class="{new2.form}">
+
+											<label for="">订餐人手机号:</label>
+											<g:TextBox maxLength="30" ui:field="phone"
+												styleName="{new2.text2}" />
+											<span class="{new2.nbspbig}"></span>
+
+										
+											<g:Button ui:field="searchBtn" text="查询" width="100px" />
+											
+										</div>
+									</div>
+									<!--查询条件 ]] -->
+
+
+									<span class="{new2.cutline}"></span>
+
+									<div class="{new2.divtext}">
+										共有
+										<g:InlineLabel ui:field="dataCount" styleName="{new2.divfont}"></g:InlineLabel>
+										订单
+									</div>
+									<div class="{new2.divend}"></div>
+									<div class="{new2.table}">
+										<g:FlowPanel ui:field="resultPanel" />
+									</div>
+
+
+									<!--分页 [[ -->
+									<div id="rewardlist_page2" class="{new2.pager}">
+										<div class="{new2.pager-left}">
+											每页显示条数
+											<select class="{new2.select}">
+												<option>10</option>
+											</select>
+										</div>
+
+										<div class="{new2.pager-right}">
+											<g:FlowPanel ui:field="resultpage" />
+										</div>
+									</div>
+									<!--分页 ]] -->
+
+								</div>
+									
+									</dt>
+		
+								</dl>
+								
+							</FORM>
+						</div>
+					</div>
+
+
+
+				</div>
+
+
+
+			</div>
+		</g:HTMLPanel>
+	</g:ScrollPanel>
+</ui:UiBinder> 

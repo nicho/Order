@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<ui:style src="xxx.css" field="new2"></ui:style>
+
+	<g:HTMLPanel>
+
+
+		<div>
+		
+			<div class="{new2.mainpage}">
+
+				<div class="{new2.content2}">
+					<div class="{new2.bookinginformation}">
+
+						<h3>详细信息</h3>
+
+						   <dl>
+								<dt class="{new2.pt7}">
+								
+								</dt>
+								<dd>
+									菜名：
+									<g:InlineLabel ui:field="dishesName" /><span id="num" class="{new2.red} {new2.ml15}"></span>
+								</dd>
+							</dl>
+						   <dl>
+								<dt class="{new2.pt7}">
+									
+								</dt>
+								<dd>
+								价格：
+									<g:InlineLabel ui:field="price" /><span id="num" class="{new2.red} {new2.ml15}"></span>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="{new2.pt7}">
+									
+								</dt>
+								<dd>
+								图片：
+									<g:Image ui:field="photo" pixelSize="500,300" width="500" height="300" />
+								</dd>
+							</dl>
+														<dl>
+								<dt class="{new2.pt7}">
+									
+								</dt>
+								<dd>
+								详细介绍：
+									<g:InlineLabel ui:field="description" /><span id="num" class="{new2.red} {new2.ml15}"></span>
+								</dd>
+							</dl>
+							
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

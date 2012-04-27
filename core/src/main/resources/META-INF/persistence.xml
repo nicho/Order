@@ -1,0 +1,47 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="elt" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- JPA entities must be registered here -->
+
+		<class>com.omdasoft.orderonline.domain.user.SysUser</class>
+		<class>com.omdasoft.orderonline.domain.user.SysRole</class>
+		<class>com.omdasoft.orderonline.domain.user.SysUserRole</class>
+		<class>com.omdasoft.orderonline.domain.dictionary.Dictionary</class>
+		<class>com.omdasoft.orderonline.domain.dishes.Dishes</class>
+		<class>com.omdasoft.orderonline.domain.dishes.DishesMenu</class>
+		<class>com.omdasoft.orderonline.domain.dishes.DishesType</class>
+		<class>com.omdasoft.orderonline.domain.dishes.Menu</class>
+		<class>com.omdasoft.orderonline.domain.order.Orders</class>
+		<class>com.omdasoft.orderonline.domain.org.Corporation</class>
+		<class>com.omdasoft.orderonline.domain.org.Organization</class>
+		<class>com.omdasoft.orderonline.domain.org.Department</class>
+		<class>com.omdasoft.orderonline.domain.org.Industry</class>
+		<class>com.omdasoft.orderonline.domain.org.OrgInit</class>
+		<class>com.omdasoft.orderonline.domain.org.Staff</class>
+		<class>com.omdasoft.orderonline.domain.org.Restaurant</class>
+		<class>com.omdasoft.orderonline.domain.person.Person</class>
+		<class>com.omdasoft.orderonline.domain.user.Permissions</class>
+		<class>com.omdasoft.orderonline.domain.user.RolePermissions</class>
+		<class>com.omdasoft.orderonline.domain.rest.InvokeHistory</class>
+		<class>com.omdasoft.orderonline.domain.user.Token</class>
+
+		
+		
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver" />
+			<property name="hibernate.connection.username" value="sa" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:hsql://localhost:9001/mydb" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.show_sql" value="false" />
+
+		</properties>
+	</persistence-unit>
+
+</persistence>

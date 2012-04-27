@@ -1,0 +1,1244 @@
+body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+div.main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0 {
+    position:absolute;
+    left:40px;
+    top:20px;
+    width:150px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u1 {
+    position:absolute;
+    left:40px;
+    top:70px;
+    width:1105px;
+    height:65px
+}
+
+.u1_table {
+    background-image: url('../查询订单_files/u1_table.png');
+}
+
+.u1_table {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:1109px;
+    height:69px;
+}
+
+.u2_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u2_container {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u3 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u4_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u4_container {
+    position:absolute;
+    left:100px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u5 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4 {
+    position:absolute;
+    left:100px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u6_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u6_container {
+    position:absolute;
+    left:200px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u7 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6 {
+    position:absolute;
+    left:200px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u8_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u8_container {
+    position:absolute;
+    left:300px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u9 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8 {
+    position:absolute;
+    left:300px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u10_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u10_container {
+    position:absolute;
+    left:400px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u11 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10 {
+    position:absolute;
+    left:400px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u12_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u12_container {
+    position:absolute;
+    left:500px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u13 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12 {
+    position:absolute;
+    left:500px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u14_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u14_container {
+    position:absolute;
+    left:600px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u15 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14 {
+    position:absolute;
+    left:600px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u16_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u16_container {
+    position:absolute;
+    left:700px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u17 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16 {
+    position:absolute;
+    left:700px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u18_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u18_container {
+    position:absolute;
+    left:800px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u19 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u18 {
+    position:absolute;
+    left:800px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u20_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u20_container {
+    position:absolute;
+    left:900px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u21 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20 {
+    position:absolute;
+    left:900px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u22_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u22_container {
+    position:absolute;
+    left:1000px;
+    top:0px;
+    width:100px;
+    height:20px;
+}
+
+.u23 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u22 {
+    position:absolute;
+    left:1000px;
+    top:0px;
+    width:100px;
+    height:20px
+}
+
+.u24_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u24_container {
+    position:absolute;
+    left:0px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u25 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24 {
+    position:absolute;
+    left:0px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u26_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u26_container {
+    position:absolute;
+    left:100px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u27 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26 {
+    position:absolute;
+    left:100px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u28_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u28_container {
+    position:absolute;
+    left:200px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u29 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28 {
+    position:absolute;
+    left:200px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u30_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u30_container {
+    position:absolute;
+    left:300px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u31 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u30 {
+    position:absolute;
+    left:300px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u32_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u32_container {
+    position:absolute;
+    left:400px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u33 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u32 {
+    position:absolute;
+    left:400px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u34_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u34_container {
+    position:absolute;
+    left:500px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u35 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u34 {
+    position:absolute;
+    left:500px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u36_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u36_container {
+    position:absolute;
+    left:600px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u37 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u36 {
+    position:absolute;
+    left:600px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u38_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u38_container {
+    position:absolute;
+    left:700px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u39 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u38 {
+    position:absolute;
+    left:700px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u40_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u40_container {
+    position:absolute;
+    left:800px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u41 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u40 {
+    position:absolute;
+    left:800px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u42_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u42_container {
+    position:absolute;
+    left:900px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u43 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u42 {
+    position:absolute;
+    left:900px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u44_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u44_container {
+    position:absolute;
+    left:1000px;
+    top:20px;
+    width:100px;
+    height:20px;
+}
+
+.u45 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u44 {
+    position:absolute;
+    left:1000px;
+    top:20px;
+    width:100px;
+    height:20px
+}
+
+.u46_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u46_container {
+    position:absolute;
+    left:0px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u47 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u46 {
+    position:absolute;
+    left:0px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u48_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u48_container {
+    position:absolute;
+    left:100px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u49 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u48 {
+    position:absolute;
+    left:100px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u50_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u50_container {
+    position:absolute;
+    left:200px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u51 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u50 {
+    position:absolute;
+    left:200px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u52_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u52_container {
+    position:absolute;
+    left:300px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u53 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u52 {
+    position:absolute;
+    left:300px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u54_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u54_container {
+    position:absolute;
+    left:400px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u55 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u54 {
+    position:absolute;
+    left:400px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u56_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u56_container {
+    position:absolute;
+    left:500px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u57 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u56 {
+    position:absolute;
+    left:500px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u58_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u58_container {
+    position:absolute;
+    left:600px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u59 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u58 {
+    position:absolute;
+    left:600px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u60_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u60_container {
+    position:absolute;
+    left:700px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u61 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u60 {
+    position:absolute;
+    left:700px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u62_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u62_container {
+    position:absolute;
+    left:800px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u63 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u62 {
+    position:absolute;
+    left:800px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u64_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u64_container {
+    position:absolute;
+    left:900px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u65 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u64 {
+    position:absolute;
+    left:900px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u66_original {
+    background-image: url('../查询订单_files/u2_original.png');
+}
+
+.u66_container {
+    position:absolute;
+    left:1000px;
+    top:40px;
+    width:100px;
+    height:20px;
+}
+
+.u67 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u66 {
+    position:absolute;
+    left:1000px;
+    top:40px;
+    width:100px;
+    height:20px
+}
+
+.u68 {
+    position:absolute;
+    left:1040px;
+    top:90px;
+    width:40px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u69 {
+    position:absolute;
+    left:1090px;
+    top:90px;
+    width:50px;
+    height:25px;
+    ;
+    ;
+    text-align: center;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#000000;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    
+}
+
+.u71 {
+    position:absolute;
+    left:16px;
+    top:0px;
+    width:82px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u73 {
+    position:absolute;
+    left:16px;
+    top:0px;
+    width:82px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+

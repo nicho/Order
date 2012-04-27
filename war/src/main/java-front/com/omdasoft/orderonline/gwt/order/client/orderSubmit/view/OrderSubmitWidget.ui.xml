@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<ui:style src="xxx.css" field="new2"></ui:style>
+	<g:ScrollPanel>
+		<g:HTMLPanel>
+
+			<div class="{new2.mainpage}">
+
+				<div class="{new2.header}">
+					<div class="{new2.restaurantlogo}">
+						<a href="/">
+							<img src="/app/www/images/logo.gif" alt="logo" border="0" />
+						</a>
+					</div>
+					<div class="{new2.progressbar}">
+						<ul>
+							<li>1、选择餐厅</li>
+							<li class="{new2.current}">2、填写预订信息</li>
+							<li>3、确认订单</li>
+						</ul>
+					</div>
+					<div class="{new2.restaurantline} {new2.cb}"></div>
+					<!--网站当前位置 -->
+					<div class="{new2.site-place} {new2.clearfix}">
+						<p class="{new2.sp-link}">
+							<a href="/">首页</a>
+							&gt;
+							<a href="#">餐厅</a>
+							&gt;
+							<a href="#">自助预订</a>
+						</p>
+						<p class="{new2.order-hotline} {new2.clearfix}">
+							<span>预订电话：</span>
+							<span class="{new2.phone-num}">40008888888</span>
+						</p>
+					</div>
+				</div>
+
+				<div class="{new2.content}">
+					<div class="{new2.bookinginformation}">
+						<!--订餐信息 -->
+						<FORM onSubmit="return checkOrder(this);" method="post"
+							action="/">
+							<h3>订餐信息</h3>
+
+							<dl>
+								<dt class="{new2.pt7}">
+
+								</dt>
+								
+								<dd>
+									<span class="{new2.red} {new2.mr5}">*</span>
+									选择城市：
+									<g:ListBox ui:field="city" />
+									<span id="num" class="{new2.red} {new2.ml15}"></span>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="{new2.pt7}">
+
+								</dt>
+								<dd>
+									<span class="{new2.red} {new2.mr5}">*</span>
+									选择餐厅：
+									<g:ListBox ui:field="restaurant" />
+									<span id="num" class="{new2.red} {new2.ml15}"></span>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+
+								</dt>
+								<dd>
+									<span class="{new2.red} {new2.mr5}">*</span>
+									就餐时间：
+									<g:ListBox ui:field="reserveTime" styleName="{new2.select}" />
+									<g:ListBox ui:field="reserveTimeH" styleName="{new2.select}" />
+									<g:ListBox ui:field="reserveTimeS" styleName="{new2.select}" />
+									<input type="hidden" value="18:00" name="time" />
+									<input type="hidden" value="18:00" id="timeRecord" />
+									<span class="{new2.red} {new2.ml15}">预订10天后的餐厅，请拨打4006-177-177</span>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="{new2.pt7}">
+
+								</dt>
+								<dd>
+									<span class="{new2.red} {new2.mr5}">*</span>
+									　　人数：
+									<g:TextBox maxLength="3" ui:field="amountOfClient"
+										styleName="{new2.stat} {new2.textinput3} {new2.mr5}" />
+									位
+									<span id="num" class="{new2.red} {new2.ml15}"></span>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="{new2.h120} {new2.pt7}">
+
+								</dt>
+								<dd class="{new2.line4}">
+									<span class="{new2.red} {new2.mr5}">*</span>
+									餐位情况：
+									<div class="{new2.bggrey}">
+										您选择的就餐时间，可以接受预订
+										<br />
+										<g:RadioButton ui:field="favoriteRoom1" name="favoriteRoom">
+											只订大厅</g:RadioButton>
+										<g:RadioButton ui:field="favoriteRoom2" name="favoriteRoom">
+											只订包间</g:RadioButton>
+										<g:RadioButton ui:field="favoriteRoom3" name="favoriteRoom">
+											先订大厅，如无大厅，订包间</g:RadioButton>
+										<g:RadioButton ui:field="favoriteRoom4" name="favoriteRoom">
+											先订包间，如无包间，订大厅</g:RadioButton>
+									</div>
+									<span class="{new2.red}">餐位变化快，以最终预订结果为准</span>
+								</dd>
+							</dl>
+
+							<div class="{new2.restaurantline} {new2.cb}"></div>
+
+							<h3>联系人信息</h3>
+							<dl>
+								<dt class="{new2.pt7}">
+
+								</dt>
+								<dd>
+									<span class="{new2.red} {new2.mr5}">*</span>
+									姓　名：
+
+									<g:TextBox maxLength="15" ui:field="orderPersonName"
+										styleName="{new2.textinput} {new2.stat}" />
+									<g:RadioButton ui:field="sex1" name="sex1">先生
+									</g:RadioButton>
+									<g:RadioButton ui:field="sex2" name="sex1">女士
+									</g:RadioButton>
+									<span class="{new2.red} {new2.ml15}" id="bookerNull"></span>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="{new2.pt7}">
+
+								</dt>
+								<dd>
+									<span class="{new2.red} {new2.mr5}">*</span>
+									手机号：
+									<g:TextBox maxLength="15" ui:field="orderPersonPhone"
+										styleName="{new2.textinput} {new2.stat}" />
+									<span class="{new2.grey} {new2.ml10}">（用于接收预订信息）</span>
+									<span class="{new2.red} {new2.ml15}" id="phoneWrong"></span>
+								</dd>
+							</dl>
+							<dl>
+								<dt class="{new2.pt7}"></dt>
+								<dd>
+									<g:CheckBox ui:field="otherPersonCheckbox" text=" " />
+									为他人订餐
+								</dd>
+							</dl>
+
+							<div class="{new2.repastname}">
+								<h3>就餐人信息(选填)</h3>
+								<dl>
+									<dt class="{new2.pt7}">
+
+									</dt>
+									<dd>
+										<span class="{new2.red} {new2.mr5}">*</span>
+										姓　名：
+										<g:TextBox maxLength="15" ui:field="contactPersonName"
+											styleName="{new2.textinput} {new2.stat}" />
+										<g:RadioButton ui:field="sex3" name="sex2">先生
+										</g:RadioButton>
+										<g:RadioButton ui:field="sex4" name="sex2">女士
+										</g:RadioButton>
+										<span class="{new2.red} {new2.ml15}" id="cunameNull"></span>
+									</dd>
+								</dl>
+								<dl>
+									<dt class="{new2.pt7}">
+
+									</dt>
+									<dd>
+										<span class="{new2.red} {new2.mr5}">*</span>
+										手机号：
+										<g:TextBox maxLength="15" ui:field="contactPersonPhone"
+											styleName="{new2.textinput} {new2.stat}" />
+										<span class="{new2.red} {new2.ml15}" id="phoneWrong2"></span>
+									</dd>
+								</dl>
+							</div>
+
+							<dl>
+								<dt class="{new2.mt10"></dt>
+								<dd>
+								其他要求：
+									<g:TextArea ui:field="memo"
+										styleName="{new2.bookimginformationtextarea} {new2.stat} {new2.mt10}" />
+								</dd>
+							</dl>
+							<dl>
+								<dt></dt>
+								<dd>
+									<input type="hidden" name="s" value="biz" />
+									<input type="hidden" name="a" value="submitbizorder" />
+									<input type="hidden" name="bid" value="87520" />
+									<input type="hidden" name="cid" value="" />
+									<input type="hidden" name="f" value="" />
+
+									<g:Button ui:field="addDishesBtn" text="先点菜" />
+									<g:Button ui:field="addBtn" text="立刻预定" />
+								</dd>
+							</dl>
+
+						</FORM>
+					</div>
+				</div>
+
+
+
+			</div>
+
+
+		</g:HTMLPanel>
+	</g:ScrollPanel>
+</ui:UiBinder> 
