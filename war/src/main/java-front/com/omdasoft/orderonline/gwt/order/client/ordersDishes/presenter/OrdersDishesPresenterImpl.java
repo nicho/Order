@@ -20,6 +20,7 @@ import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Anchor;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
@@ -190,7 +191,11 @@ public class OrdersDishesPresenterImpl extends
 					}
 
 				}
-				buildBookingTable();
+				Label lb=new Label("还未点菜");
+				lb.setStyleName("redlable");
+				display.getBookingPanel().clear();
+				display.getBookingPanel().add(lb);
+				
 			}
 
 		});
@@ -381,6 +386,9 @@ public class OrdersDishesPresenterImpl extends
 					@Override
 					public void update(int index, DishesListClient o, String value) {
 					//	Window.alert(cellTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().getFirstChildElement().getFirstChildElement().getAttribute("id"));
+						if(cellBookingTable==null)
+							buildBookingTable();
+						
 						
 						if(cellBookingTable.getRowCount()>=1)
 						{
