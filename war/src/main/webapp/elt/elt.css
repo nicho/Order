@@ -1989,7 +1989,7 @@ ul.token-input-list-facebook3 li input {
 }
 .labelText{ padding-right: 6px;}
 .acPandding{padding-left: 10px;}
-.redlable{color: red;}
+.redlable{color: red;padding-left: 20px;}
 
 
 
@@ -2101,11 +2101,11 @@ body #bottom {
 .header, .wraper, .dt-ivy990 {
     background: none repeat scroll 0 0 #FFFFFF;
     margin: auto;
-    width: 1000px;
+    width: 100%;
 }
 .wraper, .dt-ivy990 {
     padding: 0 5px;
-    width: 990px;
+    width: 100%;
 }
 .blue {
     color: #0055AA;
@@ -5467,7 +5467,7 @@ a .green:hover {
     z-index: 302;
 }
 .main {
-    float: right;
+    float: left;
 }
 .main .main-ivy790 img, .main .main-ivy790 object {
     margin-bottom: 10px;
