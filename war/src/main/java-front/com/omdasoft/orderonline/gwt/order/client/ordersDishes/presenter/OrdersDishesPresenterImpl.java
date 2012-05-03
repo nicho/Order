@@ -154,13 +154,24 @@ public class OrdersDishesPresenterImpl extends
 	
 	}
 	String allCss;
+	List<MyAnchor> anchorList=new ArrayList<MyAnchor>();
 	private void init() {
-		 allCss=display.getTypeall().getElement().getParentElement().getParentElement().getClassName();
+		 allCss=display.getTypeall().getElement().getParentElement().getClassName();
 		initOrderMessage();
 		initDwKw();
 		createTab();
 		buildTable();
 		doSearch(null);
+		display.getTypeall().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent arg0) {
+				cleanAnchorCss();
+				display.getTypeall().getElement().getParentElement().setClassName(allCss);
+				buildTable();
+				doSearch(null);
+			}
+		});
 		
 	}
 	private void initOrderMessage()
@@ -221,7 +232,16 @@ public class OrdersDishesPresenterImpl extends
 
 		});
 	}
-
+	private void cleanAnchorCss()
+	{
+		if(anchorList!=null && anchorList.size()>0)
+		{
+			for (int i = 0; i < anchorList.size(); i++) {
+				MyAnchor ma=anchorList.get(i);
+				ma.getElement().getFirstChildElement().setClassName("");
+			}
+		}
+	}
 	private void createTab()
 	{
 		PaginationDetailClient pagination = new PaginationDetailClient();
@@ -256,6 +276,8 @@ public class OrdersDishesPresenterImpl extends
 							
 							@Override
 							public void onClick(ClickEvent arg0) {
+								cleanAnchorCss();
+								
 								ac.getElement().getFirstChildElement().setClassName(allCss);
 								display.getTypeall().getElement().getParentElement().setClassName("");
 								buildTable();
@@ -263,7 +285,7 @@ public class OrdersDishesPresenterImpl extends
 								
 							}
 						});
-				    	
+				    	  anchorList.add(ac);
 				    	  display.getTabpage().add(ac);
 //					    // Add a tab
 //					    HTML moreInfo = new HTML(client.getId());

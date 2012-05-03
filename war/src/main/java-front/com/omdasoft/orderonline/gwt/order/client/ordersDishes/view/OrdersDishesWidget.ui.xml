@@ -69,7 +69,7 @@
             <div id="J-getWap" class="getWap">      
 				<div class="getParam">
 					<span>菜品类别：</span>
-					<em class="all cur"><i><g:Anchor text="不限" ui:field="typeall" styleName="{new2.typeallcss}"/></i></em>
+					<em class="all cur"><g:Anchor text="不限" ui:field="typeall" styleName="{new2.typeallcss}"/></em>
 					<dl>
 					<dd class="clearfix ">
 						<g:FlowPanel ui:field="tabpage" />	
