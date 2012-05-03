@@ -17,7 +17,7 @@ public class OrderListClient implements Serializable, Comparable<OrderListClient
 	private Date lastUpdateTime;
 	private Date completeTime;
 	private String result;
-	
+
 	public String getResult() {
 		return result;
 	}

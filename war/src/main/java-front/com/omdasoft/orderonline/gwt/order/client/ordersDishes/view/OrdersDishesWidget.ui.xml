@@ -48,9 +48,10 @@
 
 
 					<h3>选菜信息：</h3>
-
+					<div>菜品类别：<g:InlineLabel ui:field="selectTypeTitle" styleName="{new1.selectTypefont}" /> </div>
 					<dl>
 						<dt style="width:100%;height:30px;text-align: left;">
+							
 							<g:FlowPanel ui:field="tabpage" />
 						</dt>
 

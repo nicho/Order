@@ -6,6 +6,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
@@ -28,6 +29,8 @@ public class OrdersDishesWidget extends Composite implements
 	@UiField
 	Panel bookingPanel;
 	
+	@UiField
+	InlineLabel selectTypeTitle;
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
 			.create(OrdersDishesWidgetUiBinder.class);
 
@@ -70,6 +73,11 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public Panel getBookingPanel() {
 		return bookingPanel;
+	}
+
+	@Override
+	public void setSelectTypeTitle(String text) {
+		selectTypeTitle.setText(text);
 	}
 
 }

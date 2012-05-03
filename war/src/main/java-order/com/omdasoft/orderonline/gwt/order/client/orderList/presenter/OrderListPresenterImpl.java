@@ -145,6 +145,13 @@ public class OrderListPresenterImpl extends
 						return order.getCode();
 					}
 				}, ref, "jobNo");
+		cellTable.addColumn("订房人", new TextCell(),
+				new GetValue<OrderListClient, String>() {
+					@Override
+					public String getValue(OrderListClient order) {
+						return order.getOrderPersonName();
+					}
+				});
 		cellTable.addColumn("就餐时间", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override

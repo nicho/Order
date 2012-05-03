@@ -16,14 +16,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.logical.shared.SelectionEvent;
-import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.TabLayoutPanel;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
@@ -218,35 +215,52 @@ public class OrdersDishesPresenterImpl extends
 				List<DishesTypeListClient> typeList=response.getResult();
 				if(typeList!=null && typeList.size()>0)
 				{
-					map.clear();
-					// Create a tab panel
-				    TabLayoutPanel tabPanel = new TabLayoutPanel(2.5, Unit.EM);
-				    tabPanel.setAnimationDuration(1000);
-				    tabPanel.getElement().getStyle().setMarginBottom(10.0, Unit.PX);
+//					map.clear();
+//					// Create a tab panel
+//				    TabLayoutPanel tabPanel = new TabLayoutPanel(2.5, Unit.EM);
+//				    tabPanel.setAnimationDuration(1000);
+//				    tabPanel.getElement().getStyle().setMarginBottom(10.0, Unit.PX);
+				    display.getTabpage().clear();
 
 				    for (int i=0;i<typeList.size();i++) {
-				    	DishesTypeListClient client=typeList.get(i);
-					    // Add a tab
-					    HTML moreInfo = new HTML(client.getId());
-					    tabPanel.add(moreInfo, client.getName());
-					    map.put(i, client.getId());
+				    	final DishesTypeListClient client=typeList.get(i);
+				    	  Anchor ac=new Anchor(client.getName());
+				    	  ac.addClickHandler(new ClickHandler() {
+							
+							@Override
+							public void onClick(ClickEvent arg0) {
+								display.setSelectTypeTitle(client.getName());
+								buildTable();
+								doSearch(client.getId());
+								
+							}
+						});
+				    	  ac.setStyleName("acPandding");
+				    	  display.getTabpage().add(ac);
+//					    // Add a tab
+//					    HTML moreInfo = new HTML(client.getId());
+//					    tabPanel.add(moreInfo, client.getName());
+//					    map.put(i, client.getId());
 					}
 
 
-				    // Return the content
-				    tabPanel.selectTab(0);
-				    tabPanel.ensureDebugId("cwTabPanel");
-				    tabPanel.addSelectionHandler(new SelectionHandler<Integer>() {
-						
-						@Override
-						public void onSelection(SelectionEvent<Integer> event) {
-						//	Window.alert("当前类型"+map.get(event.getSelectedItem()));
-							buildTable();
-							doSearch(map.get(event.getSelectedItem()));
-						}
-					});
-				    display.getTabpage().clear();
-				    display.getTabpage().add(tabPanel);
+//				    // Return the content
+//				    tabPanel.selectTab(0);
+//				    tabPanel.ensureDebugId("cwTabPanel");
+//				    tabPanel.addSelectionHandler(new SelectionHandler<Integer>() {
+//						
+//						@Override
+//						public void onSelection(SelectionEvent<Integer> event) {
+//						//	Window.alert("当前类型"+map.get(event.getSelectedItem()));
+//							buildTable();
+//							doSearch(map.get(event.getSelectedItem()));
+//						}
+//					});
+				    
+				  
+				    
+//				    display.getTabpage().clear();
+//				    display.getTabpage().add(tabPanel);
 				}
 			}
 
@@ -391,7 +405,10 @@ public class OrdersDishesPresenterImpl extends
 								col.setName(o.getName());
 								col.setNumber(1);
 								col.setPrice(o.getPrice());
-
+								if(kwlt.size()>0)
+								col.setTaste(kwlt.get(0));
+								if(dwlt.size()>0)
+								col.setUnit(dwlt.get(0));
 								List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
 										lt.add(col);
 								cellBookingTable.setRowData(cellBookingTable.getRowCount(), lt);
@@ -404,7 +421,10 @@ public class OrdersDishesPresenterImpl extends
 						col.setName(o.getName());
 						col.setNumber(1);
 						col.setPrice(o.getPrice());
-					
+						if(kwlt.size()>0)
+						col.setTaste(kwlt.get(0));
+						if(dwlt.size()>0)
+						col.setUnit(dwlt.get(0));
 						List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
 								lt.add(col);
 						cellBookingTable.setRowData(cellBookingTable.getRowCount(), lt);

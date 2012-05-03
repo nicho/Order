@@ -68,7 +68,7 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 		staffStatus.addItem("失败", "FAILURE");
 		staffStatus.addItem("未消费", "NOTCONSUMPR");
 		staffStatus.addItem("已消费", "HASCONSUMER");
-		
+		staffStatus.addItem("已取消", "HASCANCEL");
 
 		
 	}

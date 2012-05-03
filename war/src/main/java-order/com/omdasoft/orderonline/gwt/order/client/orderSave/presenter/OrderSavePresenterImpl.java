@@ -60,6 +60,7 @@ public class OrderSavePresenterImpl extends
 			breadCrumbs.loadChildPage("添加订单");
 		} else {
 			breadCrumbs.loadChildPage("修改订单");
+			display.setTitleText("修改订单");
 			FindOrderRequest findrequest = new FindOrderRequest();
 			findrequest.setOrderId(orderId);
 			dispatch.execute(findrequest,

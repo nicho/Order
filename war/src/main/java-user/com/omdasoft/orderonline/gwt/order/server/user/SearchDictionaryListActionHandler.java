@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.dictionaryList.model.Dictionary
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.common.PaginationDetail;
 import com.omdasoft.orderonline.model.user.DictionarySearchCriteria;
@@ -58,6 +59,8 @@ public class SearchDictionaryListActionHandler extends
 			criteria.setPaginationDetail(detail);
 		}
 		criteria.setDictionaryType(action.getCriteria().getDictionaryType());
+		if(!StringUtil.isEmpty(action.getCriteria().getDeptId()))
+		criteria.setDeptId(action.getCriteria().getDeptId());
 		PageStore<Dictionary> userpage= userService.getDictionaryListList(u, criteria);
 		rep.setTotal(userpage.getResultCount());
 		

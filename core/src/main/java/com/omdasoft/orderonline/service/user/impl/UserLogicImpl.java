@@ -150,9 +150,9 @@ public class UserLogicImpl implements UserLogic {
 			criteria.setCorpId(context.getCorporationId());
 		}
 
-		if(!StringUtil.isEmptyString(context.getDeptId()))
+		if(!StringUtil.isEmptyString(criteria.getDeptId()))
 		{
-			Department dept=departmentDao.findById(Department.class, context.getDeptId());
+			Department dept=departmentDao.findById(Department.class, criteria.getDeptId());
 			if(dept!=null && dept.getCorporation()!=null)
 			criteria.setCorpId(dept.getCorporation().getId());
 		}

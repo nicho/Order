@@ -21,7 +21,7 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 		Panel getTabpage();
 		Panel getDetailPanel();
 		Panel getBookingPanel();
-
+		void setSelectTypeTitle(String text);
 
 
 	}

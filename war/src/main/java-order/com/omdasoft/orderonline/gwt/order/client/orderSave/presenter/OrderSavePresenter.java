@@ -58,5 +58,6 @@ public void initOrder(String orderId);
 		
 		TextArea getMemo();
 		void setBreadCrumbs(Widget breadCrumbs);
+		void setTitleText(String text);
 	}
 }

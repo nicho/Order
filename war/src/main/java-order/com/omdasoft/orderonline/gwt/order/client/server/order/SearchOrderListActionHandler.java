@@ -91,6 +91,11 @@ public class SearchOrderListActionHandler extends
 				r.setCompleteTime(order.getFinishTime());
 				r.setLastUpdateTime(order.getModifyTime());
 				r.setResult(order.getResult());
+				if(order.getOrderPerson()!=null)
+				{
+					r.setOrderPersonName(order.getOrderPerson().getName());
+					r.setOrderPersonPhone(order.getOrderPerson().getPhone());
+				}
 				if(order.getOrderStatus()!=null)
 				r.setOrderStatus(OrderStatus.valueOf(order.getOrderStatus().toString()));
 				result.add(r);

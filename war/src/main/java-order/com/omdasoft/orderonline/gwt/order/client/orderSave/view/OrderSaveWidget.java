@@ -9,6 +9,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.RadioButton;
@@ -63,6 +64,9 @@ public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
 	Button addBtn;
 	@UiField
 	Panel breadCrumbs;
+	@UiField
+	InlineLabel titleText;
+	
 	private static OrderSaveWidgetUiBinder uiBinder = GWT
 			.create(OrderSaveWidgetUiBinder.class);
 
@@ -215,6 +219,12 @@ public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
 		this.breadCrumbs.clear();
 		this.breadCrumbs.add(breadCrumbs);
 
+	}
+
+	@Override
+	public void setTitleText(String text) {
+		titleText.setText(text);
+		
 	}
 
 

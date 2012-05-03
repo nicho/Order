@@ -19,7 +19,7 @@ public class OrderListCriteria implements IsSerializable {
 
 		UNHANDLED("待处理"),
 
-		SUCCESS("成功"), FAILURE("失败"), NOTCONSUMPR("未消费"), HASCONSUMER("已消费");
+		SUCCESS("成功"), FAILURE("失败"), NOTCONSUMPR("未消费"), HASCONSUMER("已消费"),HASCANCEL("已取消");
 
 		private final String displayName;
 
