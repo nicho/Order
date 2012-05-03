@@ -135,7 +135,13 @@ public class UserListPresenterImpl extends
 //			}
 //		};
 
-
+		cellTable.addColumn("序号", new TextCell(),
+				new GetValue<UserListClient, String>() {
+					@Override
+					public String getValue(UserListClient order) {
+						return order.getIndexNo();
+					}
+				});
 		cellTable.addColumn("用户名", new TextCell(),
 				new GetValue<UserListClient, String>() {
 					@Override

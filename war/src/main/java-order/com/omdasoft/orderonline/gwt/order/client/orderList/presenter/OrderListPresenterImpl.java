@@ -28,7 +28,6 @@ import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
 import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
 import com.omdasoft.orderonline.gwt.order.client.widget.Sorting;
-import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.util.DateTool;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
@@ -39,7 +38,7 @@ public class OrderListPresenterImpl extends
 
 	private final DispatchAsync dispatch;
 	private final SessionManager sessionManager;
-	private final Win win;
+	//private final Win win;
 	final ErrorHandler errorHandler;
 	EltNewPager pager;
 	ListCellTable<OrderListClient> cellTable;
@@ -48,13 +47,13 @@ public class OrderListPresenterImpl extends
 	private final BreadCrumbsPresenter breadCrumbs;
 	@Inject
 	public OrderListPresenterImpl(EventBus eventBus,
-			OrderListDisplay display, DispatchAsync dispatch, Win win,
+			OrderListDisplay display, DispatchAsync dispatch, //Win win,
 			SessionManager sessionManager,BreadCrumbsPresenter breadCrumbs,ErrorHandler errorHandler) {
 		super(eventBus, display);
 		this.dispatch = dispatch;
 		this.sessionManager = sessionManager;
 		this.errorHandler=errorHandler;
-		this.win=win;
+		//this.win=win;
 		this.breadCrumbs=breadCrumbs;
 	}
 
@@ -137,7 +136,13 @@ public class OrderListPresenterImpl extends
 			}
 		};
 
-
+		cellTable.addColumn("序号", new TextCell(),
+				new GetValue<OrderListClient, String>() {
+					@Override
+					public String getValue(OrderListClient order) {
+						return order.getIndexNo();
+					}
+				});
 		cellTable.addColumn("订单编号", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override

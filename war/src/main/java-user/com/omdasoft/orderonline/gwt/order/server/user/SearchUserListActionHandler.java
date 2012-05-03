@@ -56,8 +56,12 @@ public class SearchUserListActionHandler extends
 		List<UserListClient> result=new ArrayList<UserListClient>();
 		if(userpage.getResultList()!=null && userpage.getResultList().size()>=0)
 		{
+			int indexNo=1;
+			if(action.getCriteria()!=null && action.getCriteria().getPagination()!=null && action.getCriteria().getPagination().getStart()!=0)
+				indexNo=action.getCriteria().getPagination().getStart()+1;
 			for (SysUser user:userpage.getResultList()) {
 				UserListClient r=new UserListClient();
+				r.setIndexNo(indexNo+"");
 				r.setStaffId(user.getStaff().getId());
 				r.setEmail(user.getStaff().getEmail());
 				r.setStaffName(user.getStaff().getName());
@@ -65,6 +69,7 @@ public class SearchUserListActionHandler extends
 				r.setDepartmentName(user.getStaff().getDepartment().getName());
 				r.setStatus(user.getStatus().getDisplayName());
 				result.add(r);
+				indexNo++;
 			}
 		}
 		rep.setResult(result);

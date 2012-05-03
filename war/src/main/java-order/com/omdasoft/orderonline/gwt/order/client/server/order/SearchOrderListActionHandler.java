@@ -75,8 +75,12 @@ public class SearchOrderListActionHandler extends
 		List<OrderListClient> result=new ArrayList<OrderListClient>();
 		if(Orderpage.getResultList()!=null && Orderpage.getResultList().size()>=0)
 		{
+			int indexNo=1;
+			if(action.getCriteria()!=null && action.getCriteria().getPagination()!=null && action.getCriteria().getPagination().getStart()!=0)
+				indexNo=action.getCriteria().getPagination().getStart()+1;
 			for (Orders order:Orderpage.getResultList()) {
 				OrderListClient r=new OrderListClient();
+				r.setIndexNo(indexNo+"");
 				r.setId(order.getId());
 				r.setCode(order.getCode());
 				r.setAmountOfClient(order.getAmountOfClient());
@@ -99,6 +103,7 @@ public class SearchOrderListActionHandler extends
 				if(order.getOrderStatus()!=null)
 				r.setOrderStatus(OrderStatus.valueOf(order.getOrderStatus().toString()));
 				result.add(r);
+				indexNo++;
 			}
 		}
 		rep.setResult(result);

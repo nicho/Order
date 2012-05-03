@@ -11,6 +11,7 @@ public class OrderListClient implements Serializable, Comparable<OrderListClient
 	 * 
 	 */
 	private static final long serialVersionUID = 4934837755724342679L;
+	private String indexNo;
 	private String id;
 	private OrderStatus orderStatus;
 	private Date processingTime;
@@ -18,6 +19,12 @@ public class OrderListClient implements Serializable, Comparable<OrderListClient
 	private Date completeTime;
 	private String result;
 
+	public String getIndexNo() {
+		return indexNo;
+	}
+	public void setIndexNo(String indexNo) {
+		this.indexNo = indexNo;
+	}
 	public String getResult() {
 		return result;
 	}

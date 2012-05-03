@@ -8,7 +8,7 @@ public class UserListClient implements Serializable, Comparable<UserListClient> 
 	 * 
 	 */
 	private static final long serialVersionUID = 4934837755724342679L;
-	
+	String indexNo;
 	String staffNo;
 	String staffName;
 	String departmentName;
@@ -19,6 +19,12 @@ public class UserListClient implements Serializable, Comparable<UserListClient> 
     String email;
     String status;
 	
+	public String getIndexNo() {
+		return indexNo;
+	}
+	public void setIndexNo(String indexNo) {
+		this.indexNo = indexNo;
+	}
 	public String getStatus() {
 		return status;
 	}
