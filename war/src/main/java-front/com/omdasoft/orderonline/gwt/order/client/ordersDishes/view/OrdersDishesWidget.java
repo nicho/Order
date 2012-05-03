@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
@@ -30,8 +31,7 @@ public class OrdersDishesWidget extends Composite implements
 	@UiField
 	Panel bookingPanel;
 
-	@UiField
-	InlineLabel selectTypeTitle;
+
 
 	@UiField
 	InlineLabel city;
@@ -47,6 +47,8 @@ public class OrdersDishesWidget extends Composite implements
 	InlineLabel dishesNumber;
 	@UiField
 	InlineLabel dishesMoney;
+	@UiField
+	Anchor typeall;
 	
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
 			.create(OrdersDishesWidgetUiBinder.class);
@@ -94,10 +96,6 @@ public class OrdersDishesWidget extends Composite implements
 		return bookingPanel;
 	}
 
-	@Override
-	public void setSelectTypeTitle(String text) {
-		selectTypeTitle.setText(text);
-	}
 
 	@Override
 	public void setCity(String text) {
@@ -140,6 +138,11 @@ public class OrdersDishesWidget extends Composite implements
 			dishesNumber.getElement().getParentElement().addClassName(CssStyleConstants.hidden);
 		else
 			dishesNumber.getElement().getParentElement().setClassName("");
+	}
+
+	@Override
+	public Anchor getTypeall() {
+		return typeall;
 	}
 
 }

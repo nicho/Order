@@ -60,14 +60,7 @@
 
 					<h3 style="text-align: right;">总数:<g:InlineLabel ui:field="dishesNumber" styleName="{new2.bluebable}" /> 个,总金额:<g:InlineLabel ui:field="dishesMoney"  styleName="{new2.bluebable}"/>元</h3>
 					
-					<div style="padding-top:5px;">菜品类别：<g:InlineLabel ui:field="selectTypeTitle" styleName="{new1.selectTypefont}" /> </div>
-					<dl>
-						<dt style="width:100%;height:30px;text-align: left;">
-							
-							<g:FlowPanel ui:field="tabpage" />
-						</dt>
-
-					</dl>
+			
 					
 <div class="wraper clearfix">
     <div class="main">
@@ -75,33 +68,11 @@
 		<div class="chooseBox mb10">      
             <div id="J-getWap" class="getWap">      
 				<div class="getParam">
-					<span>键盘接口：</span>
-					<em class="all cur"><a target="_self" href="/keyboard_mouse/p3990/">不限</a></em>
+					<span>菜品类别：</span>
+					<em class="all cur"><i><g:Anchor text="不限" ui:field="typeall" styleName="{new2.typeallcss}"/></i></em>
 					<dl>
 					<dd class="clearfix ">
-						<i><em class="all cur"><a target="_self" href="/keyboard_mouse/p3990/">PS2</a></em></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><a target="_self" href="/keyboard_mouse/p3990/c11591/">USB<em></em></a></i>
-						<i><em class="all cur"><a target="_self" href="/keyboard_mouse/p3990/">不限</a></em></i>
+						<g:FlowPanel ui:field="tabpage" />	
 					</dd>
 					</dl>
 					<div class="clear"></div>

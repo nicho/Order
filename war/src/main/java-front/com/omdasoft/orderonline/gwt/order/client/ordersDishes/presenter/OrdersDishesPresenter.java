@@ -2,6 +2,7 @@ package com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter;
 
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Panel;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
@@ -21,7 +22,7 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 		Panel getTabpage();
 		Panel getDetailPanel();
 		Panel getBookingPanel();
-		void setSelectTypeTitle(String text);
+
 		void setCity(String text);
 		void setRestaurant(String text);
 		void setOrderUser(String text);
@@ -30,7 +31,7 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 		void setDishesNumber(String text);
 		void setDishesMoney(String text);
 		void hiddenDishesNumber(boolean fal);
-		
+		Anchor getTypeall();
 
 	}
 }

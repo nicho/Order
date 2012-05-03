@@ -19,7 +19,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
@@ -45,6 +44,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResp
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesDetailedWidget;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
+import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
@@ -153,7 +153,9 @@ public class OrdersDishesPresenterImpl extends
 
 	
 	}
+	String allCss;
 	private void init() {
+		 allCss=display.getTypeall().getElement().getParentElement().getParentElement().getClassName();
 		initOrderMessage();
 		initDwKw();
 		createTab();
@@ -219,6 +221,7 @@ public class OrdersDishesPresenterImpl extends
 
 		});
 	}
+
 	private void createTab()
 	{
 		PaginationDetailClient pagination = new PaginationDetailClient();
@@ -248,18 +251,19 @@ public class OrdersDishesPresenterImpl extends
 
 				    for (int i=0;i<typeList.size();i++) {
 				    	final DishesTypeListClient client=typeList.get(i);
-				    	  Anchor ac=new Anchor(client.getName());
+				    	final MyAnchor ac=new MyAnchor(client.getName());
 				    	  ac.addClickHandler(new ClickHandler() {
 							
 							@Override
 							public void onClick(ClickEvent arg0) {
-								display.setSelectTypeTitle(client.getName());
+								ac.getElement().getFirstChildElement().setClassName(allCss);
+								display.getTypeall().getElement().getParentElement().setClassName("");
 								buildTable();
 								doSearch(client.getId());
 								
 							}
 						});
-				    	  ac.setStyleName("acPandding");
+				    	
 				    	  display.getTabpage().add(ac);
 //					    // Add a tab
 //					    HTML moreInfo = new HTML(client.getId());

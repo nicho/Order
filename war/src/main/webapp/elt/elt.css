@@ -4018,16 +4018,16 @@ a .green:hover {
 }
 .chooseBox .getParam em.all {
     background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -62px -592px transparent;
-    float: left;
+
     overflow: hidden;
     width: 43px;
 }
 .chooseBox .getParam em.all a {
     color: #0055AA;
-    float: left;
+
     height: 18px;
     text-align: center;
-    width: 30px;
+   
 }
 .chooseBox .getParam em.all a:hover {
     background-color: #FEE8DA;
