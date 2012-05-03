@@ -58,7 +58,7 @@
 						<g:FlowPanel ui:field="bookingPanel" />
 					</div>
 
-
+					<h3 style="text-align: right;">总数:<g:InlineLabel ui:field="dishesNumber" styleName="{new2.bluebable}" /> 个,总金额:<g:InlineLabel ui:field="dishesMoney"  styleName="{new2.bluebable}"/>元</h3>
 					
 					<div style="padding-top:5px;">菜品类别：<g:InlineLabel ui:field="selectTypeTitle" styleName="{new1.selectTypefont}" /> </div>
 					<dl>

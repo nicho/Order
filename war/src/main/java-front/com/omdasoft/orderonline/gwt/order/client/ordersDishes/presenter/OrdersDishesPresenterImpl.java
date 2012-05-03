@@ -214,7 +214,7 @@ public class OrdersDishesPresenterImpl extends
 				lb.setStyleName("redlable");
 				display.getBookingPanel().clear();
 				display.getBookingPanel().add(lb);
-				
+				display.hiddenDishesNumber(true);
 			}
 
 		});
@@ -332,7 +332,25 @@ public class OrdersDishesPresenterImpl extends
 		listViewAdapter.addDataDisplay(cellTable);
 
 	}
-
+	private void sumNumberMoney()
+	{
+		if(cellBookingTable!=null && cellBookingTable.getRowCount()>0)
+		{
+			int number=0;
+			double money=0;
+			for (int i = 0; i < cellBookingTable.getRowCount(); i++) {
+				try {
+					number+=Integer.parseInt(cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().getInnerText());
+					money+=Double.parseDouble(cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().getInnerText());
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+			}
+			display.setDishesNumber(number+"");
+			display.setDishesMoney(money+"");
+		}
+	}
 	private void initTableColumns() {
 		Sorting<DishesListClient> ref = new Sorting<DishesListClient>() {
 			@Override
@@ -406,8 +424,10 @@ public class OrdersDishesPresenterImpl extends
 					public void update(int index, DishesListClient o, String value) {
 					//	Window.alert(cellTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().getFirstChildElement().getFirstChildElement().getAttribute("id"));
 						if(cellBookingTable==null)
+						{
 							buildBookingTable();
-						
+							display.hiddenDishesNumber(false);
+						}
 						
 						if(cellBookingTable.getRowCount()>=1)
 						{
@@ -458,7 +478,7 @@ public class OrdersDishesPresenterImpl extends
 						}
 
 						
-						
+						sumNumberMoney();
 					}
 
 				});
@@ -491,6 +511,7 @@ public class OrdersDishesPresenterImpl extends
 						{
 						     cellBookingTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().setInnerHTML((Double.parseDouble(value))* Double.parseDouble(o.getPrice())+"");
 						     cellBookingTable.getVisibleItem(index).setNumber(Integer.parseInt(value));
+						     sumNumberMoney();
 						}catch (Exception e) {
 							 cellBookingTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().setInnerHTML((1* Double.parseDouble(o.getPrice())+""));
 						}
@@ -549,6 +570,7 @@ public class OrdersDishesPresenterImpl extends
 					public void update(int index, BookingDishesClient o, String value) {
 //						cellBookingTable.setRowCount(index, false);
 						cellBookingTable.getRowElement(index).removeFromParent();
+						sumNumberMoney();
 					}
 
 				});
