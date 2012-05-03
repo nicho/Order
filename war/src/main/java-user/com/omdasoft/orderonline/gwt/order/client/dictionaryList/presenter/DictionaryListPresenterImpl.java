@@ -132,7 +132,13 @@ public class DictionaryListPresenterImpl extends
 
 			}
 		};
-
+		cellTable.addColumn("序号", new TextCell(),
+				new GetValue<DictionaryListClient, String>() {
+					@Override
+					public String getValue(DictionaryListClient staff) {
+						return staff.getIndexNo();
+					}
+				});
 		cellTable.addColumn("编号", new TextCell(),
 				new GetValue<DictionaryListClient, String>() {
 					@Override

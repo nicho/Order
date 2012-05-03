@@ -12,7 +12,14 @@ public class DishesTypeListClient implements Serializable, Comparable<DishesType
 	String id;
 	String rid;
 	String name;
-
+	private String indexNo;
+	
+	public String getIndexNo() {
+		return indexNo;
+	}
+	public void setIndexNo(String indexNo) {
+		this.indexNo = indexNo;
+	}
 	public String getRid() {
 		return rid;
 	}

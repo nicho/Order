@@ -71,8 +71,12 @@ public class SearchRestaurantListActionHandler extends
 		List<RestaurantListClient> result=new ArrayList<RestaurantListClient>();
 		if(userpage.getResultList()!=null && userpage.getResultList().size()>=0)
 		{
+			int indexNo=1;
+			if(request.getCriteria()!=null && request.getCriteria().getPagination()!=null && request.getCriteria().getPagination().getStart()!=0)
+				indexNo=request.getCriteria().getPagination().getStart()+1;
 			for (Department r:userpage.getResultList()) {
 				RestaurantListClient c=new RestaurantListClient();
+				c.setIndexNo(indexNo+"");
 				c.setId(r.getId());
 				c.setName(r.getName());
 				c.setCity(r.getCity());
@@ -81,6 +85,7 @@ public class SearchRestaurantListActionHandler extends
 				if(r.getDeptAdmin()!=null && r.getDeptAdmin().getStaff()!=null)
 				c.setDeptAdmin(r.getDeptAdmin().getStaff().getName());
 				result.add(c);
+				indexNo++;
 			}
 		}
 		rep.setResult(result);

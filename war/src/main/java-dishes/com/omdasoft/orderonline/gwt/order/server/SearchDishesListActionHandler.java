@@ -67,8 +67,12 @@ public class SearchDishesListActionHandler extends
 		List<DishesListClient> result=new ArrayList<DishesListClient>();
 		if(userpage.getResultList()!=null && userpage.getResultList().size()>=0)
 		{
+			int indexNo=1;
+			if(action.getCriteria()!=null && action.getCriteria().getPagination()!=null && action.getCriteria().getPagination().getStart()!=0)
+				indexNo=action.getCriteria().getPagination().getStart()+1;
 			for (Dishes d:userpage.getResultList()) {
 				DishesListClient r=new DishesListClient();
+				r.setIndexNo(indexNo+"");
 				r.setId(d.getId());
 				r.setName(d.getName());
 				r.setDescription(d.getDescription());
@@ -78,6 +82,7 @@ public class SearchDishesListActionHandler extends
 				r.setPrice(d.getPrice()+"");
 				r.setRid(d.getRid());
 				result.add(r);
+				indexNo++;
 			}
 		}
 		rep.setResult(result);

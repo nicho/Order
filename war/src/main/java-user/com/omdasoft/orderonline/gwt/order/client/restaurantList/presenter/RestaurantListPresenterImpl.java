@@ -137,7 +137,13 @@ public class RestaurantListPresenterImpl extends
 			}
 		};
 
-
+		cellTable.addColumn("序号", new TextCell(),
+				new GetValue<RestaurantListClient, String>() {
+					@Override
+					public String getValue(RestaurantListClient restaurant) {
+						return restaurant.getIndexNo();
+					}
+				});
 		cellTable.addColumn("编号", new TextCell(),
 				new GetValue<RestaurantListClient, String>() {
 					@Override

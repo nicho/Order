@@ -16,7 +16,14 @@ public class DishesListClient implements Serializable, Comparable<DishesListClie
 	private String description;	
 	private String photo;	
 	private String price;
+	private String indexNo;
 	
+	public String getIndexNo() {
+		return indexNo;
+	}
+	public void setIndexNo(String indexNo) {
+		this.indexNo = indexNo;
+	}
 	public String getRid() {
 		return rid;
 	}

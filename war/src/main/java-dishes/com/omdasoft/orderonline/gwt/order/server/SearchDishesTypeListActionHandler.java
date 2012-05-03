@@ -64,12 +64,17 @@ public class SearchDishesTypeListActionHandler extends
 		List<DishesTypeListClient> result=new ArrayList<DishesTypeListClient>();
 		if(userpage.getResultList()!=null && userpage.getResultList().size()>=0)
 		{
+			int indexNo=1;
+			if(action.getCriteria()!=null && action.getCriteria().getPagination()!=null && action.getCriteria().getPagination().getStart()!=0)
+				indexNo=action.getCriteria().getPagination().getStart()+1;
 			for (DishesType d:userpage.getResultList()) {
 				DishesTypeListClient r=new DishesTypeListClient();
+				r.setIndexNo(indexNo+"");
 				r.setId(d.getId());
 				r.setName(d.getName());
 				r.setRid(d.getRid());
 				result.add(r);
+				indexNo++;
 			}
 		}
 		rep.setResult(result);

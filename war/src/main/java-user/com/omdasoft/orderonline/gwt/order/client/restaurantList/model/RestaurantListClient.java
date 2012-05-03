@@ -11,12 +11,19 @@ public class RestaurantListClient implements Serializable, Comparable<Restaurant
 	
 	String id;
 	String name;
+	private String indexNo;
 	private String city;
 	private String address;
 	private String phone;
 	private String deptAdmin;
 	
 	
+	public String getIndexNo() {
+		return indexNo;
+	}
+	public void setIndexNo(String indexNo) {
+		this.indexNo = indexNo;
+	}
 	public String getDeptAdmin() {
 		return deptAdmin;
 	}

@@ -11,9 +11,16 @@ public class DictionaryListClient implements Serializable, Comparable<Dictionary
 	
 	String id;
 	String name;
+	String indexNo;
 	int dictionaryType;
 	
 
+	public String getIndexNo() {
+		return indexNo;
+	}
+	public void setIndexNo(String indexNo) {
+		this.indexNo = indexNo;
+	}
 	public int getDictionaryType() {
 		return dictionaryType;
 	}

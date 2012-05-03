@@ -131,7 +131,13 @@ public class DishesListPresenterImpl extends
 			}
 		};
 
-
+		cellTable.addColumn("序号", new TextCell(),
+				new GetValue<DishesListClient, String>() {
+					@Override
+					public String getValue(DishesListClient dishes) {
+						return dishes.getIndexNo();
+					}
+				});
 		cellTable.addColumn("编号", new TextCell(),
 				new GetValue<DishesListClient, String>() {
 					@Override

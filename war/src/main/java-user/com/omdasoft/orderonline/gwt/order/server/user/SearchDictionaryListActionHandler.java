@@ -67,12 +67,17 @@ public class SearchDictionaryListActionHandler extends
 		List<DictionaryListClient> result=new ArrayList<DictionaryListClient>();
 		if(userpage.getResultList()!=null && userpage.getResultList().size()>=0)
 		{
+			int indexNo=1;
+			if(action.getCriteria()!=null && action.getCriteria().getPagination()!=null && action.getCriteria().getPagination().getStart()!=0)
+				indexNo=action.getCriteria().getPagination().getStart()+1;
 			for (Dictionary d:userpage.getResultList()) {
 				DictionaryListClient r=new DictionaryListClient();
 				r.setId(d.getId());
 				r.setName(d.getName());
 				r.setDictionaryType(d.getDictionaryType());
+				r.setIndexNo(indexNo+"");
 				result.add(r);
+				indexNo++;
 			}
 		}
 		rep.setResult(result);
