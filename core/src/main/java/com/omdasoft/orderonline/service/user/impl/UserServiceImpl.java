@@ -118,6 +118,9 @@ public class UserServiceImpl implements UserService {
 		return userLogic.deleteDictionary(context, id);
 	}
 
-
+	@Override
+	public String updateStaffPwd(String userId,String oldpwd,String pwd,String byUserId) {
+		return userLogic.updateStaffPwd(userId,oldpwd, pwd,byUserId);
+	}
 
 }

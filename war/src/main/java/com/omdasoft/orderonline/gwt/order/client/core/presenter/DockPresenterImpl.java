@@ -5,9 +5,12 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
+import com.omdasoft.orderonline.gwt.order.client.core.Platform;
 import com.omdasoft.orderonline.gwt.order.client.core.PluginManager;
 import com.omdasoft.orderonline.gwt.order.client.core.presenter.DockPresenter.DockDisplay;
+import com.omdasoft.orderonline.gwt.order.client.core.ui.DialogCloseListener;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.MenuProcessor;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.event.MenuClickEvent;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.plugin.DishesListConstants;
@@ -15,6 +18,7 @@ import com.omdasoft.orderonline.gwt.order.client.login.event.LoginEvent;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderList.plugin.OrderListConstants;
+import com.omdasoft.orderonline.gwt.order.client.password.dialog.PasswordDialog;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.userList.plugin.UserListConstants;
 import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
@@ -27,18 +31,19 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 	final EltGinjector injector;
 	final MenuProcessor menuProcessor;
 	final DispatchAsync dispatchAsync;
-
+	private final Provider<PasswordDialog> passwordDialogProvider;
 	@Inject
 	public DockPresenterImpl(EventBus eventBus, DockDisplay display,
 			SessionManager sessionManager, PluginManager pluginManager,
 			EltGinjector injector, MenuProcessor menuProcessor,
-			DispatchAsync dispatchAsync) {
+			DispatchAsync dispatchAsync,Provider<PasswordDialog> passwordDialogProvider) {
 		super(eventBus, display);
 		this.sessionManager = sessionManager;
 		this.pluginManager = pluginManager;
 		this.injector = injector;
 		this.menuProcessor = menuProcessor;
 		this.dispatchAsync = dispatchAsync;
+		this.passwordDialogProvider=passwordDialogProvider;
 	}
 
 	public void bind() {
@@ -61,7 +66,14 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 		registerHandler(display.getbtnPassward().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				
+				final PasswordDialog dialog = passwordDialogProvider.get();
+	
+				Platform.getInstance().getSiteManager()
+						.openDialog(dialog, new DialogCloseListener() {
+							public void onClose(String dialogId,String instanceId) {
+								 
+							}
+						});
 			}
 		}));
 		registerHandler(display.getlogBtn().addClickHandler(new ClickHandler() {

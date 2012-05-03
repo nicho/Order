@@ -25,6 +25,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.FindOrderRequ
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderView.request.SearchOrderDishesListRequest;
+import com.omdasoft.orderonline.gwt.order.client.password.request.PasswordRequest;
 import com.omdasoft.orderonline.gwt.order.client.register.request.RegisterInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.register.request.RegisterRequest;
 import com.omdasoft.orderonline.gwt.order.client.registerHr.request.RegisterHrRequest;
@@ -64,6 +65,7 @@ import com.omdasoft.orderonline.gwt.order.server.user.SearchDictionaryListAction
 import com.omdasoft.orderonline.gwt.order.server.user.SearchRestaurantListActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.SearchUserListActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.SearchUserViewActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.user.UpdateStaffPwdActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.UserAddActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.UserDeleteActionHandler;
 
@@ -127,6 +129,9 @@ public class ActionModule extends ActionHandlerModule {
 		bindHandler(DishesDeleteRequest.class,DishesDeleteActionHandler.class);
 		bindHandler(DishesTypeDeleteRequest.class,DishesTypeDeleteActionHandler.class);
 		bindHandler(OrderDeleteRequest.class,OrderDeleteActionHandler.class);
+		
+		
+		bindHandler(PasswordRequest.class,UpdateStaffPwdActionHandler.class);
 		
 	}
 }

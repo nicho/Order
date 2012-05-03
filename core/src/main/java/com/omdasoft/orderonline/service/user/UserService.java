@@ -108,4 +108,12 @@ public interface UserService {
 	 * @return
 	 */
 	public LoginReturnModel loginRestful(String username,String password);
+	
+	/**
+	 *	修改密码
+	 * @param staffId
+	 * @param pwd
+	 * @return
+	 */
+	public String updateStaffPwd(String userId,String oldpwd,String pwd,String byUserId);
 }

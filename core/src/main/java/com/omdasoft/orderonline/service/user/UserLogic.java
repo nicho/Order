@@ -113,6 +113,13 @@ public interface UserLogic {
 	 * @return
 	 */
 	public int deleteDictionary(UserContext context,String id);
+	/**
+	 *	修改密码
+	 * @param staffId
+	 * @param pwd
+	 * @return
+	 */
+	public String updateStaffPwd(String userId,String oldpwd,String pwd,String byUserId);
 }
 
 
