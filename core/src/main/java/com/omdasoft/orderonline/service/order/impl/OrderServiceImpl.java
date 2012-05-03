@@ -78,21 +78,33 @@ public class OrderServiceImpl implements OrderService {
 
 		if (!StringUtil.isEmptyString(orderVo.getContactPersonName())
 				&& !StringUtil.isEmptyString(orderVo.getContactPersonPhone())) {
-			Person p1 = new Person();
-			p1.setName(orderVo.getContactPersonName());
-			p1.setPhone(orderVo.getContactPersonPhone());
-			p1.setSex(orderVo.getContactPersonSex());
-			p1 = personDao.save(p1);
+			
+			Person p1=personDao.findPersonByPhone(orderVo.getContactPersonPhone());
+			if(p1==null)
+			{
+			    p1 = new Person();
+				p1.setName(orderVo.getContactPersonName());
+				p1.setPhone(orderVo.getContactPersonPhone());
+				p1.setSex(orderVo.getContactPersonSex());
+				p1 = personDao.save(p1);
+			}
+			
+			
 			order.setContactPerson(p1);
 		}
 
 		if (!StringUtil.isEmptyString(orderVo.getOrderPersonName())
 				&& !StringUtil.isEmptyString(orderVo.getOrderPersonPhone())) {
-			Person p2 = new Person();
-			p2.setName(orderVo.getOrderPersonName());
-			p2.setPhone(orderVo.getOrderPersonPhone());
-			p2.setSex(orderVo.getOrderPersonSex());
-			p2 = personDao.save(p2);
+			
+			Person p2=personDao.findPersonByPhone(orderVo.getOrderPersonPhone());
+			if(p2==null)
+			{
+				p2 = new Person();
+				p2.setName(orderVo.getOrderPersonName());
+				p2.setPhone(orderVo.getOrderPersonPhone());
+				p2.setSex(orderVo.getOrderPersonSex());
+				p2 = personDao.save(p2);
+			}
 			order.setOrderPerson(p2);
 		}
 
