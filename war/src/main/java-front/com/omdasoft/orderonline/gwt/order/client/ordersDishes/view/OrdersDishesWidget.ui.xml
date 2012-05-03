@@ -41,7 +41,16 @@
 
 			<div class="{new2.content}">
 				<div class="{new2.bookinginformation}">
-					<h3>用户预订信息：</h3>
+					<div>
+						<h3>用户预订信息：
+						
+							城市:<g:InlineLabel ui:field="city" />
+							餐厅:<g:InlineLabel ui:field="restaurant" />
+							订餐人:<g:InlineLabel ui:field="orderUser" />
+							人数:<g:InlineLabel ui:field="number" />
+							包间要求:<g:InlineLabel ui:field="room" />
+						</h3>
+					</div>
 					<div class="{new1.table}">
 						<g:FlowPanel ui:field="bookingPanel" />
 					</div>

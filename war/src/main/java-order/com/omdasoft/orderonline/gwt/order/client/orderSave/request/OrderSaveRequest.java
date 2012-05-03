@@ -67,8 +67,17 @@ public class OrderSaveRequest implements Action<OrderSaveResponse> {
 	 * 餐厅
 	 */
 	private String restaurantId;
+	private String restaurantName;
 	private OrderStatus orderStatus;
 	
+	public String getRestaurantName() {
+		return restaurantName;
+	}
+
+	public void setRestaurantName(String restaurantName) {
+		this.restaurantName = restaurantName;
+	}
+
 	public String getId() {
 		return id;
 	}

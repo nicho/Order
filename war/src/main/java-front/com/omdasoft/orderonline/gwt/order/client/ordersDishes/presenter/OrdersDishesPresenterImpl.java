@@ -154,11 +154,30 @@ public class OrdersDishesPresenterImpl extends
 	
 	}
 	private void init() {
+		initOrderMessage();
 		initDwKw();
 		createTab();
 		buildTable();
 		doSearch(null);
 		
+	}
+	private void initOrderMessage()
+	{
+		if(request!=null)
+		{
+			display.setCity(request.getCity());
+			display.setNumber(request.getAmountOfClient()+"");
+			display.setOrderUser(request.getOrderPersonName());
+			display.setRestaurant(request.getRestaurantName());
+			if(request.getFavoriteRoom()==1)
+				display.setRoom("只订大厅");
+			else if(request.getFavoriteRoom()==2)
+				display.setRoom("只订包间");
+			else if(request.getFavoriteRoom()==3)
+				display.setRoom("先订大厅，如无大厅，订包间");
+			else if(request.getFavoriteRoom()==4)
+				display.setRoom("先订包间，如无包间，订大厅");
+		}
 	}
 	public void initDwKw()
 	{

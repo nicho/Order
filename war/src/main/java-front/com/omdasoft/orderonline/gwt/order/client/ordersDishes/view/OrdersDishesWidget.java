@@ -28,9 +28,21 @@ public class OrdersDishesWidget extends Composite implements
 	Panel detailPanel;
 	@UiField
 	Panel bookingPanel;
-	
+
 	@UiField
 	InlineLabel selectTypeTitle;
+
+	@UiField
+	InlineLabel city;
+	@UiField
+	InlineLabel restaurant;
+	@UiField
+	InlineLabel orderUser;
+	@UiField
+	InlineLabel number;
+	@UiField
+	InlineLabel room;
+
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
 			.create(OrdersDishesWidgetUiBinder.class);
 
@@ -46,10 +58,12 @@ public class OrdersDishesWidget extends Composite implements
 	public HasClickHandlers getAddBtnClickHandlers() {
 		return this.addBtn;
 	}
+
 	@Override
 	public HasClickHandlers getReturnBtnClickHandlers() {
 		return this.returnBtn;
 	}
+
 	@Override
 	public Panel getResultPanel() {
 		return this.resultPanel;
@@ -78,6 +92,31 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public void setSelectTypeTitle(String text) {
 		selectTypeTitle.setText(text);
+	}
+
+	@Override
+	public void setCity(String text) {
+		city.setText(text);
+	}
+
+	@Override
+	public void setRestaurant(String text) {
+		restaurant.setText(text);
+	}
+
+	@Override
+	public void setOrderUser(String text) {
+		orderUser.setText(text);
+	}
+
+	@Override
+	public void setNumber(String text) {
+		number.setText(text);
+	}
+
+	@Override
+	public void setRoom(String text) {
+		room.setText(text);
 	}
 
 }

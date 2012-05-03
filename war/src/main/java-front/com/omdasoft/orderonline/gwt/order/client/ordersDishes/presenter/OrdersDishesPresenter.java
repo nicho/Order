@@ -22,7 +22,12 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 		Panel getDetailPanel();
 		Panel getBookingPanel();
 		void setSelectTypeTitle(String text);
-
+		void setCity(String text);
+		void setRestaurant(String text);
+		void setOrderUser(String text);
+		void setNumber(String text);
+		void setRoom(String text);
+		
 
 	}
 }

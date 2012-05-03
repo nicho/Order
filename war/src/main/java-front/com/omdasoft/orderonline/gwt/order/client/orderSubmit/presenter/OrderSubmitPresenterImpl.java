@@ -300,10 +300,15 @@ public class OrderSubmitPresenterImpl extends
 							display.getReserveTimeS()
 									.getSelectedIndex()));
 		if (display.getrestaurant().getSelectedIndex() >= 0)
+		{
 			request.setRestaurantId(display.getrestaurant()
 					.getValue(
 							display.getrestaurant()
 									.getSelectedIndex()));
+			request.setRestaurantName(display.getrestaurant().getItemText(
+							display.getrestaurant()
+									.getSelectedIndex()));
+		}
 	
 		request.setOrderStatus(OrderStatus.UNHANDLED);
 	}
