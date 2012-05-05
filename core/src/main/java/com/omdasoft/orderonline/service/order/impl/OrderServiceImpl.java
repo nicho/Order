@@ -88,6 +88,12 @@ public class OrderServiceImpl implements OrderService {
 				p1.setSex(orderVo.getContactPersonSex());
 				p1 = personDao.save(p1);
 			}
+			else
+			{
+				p1.setName(orderVo.getContactPersonName());
+				p1.setSex(orderVo.getContactPersonSex());
+				p1=personDao.update(p1);
+			}
 			
 			
 			order.setContactPerson(p1);
@@ -104,6 +110,12 @@ public class OrderServiceImpl implements OrderService {
 				p2.setPhone(orderVo.getOrderPersonPhone());
 				p2.setSex(orderVo.getOrderPersonSex());
 				p2 = personDao.save(p2);
+			}
+			else
+			{
+				p2.setName(orderVo.getOrderPersonName());
+				p2.setSex(orderVo.getOrderPersonSex());
+				p2=personDao.update(p2);
 			}
 			order.setOrderPerson(p2);
 		}
