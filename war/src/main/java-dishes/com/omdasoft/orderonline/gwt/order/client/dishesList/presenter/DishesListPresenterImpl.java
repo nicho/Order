@@ -99,7 +99,7 @@ public class DishesListPresenterImpl extends
 		pager.setDisplay(cellTable);
 		cellTable.setWidth(ViewConstants.page_width);
 		cellTable.setPageSize(ViewConstants.per_page_number_in_dialog);
-	//	cellTable.getColumn(0).setCellStyleNames("divTextLeft");
+		cellTable.getColumn(0).setCellStyleNames("widthcell");
 		display.getResultPanel().clear();
 		display.getResultPanel().add(cellTable);
 		display.getResultpage().clear();
