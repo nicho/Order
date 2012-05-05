@@ -39,8 +39,7 @@
 					<div class="{new1.content}">
 						<div class="{new1.bookinginformation}">
 							<!--订餐信息 -->
-							<FORM onSubmit="return checkOrder(this);" method="post"
-								action="/">
+						
 								<h3>订餐查询</h3>
 								<dl>
 									<dt style="width:100%;height:100%;text-align: left;">
@@ -53,12 +52,12 @@
 										<div class="{new2.form}">
 
 											<label for="">订餐人手机号:</label>
-											<g:TextBox maxLength="30" ui:field="phone"
+											<g:TextBox maxLength="30" ui:field="queryphone"
 												styleName="{new2.text2}" />
 											<span class="{new2.nbspbig}"></span>
 
 										
-											<g:Button ui:field="searchBtn" text="查询" width="100px" />
+											<g:Button ui:field="searchBtn" text="查询"  />
 											
 										</div>
 									</div>
@@ -99,7 +98,7 @@
 		
 								</dl>
 								
-							</FORM>
+							
 						</div>
 					</div>
 

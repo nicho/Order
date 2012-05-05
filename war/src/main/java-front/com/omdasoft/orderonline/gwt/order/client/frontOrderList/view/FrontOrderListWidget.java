@@ -17,7 +17,7 @@ import com.omdasoft.orderonline.gwt.order.client.frontOrderList.presenter.FrontO
 public class FrontOrderListWidget extends Composite implements FrontOrderListDisplay {
 
 	@UiField
-	TextBox phone;
+	TextBox queryphone;
 
 
 	@UiField
@@ -53,7 +53,7 @@ public class FrontOrderListWidget extends Composite implements FrontOrderListDis
 
 	@Override
 	public HasValue<String> getPhone() {
-		return this.phone;
+		return this.queryphone;
 	}
 
 	@Override
@@ -72,6 +72,11 @@ public class FrontOrderListWidget extends Composite implements FrontOrderListDis
 	@Override
 	public Panel getResultpage() {
 		return this.resultpage;
+	}
+
+	@Override
+	public TextBox getQueryphone() {
+		return queryphone;
 	}
 
 

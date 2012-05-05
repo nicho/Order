@@ -7,6 +7,9 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.frontOrderList.dataprovider.FrontOrderListViewAdapter;
@@ -58,7 +61,16 @@ public class FrontOrderListPresenterImpl extends
 						doSearch();
 					}
 				}));
-
+		registerHandler(display.getQueryphone().addKeyUpHandler(
+				new KeyUpHandler() {
+					@Override
+					public void onKeyUp(KeyUpEvent e) {
+						if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+							buildTable();
+							doSearch();
+						}
+					}
+				}));
 	}
 
 	private void init() {
@@ -113,7 +125,14 @@ public class FrontOrderListPresenterImpl extends
 					public String getValue(OrderListClient order) {
 						return order.getCode();
 					}
-				}, ref, "jobNo");
+				});
+		cellTable.addColumn("订房人", new TextCell(),
+				new GetValue<OrderListClient, String>() {
+					@Override
+					public String getValue(OrderListClient order) {
+							return order.getOrderPersonName();
+					}
+				});
 		cellTable.addColumn("就餐时间", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
