@@ -454,7 +454,7 @@ public class OrdersDishesPresenterImpl extends
 							buildBookingTable();
 							display.hiddenDishesNumber(false);
 						}
-						
+						System.out.println(cellBookingTable.getRowCount());
 						if(cellBookingTable.getRowCount()>=1)
 						{
 						boolean fal=false;
@@ -464,7 +464,7 @@ public class OrdersDishesPresenterImpl extends
 								int number=(cellBookingTable.getVisibleItem(i).getNumber()+1);
 								cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().setInnerText(number+"");
 								cellBookingTable.getVisibleItem(i).setNumber(number);
-								System.out.println(cellBookingTable.getVisibleItem(i).getPrice());
+								
 								cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().setInnerText((number*Double.parseDouble(cellBookingTable.getVisibleItem(i).getPrice()))+"");
 								fal=true;
 							}
@@ -594,8 +594,11 @@ public class OrdersDishesPresenterImpl extends
 
 					@Override
 					public void update(int index, BookingDishesClient o, String value) {
-//						cellBookingTable.setRowCount(index, false);
+						
+						
 						cellBookingTable.getRowElement(index).removeFromParent();
+
+						cellBookingTable.flush();
 						sumNumberMoney();
 					}
 
