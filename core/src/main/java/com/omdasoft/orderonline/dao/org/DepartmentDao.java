@@ -303,7 +303,7 @@ public class DepartmentDao extends BaseDao<Department> {
 	public List<String> getDepartmentCityName(String corporationId) {
 		Map<String, Object> param = new HashMap<String, Object>();
 		StringBuffer hql = new StringBuffer();
-		hql.append(" SELECT d.city FROM Department d WHERE d.parent is not null  AND (d.deleted=0 or d.deleted is null) ");
+		hql.append(" SELECT distinct d.city FROM Department d WHERE d.parent is not null  AND (d.deleted=0 or d.deleted is null) ");
 		if (!StringUtil.isEmptyString(corporationId)) {
 			hql.append(" AND d.corporation.id =:corpId  ");
 			param.put("corpId", corporationId);
