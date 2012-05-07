@@ -57,6 +57,7 @@ public class OrderSavePresenterImpl extends
 	@Override
 	public void bind() {
 		if (orderId == null) {
+			display.hiddenStatus();
 			breadCrumbs.loadChildPage("添加订单");
 		} else {
 			breadCrumbs.loadChildPage("修改订单");

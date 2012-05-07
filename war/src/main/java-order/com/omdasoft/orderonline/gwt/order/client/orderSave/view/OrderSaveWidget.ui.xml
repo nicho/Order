@@ -91,7 +91,7 @@
 						</div>
 					</div>
 					<div class="{new2.form-line}">
-						<label class="{new2.label2}">其他要求：</label>
+						<label class="{new2.label22}">其他要求：</label>
 						<div class="{new2.element}">
 							<g:TextArea ui:field="memo" styleName="{new2.textarea}"/>
 						</div>

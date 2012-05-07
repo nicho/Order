@@ -48,6 +48,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .form .form-line{margin-bottom:0px;\*zoom:1;}
 .form .form-line .label{float:left;width:15%;text-align:right;vertical-align:middle;padding:7px 0;background-color:#e5e5e5;}
 .form .form-line .label2{float:left;width:15%;text-align:right;vertical-align:middle;padding:8px 0;background-color:#e5e5e5;}
+.form .form-line .label22{float:left;width:15%;text-align:right;vertical-align:middle;padding:22px 0;background-color:#e5e5e5;}
 .form .form-line .label3{float:left;width:15%;text-align:right;vertical-align:middle;padding:15px 0;background-color:#e5e5e5;}
 .form .form-line .element{float:right;width:84%;text-align:left;padding:5px 0;}
 .form .select{border:1px solid #CCCCCC;width:120px;height:22px;}
