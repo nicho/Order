@@ -162,6 +162,11 @@ public class OrderListPresenterImpl extends
 					public void onClick(ClickEvent event) {
 						display.getDateStart().setValue(new Date());
 						display.getDateEnd().setValue(new Date());
+						
+						display.getDay1().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDay2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay4().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDay2().addClickHandler(
@@ -171,22 +176,45 @@ public class OrderListPresenterImpl extends
 
 						display.getDateStart().setValue(DateTool.delSomeDay(new Date(), 1));
 						display.getDateEnd().setValue(DateTool.delSomeDay(new Date(), 1));
+						
+						display.getDay1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay2().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDay3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay4().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDay3().addClickHandler(
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						display.getDateStart().setValue(new Date());
-						display.getDateEnd().setValue(new Date());
+						Date de=new Date();
+						@SuppressWarnings("deprecation")
+						int x=de.getDay();
+						
+						display.getDateStart().setValue(DateTool.delSomeDay(new Date(),x-1));
+						display.getDateEnd().setValue(DateTool.addSomeDay(new Date(), 7-x));
+						
+						display.getDay1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay3().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDay4().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDay4().addClickHandler(
 				new ClickHandler() {
+					@SuppressWarnings("deprecation")
 					@Override
 					public void onClick(ClickEvent event) {
-						display.getDateStart().setValue(new Date());
-						display.getDateEnd().setValue(DateTool.addSomeMonth(new Date(), 1));
+						Date de=new Date();
+						de.setDate(1);
+						
+						display.getDateStart().setValue(de);
+						display.getDateEnd().setValue(DateTool.delSomeDay(DateTool.addSomeMonth(de, 1), 1));
+						
+						display.getDay1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay4().getElement().getParentElement().getParentElement().setClassName("all cur");
 					}
 				}));
 	}
