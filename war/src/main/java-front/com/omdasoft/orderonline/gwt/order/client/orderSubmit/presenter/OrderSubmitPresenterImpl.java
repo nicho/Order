@@ -138,6 +138,7 @@ public class OrderSubmitPresenterImpl extends
 											
 											injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
 											injector.getOrderIndexPresenter().bind();
+											injector.getFrontOrderListPresenter().initFrontOrder(request.getOrderPersonPhone());
 											injector.getFrontOrderListPresenter().bind();
 										}
 	

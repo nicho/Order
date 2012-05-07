@@ -102,6 +102,7 @@ public class OrdersDishesPresenterImpl extends
 										Window.alert("保存成功!");
 										RootLayoutPanel.get().clear();
 										RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+										injector.getFrontOrderListPresenter().initFrontOrder(request.getOrderPersonPhone());
 										injector.getFrontOrderListPresenter().bind();
 										injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
 										injector.getOrderIndexPresenter().bind();

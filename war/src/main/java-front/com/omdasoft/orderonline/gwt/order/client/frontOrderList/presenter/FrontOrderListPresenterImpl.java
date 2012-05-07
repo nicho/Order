@@ -84,8 +84,8 @@ public class FrontOrderListPresenterImpl extends
 	}
 
 	private void init() {
-
-
+		buildTable();
+		doSearch();
 	}
 
 	private void buildTable() {
@@ -226,6 +226,12 @@ public class FrontOrderListPresenterImpl extends
 						return DateTool.dateToString(order.getCompleteTime());
 					}
 				}, ref, "name");
+	}
+
+	@Override
+	public void initFrontOrder(String phone) {
+		display.getQueryphone().setText(phone);
+		
 	}
 
 }

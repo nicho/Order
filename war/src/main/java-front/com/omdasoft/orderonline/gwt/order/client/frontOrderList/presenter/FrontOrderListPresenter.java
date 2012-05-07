@@ -11,7 +11,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
 
 public interface FrontOrderListPresenter extends Presenter<FrontOrderListPresenter.FrontOrderListDisplay> {
 	
-
+	public void initFrontOrder(String phone);
 	public static interface FrontOrderListDisplay extends Display {
 
 		public HasClickHandlers getSearchBtnClickHandlers();
