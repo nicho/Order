@@ -112,10 +112,10 @@ public class DishesListPresenterImpl extends
 			}
 		});
 	}
-	String allCss;
+	String allCss="all cur";
 	List<MyAnchor> anchorList=new ArrayList<MyAnchor>();
 	private void init() {
-		 allCss=display.getTypeall().getElement().getParentElement().getClassName();	
+		
 		 createTab();
 			buildTable();
 			doSearch(null);
