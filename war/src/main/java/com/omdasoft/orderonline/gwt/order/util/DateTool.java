@@ -43,7 +43,19 @@ public abstract class DateTool {
 		long s2 = s + s1;
 		return new Date(s2);
 	}
-
+	/**
+	 * 剪掉N天后是哪一天
+	 * 
+	 * @param date
+	 * @param day
+	 * @return
+	 */
+	public static Date delSomeDay(Date date, long day) {
+		long s1 = date.getTime();
+		long s = day * (1000 * 60 * 60 * 24);
+		long s2 = s1-s;
+		return new Date(s2);
+	}
 	/**
 	 * 加上N月后是哪一天
 	 * 

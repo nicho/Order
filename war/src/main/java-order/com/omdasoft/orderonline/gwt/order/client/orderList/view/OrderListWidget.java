@@ -3,6 +3,7 @@ package com.omdasoft.orderonline.gwt.order.client.orderList.view;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Anchor;
@@ -15,6 +16,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
+import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.orderList.presenter.OrderListPresenter.OrderListDisplay;
 
 public class OrderListWidget extends Composite implements OrderListDisplay {
@@ -41,21 +43,30 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 	Panel breadCrumbs;
 	@UiField
 	ListBox pageNumber;
-	
+	@UiField
 	Anchor date1;
+	@UiField
 	Anchor date2;
+	@UiField
 	Anchor date3;
+	@UiField
 	Anchor date4;
+	@UiField
 	Anchor date5;
-	
+	@UiField
 	Anchor day1;
+	@UiField
 	Anchor day2;
+	@UiField
 	Anchor day3;
+	@UiField
 	Anchor day4;
-	
+	@UiField
 	DateBox dateStart;
+	@UiField
 	DateBox dateEnd;
-	
+	DateTimeFormat dateFormat = DateTimeFormat
+			.getFormat(ViewConstants.date_format);
 	private static OrderListWidgetUiBinder uiBinder = GWT
 			.create(OrderListWidgetUiBinder.class);
 
@@ -65,7 +76,8 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 
 	public OrderListWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+		dateStart.setFormat(new DateBox.DefaultFormat(dateFormat));
+		dateEnd.setFormat(new DateBox.DefaultFormat(dateFormat));
 		pageNumber.clear();
 		pageNumber.addItem("10","10");
 		pageNumber.addItem("20","20");

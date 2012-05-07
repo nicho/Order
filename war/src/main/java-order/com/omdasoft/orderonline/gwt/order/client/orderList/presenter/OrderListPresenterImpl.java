@@ -1,6 +1,5 @@
 package com.omdasoft.orderonline.gwt.order.client.orderList.presenter;
 
-import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -100,6 +99,11 @@ public class OrderListPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						dateType="placeOrderTime";
+						display.getDate1().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDate2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDate2().addClickHandler(
@@ -107,6 +111,12 @@ public class OrderListPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						dateType="handleTime";
+						display.getDate1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate2().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
+						
 					}
 				}));
 		registerHandler(display.getDate3().addClickHandler(
@@ -114,6 +124,11 @@ public class OrderListPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						dateType="modifyTime";
+						display.getDate1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate3().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDate4().addClickHandler(
@@ -121,6 +136,11 @@ public class OrderListPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						dateType="finishTime";
+						display.getDate1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate4().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDate5().addClickHandler(
@@ -128,6 +148,11 @@ public class OrderListPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						dateType="reserveTimeDate";
+						display.getDate1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate5().getElement().getParentElement().getParentElement().setClassName("all cur");
 					}
 				}));
 		
@@ -143,36 +168,25 @@ public class OrderListPresenterImpl extends
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						Calendar calendar = Calendar.getInstance();				
-						calendar.set(Calendar.DATE, calendar.get(Calendar.DATE)-1);
 
-						display.getDateStart().setValue(calendar.getTime());
-						display.getDateEnd().setValue(calendar.getTime());
+						display.getDateStart().setValue(DateTool.delSomeDay(new Date(), 1));
+						display.getDateEnd().setValue(DateTool.delSomeDay(new Date(), 1));
 					}
 				}));
 		registerHandler(display.getDay3().addClickHandler(
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						Calendar calendar1 = Calendar.getInstance();				
-						calendar1.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-						Calendar calendar2 = Calendar.getInstance();				
-						calendar2.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-						display.getDateStart().setValue(calendar1.getTime());
-						display.getDateEnd().setValue(calendar2.getTime());
+						display.getDateStart().setValue(new Date());
+						display.getDateEnd().setValue(new Date());
 					}
 				}));
 		registerHandler(display.getDay4().addClickHandler(
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						Calendar calendar1 = Calendar.getInstance();				
-						calendar1.set(Calendar.DATE,0);
-						Calendar calendar2 = Calendar.getInstance();				
-						calendar2.set(Calendar.MONTH, calendar2.get(Calendar.MONTH)+1);
-						calendar2.set(Calendar.MILLISECOND,-1);
-						display.getDateStart().setValue(calendar1.getTime());
-						display.getDateEnd().setValue(calendar2.getTime());
+						display.getDateStart().setValue(new Date());
+						display.getDateEnd().setValue(DateTool.addSomeMonth(new Date(), 1));
 					}
 				}));
 	}

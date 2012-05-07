@@ -50,10 +50,10 @@
 					</dd>
 					</dl>
 					<span>起始日期：</span>
-						<d:DateBox ui:field="dateStart"  />
+						<d:DateBox ui:field="dateStart" styleName="{new2.textfloat}" />
 				
 					<span>结束日期：</span>
-						<d:DateBox ui:field="dateEnd"  />
+						<d:DateBox ui:field="dateEnd" styleName="{new2.text}" />
 					<div class="clear"></div>
 				</div>
             </div>  

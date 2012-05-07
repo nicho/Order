@@ -20,7 +20,19 @@ public class DateUtil {
 	public static Date getTime() {
 		return new Date();
 	}
-
+	/**
+	 * 加上N天后是哪一天
+	 * 
+	 * @param date
+	 * @param day
+	 * @return
+	 */
+	public static Date addSomeDay(Date date, long day) {
+		long s1 = date.getTime();
+		long s = day * (1000 * 60 * 60 * 24);
+		long s2 = s + s1;
+		return new Date(s2);
+	}
 	public static Date getLastTimeOfThisDay(Date date) {
 		Date para = null;
 		para = date == null ? new Date() : date;

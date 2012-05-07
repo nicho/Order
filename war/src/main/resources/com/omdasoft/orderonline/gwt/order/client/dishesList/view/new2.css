@@ -119,7 +119,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .frame-wrap .breadcrumb-left{float:left;width:50%;}
 .frame-wrap .breadcrumb-right{float:right;width:70px;}
 .frame-wrap .cutline{background-position:0 0;height:2px;display:block;margin:10px 0;}
-.frame-wrap .query-wrap{background-color:#D8ECC1;border:1px solid #B8DA8E;padding:10px 15px;}
+.frame-wrap .query-wrap{background-color:#D8ECC1;border:1px solid #B8DA8E;padding: 8px 0 68px;}
 .frame-wrap .send-news{margin:10px 0;}
 .frame-wrap .content-wrap{padding-top:0px;}
 /*-nicho自定义-*/

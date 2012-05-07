@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.common.BaseDao;
 import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
+import com.omdasoft.orderonline.util.DateUtil;
 import com.omdasoft.orderonline.util.StringUtil;
 
 public class OrderDao extends BaseDao<Orders> {
@@ -103,7 +104,7 @@ public class OrderDao extends BaseDao<Orders> {
 
 			eql.append(" AND ( o."+vo.getDateType()+"  between :dateStart and :dateEnd)");
 			param.put("dateStart", vo.getDateStart());
-			param.put("dateEnd", vo.getDateEnd());
+			param.put("dateEnd", DateUtil.addSomeDay(vo.getDateEnd(), 1));
 
 			//	reserveTimeDate,placeOrderTime,handleTime,handleTime,modifyTime,finishTime
 			
