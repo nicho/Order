@@ -39,7 +39,8 @@ public class DictionaryListWidget extends Composite implements DictionaryListDis
 	Panel resultpage;
 	@UiField
 	Panel breadCrumbs;
-	
+	@UiField
+	ListBox pageNumber;
 	private static DictionaryListWidgetUiBinder uiBinder = GWT
 			.create(DictionaryListWidgetUiBinder.class);
 
@@ -49,13 +50,21 @@ public class DictionaryListWidget extends Composite implements DictionaryListDis
 
 	public DictionaryListWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+		pageNumber.clear();
+		pageNumber.addItem("10","10");
+		pageNumber.addItem("20","20");
+		pageNumber.addItem("50","50");
+		pageNumber.addItem("100","100");
 	}
 
 	@Override
 	public HasClickHandlers getSearchBtnClickHandlers() {
 		return this.searchBtn;
 	}
-
+	@Override
+	public ListBox getPageNumber() {
+		return pageNumber;
+	}
 
 
 	@Override

@@ -3,6 +3,7 @@ package com.omdasoft.orderonline.gwt.order.client.frontOrderList.presenter;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
@@ -23,7 +24,7 @@ public interface FrontOrderListPresenter extends Presenter<FrontOrderListPresent
 		Panel getResultPanel();
 		Panel getResultpage();
 
-
+		public ListBox getPageNumber();
 
 	}
 }

@@ -39,7 +39,8 @@ public class DishesTypeListWidget extends Composite implements DishesTypeListDis
 	Panel resultpage;
 	@UiField
 	Panel breadCrumbs;
-	
+	@UiField
+	ListBox pageNumber;
 	private static DishesTypeListWidgetUiBinder uiBinder = GWT
 			.create(DishesTypeListWidgetUiBinder.class);
 
@@ -49,8 +50,18 @@ public class DishesTypeListWidget extends Composite implements DishesTypeListDis
 
 	public DishesTypeListWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		pageNumber.clear();
+		pageNumber.addItem("10","10");
+		pageNumber.addItem("20","20");
+		pageNumber.addItem("50","50");
+		pageNumber.addItem("100","100");
 	}
-
+	@Override
+	public ListBox getPageNumber() {
+		return pageNumber;
+	}
+	
 	@Override
 	public HasClickHandlers getSearchBtnClickHandlers() {
 		return this.searchBtn;

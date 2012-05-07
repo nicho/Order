@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -29,7 +30,8 @@ public class FrontOrderListWidget extends Composite implements FrontOrderListDis
 	Panel resultPanel;
 	@UiField
 	Panel resultpage;
-
+	@UiField
+	ListBox pageNumber;
 	
 	private static FrontOrderListWidgetUiBinder uiBinder = GWT
 			.create(FrontOrderListWidgetUiBinder.class);
@@ -40,8 +42,17 @@ public class FrontOrderListWidget extends Composite implements FrontOrderListDis
 
 	public FrontOrderListWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		pageNumber.clear();
+		pageNumber.addItem("10","10");
+		pageNumber.addItem("20","20");
+		pageNumber.addItem("50","50");
+		pageNumber.addItem("100","100");
 	}
-
+	@Override
+	public ListBox getPageNumber() {
+		return pageNumber;
+	}
 	@Override
 	public HasClickHandlers getSearchBtnClickHandlers() {
 		return this.searchBtn;

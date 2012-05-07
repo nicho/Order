@@ -39,7 +39,8 @@ public class RestaurantListWidget extends Composite implements RestaurantListDis
 	Panel resultpage;
 	@UiField
 	Panel breadCrumbs;
-	
+	@UiField
+	ListBox pageNumber;
 	private static RestaurantListWidgetUiBinder uiBinder = GWT
 			.create(RestaurantListWidgetUiBinder.class);
 
@@ -49,6 +50,15 @@ public class RestaurantListWidget extends Composite implements RestaurantListDis
 
 	public RestaurantListWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+		pageNumber.clear();
+		pageNumber.addItem("10","10");
+		pageNumber.addItem("20","20");
+		pageNumber.addItem("50","50");
+		pageNumber.addItem("100","100");
+	}
+	@Override
+	public ListBox getPageNumber() {
+		return pageNumber;
 	}
 
 	@Override

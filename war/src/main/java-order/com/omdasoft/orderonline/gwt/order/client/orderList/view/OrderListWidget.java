@@ -37,7 +37,8 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 	Panel resultpage;
 	@UiField
 	Panel breadCrumbs;
-	
+	@UiField
+	ListBox pageNumber;
 	private static OrderListWidgetUiBinder uiBinder = GWT
 			.create(OrderListWidgetUiBinder.class);
 
@@ -47,8 +48,17 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 
 	public OrderListWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		pageNumber.clear();
+		pageNumber.addItem("10","10");
+		pageNumber.addItem("20","20");
+		pageNumber.addItem("50","50");
+		pageNumber.addItem("100","100");
 	}
-
+	@Override
+	public ListBox getPageNumber() {
+		return pageNumber;
+	}
 	@Override
 	public HasClickHandlers getSearchBtnClickHandlers() {
 		return this.searchBtn;

@@ -3,6 +3,7 @@ package com.omdasoft.orderonline.gwt.order.client.orderList.presenter;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.HasValue;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
@@ -25,7 +26,7 @@ public interface OrderListPresenter extends Presenter<OrderListPresenter.OrderLi
 		
 		Panel getResultPanel();
 		Panel getResultpage();
-
+		public ListBox getPageNumber();
 
 
 	}

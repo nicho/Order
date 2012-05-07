@@ -50,9 +50,7 @@
 			<div id="rewardlist_page" class="{new2.pager}">
 				<div class="{new2.pager-left}">
 					每页显示条数
-					<select class="{new2.select}">
-						<option>10</option>
-					</select>
+					<g:ListBox ui:field="pageNumber" styleName="{new2.select}" /> 
 				</div>
 
 				<div class="{new2.pager-right}">

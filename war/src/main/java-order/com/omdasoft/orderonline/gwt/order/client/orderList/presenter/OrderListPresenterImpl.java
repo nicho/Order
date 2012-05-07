@@ -6,6 +6,8 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.cell.client.FieldUpdater;
 import com.google.gwt.cell.client.TextCell;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.inject.Inject;
@@ -43,7 +45,7 @@ public class OrderListPresenterImpl extends
 	EltNewPager pager;
 	ListCellTable<OrderListClient> cellTable;
 	OrderListViewAdapter listViewAdapter;
-
+	int pageSize=ViewConstants.per_page_number_in_entry;
 	private final BreadCrumbsPresenter breadCrumbs;
 	@Inject
 	public OrderListPresenterImpl(EventBus eventBus,
@@ -82,7 +84,13 @@ public class OrderListPresenterImpl extends
 					}
 				}));
 
-
+		registerHandler(display.getPageNumber().addChangeHandler(new ChangeHandler() {			
+			@Override
+			public void onChange(ChangeEvent event) {
+				pageSize=Integer.parseInt(display.getPageNumber().getValue(display.getPageNumber().getSelectedIndex()));
+				
+			}
+		}));
 	}
 	
 	private void init() {	
@@ -99,7 +107,7 @@ public class OrderListPresenterImpl extends
 		pager = new EltNewPager(TextLocation.CENTER);
 		pager.setDisplay(cellTable);
 		cellTable.setWidth(ViewConstants.page_width);
-		cellTable.setPageSize(ViewConstants.per_page_number_in_dialog);
+		cellTable.setPageSize(pageSize);
 		cellTable.getColumn(0).setCellStyleNames("widthcell");
 		display.getResultPanel().clear();
 		display.getResultPanel().add(cellTable);
