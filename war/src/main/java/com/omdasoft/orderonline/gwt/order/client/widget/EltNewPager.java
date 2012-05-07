@@ -220,13 +220,15 @@ public class EltNewPager extends AbstractPager {
 		HorizontalPanel layout = new HorizontalPanel();
 		layout.setVerticalAlignment(HasVerticalAlignment.ALIGN_MIDDLE);
 		initWidget(layout);
-		if (location == TextLocation.CENTER) {
+		if (location == TextLocation.RIGHT) {
 			layout.add(label);
 		}
 		layout.add(prevPage);
 		layout.add(firstPage);
 
-
+		if (location == TextLocation.CENTER) {
+			layout.add(label);
+		}
 		layout.add(onePage);
 		layout.add(twoPage);
 		layout.add(threePage);
@@ -441,7 +443,7 @@ public class EltNewPager extends AbstractPager {
 				fourPage.setText((((indexpage-1)*2)+4)+"");
 				fivePage.setText((((indexpage-1)*2)+5)+"");
 			}
-			if(currentPage==totalPage && totalPage>1)
+			else if(currentPage==totalPage)
 			{
 				indexpage=totalPage/2-1;
 				onePage.setText((((indexpage-1)*2)+1)+"");
@@ -453,8 +455,8 @@ public class EltNewPager extends AbstractPager {
 		}
 		setButtonStyle(currentPage, totalPage);
 		
-		//return "";
-		 return "当前第 " + currentPage + " 页,"+"共"+totalPage+"页";
+		return "";
+		// return "当前第 " + currentPage + " 页,"+"共"+totalPage+"页,共"+dataSize+"条";
 	}
 	int indexpage=1;
 	public void setButtonStyle(int currentPage, int totalPage) {
@@ -477,11 +479,11 @@ public class EltNewPager extends AbstractPager {
 		lastPage.setStyleName("pagedisable");
 
 		
-		if (totalPage >= ((indexpage-1)*2)+1) {
+		if (totalPage >= ((indexpage-1)*2)+1 && ((indexpage-1)*2)+1>0) {
 			onePage.setStyleName("");
 			onePage.setVisible(true);
 		}
-		if (totalPage >= ((indexpage-1)*2)+2) {
+		if (totalPage >= ((indexpage-1)*2)+2 && ((indexpage-1)*2)+2>0) {
 			twoPage.setStyleName("");
 			firstPage.setStyleName("");
 			nextPage.setStyleName("");
@@ -490,15 +492,15 @@ public class EltNewPager extends AbstractPager {
 			twoPage.setVisible(true);
 
 		}
-		if (totalPage >= ((indexpage-1)*2)+3) {
+		if (totalPage >= ((indexpage-1)*2)+3 && ((indexpage-1)*2)+3>0) {
 			threePage.setStyleName("");
 			threePage.setVisible(true);
 		}
-		if (totalPage >= ((indexpage-1)*2)+4) {
+		if (totalPage >= ((indexpage-1)*2)+4 && ((indexpage-1)*2)+4>0) {
 			fourPage.setStyleName("");
 			fourPage.setVisible(true);
 		}
-		if (totalPage >= ((indexpage-1)*2)+5) {
+		if (totalPage >= ((indexpage-1)*2)+5 && ((indexpage-1)*2)+5>0) {
 			fivePage.setStyleName("");
 			fivePage.setVisible(true);
 		}
