@@ -158,7 +158,7 @@ public class OrderListPresenterImpl extends
 					public String getValue(OrderListClient order) {
 						return order.getCode();
 					}
-				}, ref, "jobNo");
+				}, ref, "code");
 		cellTable.addColumn("订餐人", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
@@ -175,14 +175,14 @@ public class OrderListPresenterImpl extends
 						else
 							return "";
 					}
-				}, ref, "name");
+				});
 		cellTable.addColumn("就餐人数", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
 						return order.getAmountOfClient()+"";
 					}
-				}, ref, "name");
+				}, ref, "amountOfClient");
 		cellTable.addColumn("包间要求", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
@@ -198,14 +198,14 @@ public class OrderListPresenterImpl extends
 						else 
 							return "";
 					}
-				}, ref, "name");
+				});
 		cellTable.addColumn("下单时间", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
 						return DateTool.dateToString(order.getPlaceOrderTime());
 					}
-				}, ref, "name");
+				}, ref, "placeOrderTime");
 		cellTable.addColumn("订单状态", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
@@ -215,7 +215,7 @@ public class OrderListPresenterImpl extends
 						else
 						return "";
 					}
-				}, ref, "name");
+				});
 		cellTable.addColumn("处理结果", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
@@ -225,28 +225,28 @@ public class OrderListPresenterImpl extends
 							else
 								return order.getResult();
 					}
-				}, ref, "name");
+				});
 		cellTable.addColumn("处理时间", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
 						return DateTool.dateToString(order.getProcessingTime());
 					}
-				}, ref, "name");
+				}, ref, "handleTime");
 		cellTable.addColumn("修改时间", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
 						return DateTool.dateToString(order.getLastUpdateTime());
 					}
-				}, ref, "name");
+				}, ref, "modifyTime");
 		cellTable.addColumn("完成时间", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
 						return DateTool.dateToString(order.getCompleteTime());
 					}
-				}, ref, "name");
+				}, ref, "finishTime");
 		cellTable.addColumn("操作", new HyperLinkCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override

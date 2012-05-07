@@ -119,6 +119,10 @@ public class OrderDao extends BaseDao<Orders> {
 				eql.append(" ORDER BY o." + vo.getSortingDetail().getSort()
 						+ " " + vo.getSortingDetail().getDirection());
 			}
+			else
+			{
+				eql.append(" ORDER BY o.placeOrderTime DESC");
+			}
 		}
 		System.out.println("EQL : " + eql);
 		Query query = getEm().createQuery(eql.toString());
