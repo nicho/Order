@@ -1,6 +1,8 @@
 package com.omdasoft.orderonline.gwt.order.client.orderList.presenter;
 
+import java.util.Calendar;
 import java.util.Comparator;
+import java.util.Date;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
@@ -47,6 +49,7 @@ public class OrderListPresenterImpl extends
 	OrderListViewAdapter listViewAdapter;
 	int pageSize=ViewConstants.per_page_number_in_entry;
 	private final BreadCrumbsPresenter breadCrumbs;
+	String dateType="";
 	@Inject
 	public OrderListPresenterImpl(EventBus eventBus,
 			OrderListDisplay display, DispatchAsync dispatch, //Win win,
@@ -92,6 +95,86 @@ public class OrderListPresenterImpl extends
 				doSearch();
 			}
 		}));
+		registerHandler(display.getDate1().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dateType="placeOrderTime";
+					}
+				}));
+		registerHandler(display.getDate2().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dateType="handleTime";
+					}
+				}));
+		registerHandler(display.getDate3().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dateType="modifyTime";
+					}
+				}));
+		registerHandler(display.getDate4().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dateType="finishTime";
+					}
+				}));
+		registerHandler(display.getDate5().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dateType="reserveTimeDate";
+					}
+				}));
+		
+		registerHandler(display.getDay1().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						display.getDateStart().setValue(new Date());
+						display.getDateEnd().setValue(new Date());
+					}
+				}));
+		registerHandler(display.getDay2().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						Calendar calendar = Calendar.getInstance();				
+						calendar.set(Calendar.DATE, calendar.get(Calendar.DATE)-1);
+
+						display.getDateStart().setValue(calendar.getTime());
+						display.getDateEnd().setValue(calendar.getTime());
+					}
+				}));
+		registerHandler(display.getDay3().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						Calendar calendar1 = Calendar.getInstance();				
+						calendar1.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+						Calendar calendar2 = Calendar.getInstance();				
+						calendar2.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+						display.getDateStart().setValue(calendar1.getTime());
+						display.getDateEnd().setValue(calendar2.getTime());
+					}
+				}));
+		registerHandler(display.getDay4().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						Calendar calendar1 = Calendar.getInstance();				
+						calendar1.set(Calendar.DATE,0);
+						Calendar calendar2 = Calendar.getInstance();				
+						calendar2.set(Calendar.MONTH, calendar2.get(Calendar.MONTH)+1);
+						calendar2.set(Calendar.MILLISECOND,-1);
+						display.getDateStart().setValue(calendar1.getTime());
+						display.getDateEnd().setValue(calendar2.getTime());
+					}
+				}));
 	}
 	
 	private void init() {	
@@ -124,7 +207,12 @@ public class OrderListPresenterImpl extends
 			criteria.setPhoneorName(display.getStaffNameorNo().getValue());
 		if(!"ALL".equals(display.getSttaffStatus()))
 			criteria.setStatus(OrderStatus.valueOf(display.getSttaffStatus().toString()));
-		
+		if(!StringUtil.isEmpty(dateType))
+		{
+			criteria.setDateType(dateType);
+			criteria.setDateStart(display.getDateStart().getValue());
+			criteria.setDateEnd(display.getDateEnd().getValue());
+		}
 		listViewAdapter = new OrderListViewAdapter(dispatch, criteria,
 				errorHandler, sessionManager,display);
 		listViewAdapter.addDataDisplay(cellTable);

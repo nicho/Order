@@ -1,6 +1,7 @@
 package com.omdasoft.orderonline.model.order;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.omdasoft.orderonline.model.common.PaginationDetail;
 import com.omdasoft.orderonline.model.common.SortingDetail;
@@ -22,7 +23,35 @@ public class OrderListCriteria implements Serializable {
 	private String corpId;
 	private String deptId;
 
+	private String dateType;
+	private Date dateStart;
+	private Date dateEnd;
 	
+
+
+	public String getDateType() {
+		return dateType;
+	}
+
+	public void setDateType(String dateType) {
+		this.dateType = dateType;
+	}
+
+	public Date getDateStart() {
+		return dateStart;
+	}
+
+	public void setDateStart(Date dateStart) {
+		this.dateStart = dateStart;
+	}
+
+	public Date getDateEnd() {
+		return dateEnd;
+	}
+
+	public void setDateEnd(Date dateEnd) {
+		this.dateEnd = dateEnd;
+	}
 	
 	public String getPhoneorName() {
 		return phoneorName;

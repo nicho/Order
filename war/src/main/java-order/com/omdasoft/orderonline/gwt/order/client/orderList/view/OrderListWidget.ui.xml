@@ -50,10 +50,10 @@
 					</dd>
 					</dl>
 					<span>起始日期：</span>
-						<d:DateBox ui:field="createTime"  />
+						<d:DateBox ui:field="dateStart"  />
 				
 					<span>结束日期：</span>
-						<d:DateBox ui:field="createTimeEnd"  />
+						<d:DateBox ui:field="dateEnd"  />
 					<div class="clear"></div>
 				</div>
             </div>  

@@ -5,6 +5,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasValue;
@@ -13,6 +14,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.datepicker.client.DateBox;
 import com.omdasoft.orderonline.gwt.order.client.orderList.presenter.OrderListPresenter.OrderListDisplay;
 
 public class OrderListWidget extends Composite implements OrderListDisplay {
@@ -39,6 +41,21 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 	Panel breadCrumbs;
 	@UiField
 	ListBox pageNumber;
+	
+	Anchor date1;
+	Anchor date2;
+	Anchor date3;
+	Anchor date4;
+	Anchor date5;
+	
+	Anchor day1;
+	Anchor day2;
+	Anchor day3;
+	Anchor day4;
+	
+	DateBox dateStart;
+	DateBox dateEnd;
+	
 	private static OrderListWidgetUiBinder uiBinder = GWT
 			.create(OrderListWidgetUiBinder.class);
 
@@ -114,6 +131,50 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 	@Override
 	public String getSttaffStatus() {
 		return staffStatus.getValue(staffStatus.getSelectedIndex());
+	}
+	@Override
+	public Anchor getDate1() {
+		return date1;
+	}
+	@Override
+	public Anchor getDate2() {
+		return date2;
+	}
+	@Override
+	public Anchor getDate3() {
+		return date3;
+	}
+	@Override
+	public Anchor getDate4() {
+		return date4;
+	}
+	@Override
+	public Anchor getDate5() {
+		return date5;
+	}
+	@Override
+	public Anchor getDay1() {
+		return day1;
+	}
+	@Override
+	public Anchor getDay2() {
+		return day2;
+	}
+	@Override
+	public Anchor getDay3() {
+		return day3;
+	}
+	@Override
+	public Anchor getDay4() {
+		return day4;
+	}
+	@Override
+	public DateBox getDateStart() {
+		return dateStart;
+	}
+	@Override
+	public DateBox getDateEnd() {
+		return dateEnd;
 	}
 
 

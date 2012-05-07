@@ -97,6 +97,18 @@ public class OrderDao extends BaseDao<Orders> {
 			param.put("deptId", vo.getDeptId());
 			fal=true; 
 		}
+		
+		if(!StringUtil.isEmptyString(vo.getDateType()) && vo.getDateStart()!=null && vo.getDateEnd()!=null)
+		{
+
+			eql.append(" AND ( o."+vo.getDateType()+"  between :dateStart and :dateEnd)");
+			param.put("dateStart", vo.getDateStart());
+			param.put("dateEnd", vo.getDateEnd());
+
+			//	reserveTimeDate,placeOrderTime,handleTime,handleTime,modifyTime,finishTime
+			
+		}
+		
 		if(!StringUtil.isEmptyString(vo.getPhoneorName()))
 		{
 			eql.append(" AND (UPPER(o.orderPerson.phone) LIKE :keywords "

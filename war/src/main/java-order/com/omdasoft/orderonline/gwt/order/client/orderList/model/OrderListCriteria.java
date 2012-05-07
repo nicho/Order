@@ -3,6 +3,8 @@
  */
 package com.omdasoft.orderonline.gwt.order.client.orderList.model;
 
+import java.util.Date;
+
 import com.google.gwt.user.client.rpc.IsSerializable;
 import com.omdasoft.orderonline.gwt.order.client.support.UserSession;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
@@ -39,8 +41,35 @@ public class OrderListCriteria implements IsSerializable {
 	private OrderStatus status;
 	private UserSession session;
 	
+	private String dateType;
+	private Date dateStart;
+	private Date dateEnd;
+	
 
 
+	public String getDateType() {
+		return dateType;
+	}
+
+	public void setDateType(String dateType) {
+		this.dateType = dateType;
+	}
+
+	public Date getDateStart() {
+		return dateStart;
+	}
+
+	public void setDateStart(Date dateStart) {
+		this.dateStart = dateStart;
+	}
+
+	public Date getDateEnd() {
+		return dateEnd;
+	}
+
+	public void setDateEnd(Date dateEnd) {
+		this.dateEnd = dateEnd;
+	}
 
 	public String getPhoneorName() {
 		return phoneorName;

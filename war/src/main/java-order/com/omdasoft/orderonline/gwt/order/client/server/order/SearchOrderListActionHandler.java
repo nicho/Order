@@ -69,6 +69,20 @@ public class SearchOrderListActionHandler extends
 		{
 			criteria.setOrderStatus(com.omdasoft.orderonline.model.order.OrderStatus.valueOf(action.getCriteria().getStatus().toString()));
 		}
+		if(!StringUtil.isEmptyString(action.getCriteria().getDateType()))
+		{
+			criteria.setDateType(action.getCriteria().getDateType());
+			if(action.getCriteria().getDateStart()!=null)
+			{
+				criteria.setDateStart(action.getCriteria().getDateStart());
+			}
+			if(action.getCriteria().getDateEnd()!=null)
+			{
+				criteria.setDateEnd(action.getCriteria().getDateEnd());
+			}
+		}
+		
+		
 		PageStore<Orders> Orderpage= OrderService.getOrderList(u, criteria);
 		rep.setTotal(Orderpage.getResultCount());
 		
