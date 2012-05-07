@@ -75,7 +75,8 @@ public class DishesListPresenterImpl extends
 			@Override
 			public void onChange(ChangeEvent event) {
 				pageSize=Integer.parseInt(display.getPageNumber().getValue(display.getPageNumber().getSelectedIndex()));
-				
+				buildTable();
+				doSearch();
 			}
 		}));
 
