@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' 	xmlns:d='urn:import:com.google.gwt.user.datepicker.client'>
 
 	<ui:style src="new2.css" field="new2"></ui:style>
 	<g:HTMLPanel>
@@ -19,6 +19,47 @@
 					<label for="">订单编号或姓名:</label>
 					<g:TextBox maxLength="30" ui:field="staffNameorNo" styleName="{new2.text2}" />
 					<span class="{new2.nbspbig}" ></span>
+    <div class="main">
+   
+		<div class="chooseBox mb10">      
+            <div id="J-getWap" class="getWap">      
+				<div class="getParam">
+					<span>时间条件：</span>
+					
+					<dl>
+					<dd class="clearfix ">
+						<em><i><g:Anchor text="下单时间" ui:field="date1" /></i></em>
+						<em><i><g:Anchor text="处理时间" ui:field="date2" /></i></em>
+						<em><i><g:Anchor text="修改时间" ui:field="date3" /></i></em>
+						<em><i><g:Anchor text="完成时间" ui:field="date4" /></i></em>
+						<em><i><g:Anchor text="就餐时间" ui:field="date5" /></i></em>
+					</dd>
+					</dl>
+					<div class="clear"></div>
+				</div>
+				<div class="getParam">
+					<span>时间范围：</span>
+					
+					<dl>
+					<dd class="clearfix ">
+						<em><i><g:Anchor text="今天" ui:field="day1" /></i></em>
+						<em><i><g:Anchor text="昨天" ui:field="day2" /></i></em>
+						<em><i><g:Anchor text="本周" ui:field="day3" /></i></em>
+						<em><i><g:Anchor text="本月" ui:field="day4" /></i></em>
+						
+					</dd>
+					</dl>
+					<span>起始日期：</span>
+						<d:DateBox ui:field="createTime"  />
+				
+					<span>结束日期：</span>
+						<d:DateBox ui:field="createTimeEnd"  />
+					<div class="clear"></div>
+				</div>
+            </div>  
+        </div>   
+ 	</div>
+
 
 					<span class="{new2.btn}">
 						<g:Button ui:field="searchBtn" text="查询"  />
