@@ -1,6 +1,8 @@
 package com.omdasoft.orderonline.gwt.order.client.dishesList.presenter;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
@@ -21,11 +23,16 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListCrit
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesDeleteResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.plugin.DishesSaveConstants;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.model.DishesTypeListClient;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.model.DishesTypeListCriteria;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.SearchDishesTypeListRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.SearchDishesTypeListResponse;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
+import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
@@ -33,6 +40,8 @@ import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
 import com.omdasoft.orderonline.gwt.order.client.widget.Sorting;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.client.win.confirm.ConfirmHandler;
+import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class DishesListPresenterImpl extends
 		BasePresenter<DishesListPresenter.DishesListDisplay> implements
@@ -68,7 +77,8 @@ public class DishesListPresenterImpl extends
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						doSearch();
+						buildTable();
+						doSearch(null);
 					}
 				}));
 		registerHandler(display.getPageNumber().addChangeHandler(new ChangeHandler() {			
@@ -76,7 +86,7 @@ public class DishesListPresenterImpl extends
 			public void onChange(ChangeEvent event) {
 				pageSize=Integer.parseInt(display.getPageNumber().getValue(display.getPageNumber().getSelectedIndex()));
 				buildTable();
-				doSearch();
+				doSearch(null);
 			}
 		}));
 
@@ -92,10 +102,13 @@ public class DishesListPresenterImpl extends
 					}
 				}));
 	}
-	
-	private void init() {	
-		buildTable();
-		doSearch();
+	String allCss;
+	List<MyAnchor> anchorList=new ArrayList<MyAnchor>();
+	private void init() {
+		 allCss=display.getTypeall().getElement().getParentElement().getClassName();	
+		 createTab();
+			buildTable();
+			doSearch(null);
 	}
 
 	private void buildTable() {
@@ -115,16 +128,74 @@ public class DishesListPresenterImpl extends
 		
 	}
 
-	private void doSearch() {
+	private void doSearch(String typeId) {
 		DishesListCriteria criteria = new DishesListCriteria();
 		criteria.setKeyName(display.getSearchName().getValue());
-
+		if(!StringUtil.isEmpty(typeId))
+		criteria.setTypeId(typeId);
 		listViewAdapter = new DishesListViewAdapter(dispatch, criteria,
 				errorHandler, sessionManager,display);
 		listViewAdapter.addDataDisplay(cellTable);
 
 	}
+	private void createTab()
+	{
+		PaginationDetailClient pagination = new PaginationDetailClient();
+		pagination.setStart(0);
+		pagination.setLimit(0);
+		
+		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
+		criteria.setPagination(pagination);
+		criteria.setSession(sessionManager.getSession());
+		dispatch.execute(new SearchDishesTypeListRequest(criteria,null), new AsyncCallback<SearchDishesTypeListResponse>() {
+			@Override
+			public void onFailure(Throwable e) {
+				errorHandler.alert(e.getMessage());
+			}
 
+			@Override
+			public void onSuccess(SearchDishesTypeListResponse response) {
+				List<DishesTypeListClient> typeList=response.getResult();
+				if(typeList!=null && typeList.size()>0)
+				{
+				    display.getTabpage().clear();
+
+				    for (int i=0;i<typeList.size();i++) {
+				    	final DishesTypeListClient client=typeList.get(i);
+				    	final MyAnchor ac=new MyAnchor(client.getName());
+				    	  ac.addClickHandler(new ClickHandler() {
+							
+							@Override
+							public void onClick(ClickEvent arg0) {
+								cleanAnchorCss();
+								
+								ac.getElement().getFirstChildElement().setClassName(allCss);
+								display.getTypeall().getElement().getParentElement().setClassName("");
+								buildTable();
+								doSearch(client.getId());
+								
+							}
+						});
+				    	  anchorList.add(ac);
+				    	  display.getTabpage().add(ac);
+					}
+
+				}
+			}
+
+		});
+		
+	}
+	private void cleanAnchorCss()
+	{
+		if(anchorList!=null && anchorList.size()>0)
+		{
+			for (int i = 0; i < anchorList.size(); i++) {
+				MyAnchor ma=anchorList.get(i);
+				ma.getElement().getFirstChildElement().setClassName("");
+			}
+		}
+	}
 	private void initTableColumns() {
 		Sorting<DishesListClient> ref = new Sorting<DishesListClient>() {
 			@Override
@@ -238,7 +309,7 @@ public class DishesListPresenterImpl extends
 									public void onSuccess(DishesDeleteResponse response) {
 										win.alert("删除成功!");
 										buildTable();
-										doSearch();
+										doSearch(null);
 									}
 
 								});

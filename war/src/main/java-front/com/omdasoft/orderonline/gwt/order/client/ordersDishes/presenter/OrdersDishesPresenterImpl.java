@@ -262,11 +262,6 @@ public class OrdersDishesPresenterImpl extends
 				List<DishesTypeListClient> typeList=response.getResult();
 				if(typeList!=null && typeList.size()>0)
 				{
-//					map.clear();
-//					// Create a tab panel
-//				    TabLayoutPanel tabPanel = new TabLayoutPanel(2.5, Unit.EM);
-//				    tabPanel.setAnimationDuration(1000);
-//				    tabPanel.getElement().getStyle().setMarginBottom(10.0, Unit.PX);
 				    display.getTabpage().clear();
 
 				    for (int i=0;i<typeList.size();i++) {
@@ -287,30 +282,8 @@ public class OrdersDishesPresenterImpl extends
 						});
 				    	  anchorList.add(ac);
 				    	  display.getTabpage().add(ac);
-//					    // Add a tab
-//					    HTML moreInfo = new HTML(client.getId());
-//					    tabPanel.add(moreInfo, client.getName());
-//					    map.put(i, client.getId());
 					}
 
-
-//				    // Return the content
-//				    tabPanel.selectTab(0);
-//				    tabPanel.ensureDebugId("cwTabPanel");
-//				    tabPanel.addSelectionHandler(new SelectionHandler<Integer>() {
-//						
-//						@Override
-//						public void onSelection(SelectionEvent<Integer> event) {
-//						//	Window.alert("当前类型"+map.get(event.getSelectedItem()));
-//							buildTable();
-//							doSearch(map.get(event.getSelectedItem()));
-//						}
-//					});
-				    
-				  
-				    
-//				    display.getTabpage().clear();
-//				    display.getTabpage().add(tabPanel);
 				}
 			}
 

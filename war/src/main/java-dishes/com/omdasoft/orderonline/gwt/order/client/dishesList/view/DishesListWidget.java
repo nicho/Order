@@ -5,6 +5,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasValue;
@@ -36,6 +37,10 @@ public class DishesListWidget extends Composite implements DishesListDisplay {
 	Panel breadCrumbs;
 	@UiField
 	ListBox pageNumber;
+	@UiField
+	Panel tabpage;
+	@UiField
+	Anchor typeall;
 	private static DishesListWidgetUiBinder uiBinder = GWT
 			.create(DishesListWidgetUiBinder.class);
 
@@ -102,7 +107,14 @@ public class DishesListWidget extends Composite implements DishesListDisplay {
 	}
 
 
-
+	@Override
+	public Panel getTabpage() {
+		return tabpage;
+	}
+	@Override
+	public Anchor getTypeall() {
+		return typeall;
+	}
 
 
 }

@@ -2,6 +2,7 @@ package com.omdasoft.orderonline.gwt.order.client.dishesList.presenter;
 
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
@@ -27,6 +28,7 @@ public interface DishesListPresenter extends Presenter<DishesListPresenter.Dishe
 		Panel getResultpage();
 
 		public ListBox getPageNumber();
-
+		Panel getTabpage();
+		Anchor getTypeall();
 	}
 }
