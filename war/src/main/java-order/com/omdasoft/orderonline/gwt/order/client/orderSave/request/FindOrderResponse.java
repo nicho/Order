@@ -4,6 +4,8 @@ import java.util.Date;
 
 import net.customware.gwt.dispatch.shared.Result;
 
+import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
+
 /**
  * Models the response after user process request.
  * 
@@ -63,7 +65,18 @@ public class FindOrderResponse implements Result {
 	 */
 	private String restaurantName;
 	private String result;
+	private OrderStatus status;
 	
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
+	}
+
+
 	public String getResult() {
 		return result;
 	}

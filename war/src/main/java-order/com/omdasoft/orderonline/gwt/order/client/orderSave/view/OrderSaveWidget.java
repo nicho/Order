@@ -16,7 +16,9 @@ import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.presenter.OrderSavePresenter.OrderSaveDisplay;
+import com.omdasoft.orderonline.gwt.order.client.view.constant.CssStyleConstants;
 import com.omdasoft.orderonline.gwt.order.util.DateTool;
 
 public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
@@ -67,6 +69,8 @@ public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
 	@UiField
 	InlineLabel titleText;
 	
+	@UiField
+	ListBox status;
 	private static OrderSaveWidgetUiBinder uiBinder = GWT
 			.create(OrderSaveWidgetUiBinder.class);
 
@@ -225,6 +229,56 @@ public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
 	public void setTitleText(String text) {
 		titleText.setText(text);
 		
+	}
+
+	@Override
+	public void initStatus(OrderStatus status) {
+
+		if(status==OrderStatus.UNHANDLED)
+		{
+			this.status.addItem("待处理","UNHANDLED");
+			this.status.addItem("成功","SUCCESS");
+			this.status.addItem("失败","FAILURE");
+			this.status.addItem("未消费","NOTCONSUMPR");
+			this.status.addItem("已消费","HASCONSUMER");
+			this.status.addItem("已取消","HASCANCEL");
+		}
+		else if(status==OrderStatus.SUCCESS || status==OrderStatus.FAILURE)
+		{
+			this.status.addItem("成功","SUCCESS");
+			this.status.addItem("失败","FAILURE");
+			this.status.addItem("未消费","NOTCONSUMPR");
+			this.status.addItem("已消费","HASCONSUMER");
+			this.status.addItem("已取消","HASCANCEL");
+		}
+		else if(status==OrderStatus.NOTCONSUMPR || status==OrderStatus.HASCONSUMER)
+		{
+			this.status.addItem("未消费","NOTCONSUMPR");
+			this.status.addItem("已消费","HASCONSUMER");
+			this.status.addItem("已取消","HASCANCEL");
+		}
+		else if(status==OrderStatus.HASCANCEL)
+		{
+			this.status.addItem("已取消","HASCANCEL");
+		}
+		
+
+		for (int i = 0; i < this.status.getItemCount(); i++) {
+			if(this.status.getValue(i).equals(status.toString()))
+				this.status.setSelectedIndex(i);
+		}
+		
+	}
+
+	@Override
+	public void hiddenStatus() {
+		status.getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
+		
+	}
+
+	@Override
+	public String getStatus() {
+		return status.getValue(status.getSelectedIndex());
 	}
 
 

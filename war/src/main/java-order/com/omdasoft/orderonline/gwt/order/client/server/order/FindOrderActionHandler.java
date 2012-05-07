@@ -8,6 +8,7 @@ import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.DispatchException;
 
 import com.omdasoft.orderonline.domain.order.Orders;
+import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.FindOrderRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.FindOrderResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
@@ -60,6 +61,7 @@ public class FindOrderActionHandler extends
 		rep.setRestaurantId(order.getDepartment().getId());
 		rep.setRestaurantName(order.getDepartment().getName());
 		rep.setResult(order.getResult());
+		rep.setStatus(OrderStatus.valueOf(order.getOrderStatus().toString()));
 		return rep;
 	}
 

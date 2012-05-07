@@ -10,6 +10,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
+import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
 
 public interface OrderSavePresenter extends Presenter<OrderSavePresenter.OrderSaveDisplay> {
 	
@@ -59,5 +60,8 @@ public void initOrder(String orderId);
 		TextArea getMemo();
 		void setBreadCrumbs(Widget breadCrumbs);
 		void setTitleText(String text);
+		void initStatus(OrderStatus status);
+		void hiddenStatus();
+		String getStatus();
 	}
 }

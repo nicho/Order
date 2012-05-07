@@ -176,7 +176,7 @@ public class OrderSavePresenterImpl extends
 				}
 			}
 		}
-		
+		display.initStatus(request.getStatus());
 	}
 	private void init() {
 		registerHandler(display.getAddBtnClickHandlers().addClickHandler(
@@ -331,8 +331,10 @@ public class OrderSavePresenterImpl extends
 					.getValue(
 							display.getrestaurant()
 									.getSelectedIndex()));
-	
-		request.setOrderStatus(OrderStatus.UNHANDLED);
+		if (orderId == null) 
+			request.setOrderStatus(OrderStatus.UNHANDLED);
+		else
+			request.setOrderStatus(OrderStatus.valueOf(display.getStatus()));
 	}
 	private boolean verificationRequest(OrderSaveRequest req)
 	{
