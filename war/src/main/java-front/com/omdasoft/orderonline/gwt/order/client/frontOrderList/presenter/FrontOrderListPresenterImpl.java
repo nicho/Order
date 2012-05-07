@@ -126,7 +126,7 @@ public class FrontOrderListPresenterImpl extends
 						return order.getCode();
 					}
 				});
-		cellTable.addColumn("订房人", new TextCell(),
+		cellTable.addColumn("订餐人", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {

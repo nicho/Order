@@ -150,7 +150,7 @@ public class OrderListPresenterImpl extends
 						return order.getCode();
 					}
 				}, ref, "jobNo");
-		cellTable.addColumn("订房人", new TextCell(),
+		cellTable.addColumn("订餐人", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
