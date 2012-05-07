@@ -11,17 +11,14 @@
 
 
 			<!--查询条件 [[ -->
-			<div class="{new2.query-wrap}" style="display:none">
+			<div class="{new2.query-wrap}" >
 				<div class="{new2.form}">
-					<label for="">用户状态:</label>
-					<g:ListBox ui:field="staffStatus" styleName="{new2.select}" /> 
-					<span class="{new2.nbspbig}"></span> 
-					<label for="">用户编号或姓名:</label>
-					<g:TextBox maxLength="30" ui:field="staffNameorNo" styleName="{new2.text2}" />
+
+					<label for="">名称:</label>
+					<g:TextBox maxLength="30" ui:field="searchName" styleName="{new2.text2}" />
 					<span class="{new2.nbspbig}" ></span>
-					<label for="">用户角色:</label>
-					<g:ListBox ui:field="staffRole" styleName="{new2.select}" /> 
-					<span class="{new2.nbspbig}"></span> 
+				
+
 					<span class="{new2.btn}">
 						<g:Button ui:field="searchBtn" text="查询" width="100px" />
 					</span>

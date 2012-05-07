@@ -23,7 +23,15 @@ public class DishesTypeSearchCriteria implements Serializable {
 
 	private String corporationId;
 	private String deptId;
-
+	private String keyName;
+	
+	
+	public String getKeyName() {
+		return keyName;
+	}
+	public void setKeyName(String keyName) {
+		this.keyName = keyName;
+	}
 
 	private PaginationDetail paginationDetail = new PaginationDetail();
 

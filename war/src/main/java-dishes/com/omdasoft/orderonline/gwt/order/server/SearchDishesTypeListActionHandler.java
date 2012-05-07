@@ -58,6 +58,9 @@ public class SearchDishesTypeListActionHandler extends
 		}
 		if(action.getCriteria()!=null &&  !StringUtil.isEmpty(action.getCriteria().getDeptId()))
 			criteria.setDeptId(action.getCriteria().getDeptId());
+		if(!StringUtil.isEmpty(action.getCriteria().getKeyName()))
+			criteria.setKeyName(action.getCriteria().getKeyName());
+		
 		PageStore<DishesType> userpage= dishesService.getDishesTypeList(u, criteria);
 		rep.setTotal(userpage.getResultCount());
 		

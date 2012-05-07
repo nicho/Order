@@ -16,10 +16,9 @@ public interface DishesListPresenter extends Presenter<DishesListPresenter.Dishe
 
 		public HasClickHandlers getSearchBtnClickHandlers();
 		public HasClickHandlers getAddBtnClickHandlers();
-		void initStaffStatus();
-		String getSttaffStatus();
-		String getSttaffRole();
-		HasValue<String> getStaffNameorNo();
+
+
+		HasValue<String> getSearchName();
 
 		void setDataCount(String text);
 		void setBreadCrumbs(Widget breadCrumbs);

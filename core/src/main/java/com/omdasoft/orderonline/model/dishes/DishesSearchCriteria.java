@@ -15,7 +15,15 @@ public class DishesSearchCriteria implements Serializable {
 	String dishesTypeId;
 	String deptId;
 	String corporationId;
-
+	private String keyName;
+	
+	
+	public String getKeyName() {
+		return keyName;
+	}
+	public void setKeyName(String keyName) {
+		this.keyName = keyName;
+	}
 	public String getCorporationId() {
 		return corporationId;
 	}

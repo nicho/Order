@@ -65,6 +65,12 @@ public class DishesTypeDao extends BaseDao<DishesType> {
 			param.put("corpId", vo.getCorporationId());
 
 		}
+		if(!StringUtil.isEmptyString(vo.getKeyName()))
+		{
+			eql.append(" AND o.name LIKE :keyName ");
+			param.put("keyName", "%"+vo.getKeyName()+"%");
+
+		}
 		if (SEARCH.equals(type)) {
 			if (vo!=null && vo.getSortingDetail() != null && vo.getSortingDetail().getSort()!=null && vo.getSortingDetail().getDirection()!=null) {
 				eql.append(" user BY o." + vo.getSortingDetail().getSort()

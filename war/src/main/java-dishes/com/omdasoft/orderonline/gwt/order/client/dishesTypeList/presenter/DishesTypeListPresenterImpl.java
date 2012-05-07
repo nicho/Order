@@ -96,7 +96,6 @@ public class DishesTypeListPresenterImpl extends
 	}
 	
 	private void init() {	
-		display.initStaffStatus();
 		buildTable();
 		doSearch();
 	}
@@ -121,7 +120,7 @@ public class DishesTypeListPresenterImpl extends
 	private void doSearch() {
 		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
 		criteria.setSession(sessionManager.getSession());
-
+		criteria.setKeyName(display.getSearchName().getValue());
 		listViewAdapter = new DishesTypeListViewAdapter(dispatch, criteria,
 				errorHandler, sessionManager,display);
 		listViewAdapter.addDataDisplay(cellTable);

@@ -19,7 +19,15 @@ public class DishesTypeListCriteria implements IsSerializable {
 	private SortingDetailClient sorting;
 	private UserSession session;
 	private String deptId;
-
+	private String keyName;
+	
+	
+	public String getKeyName() {
+		return keyName;
+	}
+	public void setKeyName(String keyName) {
+		this.keyName = keyName;
+	}
 	public UserSession getSession() {
 		return session;
 	}

@@ -14,17 +14,12 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.presenter.DishesListPresenter.DishesListDisplay;
-import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 
 public class DishesListWidget extends Composite implements DishesListDisplay {
 
+
 	@UiField
-	TextBox staffNameorNo;
-	@UiField
-	ListBox staffStatus;
-	@UiField
-	ListBox staffRole;
-	
+	TextBox searchName;
 	@UiField
 	Button addBtn;
 
@@ -75,22 +70,8 @@ public class DishesListWidget extends Composite implements DishesListDisplay {
 		return this.addBtn;
 	}
 
-	@Override
-	public void initStaffStatus() {
-		staffStatus.addItem("不限", "ALL");
-		staffStatus.addItem("待入职", "ENTRY");
-		staffStatus.addItem("在职", "JOB");
-		staffStatus.addItem("已离职", "DEPARTURE");
-		
-		staffRole.addItem("不限", "ALL");
-		staffRole.addItem("HR管理员", UserRoleVo.CORP_ADMIN.toString());
 
-	}
 
-	@Override
-	public HasValue<String> getStaffNameorNo() {
-		return this.staffNameorNo;
-	}
 
 	@Override
 	public void setDataCount(String text) {
@@ -116,13 +97,10 @@ public class DishesListWidget extends Composite implements DishesListDisplay {
 	}
 
 	@Override
-	public String getSttaffStatus() {
-		return staffStatus.getValue(staffStatus.getSelectedIndex());
+	public HasValue<String> getSearchName() {
+		return searchName;
 	}
-	@Override
-	public String getSttaffRole() {
-		return staffRole.getValue(staffRole.getSelectedIndex());
-	}
+
 
 
 

@@ -16,10 +16,6 @@ public interface DishesTypeListPresenter extends Presenter<DishesTypeListPresent
 
 		public HasClickHandlers getSearchBtnClickHandlers();
 		public HasClickHandlers getAddBtnClickHandlers();
-		void initStaffStatus();
-		String getSttaffStatus();
-		String getSttaffRole();
-		HasValue<String> getStaffNameorNo();
 
 		void setDataCount(String text);
 		void setBreadCrumbs(Widget breadCrumbs);
@@ -28,6 +24,6 @@ public interface DishesTypeListPresenter extends Presenter<DishesTypeListPresent
 		Panel getResultpage();
 
 		public ListBox getPageNumber();
-
+		HasValue<String> getSearchName();
 	}
 }
