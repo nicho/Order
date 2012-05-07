@@ -3909,7 +3909,7 @@ a .green:hover {
     display: block;
 }
 .chooseBox {
-    border: 1px solid #DDDDDD;
+ 
     width: 788px;
 }
 .chooseBox .theadWap {
@@ -4002,7 +4002,7 @@ a .green:hover {
     text-decoration: none;
 }
 .chooseBox .getParam {
-    border-bottom: 1px dashed #D1D1D1;
+  
     line-height: 18px;
     margin: 0 10px;
     padding: 7px 0 2px;

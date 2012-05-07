@@ -18,7 +18,7 @@
 					<g:TextBox maxLength="30" ui:field="searchName" styleName="{new2.text2}" />
 					<span class="{new2.nbspbig}" ></span>
 				
-<div class="wraper clearfix">
+
     <div class="main">
     	<!-- 产品搜索 -->
 		<div class="chooseBox mb10">      
@@ -36,9 +36,9 @@
             </div>  
         </div>   
  	</div>
- </div>
+
 					<span class="{new2.btn}">
-						<g:Button ui:field="searchBtn" text="查询" width="100px" />
+						<g:Button ui:field="searchBtn" text="查询" />
 					</span>
 				</div>
 			</div>

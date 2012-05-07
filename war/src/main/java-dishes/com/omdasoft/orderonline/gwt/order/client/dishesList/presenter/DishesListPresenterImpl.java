@@ -101,6 +101,16 @@ public class DishesListPresenterImpl extends
 								"EDITOR_DISHESSAVE_SEARCH_DO_ID", null);
 					}
 				}));
+		display.getTypeall().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent arg0) {
+				cleanAnchorCss();
+				display.getTypeall().getElement().getParentElement().setClassName(allCss);
+				buildTable();
+				doSearch(null);
+			}
+		});
 	}
 	String allCss;
 	List<MyAnchor> anchorList=new ArrayList<MyAnchor>();

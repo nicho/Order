@@ -20,7 +20,7 @@
 				
 
 					<span class="{new2.btn}">
-						<g:Button ui:field="searchBtn" text="查询" width="100px" />
+						<g:Button ui:field="searchBtn" text="查询" />
 					</span>
 				</div>
 			</div>
