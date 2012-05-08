@@ -18,11 +18,14 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
+import com.omdasoft.orderonline.gwt.order.client.ui.UniversalCell;
 import com.omdasoft.orderonline.gwt.order.client.userAdd.plugin.UserAddConstants;
 import com.omdasoft.orderonline.gwt.order.client.userList.dataprovider.UserListViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.userList.model.UserListClient;
 import com.omdasoft.orderonline.gwt.order.client.userList.model.UserListCriteria;
 import com.omdasoft.orderonline.gwt.order.client.userList.model.UserListCriteria.StaffStatus;
+import com.omdasoft.orderonline.gwt.order.client.userList.request.UpdateUserPwdRequest;
+import com.omdasoft.orderonline.gwt.order.client.userList.request.UpdateUserPwdResponse;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.UserDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.UserDeleteResponse;
 import com.omdasoft.orderonline.gwt.order.client.userView.plugin.UserViewConstants;
@@ -33,6 +36,7 @@ import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.client.win.confirm.ConfirmHandler;
 import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class UserListPresenterImpl extends
 		BasePresenter<UserListPresenter.UserListDisplay> implements
@@ -190,6 +194,50 @@ public class UserListPresenterImpl extends
 						.openEditor(
 								UserViewConstants.EDITOR_STAFFVIEW_SEARCH,
 								"EDITOR_STAFFVIEW_SEARCH_DO_ID", o.getStaffId());
+					}
+
+				});
+		cellTable.addColumn("操作", new UniversalCell(),
+				new GetValue<UserListClient, String>() {
+					@Override
+					public String getValue(UserListClient rewards) {
+						if(!StringUtil.isEmpty(rewards.getStaffId()))
+						return "<a style=\"color:bule;\" href=\"javascript:void(0);\">重置密码</a>";
+						else
+						return "<span  style='color: rgb(221, 221, 221);'>重置密码</span>";
+					}
+				}, new FieldUpdater<UserListClient, String>() {
+
+					@Override
+					public void update(int index, final UserListClient o,
+							String value) {
+						if(!StringUtil.isEmpty(o.getStaffId()))
+						win.confirm("提示", "确定重置 <font color='blue'>"+o.getStaffName()+"</font> 的密码", new ConfirmHandler() {
+							
+							@Override
+							public void confirm() {
+								dispatch.execute(new UpdateUserPwdRequest(o.getStaffId(),"123",sessionManager.getSession()),
+										new AsyncCallback<UpdateUserPwdResponse>() {
+
+											@Override
+											public void onFailure(Throwable t) {
+												win.alert(t.getMessage());
+											}
+
+											@Override
+											public void onSuccess(UpdateUserPwdResponse resp) {
+												if("success".equals(resp.getMessage()))
+												{
+													win.alert("密码重置成功!初始密码:123");
+												
+												}
+												
+											}
+										});
+								}
+						});
+						
+						
 					}
 
 				});

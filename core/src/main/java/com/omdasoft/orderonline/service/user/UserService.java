@@ -116,4 +116,14 @@ public interface UserService {
 	 * @return
 	 */
 	public String updateStaffPwd(String userId,String oldpwd,String pwd,String byUserId);
+	
+	/**
+	 *	重置密码
+	 * @param staffId
+	 * @param pwd
+	 * @return
+	 */
+	public String updateUserPwd(String staffId,String pwd,String byUserId);
+	
+	
 }

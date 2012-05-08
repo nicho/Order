@@ -123,4 +123,10 @@ public class UserServiceImpl implements UserService {
 		return userLogic.updateStaffPwd(userId,oldpwd, pwd,byUserId);
 	}
 
+
+	@Override
+	public String updateUserPwd(String staffId, String pwd, String byUserId) {
+		return userLogic.updateUserPwd(staffId, pwd, byUserId);
+	}
+
 }

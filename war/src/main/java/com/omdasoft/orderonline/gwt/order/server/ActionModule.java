@@ -46,6 +46,7 @@ import com.omdasoft.orderonline.gwt.order.client.server.order.SearchOrderDishesL
 import com.omdasoft.orderonline.gwt.order.client.server.order.SearchOrderListActionHandler;
 import com.omdasoft.orderonline.gwt.order.client.userAdd.request.UserAddRequest;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.SearchUserListRequest;
+import com.omdasoft.orderonline.gwt.order.client.userList.request.UpdateUserPwdRequest;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.UserDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.userView.request.UserViewRequest;
 import com.omdasoft.orderonline.gwt.order.server.enterprise.EnterpriseActionHandler;
@@ -66,6 +67,7 @@ import com.omdasoft.orderonline.gwt.order.server.user.SearchRestaurantListAction
 import com.omdasoft.orderonline.gwt.order.server.user.SearchUserListActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.SearchUserViewActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.UpdateStaffPwdActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.user.UpdateUserPwdActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.UserAddActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.user.UserDeleteActionHandler;
 
@@ -132,6 +134,7 @@ public class ActionModule extends ActionHandlerModule {
 		
 		
 		bindHandler(PasswordRequest.class,UpdateStaffPwdActionHandler.class);
+		bindHandler(UpdateUserPwdRequest.class,UpdateUserPwdActionHandler.class);
 		
 	}
 }
