@@ -31,8 +31,9 @@ public class OrdersDishesWidget extends Composite implements
 	@UiField
 	Panel bookingPanel;
 
-
-
+	@UiField
+	InlineLabel bookingTitle;
+	
 	@UiField
 	InlineLabel city;
 	@UiField
@@ -143,6 +144,11 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public Anchor getTypeall() {
 		return typeall;
+	}
+
+	@Override
+	public void setBookingTitle(String text) {
+		bookingTitle.setText(text);
 	}
 
 }

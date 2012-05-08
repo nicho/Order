@@ -19,7 +19,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
@@ -224,10 +223,10 @@ public class OrdersDishesPresenterImpl extends
 					}
 
 				}
-				Label lb=new Label("还未点菜");
-				lb.setStyleName("redlable");
+
+				
+				display.setBookingTitle("还未点菜");
 				display.getBookingPanel().clear();
-				display.getBookingPanel().add(lb);
 				display.hiddenDishesNumber(true);
 			}
 
@@ -299,6 +298,7 @@ public class OrdersDishesPresenterImpl extends
 		cellBookingTable.setWidth(ViewConstants.page_width);
 		cellBookingTable.setPageSize(100);
 	//	cellTable.getColumn(0).setCellStyleNames("divTextLeft");
+		display.setBookingTitle("");
 		display.getBookingPanel().clear();
 		display.getBookingPanel().add(cellBookingTable);
 		cellBookingTable.setRowCount(0);
@@ -459,6 +459,7 @@ public class OrdersDishesPresenterImpl extends
 								List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
 										lt.add(col);
 								cellBookingTable.setRowData(cellBookingTable.getRowCount(), lt);
+								
 							
 						}
 					}else
@@ -568,11 +569,15 @@ public class OrdersDishesPresenterImpl extends
 
 					@Override
 					public void update(int index, BookingDishesClient o, String value) {
-						
-						
-						cellBookingTable.getRowElement(index).removeFromParent();
-
-						cellBookingTable.flush();
+						cellBookingTable.flush(); 
+					
+						List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+								for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
+									if(!cellBookingTable.getVisibleItems().get(0).getId().equals(o.getId()))
+										lt.add(o);
+								}
+						cellBookingTable.setRowData(lt);
+						cellBookingTable.flush(); 
 						sumNumberMoney();
 					}
 

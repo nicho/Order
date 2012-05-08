@@ -30,6 +30,7 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 		void setRoom(String text);
 		void setDishesNumber(String text);
 		void setDishesMoney(String text);
+		void setBookingTitle(String text);
 		void hiddenDishesNumber(boolean fal);
 		Anchor getTypeall();
 

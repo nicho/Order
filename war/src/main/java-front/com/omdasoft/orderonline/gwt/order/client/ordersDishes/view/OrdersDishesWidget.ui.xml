@@ -52,7 +52,7 @@
 						</h3>
 					</div>
 					
-					<h3>当前菜品：</h3>
+					<h3>当前菜品：<g:InlineLabel ui:field="bookingTitle" styleName="redlable" /></h3>
 					
 					<div class="{new1.table}">
 						<g:FlowPanel ui:field="bookingPanel" />
