@@ -14,6 +14,8 @@ import com.google.gwt.cell.client.SelectionCell;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.cellview.client.Column;
@@ -69,6 +71,7 @@ public class OrdersDishesPresenterImpl extends
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	List<String> dwlt=new ArrayList<String>();
 	List<String> kwlt=new ArrayList<String>();
+	int pageSize=ViewConstants.per_page_number_in_front;
 	@Inject
 	public OrdersDishesPresenterImpl(EventBus eventBus,
 			OrdersDishesDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler) {
@@ -80,7 +83,16 @@ public class OrdersDishesPresenterImpl extends
 	@Override
 	public void bind() {
 		init();
-	
+		registerHandler(display.getPageNumber().addChangeHandler(new ChangeHandler() {			
+			@Override
+			public void onChange(ChangeEvent event) {
+				pageSize=Integer.parseInt(display.getPageNumber().getValue(display.getPageNumber().getSelectedIndex()));
+				cleanAnchorCss();
+				display.getTypeall().getElement().getParentElement().setClassName(allCss);
+				buildTable();
+				doSearch(null);
+			}
+		}));
 		registerHandler(display.getAddBtnClickHandlers().addClickHandler(
 				new ClickHandler() {
 					@Override
@@ -313,7 +325,7 @@ public class OrdersDishesPresenterImpl extends
 		pager = new EltNewPager(TextLocation.CENTER);
 		pager.setDisplay(cellTable);
 		cellTable.setWidth(ViewConstants.page_width);
-		cellTable.setPageSize(ViewConstants.per_page_number_in_dialog);
+		cellTable.setPageSize(pageSize);
 	//	cellTable.getColumn(0).setCellStyleNames("divTextLeft");
 		display.getResultPanel().clear();
 		display.getResultPanel().add(cellTable);

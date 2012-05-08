@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
@@ -50,7 +51,8 @@ public class OrdersDishesWidget extends Composite implements
 	InlineLabel dishesMoney;
 	@UiField
 	Anchor typeall;
-	
+	@UiField
+	ListBox pageNumber;
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
 			.create(OrdersDishesWidgetUiBinder.class);
 
@@ -60,8 +62,17 @@ public class OrdersDishesWidget extends Composite implements
 
 	public OrdersDishesWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+		pageNumber.clear();
+		pageNumber.addItem("5","5");
+		pageNumber.addItem("10","10");
+		pageNumber.addItem("20","20");
+		pageNumber.addItem("50","50");
+		pageNumber.addItem("100","100");
 	}
-
+	@Override
+	public ListBox getPageNumber() {
+		return pageNumber;
+	}
 	@Override
 	public HasClickHandlers getAddBtnClickHandlers() {
 		return this.addBtn;
