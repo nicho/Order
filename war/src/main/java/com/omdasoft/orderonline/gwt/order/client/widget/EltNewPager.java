@@ -223,12 +223,13 @@ public class EltNewPager extends AbstractPager {
 		if (location == TextLocation.RIGHT) {
 			layout.add(label);
 		}
-		layout.add(prevPage);
-		layout.add(firstPage);
+
 
 		if (location == TextLocation.CENTER) {
 			layout.add(label);
 		}
+		layout.add(prevPage);
+		layout.add(firstPage);
 		layout.add(onePage);
 		layout.add(twoPage);
 		layout.add(threePage);
