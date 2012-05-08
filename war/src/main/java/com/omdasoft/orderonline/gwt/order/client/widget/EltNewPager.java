@@ -455,8 +455,7 @@ public class EltNewPager extends AbstractPager {
 		}
 		setButtonStyle(currentPage, totalPage);
 		
-		return "";
-		// return "当前第 " + currentPage + " 页,"+"共"+totalPage+"页,共"+dataSize+"条";
+		 return "当前第 " + currentPage + " 页,"+"共"+totalPage+"页";
 	}
 	int indexpage=1;
 	public void setButtonStyle(int currentPage, int totalPage) {
