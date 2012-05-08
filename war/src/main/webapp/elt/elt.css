@@ -3979,7 +3979,7 @@ a .green:hover {
     margin-top: -1px;
     position: relative;
     width: 788px;
-    z-index: 301;
+
 }
 .chooseBox .allBrand {
     float: right;
@@ -5841,7 +5841,7 @@ a .green:hover {
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 301;
+ 
 }
 .otherCity {
     background: none repeat scroll 0 0 #FFFBF0;
