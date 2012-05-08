@@ -15,6 +15,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.request.SearchDishes
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.common.PaginationDetail;
+import com.omdasoft.orderonline.model.common.SortingDetail;
 import com.omdasoft.orderonline.model.dishes.DishesSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.service.dishes.DishesService;
@@ -55,6 +56,13 @@ public class SearchDishesListActionHandler extends
 			detail.setStart(action.getCriteria().getPagination().getStart());
 
 			criteria.setPaginationDetail(detail);
+		}
+		
+		if (action.getCriteria().getSorting() != null) {
+			SortingDetail sortingDetail = new SortingDetail();
+			sortingDetail.setSort(action.getCriteria().getSorting().getSort());
+			sortingDetail.setDirection(action.getCriteria().getSorting().getDirection());
+			criteria.setSortingDetail(sortingDetail);
 		}
 		if(!StringUtil.isEmpty(action.getCriteria().getTypeId()))
 			criteria.setDishesTypeId(action.getCriteria().getTypeId());

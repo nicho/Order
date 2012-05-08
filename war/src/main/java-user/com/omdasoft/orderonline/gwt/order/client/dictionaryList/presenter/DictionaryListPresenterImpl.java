@@ -156,7 +156,7 @@ public class DictionaryListPresenterImpl extends
 						return staff.getId().substring(
 								staff.getId().length() - 4);
 					}
-				}, ref, "id");
+				});
 		cellTable.addColumn("名称", new TextCell(),
 				new GetValue<DictionaryListClient, String>() {
 					@Override

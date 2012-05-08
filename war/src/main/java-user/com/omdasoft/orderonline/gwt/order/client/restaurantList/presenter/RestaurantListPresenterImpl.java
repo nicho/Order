@@ -160,14 +160,14 @@ public class RestaurantListPresenterImpl extends
 					public String getValue(RestaurantListClient restaurant) {
 						return restaurant.getId().substring(restaurant.getId().length()-4);
 					}
-				}, ref, "id");
+				});
 		cellTable.addColumn("分店名", new TextCell(),
 				new GetValue<RestaurantListClient, String>() {
 					@Override
 					public String getValue(RestaurantListClient restaurant) {
 						return restaurant.getName();
 					}
-				}, ref, "name");
+				}, ref, "corporation.name");
 		cellTable.addColumn("城市", new TextCell(),
 				new GetValue<RestaurantListClient, String>() {
 					@Override
@@ -195,7 +195,7 @@ public class RestaurantListPresenterImpl extends
 					public String getValue(RestaurantListClient restaurant) {
 						return restaurant.getDeptAdmin();
 					}
-				}, ref, "name");
+				});
 		cellTable.addColumn("操作", new HyperLinkCell(),
 				new GetValue<RestaurantListClient, String>() {
 					@Override

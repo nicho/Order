@@ -17,6 +17,7 @@ import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.UserRoleTool;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.common.PaginationDetail;
+import com.omdasoft.orderonline.model.common.SortingDetail;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.service.order.OrderService;
@@ -56,6 +57,12 @@ public class SearchOrderListActionHandler extends
 			detail.setStart(action.getCriteria().getPagination().getStart());
 
 			criteria.setPaginationDetail(detail);
+		}
+		if (action.getCriteria().getSorting() != null) {
+			SortingDetail sortingDetail = new SortingDetail();
+			sortingDetail.setSort(action.getCriteria().getSorting().getSort());
+			sortingDetail.setDirection(action.getCriteria().getSorting().getDirection());
+			criteria.setSortingDetail(sortingDetail);
 		}
 		if(!StringUtil.isEmptyString(action.getCriteria().getPhone()))
 		{

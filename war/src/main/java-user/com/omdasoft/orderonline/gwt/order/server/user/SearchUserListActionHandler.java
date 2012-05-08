@@ -15,6 +15,7 @@ import com.omdasoft.orderonline.gwt.order.client.userList.request.SearchUserList
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.common.PaginationDetail;
+import com.omdasoft.orderonline.model.common.SortingDetail;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.user.UserSearchCriteria;
 import com.omdasoft.orderonline.service.user.UserService;
@@ -49,6 +50,12 @@ public class SearchUserListActionHandler extends
 			detail.setStart(action.getCriteria().getPagination().getStart());
 
 			criteria.setPaginationDetail(detail);
+		}
+		if (action.getCriteria().getSorting() != null) {
+			SortingDetail sortingDetail = new SortingDetail();
+			sortingDetail.setSort(action.getCriteria().getSorting().getSort());
+			sortingDetail.setDirection(action.getCriteria().getSorting().getDirection());
+			criteria.setSortingDetail(sortingDetail);
 		}
 		PageStore<SysUser> userpage= userService.getUserList(u, criteria);
 		rep.setTotal(userpage.getResultCount());
