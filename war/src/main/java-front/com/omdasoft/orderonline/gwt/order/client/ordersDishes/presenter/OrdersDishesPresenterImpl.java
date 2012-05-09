@@ -362,6 +362,11 @@ public class OrdersDishesPresenterImpl extends
 			display.setDishesNumber(number+"");
 			display.setDishesMoney(money+"");
 		}
+		else
+		{
+			display.setDishesNumber(0+"");
+			display.setDishesMoney(0+"");
+		}
 	}
 	private void initTableColumns() {
 		Sorting<DishesListClient> ref = new Sorting<DishesListClient>() {
