@@ -1993,7 +1993,7 @@ ul.token-input-list-facebook3 li input {
 
 
 
-body, h1, h2, h3, h4, blockquote, p, dl, dt, dd, ul, ol, li, th, td, form, fieldset, legend, button, input, textarea {
+body, h1, h2, h3, h4, blockquote, p, dl, dt, dd, ul, ol, li, th, td, form, fieldset, legend, input, textarea {
     margin: 0;
     padding: 0;
 }
