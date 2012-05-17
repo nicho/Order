@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:d='urn:import:com.google.gwt.user.datepicker.client'
+	xmlns:c="urn:import:com.google.gwt.user.cellview.client">
+	<ui:style src="new2.css" field="new2"></ui:style>
+
+	<g:HTMLPanel>
+
+		<div class="{new2.employee}">
+			<div class="{new2.gift-wrap}">
+				<div class="{new2.shop-gift-list} {new2.clearfix}">
+					<div class="{new2.shop-gift}">
+						<g:Image width="180" height="140" pixelSize="180,135"
+							ui:field="photo" url="elt/images/gift.png"/>
+						<p class="{new2.gift-name}">
+							<g:Anchor ui:field="awardName" styleName="{new2.shopa}" />
+						</p>
+						<p>
+						价格:
+							<span class="{new2.color-orange}">
+								<g:InlineLabel ui:field="integral" />
+							</span>
+							
+						</p>
+						<p class="{new2.limit-date}">
+							
+						</p>
+						<g:Anchor ui:field="exchangeBtn">
+							<span class="{new2.gift-duihuan}"></span>
+						</g:Anchor>
+					</div>
+				</div>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>

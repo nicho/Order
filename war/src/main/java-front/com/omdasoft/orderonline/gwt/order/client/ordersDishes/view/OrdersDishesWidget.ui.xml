@@ -85,7 +85,7 @@
 					
 					<dl>
 						<dt style="width:100%;height:100%;text-align: left;">
-							<div class="{new1.table}">
+							<div class="{new1.table2}">
 								<g:FlowPanel ui:field="resultPanel" />
 							</div>
 

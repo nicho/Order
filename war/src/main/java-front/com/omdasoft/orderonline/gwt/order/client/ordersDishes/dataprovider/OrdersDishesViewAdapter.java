@@ -1,8 +1,12 @@
 package com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider;
 
+import java.util.List;
+
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Grid;
+import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.view.AwardShopLatticeWidget;
 import com.omdasoft.orderonline.gwt.order.client.dataprovider.BaseDataProvider;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListClient;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListCriteria;
@@ -60,9 +64,39 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 
 			@Override
 			public void onSuccess(SearchDishesListResponse response) {
-				updateRowData(start, response.getResult());
+			//	updateRowData(start, response.getResult());
 				updateRowCount(response.getTotal(), true);
 			
+				List<DishesListClient> giftList=response.getResult();
+				int index=0;
+				 Grid grid = new Grid(2, 5);
+					
+				    // Add images to the grid
+				    int numRows = grid.getRowCount();
+				    int numColumns = grid.getColumnCount();
+				    for (int row = 0; row < numRows; row++) {
+				      for (int col = 0; col < numColumns; col++) {
+				    	  if(index<giftList.size())	
+				    	  {
+				    		  DishesListClient clint=giftList.get(index);
+				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"","",clint.getPhoto(),clint.getId()).asWidget());
+				    	  	  index++;
+				    	  }
+				    	  else
+				    	  {
+//				    		  grid.setWidget(row, col,new AwardShopLatticeWidget("","0","",null,null).asWidget());
+				    		  break;
+				    	  }
+				      }
+				    }
+
+				    // Return the panel
+				    grid.ensureDebugId("cwGrid");
+				    
+					display.getResultPanel().clear();
+					display.getResultPanel().add(grid);
+				
+				
 			}
 
 		});

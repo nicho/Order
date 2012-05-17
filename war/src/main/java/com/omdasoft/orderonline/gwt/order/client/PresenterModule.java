@@ -2,6 +2,7 @@ package com.omdasoft.orderonline.gwt.order.client;
 
 
 import com.google.gwt.inject.client.AbstractGinModule;
+import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.module.AwardShopLatticeModule;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.module.BreadCrumbsModule;
 import com.omdasoft.orderonline.gwt.order.client.core.presenter.DockModule;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.module.DictionaryListModule;
@@ -58,6 +59,7 @@ public class PresenterModule extends AbstractGinModule {
 		install(new UserAddModule());
 		install(new UserViewModule());
 		install(new PasswordModule());
+		install(new AwardShopLatticeModule());
 
 
 	}
