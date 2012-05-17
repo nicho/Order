@@ -90,8 +90,8 @@
 							</div>
 
 
-							<div id="rewardlist_page2" class="{new1.pager}">
-								<div class="{new1.pager-left}">
+							<div id="rewardlist_page2" class="{new1.pager}" >
+								<div class="{new1.pager-left}" style='display:none;'>
 									每页显示条数
 									<g:ListBox ui:field="pageNumber" styleName="{new2.select}" /> 
 								</div>

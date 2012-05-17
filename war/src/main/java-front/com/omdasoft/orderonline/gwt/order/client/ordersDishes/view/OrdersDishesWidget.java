@@ -63,11 +63,8 @@ public class OrdersDishesWidget extends Composite implements
 	public OrdersDishesWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 		pageNumber.clear();
-		pageNumber.addItem("5","5");
-		pageNumber.addItem("10","10");
-		pageNumber.addItem("20","20");
-		pageNumber.addItem("50","50");
-		pageNumber.addItem("100","100");
+		pageNumber.addItem("12","12");
+
 	}
 	@Override
 	public ListBox getPageNumber() {

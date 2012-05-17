@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListCrit
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.SearchDishesListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.SearchDishesListResponse;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
@@ -24,15 +25,17 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 	DishesListCriteria criteria;
 	final ErrorHandler errorHandler;
 	final SessionManager sessionManager;
+	final OrdersDishesPresenter ordersDishesPresenter;
 
 	public OrdersDishesViewAdapter(DispatchAsync dispatch,
 			DishesListCriteria criteria, ErrorHandler errorHandler,
-			SessionManager sessionManager, OrdersDishesDisplay display) {
+			SessionManager sessionManager, OrdersDishesDisplay display,OrdersDishesPresenter ordersDishesPresenter) {
 		this.dispatch = dispatch;
 		this.criteria = criteria;
 		this.errorHandler = errorHandler;
 		this.sessionManager = sessionManager;
 		this.display=display;
+		this.ordersDishesPresenter=ordersDishesPresenter;
 	}
 
 	public void fetchData(final int start, final int length) {
@@ -69,7 +72,7 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 			
 				List<DishesListClient> giftList=response.getResult();
 				int index=0;
-				 Grid grid = new Grid(2, 5);
+				 Grid grid = new Grid(3, 4);
 					
 				    // Add images to the grid
 				    int numRows = grid.getRowCount();
@@ -79,7 +82,7 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 				    	  if(index<giftList.size())	
 				    	  {
 				    		  DishesListClient clint=giftList.get(index);
-				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"","",clint.getPhoto(),clint.getId()).asWidget());
+				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"",clint.getDescription(),clint.getPhoto(),clint.getId(),display,ordersDishesPresenter).asWidget());
 				    	  	  index++;
 				    	  }
 				    	  else

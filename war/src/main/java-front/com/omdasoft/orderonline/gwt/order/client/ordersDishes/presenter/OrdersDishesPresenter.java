@@ -10,7 +10,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 
 public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.OrdersDishesDisplay> {
-	
+	public void updateDishesList(String id,String name,String price);
 	public void initOrdersDishes(OrderSaveRequest request);
 	public static interface OrdersDishesDisplay extends Display {
 

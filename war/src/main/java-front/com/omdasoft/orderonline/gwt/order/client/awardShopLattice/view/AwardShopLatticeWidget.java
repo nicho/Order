@@ -11,6 +11,9 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.presenter.AwardShopLatticePresenter.AwardShopLatticeDisplay;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesDetailedWidget;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class AwardShopLatticeWidget extends Composite implements
@@ -35,7 +38,7 @@ public class AwardShopLatticeWidget extends Composite implements
 	public AwardShopLatticeWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	public AwardShopLatticeWidget(final String awardName,final String integral,String indate,String photo,final String id) {
+	public AwardShopLatticeWidget(final String awardName,final String integral,final String indate,final String photo,final String id,final OrdersDishesDisplay display,final OrdersDishesPresenter ordersDishesPresenter) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.awardName.setText(awardName);
 		this.integral.setText(integral);
@@ -48,15 +51,15 @@ public class AwardShopLatticeWidget extends Composite implements
 			
 			@Override
 			public void onClick(ClickEvent event) {
-			//	win.alert("礼品名称:"+awardName+"-----积分:"+integral+"ID:"+id);
-
+				ordersDishesPresenter.updateDishesList(id, awardName, integral);
 			}
 		});
 		this.awardName.addClickHandler(new ClickHandler() {
 			
 			@Override
 			public void onClick(ClickEvent event) {
-
+				display.getDetailPanel().clear();
+				display.getDetailPanel().add(new DishesDetailedWidget(awardName,integral,indate,photo));
 			}
 		});
 		}

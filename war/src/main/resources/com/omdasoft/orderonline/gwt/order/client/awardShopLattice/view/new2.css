@@ -234,7 +234,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 
 .employee .gift-wrap{margin-top:10px;}
 .employee .gift-wrap .shop-gift-list{margin-top:0px;overflow:hidden;margin-bottom:-26px;\*margin-bottom:0;\*padding-bottom:10px;\_zoom:1;\_position:relative;}
-.employee .gift-wrap .shop-gift{border:1px solid #CCCCCC;padding:10px;width:180px;overflow:hidden;position:relative;background-color:#FFFFFF;float:left;margin: 0 5px 5px;}
+.employee .gift-wrap .shop-gift{border:1px solid #CCCCCC;padding:10px;width:180px;overflow:hidden;position:relative;background-color:#FFFFFF;float:left;margin: 0 5px 15px;}
 .employee .gift-wrap .shop-gift p{line-height:23px;text-align: left;}
 .employee .gift-wrap .shop-gift img{width:180px;height:135px;overflow:hidden;}
 .employee .gift-wrap .gift-name{margin-top:5px;font-size:14px;width:180px;height:22px;overflow:hidden;}

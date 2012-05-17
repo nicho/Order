@@ -1,7 +1,6 @@
 package com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,14 +42,12 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
-import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesDetailedWidget;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
 import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
-import com.omdasoft.orderonline.gwt.order.client.widget.Sorting;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
@@ -71,7 +68,7 @@ public class OrdersDishesPresenterImpl extends
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	List<String> dwlt=new ArrayList<String>();
 	List<String> kwlt=new ArrayList<String>();
-	int pageSize=ViewConstants.per_page_number_in_front;
+	int pageSize=ViewConstants.per_page_number_in_12;
 	@Inject
 	public OrdersDishesPresenterImpl(EventBus eventBus,
 			OrdersDishesDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler) {
@@ -321,7 +318,7 @@ public class OrdersDishesPresenterImpl extends
 		// create a CellTable
 		cellTable = new ListCellTable<DishesListClient>();
 
-		initTableColumns();
+	//	initTableColumns();
 		pager = new EltNewPager(TextLocation.CENTER);
 		pager.setDisplay(cellTable);
 		cellTable.setWidth(ViewConstants.page_width);
@@ -340,7 +337,7 @@ public class OrdersDishesPresenterImpl extends
 		criteria.setTypeId(typeId);
 		criteria.setDeptId(request.getRestaurantId());
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
-				errorHandler, null,display);
+				errorHandler, null,display,this);
 		listViewAdapter.addDataDisplay(cellTable);
 
 	}
@@ -368,147 +365,147 @@ public class OrdersDishesPresenterImpl extends
 			display.setDishesMoney(0+"");
 		}
 	}
-	private void initTableColumns() {
-		Sorting<DishesListClient> ref = new Sorting<DishesListClient>() {
-			@Override
-			public void sortingCurrentPage(Comparator<DishesListClient> comparator) {
-				// listViewAdapter.sortCurrentPage(comparator);
-			}
-
-			@Override
-			public void sortingAll(String sorting, String direction) {
-				listViewAdapter.sortFromDateBase(sorting, direction);
-
-			}
-		};
-
-
-		cellTable.addColumn("菜品", new TextCell(),
-				new GetValue<DishesListClient, String>() {
-					@Override
-					public String getValue(DishesListClient dishes) {
-						return dishes.getName();
-					}
-				}, ref, "name");
-
-		cellTable.addColumn("图片",new HyperLinkCell(),
-				new GetValue<DishesListClient, String>() {
-					@Override
-					public String getValue(DishesListClient dishes) {
-						return  "<img width='50px' height='50px' src='imageshow?imageName="+dishes.getPhoto()+"'>";
-					}
-				}, new FieldUpdater<DishesListClient, String>() {
-
-					@Override
-					public void update(int index, DishesListClient o, String value) {
-						display.getDetailPanel().clear();
-						display.getDetailPanel().add(new DishesDetailedWidget(o.getName(),o.getPrice(),o.getDescription(),o.getPhoto()));
-					}
-
-				});
-
-		cellTable.addColumn("价格", new TextCell(),
-				new GetValue<DishesListClient, String>() {
-					@Override
-					public String getValue(DishesListClient dishes) {
-						return dishes.getPrice();
-					}
-				}, ref, "name");
-		cellTable.addColumn("操作", new HyperLinkCell(),
-				new GetValue<DishesListClient, String>() {
-					@Override
-					public String getValue(DishesListClient dishesType) {
-						return "查看详细";
-					}
-				}, new FieldUpdater<DishesListClient, String>() {
-
-					@Override
-					public void update(int index, DishesListClient o, String value) {
-						display.getDetailPanel().clear();
-						display.getDetailPanel().add(new DishesDetailedWidget(o.getName(),o.getPrice(),o.getDescription(),o.getPhoto()));
-					}
-
-				});
-		cellTable.addColumn("操作", new HyperLinkCell(),
-				new GetValue<DishesListClient, String>() {
-					@Override
-					public String getValue(DishesListClient dishesType) {
-						return "添加";
-					}
-				}, new FieldUpdater<DishesListClient, String>() {
-
-					@Override
-					public void update(int index, DishesListClient o, String value) {
-					//	Window.alert(cellTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().getFirstChildElement().getFirstChildElement().getAttribute("id"));
-						if(cellBookingTable==null)
-						{
-							buildBookingTable();
-							display.hiddenDishesNumber(false);
-						}
-						System.out.println(cellBookingTable.getRowCount());
-						if(cellBookingTable.getRowCount()>=1)
-						{
-						boolean fal=false;
-						for (int i = 0; i < cellBookingTable.getRowCount(); i++) {
-							if(cellBookingTable.getVisibleItem(i).getId().equals(o.getId()))
-							{
-								int number=(cellBookingTable.getVisibleItem(i).getNumber()+1);
-								cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().setInnerText(number+"");
-								cellBookingTable.getVisibleItem(i).setNumber(number);
-								
-								cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().setInnerText((number*Double.parseDouble(cellBookingTable.getVisibleItem(i).getPrice()))+"");
-								fal=true;
-							}
-							
-						}
-						if(fal==false)
-						{
-
-								BookingDishesClient col=new BookingDishesClient();
-								col.setId(o.getId());
-								col.setName(o.getName());
-								col.setNumber(1);
-								col.setPrice(o.getPrice());
-								if(kwlt.size()>0)
-								col.setTaste(kwlt.get(0));
-								if(dwlt.size()>0)
-								col.setUnit(dwlt.get(0));
-			
-								
-								List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
-								for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
-										lt.add(cellBookingTable.getVisibleItems().get(i));
-								}
-								lt.add(col);
-								cellBookingTable.setRowData(lt);
-							
-						}
-					}
-						else{
-							BookingDishesClient col=new BookingDishesClient();
-							col.setId(o.getId());
-							col.setName(o.getName());
-							col.setNumber(1);
-							col.setPrice(o.getPrice());
-							if(kwlt.size()>0)
-							col.setTaste(kwlt.get(0));
-							if(dwlt.size()>0)
-							col.setUnit(dwlt.get(0));
-							List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
-							for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
-									lt.add(cellBookingTable.getVisibleItems().get(i));
-							}
-							lt.add(col);
-							cellBookingTable.setRowData(lt);
-						}
-
-						
-						sumNumberMoney();
-					}
-
-				});
-	
-	}
+//	private void initTableColumns() {
+//		Sorting<DishesListClient> ref = new Sorting<DishesListClient>() {
+//			@Override
+//			public void sortingCurrentPage(Comparator<DishesListClient> comparator) {
+//				// listViewAdapter.sortCurrentPage(comparator);
+//			}
+//
+//			@Override
+//			public void sortingAll(String sorting, String direction) {
+//				listViewAdapter.sortFromDateBase(sorting, direction);
+//
+//			}
+//		};
+//
+//
+//		cellTable.addColumn("菜品", new TextCell(),
+//				new GetValue<DishesListClient, String>() {
+//					@Override
+//					public String getValue(DishesListClient dishes) {
+//						return dishes.getName();
+//					}
+//				}, ref, "name");
+//
+//		cellTable.addColumn("图片",new HyperLinkCell(),
+//				new GetValue<DishesListClient, String>() {
+//					@Override
+//					public String getValue(DishesListClient dishes) {
+//						return  "<img width='50px' height='50px' src='imageshow?imageName="+dishes.getPhoto()+"'>";
+//					}
+//				}, new FieldUpdater<DishesListClient, String>() {
+//
+//					@Override
+//					public void update(int index, DishesListClient o, String value) {
+//						display.getDetailPanel().clear();
+//						display.getDetailPanel().add(new DishesDetailedWidget(o.getName(),o.getPrice(),o.getDescription(),o.getPhoto()));
+//					}
+//
+//				});
+//
+//		cellTable.addColumn("价格", new TextCell(),
+//				new GetValue<DishesListClient, String>() {
+//					@Override
+//					public String getValue(DishesListClient dishes) {
+//						return dishes.getPrice();
+//					}
+//				}, ref, "name");
+//		cellTable.addColumn("操作", new HyperLinkCell(),
+//				new GetValue<DishesListClient, String>() {
+//					@Override
+//					public String getValue(DishesListClient dishesType) {
+//						return "查看详细";
+//					}
+//				}, new FieldUpdater<DishesListClient, String>() {
+//
+//					@Override
+//					public void update(int index, DishesListClient o, String value) {
+//						display.getDetailPanel().clear();
+//						display.getDetailPanel().add(new DishesDetailedWidget(o.getName(),o.getPrice(),o.getDescription(),o.getPhoto()));
+//					}
+//
+//				});
+//		cellTable.addColumn("操作", new HyperLinkCell(),
+//				new GetValue<DishesListClient, String>() {
+//					@Override
+//					public String getValue(DishesListClient dishesType) {
+//						return "添加";
+//					}
+//				}, new FieldUpdater<DishesListClient, String>() {
+//
+//					@Override
+//					public void update(int index, DishesListClient o, String value) {
+//					//	Window.alert(cellTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().getFirstChildElement().getFirstChildElement().getAttribute("id"));
+//						if(cellBookingTable==null)
+//						{
+//							buildBookingTable();
+//							display.hiddenDishesNumber(false);
+//						}
+//						System.out.println(cellBookingTable.getRowCount());
+//						if(cellBookingTable.getRowCount()>=1)
+//						{
+//						boolean fal=false;
+//						for (int i = 0; i < cellBookingTable.getRowCount(); i++) {
+//							if(cellBookingTable.getVisibleItem(i).getId().equals(o.getId()))
+//							{
+//								int number=(cellBookingTable.getVisibleItem(i).getNumber()+1);
+//								cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().setInnerText(number+"");
+//								cellBookingTable.getVisibleItem(i).setNumber(number);
+//								
+//								cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().setInnerText((number*Double.parseDouble(cellBookingTable.getVisibleItem(i).getPrice()))+"");
+//								fal=true;
+//							}
+//							
+//						}
+//						if(fal==false)
+//						{
+//
+//								BookingDishesClient col=new BookingDishesClient();
+//								col.setId(o.getId());
+//								col.setName(o.getName());
+//								col.setNumber(1);
+//								col.setPrice(o.getPrice());
+//								if(kwlt.size()>0)
+//								col.setTaste(kwlt.get(0));
+//								if(dwlt.size()>0)
+//								col.setUnit(dwlt.get(0));
+//			
+//								
+//								List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+//								for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
+//										lt.add(cellBookingTable.getVisibleItems().get(i));
+//								}
+//								lt.add(col);
+//								cellBookingTable.setRowData(lt);
+//							
+//						}
+//					}
+//						else{
+//							BookingDishesClient col=new BookingDishesClient();
+//							col.setId(o.getId());
+//							col.setName(o.getName());
+//							col.setNumber(1);
+//							col.setPrice(o.getPrice());
+//							if(kwlt.size()>0)
+//							col.setTaste(kwlt.get(0));
+//							if(dwlt.size()>0)
+//							col.setUnit(dwlt.get(0));
+//							List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+//							for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
+//									lt.add(cellBookingTable.getVisibleItems().get(i));
+//							}
+//							lt.add(col);
+//							cellBookingTable.setRowData(lt);
+//						}
+//
+//						
+//						sumNumberMoney();
+//					}
+//
+//				});
+//	
+//	}
 	
 	private void initBookingTableColumns() {
 		
@@ -636,4 +633,74 @@ public class OrdersDishesPresenterImpl extends
 
 		return true;
 	}
+
+	@Override
+	public void updateDishesList(String id,String name,String price) {
+		if(cellBookingTable==null)
+		{
+			buildBookingTable();
+			display.hiddenDishesNumber(false);
+		}
+		System.out.println(cellBookingTable.getRowCount());
+		if(cellBookingTable.getRowCount()>=1)
+		{
+		boolean fal=false;
+		for (int i = 0; i < cellBookingTable.getRowCount(); i++) {
+			if(cellBookingTable.getVisibleItem(i).getId().equals(id))
+			{
+				int number=(cellBookingTable.getVisibleItem(i).getNumber()+1);
+				cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().setInnerText(number+"");
+				cellBookingTable.getVisibleItem(i).setNumber(number);
+				
+				cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().setInnerText((number*Double.parseDouble(cellBookingTable.getVisibleItem(i).getPrice()))+"");
+				fal=true;
+			}
+			
+		}
+		if(fal==false)
+		{
+
+				BookingDishesClient col=new BookingDishesClient();
+				col.setId(id);
+				col.setName(name);
+				col.setNumber(1);
+				col.setPrice(price);
+				if(kwlt.size()>0)
+				col.setTaste(kwlt.get(0));
+				if(dwlt.size()>0)
+				col.setUnit(dwlt.get(0));
+
+				
+				List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+				for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
+						lt.add(cellBookingTable.getVisibleItems().get(i));
+				}
+				lt.add(col);
+				cellBookingTable.setRowData(lt);
+			
+		}
+	}
+		else{
+			BookingDishesClient col=new BookingDishesClient();
+			col.setId(id);
+			col.setName(name);
+			col.setNumber(1);
+			col.setPrice(price);
+			if(kwlt.size()>0)
+			col.setTaste(kwlt.get(0));
+			if(dwlt.size()>0)
+			col.setUnit(dwlt.get(0));
+			List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+			for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
+					lt.add(cellBookingTable.getVisibleItems().get(i));
+			}
+			lt.add(col);
+			cellBookingTable.setRowData(lt);
+		}
+
+		
+		sumNumberMoney();
+	}
+		
+	
 }
