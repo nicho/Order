@@ -6,6 +6,7 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Grid;
+import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.view.AwardShopLatticeWidget;
 import com.omdasoft.orderonline.gwt.order.client.dataprovider.BaseDataProvider;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListClient;
@@ -13,6 +14,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListCrit
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.SearchDishesListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.SearchDishesListResponse;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
@@ -26,16 +28,17 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 	final ErrorHandler errorHandler;
 	final SessionManager sessionManager;
 	final OrdersDishesPresenter ordersDishesPresenter;
-
+	final Provider<DishesDetailedDialog> dishesDetailedDialogProvider;
 	public OrdersDishesViewAdapter(DispatchAsync dispatch,
 			DishesListCriteria criteria, ErrorHandler errorHandler,
-			SessionManager sessionManager, OrdersDishesDisplay display,OrdersDishesPresenter ordersDishesPresenter) {
+			SessionManager sessionManager, OrdersDishesDisplay display,OrdersDishesPresenter ordersDishesPresenter,Provider<DishesDetailedDialog> dishesDetailedDialogProvider) {
 		this.dispatch = dispatch;
 		this.criteria = criteria;
 		this.errorHandler = errorHandler;
 		this.sessionManager = sessionManager;
 		this.display=display;
 		this.ordersDishesPresenter=ordersDishesPresenter;
+		this.dishesDetailedDialogProvider=dishesDetailedDialogProvider;
 	}
 
 	public void fetchData(final int start, final int length) {
@@ -82,7 +85,7 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 				    	  if(index<giftList.size())	
 				    	  {
 				    		  DishesListClient clint=giftList.get(index);
-				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"",clint.getDescription(),clint.getPhoto(),clint.getId(),display,ordersDishesPresenter).asWidget());
+				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"",clint.getDescription(),clint.getPhoto(),clint.getId(),display,ordersDishesPresenter,dishesDetailedDialogProvider).asWidget());
 				    	  	  index++;
 				    	  }
 				    	  else

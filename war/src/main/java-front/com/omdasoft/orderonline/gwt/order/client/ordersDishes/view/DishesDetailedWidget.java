@@ -7,8 +7,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.DishesDetailedPresenter.DishesDetailedDisplay;
 
-public class DishesDetailedWidget extends Composite {
+public class DishesDetailedWidget extends Composite implements
+		DishesDetailedDisplay {
 	@UiField
 	InlineLabel dishesName;
 	@UiField
@@ -24,12 +26,41 @@ public class DishesDetailedWidget extends Composite {
 			UiBinder<Widget, DishesDetailedWidget> {
 	}
 
-	public DishesDetailedWidget(String dishesName,String price,String description,String photo) {
+	public DishesDetailedWidget() {
+		initWidget(uiBinder.createAndBindUi(this));
+	}
+
+	public DishesDetailedWidget(String dishesName, String price,
+			String description, String photo) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dishesName.setText(dishesName);
 		this.price.setText(price);
 		this.description.setText(description);
-		this.photo.setUrl("imageshow?imageName="+photo);
+		this.photo.setUrl("imageshow?imageName=" + photo);
+	}
+
+	@Override
+	public void setName(String text) {
+
+		this.dishesName.setText(text);
+	}
+
+	@Override
+	public void setPrice(String text) {
+		this.price.setText(text);
+
+	}
+
+	@Override
+	public void setDescription(String text) {
+		this.description.setText(text);
+
+	}
+
+	@Override
+	public void setPhoto(String text) {
+		this.photo.setUrl("imageshow?imageName=" + text);
+
 	}
 
 }

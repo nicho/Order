@@ -10,10 +10,13 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.presenter.AwardShopLatticePresenter.AwardShopLatticeDisplay;
+import com.omdasoft.orderonline.gwt.order.client.login.presenter.AlertErrorWidget;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
-import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesDetailedWidget;
+import com.omdasoft.orderonline.gwt.order.client.ui.DialogBox;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class AwardShopLatticeWidget extends Composite implements
@@ -38,7 +41,7 @@ public class AwardShopLatticeWidget extends Composite implements
 	public AwardShopLatticeWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	public AwardShopLatticeWidget(final String awardName,final String integral,final String indate,final String photo,final String id,final OrdersDishesDisplay display,final OrdersDishesPresenter ordersDishesPresenter) {
+	public AwardShopLatticeWidget(final String awardName,final String integral,final String indate,final String photo,final String id,final OrdersDishesDisplay display,final OrdersDishesPresenter ordersDishesPresenter,final Provider<DishesDetailedDialog> dishesDetailedDialogProvider) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.awardName.setText(awardName);
 		this.integral.setText(integral);
@@ -58,8 +61,30 @@ public class AwardShopLatticeWidget extends Composite implements
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				display.getDetailPanel().clear();
-				display.getDetailPanel().add(new DishesDetailedWidget(awardName,integral,indate,photo));
+//				display.getDetailPanel().clear();
+//				display.getDetailPanel().add(new DishesDetailedWidget(awardName,integral,indate,photo));
+//				
+
+				final DishesDetailedDialog dialog = dishesDetailedDialogProvider.get();
+				dialog.initDishesDetailed(awardName, integral, indate, photo);
+
+				
+				final AlertErrorWidget ae = new AlertErrorWidget();
+				final DialogBox dialogBoxae = new DialogBox();
+				ae.getOkBtn().addClickHandler(new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent arg0) {
+						dialogBoxae.hide();
+					}
+				});
+			
+				dialogBoxae.setWidget(dialog.asWidget());
+				dialogBoxae.setGlassEnabled(true);
+				dialogBoxae.setAnimationEnabled(true);
+				dialogBoxae.setWidth("600px");
+				dialogBoxae.setText("菜品详细");
+				dialogBoxae.center();
+				dialogBoxae.show();
 			}
 		});
 		}
@@ -68,7 +93,36 @@ public class AwardShopLatticeWidget extends Composite implements
 			exchangeBtn.setEnabled(false);
 		}
 		
+		this.photo.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				final DishesDetailedDialog dialog = dishesDetailedDialogProvider.get();
+				dialog.initDishesDetailed(awardName, integral, indate, photo);
+
+				
+				final AlertErrorWidget ae = new AlertErrorWidget();
+				final DialogBox dialogBoxae = new DialogBox();
+				ae.getOkBtn().addClickHandler(new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent arg0) {
+						dialogBoxae.hide();
+					}
+				});
+			
+				dialogBoxae.setWidget(dialog.asWidget());
+				dialogBoxae.setGlassEnabled(true);
+				dialogBoxae.setAnimationEnabled(true);
+				dialogBoxae.setWidth("600px");
+				dialogBoxae.setText("菜品详细");
+				dialogBoxae.center();
+				dialogBoxae.show();
+				
+			}
+		});
 		
+		
+	
 	}
 
 }

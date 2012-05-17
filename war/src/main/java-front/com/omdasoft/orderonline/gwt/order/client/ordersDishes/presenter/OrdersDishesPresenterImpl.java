@@ -22,6 +22,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.model.DictionaryListClient;
@@ -42,6 +43,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
@@ -69,12 +71,15 @@ public class OrdersDishesPresenterImpl extends
 	List<String> dwlt=new ArrayList<String>();
 	List<String> kwlt=new ArrayList<String>();
 	int pageSize=ViewConstants.per_page_number_in_12;
+	
+	private final Provider<DishesDetailedDialog> dishesDetailedDialogProvider;
 	@Inject
 	public OrdersDishesPresenterImpl(EventBus eventBus,
-			OrdersDishesDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler) {
+			OrdersDishesDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,Provider<DishesDetailedDialog> dishesDetailedDialogProvider) {
 		super(eventBus, display);
 		this.dispatch = dispatch;
 		this.errorHandler=errorHandler;
+		this.dishesDetailedDialogProvider=dishesDetailedDialogProvider;
 	}
 
 	@Override
@@ -337,7 +342,7 @@ public class OrdersDishesPresenterImpl extends
 		criteria.setTypeId(typeId);
 		criteria.setDeptId(request.getRestaurantId());
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
-				errorHandler, null,display,this);
+				errorHandler, null,display,this,dishesDetailedDialogProvider);
 		listViewAdapter.addDataDisplay(cellTable);
 
 	}
