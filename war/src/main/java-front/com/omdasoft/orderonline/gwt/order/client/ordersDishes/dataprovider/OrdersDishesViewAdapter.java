@@ -97,7 +97,7 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 				    }
 
 				    // Return the panel
-				    grid.ensureDebugId("cwGrid");
+				//    grid.ensureDebugId("cwGrid");
 				    
 					display.getResultPanel().clear();
 					display.getResultPanel().add(grid);
