@@ -2097,7 +2097,7 @@ ul.token-input-list-facebook3 li input {
     height: 18px;
     overflow: hidden;
     text-align: right;
-    width: 85px;
+    width: 71px;
 }
 .chooseBox .getParam em.all {
     background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -62px -592px transparent;
@@ -2677,3 +2677,4 @@ ul.token-input-list-facebook3 li input {
 .chooseBoxEx .getParam dd i a:hover em {
     color: #FF6600;
 }
+.width0{width:0px;}

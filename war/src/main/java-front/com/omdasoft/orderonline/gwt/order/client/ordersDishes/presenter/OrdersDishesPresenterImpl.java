@@ -45,11 +45,11 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResp
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
-import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
 import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
+import com.omdasoft.orderonline.gwt.order.client.widget.Span;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
@@ -168,7 +168,7 @@ public class OrdersDishesPresenterImpl extends
 	
 	}
 	String allCss;
-	List<MyAnchor> anchorList=new ArrayList<MyAnchor>();
+	List<Span> anchorList=new ArrayList<Span>();
 	private void init() {
 		 allCss=display.getTypeall().getElement().getParentElement().getClassName();
 		initOrderMessage();
@@ -251,7 +251,7 @@ public class OrdersDishesPresenterImpl extends
 		if(anchorList!=null && anchorList.size()>0)
 		{
 			for (int i = 0; i < anchorList.size(); i++) {
-				MyAnchor ma=anchorList.get(i);
+				Span ma=anchorList.get(i);
 				ma.getElement().getFirstChildElement().setClassName("");
 			}
 		}
@@ -280,7 +280,9 @@ public class OrdersDishesPresenterImpl extends
 
 				    for (int i=0;i<typeList.size();i++) {
 				    	final DishesTypeListClient client=typeList.get(i);
-				    	final MyAnchor ac=new MyAnchor(client.getName());
+				    	Span tempac=new Span();
+				    	tempac.setHTML("<em><i><a style=\"color:bule;\" href=\"javascript:void(0);\">"+client.getName()+"</a></i></em>");
+				    	final Span ac=tempac;
 				    	  ac.addClickHandler(new ClickHandler() {
 							
 							@Override
