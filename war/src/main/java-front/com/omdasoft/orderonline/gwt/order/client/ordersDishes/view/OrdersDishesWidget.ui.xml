@@ -38,68 +38,203 @@
 					</p>
 				</div>
 			</div>
-
-			<div class="{new2.content}">
-				<div class="{new2.bookinginformation}">
-					<div>
-						<h3>用户预订信息：
-						
-							城市:<g:InlineLabel ui:field="city" />
-							餐厅:<g:InlineLabel ui:field="restaurant" />
-							订餐人:<g:InlineLabel ui:field="orderUser" />
-							人数:<g:InlineLabel ui:field="number" />
-							包间要求:<g:InlineLabel ui:field="room" />
-						</h3>
-					</div>
-					
-					<h3>当前菜品：<g:InlineLabel ui:field="bookingTitle" styleName="redlable" /></h3>
-					
-					<div class="{new1.table}">
-						<g:FlowPanel ui:field="bookingPanel" />
-					</div>
-
-					<h3 style="text-align: right;">总数:<g:InlineLabel ui:field="dishesNumber" styleName="{new2.bluebable}" /> 个,总金额:<g:InlineLabel ui:field="dishesMoney"  styleName="{new2.bluebable}"/>元</h3>
-					
-			
-					
-<div class="wraper clearfix">
-    <div class="main">
-    	<!-- 产品搜索 -->
-		<div class="chooseBox mb10">      
-            <div id="J-getWap" class="getWap">      
-				<div class="getParam">
-					<span>菜品类别：</span>
-					<em class="all cur"><g:Anchor text="不限" ui:field="typeall" styleName="{new2.typeallcss}"/></em>
-					<dl>
-					<dd class="clearfix ">
-						<g:FlowPanel ui:field="tabpage" />	
-					</dd>
-					</dl>
-					<div class="clear"></div>
-				</div>
-            </div>  
-        </div>   
- 	</div>
- </div>
-					
-					
-					<dl>
-						<dt style="width:100%;height:100%;text-align: left;">
-							<div class="{new1.table2}">
-								<g:FlowPanel ui:field="resultPanel" />
-							</div>
-
-
-							<div id="rewardlist_page2" class="{new1.pager}" >
+<div class="public_container"> 
+  <!--content_box start-->
+  <div class="spx5px"></div>
+  <div id="content" class="content_box"> 
+    <!--content_box_left start-->
+    <div class="content_box_left">
+      <div style="margin-top:0px !important" class="content_box_left_main"> 
+        <!-- 左侧菜单 -->
+        <div id="showMenu" class="content_box_left_main_left">
+          <div id="menu_china" style="width: 100%; overflow: hidden; float: left; background: none repeat scroll 0% 0% rgb(255, 255, 255); margin-top: 0px;">
+            <div style="width: 100%; overflow: hidden; background: #FFEFCD;">
+              <div id="china" style="display: block;">
+                <h1 class="content_box_left_main_left_h1"> 菜单</h1>
+                <span class="content_box_left_main_left_c"> <!-- weij 2011-12-22  update --> 
+                
+                <!-- update end -->
+                <h2 class="content_box_left_main_left_c_h2 bmargin cursor"> 大类1</h2>
+                <ul id="menu_1" class="nav_left_ul">
+                  <li class=""> <a onClick="showProductsNewHtml(this,'B',1);" class="nav_left_n" href="javascript:;"> 精选套餐 </a> </li>
+                  <li class="on"> <a onClick="showProductsNewHtml(this,'B',2);" class="nav_left_y" href="javascript:;"> 经典主食 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'B',4);" class="nav_left_n" href="javascript:;"> 丰富配餐 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'B',5);" class="nav_left_n" href="javascript:;"> 冷饮 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'B',6);" class="nav_left_n" href="javascript:;"> 热饮 </a> </li>
+                </ul>
+                <h2 class="content_box_left_main_left_c_h2 bmargin cursor">大类2</h2>
+                <ul id="menu_2" class="nav_left_ul">
+                  <li style="display:none;" class=""> <a onClick="showProductsNewHtml(this,'L',0);" class="nav_left_n" href="javascript:;"> 天天半价优惠 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'L',1);" class="nav_left_n" href="javascript:;"> 精选套餐 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'L',2);" class="nav_left_n" href="javascript:;"> 经典主食 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'L',3);" class="nav_left_n" href="javascript:;"> 缤纷小食 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'L',4);" class="nav_left_n" href="javascript:;"> 丰富配餐 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'L',5);" class="nav_left_n" href="javascript:;"> 冷饮 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'L',6);" class="nav_left_n" href="javascript:;"> 热饮 </a> </li>
+                </ul>
+                <h2 class="content_box_left_main_left_c_h2 bmargin cursor"> 大类3 </h2>
+                <ul id="menu_3" class="nav_left_ul">
+                  <li class=""> <a onClick="showProductsNewHtml(this,'D',1);" class="nav_left_n" href="javascript:;"> 精选套餐 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'D',2);" class="nav_left_n" href="javascript:;"> 经典主食 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'D',3);" class="nav_left_n" href="javascript:;"> 缤纷小食 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'D',4);" class="nav_left_n" href="javascript:;"> 丰富配餐 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'D',5);" class="nav_left_n" href="javascript:;"> 冷饮 </a> </li>
+                  <li class=""> <a onClick="showProductsNewHtml(this,'D',6);" class="nav_left_n" href="javascript:;"> 热饮 </a> </li>
+                </ul>
+                <span class="content_box_left_main_left_info">大类4 </span> </span> <span class="content_box_left_main_left_b_2"></span> </div>
+            </div>
+           
+        </div>
+        <div style="" id="c_content" class="content_box_left_main_right">
+          <h1 style="" id="tab_obj" class="content_box_left_main_right_h1"> <span>点击图片看产品详情</span> <a onClick="$('#c_content').hide();$('#eventInner').show();" href="javascript:void(-1);">看首页广告信息 &gt;&gt;</a> </h1>
+          <!-- 产品信息 -->
+          <div id="showProductsNew">
+            <div id="showP_c" style="">
+              <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                  <tr>
+                    <td class="content_box_left_main_right_c"><ul class="content_box_left_main_right_c_ul">
+                       
+                        <g:FlowPanel ui:field="resultPanel" />
+                      </ul>
+                      <div id="clear_div"></div>
+                      
+                      <div id="rewardlist_page2" class="{new1.pager}">
 								<div class="{new1.pager-left}" style='display:none;'>
 									每页显示条数
-									<g:ListBox ui:field="pageNumber" styleName="{new2.select}" /> 
+									<g:ListBox ui:field="pageNumber" styleName="{new2.select}" />
 								</div>
 
 								<div class="{new1.pager-right}">
 									<g:FlowPanel ui:field="resultpage" />
 								</div>
 							</div>
+                      </td>
+                  </tr>
+                </tbody>
+              </table>
+              <span class="content_box_left_main_right_b"></span> </div>
+          </div>
+        </div>
+      </div>
+      <div id="clear_div"></div>
+    </div>
+  </div>
+  <div style="float: right" class="content_box_right_1">
+    <div id="c"><!--weij 2012-01-10 更改图片路径--> 
+    </div>
+  
+  </div>
+  <div id="orderArea" class="content_box_right" style="margin-top: 0px;">
+    <div id="showHot" class="content_box_right_2">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+          <tr>
+            <td><h1 class="content_box_right_2_h1"></h1></td>
+          </tr>
+          <tr>
+            <td><div class="content_box_right_2_c">
+                <ul class="content_box_right_2_c_ul">
+                <li>
+                					<div>
+						<h3>
+							用户预订信息：
+						</h3>
+					</div>
+                </li>
+                <li>
+                	<h3 style='color:red;'>	城市:
+							<g:InlineLabel ui:field="city" />
+							餐厅:
+							<g:InlineLabel ui:field="restaurant" />
+							订餐人:
+							<g:InlineLabel ui:field="orderUser" />
+							人数:
+							<g:InlineLabel ui:field="number" />
+							包间要求:
+							<g:InlineLabel ui:field="room" />
+					</h3>
+                </li>
+                  <li>
+					<h3>
+						当前菜品：
+						<g:InlineLabel ui:field="bookingTitle" styleName="redlable" />
+					</h3>
+
+					<div class="{new1.table}">
+						<g:FlowPanel ui:field="bookingPanel" />
+					</div>
+
+					<h3 style="text-align: right;">
+						总数:
+						<g:InlineLabel ui:field="dishesNumber" styleName="{new2.bluebable}" />
+						个,总金额:
+						<g:InlineLabel ui:field="dishesMoney" styleName="{new2.bluebable}" />
+						元
+					</h3>
+
+				</li>
+				<li>
+											<g:Button ui:field="returnBtn" text="返回修改预定信息" />
+							<g:Button ui:field="addBtn" text="立刻预定" />
+				</li>
+                </ul>
+              </div></td>
+          </tr>
+          <tr>
+            <td><span class="content_box_right_2_b"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+<!--content_box end-->
+<div id="clear_div"></div>
+<div class="spx5px"></div>
+</div>
+			<div class="{new2.content}">
+				<div class="{new2.bookinginformation}">
+
+
+
+
+
+
+
+
+					<div class="wraper clearfix">
+						<div class="main">
+							<!-- 产品搜索 -->
+							<div class="chooseBox mb10">
+								<div id="J-getWap" class="getWap">
+									<div class="getParam">
+										<span>菜品类别：</span>
+										<em class="all cur">
+											<g:Anchor text="不限" ui:field="typeall" styleName="{new2.typeallcss}" />
+										</em>
+										<dl>
+											<dd class="clearfix ">
+												<g:FlowPanel ui:field="tabpage" />
+											</dd>
+										</dl>
+										<div class="clear"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+					<dl>
+						<dt style="width:100%;height:100%;text-align: left;">
+							<div class="{new1.table2}">
+								
+							</div>
+
+
+							
 						</dt>
 
 					</dl>
@@ -116,8 +251,7 @@
 							<input type="hidden" name="cid" value="" />
 							<input type="hidden" name="f" value="" />
 
-							<g:Button ui:field="returnBtn" text="返回修改预定信息" />
-							<g:Button ui:field="addBtn" text="立刻预定" />
+
 						</dd>
 					</dl>
 

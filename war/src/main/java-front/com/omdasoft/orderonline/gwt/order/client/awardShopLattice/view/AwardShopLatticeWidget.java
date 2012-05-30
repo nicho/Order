@@ -29,7 +29,7 @@ public class AwardShopLatticeWidget extends Composite implements
 	@UiField
 	Image photo;
 	@UiField
-	Anchor exchangeBtn;
+	Image exchangeBtn;
 	
 	private static AwardShopLatticeWidgetUiBinder uiBinder = GWT
 			.create(AwardShopLatticeWidgetUiBinder.class);
@@ -88,10 +88,7 @@ public class AwardShopLatticeWidget extends Composite implements
 			}
 		});
 		}
-		else
-		{
-			exchangeBtn.setEnabled(false);
-		}
+		
 		
 		this.photo.addClickHandler(new ClickHandler() {
 			

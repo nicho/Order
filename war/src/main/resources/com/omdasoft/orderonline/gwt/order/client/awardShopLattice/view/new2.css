@@ -127,7 +127,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .divfont{color:red;}
 .divend{clear:both}
 .shopdiv{text-align:right;padding-right:27px;}
-.shopa{color:#565656;text-decoration:none;}
+.shopa{color:red;text-decoration:none;}
 .shopa:hover{color:#010DFF;text-decoration:underline;cursor: pointer;}
 
 .message{color:red;}

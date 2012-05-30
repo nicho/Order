@@ -316,22 +316,22 @@ public class OrderSubmitPresenterImpl extends
 	
 	private boolean verificationRequest(OrderSaveRequest req)
 	{
-		if (StringUtil.isEmpty(req.getAmountOfClient()+"") || req.getAmountOfClient()==0) {
-			Window.alert("请填写就餐人数");
-			return false;
-		}
-		if (StringUtil.isEmpty(req.getFavoriteRoom()+"") || req.getFavoriteRoom()==0) {
-			Window.alert("请选择预定类型");
-			return false;
-		}
-		if (StringUtil.isEmpty(req.getOrderPersonName())) {
-			Window.alert("请填写姓名");
-			return false;
-		}
-		if (StringUtil.isEmpty(req.getOrderPersonPhone())) {
-			Window.alert("请填写手机号");
-			return false;
-		}
+//		if (StringUtil.isEmpty(req.getAmountOfClient()+"") || req.getAmountOfClient()==0) {
+//			Window.alert("请填写就餐人数");
+//			return false;
+//		}
+//		if (StringUtil.isEmpty(req.getFavoriteRoom()+"") || req.getFavoriteRoom()==0) {
+//			Window.alert("请选择预定类型");
+//			return false;
+//		}
+//		if (StringUtil.isEmpty(req.getOrderPersonName())) {
+//			Window.alert("请填写姓名");
+//			return false;
+//		}
+//		if (StringUtil.isEmpty(req.getOrderPersonPhone())) {
+//			Window.alert("请填写手机号");
+//			return false;
+//		}
 
 		return true;
 	}

@@ -547,7 +547,6 @@ public class OrdersDishesPresenterImpl extends
 					}
 
 				});
-		cellBookingTable.setColumnWidth(numberColumn, 167,Unit.PX);
 
 
 		cellBookingTable.addColumn("单位", new SelectionCell(dwlt),
@@ -591,7 +590,7 @@ public class OrdersDishesPresenterImpl extends
 				new GetValue<BookingDishesClient, String>() {
 					@Override
 					public String getValue(BookingDishesClient dishesType) {
-						return "从菜单删除";
+						return "删除";
 					}
 				}, new FieldUpdater<BookingDishesClient, String>() {
 
