@@ -42,6 +42,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequ
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
+import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesTypeLatticeWidget;
 import com.omdasoft.orderonline.gwt.order.client.ui.ImageLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
@@ -69,7 +70,7 @@ public class OrdersDishesPresenterImpl extends
 	List<String> dwlt=new ArrayList<String>();
 	List<String> kwlt=new ArrayList<String>();
 	int pageSize=ViewConstants.per_page_number_in_12;
-	
+	OrdersDishesPresenter ordersDishesPresenter;
 	private final Provider<DishesDetailedDialog> dishesDetailedDialogProvider;
 	@Inject
 	public OrdersDishesPresenterImpl(EventBus eventBus,
@@ -78,6 +79,7 @@ public class OrdersDishesPresenterImpl extends
 		this.dispatch = dispatch;
 		this.errorHandler=errorHandler;
 		this.dishesDetailedDialogProvider=dishesDetailedDialogProvider;
+		this.ordersDishesPresenter=this;
 	}
 
 	@Override
@@ -88,7 +90,7 @@ public class OrdersDishesPresenterImpl extends
 			public void onChange(ChangeEvent event) {
 				pageSize=Integer.parseInt(display.getPageNumber().getValue(display.getPageNumber().getSelectedIndex()));
 				cleanAnchorCss();
-				display.getTypeall().getElement().getParentElement().setClassName(allCss);
+			//	display.getTypeall().getElement().getParentElement().setClassName(allCss);
 				buildTable();
 				doSearch(null);
 			}
@@ -168,22 +170,22 @@ public class OrdersDishesPresenterImpl extends
 	String allCss;
 	List<Span> anchorList=new ArrayList<Span>();
 	private void init() {
-		 allCss=display.getTypeall().getElement().getParentElement().getClassName();
+		// allCss=display.getTypeall().getElement().getParentElement().getClassName();
 		initOrderMessage();
 		initDwKw();
 		createTab();
 		buildTable();
 		doSearch(null);
-		display.getTypeall().addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent arg0) {
-				cleanAnchorCss();
-				display.getTypeall().getElement().getParentElement().setClassName(allCss);
-				buildTable();
-				doSearch(null);
-			}
-		});
+//		display.getTypeall().addClickHandler(new ClickHandler() {
+//			
+//			@Override
+//			public void onClick(ClickEvent arg0) {
+//				cleanAnchorCss();
+//				display.getTypeall().getElement().getParentElement().setClassName(allCss);
+//				buildTable();
+//				doSearch(null);
+//			}
+//		});
 		
 	}
 	private void initOrderMessage()
@@ -278,24 +280,10 @@ public class OrdersDishesPresenterImpl extends
 
 				    for (int i=0;i<typeList.size();i++) {
 				    	final DishesTypeListClient client=typeList.get(i);
-				    	Span tempac=new Span();
-				    	tempac.setHTML("<em><i><a style=\"color:bule;\" href=\"javascript:void(0);\">"+client.getName()+"</a></i></em>");
-				    	final Span ac=tempac;
-				    	  ac.addClickHandler(new ClickHandler() {
-							
-							@Override
-							public void onClick(ClickEvent arg0) {
-								cleanAnchorCss();
-								
-								ac.getElement().getFirstChildElement().setClassName(allCss);
-								display.getTypeall().getElement().getParentElement().setClassName("");
-								buildTable();
-								doSearch(client.getId());
-								
-							}
-						});
-				    	  anchorList.add(ac);
-				    	  display.getTabpage().add(ac);
+				    	
+				    	DishesTypeLatticeWidget dtw=new DishesTypeLatticeWidget(client.getId(),client.getName(),ordersDishesPresenter);
+				    	
+				    	display.getTabpage().add(dtw.asWidget());;
 					}
 
 				}
@@ -704,6 +692,13 @@ public class OrdersDishesPresenterImpl extends
 
 		
 		sumNumberMoney();
+	}
+
+	@Override
+	public void refulDishes(String typeId) {
+		buildTable();
+		doSearch(typeId);
+		
 	}
 		
 	

@@ -27,8 +27,7 @@ public class OrdersDishesWidget extends Composite implements
 	Panel resultpage;
 	@UiField
 	Panel tabpage;
-	@UiField
-	Panel detailPanel;
+
 	@UiField
 	Panel bookingPanel;
 
@@ -49,8 +48,7 @@ public class OrdersDishesWidget extends Composite implements
 	InlineLabel dishesNumber;
 	@UiField
 	InlineLabel dishesMoney;
-	@UiField
-	Anchor typeall;
+
 	@UiField
 	ListBox pageNumber;
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
@@ -93,11 +91,6 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public Panel getTabpage() {
 		return tabpage;
-	}
-
-	@Override
-	public Panel getDetailPanel() {
-		return detailPanel;
 	}
 
 	@Override
@@ -149,10 +142,6 @@ public class OrdersDishesWidget extends Composite implements
 			dishesNumber.getElement().getParentElement().setClassName("");
 	}
 
-	@Override
-	public Anchor getTypeall() {
-		return typeall;
-	}
 
 	@Override
 	public void setBookingTitle(String text) {
