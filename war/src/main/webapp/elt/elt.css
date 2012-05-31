@@ -2684,12 +2684,6 @@ ul.token-input-list-facebook3 li input {
 
 
 
-
-
-
-
-
-
 .loadmask {
     background-color: #CCCCCC;
     height: 100%;
@@ -2708,7 +2702,7 @@ ul.token-input-list-facebook3 li input {
     z-index: 20001;
 }
 .loadmask-msg div {
-    background: url("../images/loading.gif") no-repeat scroll 25px 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images/loading.gif") no-repeat scroll 25px 0 transparent;
     color: #222222;
     cursor: wait;
     font: 11px tahoma,arial,helvetica,sans-serif;
@@ -2771,11 +2765,11 @@ a:hover {
     width: 792px;
 }
 .header_box_menu_1 {
-    background: url("../images4/a1.gif") no-repeat scroll right top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a1.gif") no-repeat scroll right top transparent;
     height: 32px;
 }
 .header_box_menu_2 {
-    background: url("../images4/a2.gif") no-repeat scroll right top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a2.gif") no-repeat scroll right top transparent;
     height: 30px;
     line-height: 30px;
 }
@@ -2785,7 +2779,7 @@ a:hover {
     text-align: center;
 }
 .menu_line {
-    background: url("../images4/a3.gif") no-repeat scroll right top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a3.gif") no-repeat scroll right top transparent;
 }
 a.menu_y:link, a.menu_y:active, a.menu_y:visited, a.menu_y:hover {
     color: #E90000;
@@ -2817,7 +2811,7 @@ a.menu_n:hover {
 .content_box {
 }
 .content_box .ltinc {
-    background: url("../imgnew/inc1.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/inc1.gif") no-repeat scroll 0 0 transparent;
     height: 9px;
     left: 196px;
     overflow: hidden;
@@ -2832,11 +2826,11 @@ a.menu_n:hover {
 }
 .content_box_left {
     float: left;
-  
+    width: 805px;
 }
 .content_box_right {
     float: right;
-   width: 300px;
+    width: 195px;
 }
 .banner_img {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -2855,19 +2849,18 @@ a.menu_n:hover {
     background: none repeat scroll 0 0 #FEE7BE;
     float: left;
     position: relative;
-    width: 100px;
+    width: 196px;
 }
 .order_right_box_c {
     float: right;
     width: 800px;
 }
 .content_box_left_main_right {
- 
-    
+    background: none repeat scroll 0 0 #FEE7BE;
     width: 604px;
 }
 .content_box_left_main_left_h1 {
-    background: url("../images4/a1_2.png") repeat-x scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a1_2.png") repeat-x scroll 0 0 transparent;
     color: #E90000;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
@@ -2878,7 +2871,7 @@ a.menu_n:hover {
     position: relative;
 }
 .content_box_left_main_left_h1_2 {
-    background: url("../images4/a1_2.png") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a1_2.png") repeat scroll 0 0 transparent;
     color: #E90000;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
@@ -2900,36 +2893,36 @@ a.menu_n:hover {
     top: 0;
 }
 .content_box_left_main_left_c {
-    background: url("../images4/a5_02_popoo.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a5_02_popoo.gif") repeat scroll 0 0 transparent;
     display: block;
     padding: 2px 10px 0;
 }
 .content_box_left_main_left_b {
-    background: url("../images4/a2.png") repeat-x scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a2.png") repeat-x scroll 0 0 transparent;
     display: block;
     height: 8px;
     overflow: hidden;
 }
 .content_box_left_main_left_b_1 {
-    background: url("../images4/a2_1.png") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a2_1.png") repeat scroll 0 0 transparent;
     display: block;
     height: 8px;
     overflow: hidden;
 }
 .content_box_left_main_left_b_2 {
-    background: url("../images4/a2.png") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a2.png") repeat scroll 0 0 transparent;
     display: block;
     height: 8px;
     overflow: hidden;
 }
 .content_box_left_main_left_b_3 {
-    background: url("../images4/a2_3.png") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a2_3.png") repeat scroll 0 0 transparent;
     display: block;
     height: 8px;
     overflow: hidden;
 }
 .content_box_left_main_left_c_h2 {
-    background: url("../images4/a7.gif") no-repeat scroll 0 3px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a7.gif") no-repeat scroll 0 3px transparent;
     font-size: 13px;
     height: 26px;
     line-height: 24px;
@@ -2967,7 +2960,7 @@ a.menu_n:hover {
     position: relative;
 }
 a.nav_left_n:link, a.nav_left_n:visited, a.nav_left_n:active {
-    background: url("../images4/a8.gif") no-repeat scroll 155px 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a8.gif") no-repeat scroll 155px 8px transparent;
     color: #943E00;
     display: block;
     font-size: 13px;
@@ -2978,10 +2971,10 @@ a.nav_left_n:link, a.nav_left_n:visited, a.nav_left_n:active {
     text-decoration: none;
 }
 a.nav_left_n:hover {
-    background: url("../images4/a9.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a9.gif") no-repeat scroll 0 0 transparent;
 }
 a.nav_left_y:link, a.nav_left_y:visited, a.nav_left_y:active {
-    background: url("../images4/a8.gif") no-repeat scroll 155px 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a8.gif") no-repeat scroll 155px 8px transparent;
     color: #943E00;
     display: block;
     font-size: 13px;
@@ -2992,13 +2985,13 @@ a.nav_left_y:link, a.nav_left_y:visited, a.nav_left_y:active {
     text-decoration: none;
 }
 a.nav_left_y:hover {
-    background: url("../images4/a9.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a9.gif") no-repeat scroll 0 0 transparent;
 }
 .nav_left_ul li.on a {
-    background: url("../images4/a9.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a9.gif") no-repeat scroll 0 0 transparent;
 }
 .content_box_left_main_right_h1 {
-    background: url("../images4/a01.gif") no-repeat scroll center top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a01.gif") no-repeat scroll center top transparent;
     color: #E80000;
     font-size: 14px;
     height: 30px;
@@ -3050,14 +3043,14 @@ a.nav_right_n:link, a.nav_right_n:active, a.nav_right_n:visited {
     width: 190px;
 }
 .content_box_left_main_right_c {
-    background: url("../images4/b1.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b1.gif") repeat scroll 0 0 transparent;
     display: block;
     overflow: hidden;
     padding-left: 2px;
     width: 598px;
 }
 .content_box_left_main_right_b {
-    background: url("../images4/b2.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b2.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 7px;
     margin-top: 0;
@@ -3114,12 +3107,12 @@ a.nav_red:hover {
     margin-top: 0;
 }
 .content_box_right_2_h1 {
-    background: url("../images4/b6.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b6.gif") no-repeat scroll 0 0 transparent;
     height: 42px;
     overflow: hidden;
 }
 .content_box_right_NewCustomer_h1 {
-    background: url("../images4/a43.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a43.gif") no-repeat scroll 0 0 transparent;
     height: 42px;
     overflow: hidden;
 }
@@ -3132,26 +3125,26 @@ a.nav_red:hover {
     width: 55px;
 }
 .content_box_right_dd_h1 {
-    background: url("../images4/e3.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/e3.gif") repeat scroll 0 0 transparent;
     height: 42px;
     line-height: 400px;
     overflow: hidden;
 }
 .content_box_right_dd_h1_2 {
-    background: url("../images4/e8.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/e8.gif") repeat scroll 0 0 transparent;
     height: 42px;
     line-height: 400px;
     margin-top: 5px;
     overflow: hidden;
 }
 .content_box_right_2_h1_2 {
-    background: url("../images4/b6_2.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b6_2.gif") no-repeat scroll 0 0 transparent;
     height: 42px;
     line-height: 400px;
     overflow: hidden;
 }
 .content_box_right_3_h1 {
-    background: url("../images4/c2.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c2.gif") repeat scroll 0 0 transparent;
     height: 42px;
     line-height: 400px;
     overflow: hidden;
@@ -3165,28 +3158,28 @@ a.nav_red:hover {
     width: 55px;
 }
 .content_box_right_2_c {
-    background: url("../images4/b7.gif") repeat-y scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b7.gif") repeat-y scroll 0 0 transparent;
     display: block;
     padding: 0 8px;
 }
 .content_box_right_dd_c {
-    background: url("../images4/b7.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b7.gif") repeat scroll 0 0 transparent;
     display: block;
     padding: 0 4px 0 3px;
 }
 .content_box_right_dd_c_2 {
-    background: url("../images4/b7.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b7.gif") repeat scroll 0 0 transparent;
     display: block;
     padding: 0 10px;
 }
 .content_box_right_2_b {
-    background: url("../images4/b8.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b8.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 10px;
     overflow: hidden;
 }
 .content_box_right_2_b_2 {
-    background: url("../images4/b8_2.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b8_2.gif") no-repeat scroll 0 0 transparent;
     display: block;
     height: 10px;
     overflow: hidden;
@@ -3200,7 +3193,7 @@ a.nav_red:hover {
     padding: 6px 0 7px;
 }
 .nav_right_l, a.nav_right_l:link, a.nav_right_l:active, a.nav_right_l:visited {
-    background: url("../images4/b9.gif") no-repeat scroll 3px 15px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b9.gif") no-repeat scroll 3px 15px transparent;
     color: #DC030D;
     display: block;
     font-family: Arial,Helvetica,sans-serif;
@@ -3209,7 +3202,7 @@ a.nav_red:hover {
     text-decoration: none;
 }
 a.nav_right_l:hover {
-    background: url("../images4/c1.gif") no-repeat scroll 3px 15px #B50000;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c1.gif") no-repeat scroll 3px 15px #B50000;
     color: #FFFFFF;
     display: block;
     line-height: 130%;
@@ -3217,7 +3210,7 @@ a.nav_right_l:hover {
     text-decoration: none;
 }
 a.nav_right_l_s {
-    background: url("../images4/b9.gif") no-repeat scroll 3px 12px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b9.gif") no-repeat scroll 3px 12px transparent;
     color: #DC030D;
     display: block;
     font-family: Arial,Helvetica,sans-serif;
@@ -3228,12 +3221,12 @@ a.nav_right_l_s {
     text-indent: 15px;
 }
 a.nav_right_l_s:hover {
-    background: url("../images4/c1.gif") no-repeat scroll 3px 12px #B50000;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c1.gif") no-repeat scroll 3px 12px #B50000;
     color: #FFFFFF;
     text-decoration: none;
 }
 .nav_right_l_new, a.nav_right_l_new:link, a.nav_right_l_new:active, a.nav_right_l_new:visited {
-    background: url("../images/b9.gif") no-repeat scroll 3px 10px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images/b9.gif") no-repeat scroll 3px 10px transparent;
     color: #DC030D;
     display: block;
     font-family: Arial,Helvetica,sans-serif;
@@ -3242,7 +3235,7 @@ a.nav_right_l_s:hover {
     text-decoration: none;
 }
 a.nav_right_l_new:hover {
-    background: url("../images/c1.gif") no-repeat scroll 3px 10px #B50000;
+    background: url("http://www.4008823823.com.cn/kfcios/images/c1.gif") no-repeat scroll 3px 10px #B50000;
     color: #FFFFFF;
     display: block;
     line-height: 130%;
@@ -3258,7 +3251,7 @@ a.nav_right_l_new:hover {
     text-decoration: none;
 }
 a.nav_right_l2:link, a.nav_right_l2:active, a.nav_right_l2:visited {
-    background: url("../images4/b9.gif") no-repeat scroll 3px 15px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/b9.gif") no-repeat scroll 3px 15px transparent;
     color: #DC030D;
     display: block;
     font-family: Arial,Helvetica,sans-serif;
@@ -3267,7 +3260,7 @@ a.nav_right_l2:link, a.nav_right_l2:active, a.nav_right_l2:visited {
     text-decoration: none;
 }
 a.nav_right_l2:hover {
-    background: url("../images4/c1.gif") no-repeat scroll 3px 15px #B50000;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c1.gif") no-repeat scroll 3px 15px #B50000;
     color: #FFFFFF;
     display: block;
     line-height: 130%;
@@ -3275,7 +3268,7 @@ a.nav_right_l2:hover {
     text-decoration: none;
 }
 .content_box_right_3_h5 {
-    background: url("../images4/c3.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c3.gif") repeat scroll 0 0 transparent;
     height: 28px;
     line-height: 28px;
     padding-left: 10px;
@@ -3295,7 +3288,7 @@ a.nav_right_l2:hover {
     vertical-align: middle;
 }
 .content_box_right_3_1 {
-    background: url("../images4/c5.gif") no-repeat scroll center center transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c5.gif") no-repeat scroll center center transparent;
     display: block;
     font-family: 宋体;
     height: 26px;
@@ -3305,7 +3298,7 @@ a.nav_right_l2:hover {
     padding-left: 15px;
 }
 .content_box_right_3_2 {
-    background: url("../images4/c6.gif") no-repeat scroll center center transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/c6.gif") no-repeat scroll center center transparent;
     display: block;
     height: 30px;
 }
@@ -3313,7 +3306,7 @@ a.nav_right_l2:hover {
     margin-top: 8px;
 }
 .footer_box {
-    background: url("../images4/a2.jpg") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a2.jpg") no-repeat scroll 0 0 transparent;
     height: 73px;
     position: relative;
 }
@@ -3374,7 +3367,7 @@ a.nav_ccc:hover {
     font-size: 14px;
 }
 .box_top_1 {
-    background: url("../images4/float_bg_new.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/float_bg_new.gif") repeat scroll 0 0 transparent;
     height: 229px;
     overflow: hidden;
     position: relative;
@@ -3421,7 +3414,7 @@ a.nav_ccc:hover {
     z-index: 10;
 }
 .menu_line a span {
-    background: url("../images4/d1.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/d1.gif") repeat scroll 0 0 transparent;
     height: 28px;
     left: -80px;
     margin-left: -9000px;
@@ -3442,7 +3435,7 @@ a.nav_ccc:hover {
     z-index: 9999;
 }
 .tip_1 {
-    background: url("../images4/d2.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/d2.gif") repeat scroll 0 0 transparent;
     display: none;
     height: 28px;
     left: -50px;
@@ -3475,7 +3468,7 @@ a.nav_ccc:hover {
     margin-top: 5px;
 }
 .map_box {
-    background: url("../images4/e4.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/e4.gif") repeat scroll 0 0 transparent;
     height: 20px;
     line-height: 20px;
     padding-left: 15px;
@@ -3502,7 +3495,7 @@ a.nav_ccc:hover {
     border-bottom: 1px dotted #5D8602;
 }
 .order_bg_info {
-    background: url("../images4/e5.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/e5.gif") no-repeat scroll 0 0 transparent;
     color: #5C8702;
     display: block;
     font-family: Arial,Helvetica,sans-serif;
@@ -3569,11 +3562,11 @@ a.nav_ccc:hover {
     height: 50px;
 }
 .order_box_2_n {
-    background: url("../images4/a14.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a14.gif") repeat scroll 0 0 transparent;
     padding: 0 10px;
 }
 .order_box_2_n_h1_1 {
-    background: url("../images4/a38.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a38.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 9px;
     overflow: hidden;
@@ -3591,28 +3584,28 @@ a.nav_ccc:hover {
     padding: 10px 20px;
 }
 .order_fl_ul li {
-    background: url("../images4/a40.gif") no-repeat scroll 0 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a40.gif") no-repeat scroll 0 8px transparent;
     margin-bottom: 20px;
     padding-left: 10px;
 }
 .order_fl_ul_2 li {
-    background: url("../images4/a40.gif") no-repeat scroll 0 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a40.gif") no-repeat scroll 0 8px transparent;
     margin-bottom: 2px;
     padding-left: 10px;
 }
 .order_box_3 {
-    background: url("../images4/a13.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a13.gif") repeat scroll 0 0 transparent;
     height: 12px;
     overflow: hidden;
 }
 .order_box_2_n_h1_3 {
-    background: url("../images4/a39.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a39.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 9px;
     overflow: hidden;
 }
 .order_box_2_n_h1 {
-    background: url("../images4/a37.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a37.gif") repeat scroll 0 0 transparent;
     color: #FFFFFF;
     font-size: 14px;
     height: 29px;
@@ -3660,7 +3653,7 @@ a.nav_ccc:hover {
     margin-top: 21px;
 }
 .login_order_box_3_h1 {
-    background: url("../images4/a11.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a11.gif") repeat scroll 0 0 transparent;
     height: 26px;
     line-height: 26px;
     margin-bottom: 5px;
@@ -3687,21 +3680,21 @@ a.nav_ccc:hover {
     padding-left: 15px;
 }
 .order_box_1 {
-    background: url("../images4/a12.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a12.gif") repeat scroll 0 0 transparent;
     height: 12px;
     overflow: hidden;
 }
 .order_box_2 {
-    background: url("../images4/a14.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a14.gif") repeat scroll 0 0 transparent;
     padding: 80px;
 }
 .order_box_3 {
-    background: url("../images4/a13.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a13.gif") repeat scroll 0 0 transparent;
     height: 12px;
     overflow: hidden;
 }
 .order_box_2_1 {
-    background: url("../images4/a15.gif") no-repeat scroll 20px 40px #FFE4AC;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a15.gif") no-repeat scroll 20px 40px #FFE4AC;
     display: block;
     margin: auto;
     padding: 20px 0 30px 110px;
@@ -3715,12 +3708,12 @@ a.nav_ccc:hover {
     top: 20px;
 }
 a.order_box_2_1_Print:link, a.order_box_2_1_Print:active, a.order_box_2_1_Print:visited {
-    background: url("../images4/a17.gif") no-repeat scroll left center transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a17.gif") no-repeat scroll left center transparent;
     display: block;
     padding-left: 16px;
 }
 a.order_box_2_1_Save:link, a.order_box_2_1_Save:active, a.order_box_2_1_Save:visited {
-    background: url("../images4/a18.gif") no-repeat scroll left center transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a18.gif") no-repeat scroll left center transparent;
     display: block;
     padding-left: 16px;
 }
@@ -3761,50 +3754,50 @@ a.nav_red_c:hover {
     margin-top: 5px;
 }
 .order_box_2_1_1_ul li {
-    background: url("../images4/a16.gif") no-repeat scroll 0 4px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a16.gif") no-repeat scroll 0 4px transparent;
     margin-bottom: 5px;
     padding-left: 10px;
     width: 500px;
 }
 .order_right_box_c_1 {
-    background: url("../images4/a19.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a19.gif") repeat scroll 0 0 transparent;
     height: 9px;
     overflow: hidden;
 }
 .order_right_box_c_2 {
-    background: url("../images4/a20.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a20.gif") repeat scroll 0 0 transparent;
     padding: 0 10px;
 }
 .order_right_box_c_2_p {
-    background: url("../images4/a20.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a20.gif") repeat scroll 0 0 transparent;
     padding: 0 10px;
 }
 .order_right_box_c_3 {
-    background: url("../images4/a23.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a23.gif") repeat scroll 0 0 transparent;
     height: 9px;
     overflow: hidden;
 }
 .order_right_box_c_2_end_2 {
-    background: url("../images4/a30_2.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a30_2.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 20px;
 }
 .order_right_box_c_2_h1 {
-    background: url("../images4/a25.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a25.gif") repeat scroll 0 0 transparent;
     color: #FFFDE5;
     height: 27px;
     line-height: 27px;
     padding-left: 35px;
 }
 .order_right_box_c_2_h1_1 {
-    background: url("../images4/a25_1.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a25_1.gif") repeat scroll 0 0 transparent;
     color: #FFFDE5;
     height: 27px;
     line-height: 27px;
     padding-left: 35px;
 }
 .order_right_box_c_2_h1_t {
-    background: url("../images4/a25_t.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a25_t.gif") repeat scroll 0 0 transparent;
     color: #FFFDE5;
     height: 27px;
     line-height: 27px;
@@ -3835,7 +3828,7 @@ a.nav_red_c:hover {
     color: #DC030D;
 }
 a.order_f_a:link, a.order_f_a:active, a.order_f_a:visited {
-    background: url("../images4/a28.gif") no-repeat scroll 0 1px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a28.gif") no-repeat scroll 0 1px transparent;
     display: block;
     margin-left: 10px;
     padding-left: 15px;
@@ -3844,7 +3837,7 @@ a.order_f_a:link, a.order_f_a:active, a.order_f_a:visited {
     border-bottom: 1px solid #943E00;
 }
 .order_right_box_c_2_end {
-    background: url("../images4/a30.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a30.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 20px;
 }
@@ -3865,12 +3858,12 @@ a.order_right_c:hover {
     text-decoration: underline;
 }
 .order_right_box_c_4_2 {
-    background: url("../images4/a33.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a33.gif") repeat scroll 0 0 transparent;
     display: block;
     height: 20px;
 }
 .order_right_box_c_5_h1 {
-    background: url("../images4/a34.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a34.gif") repeat scroll 0 0 transparent;
     color: #FFFDE4;
     height: 31px;
     margin-bottom: 5px;
@@ -3883,7 +3876,7 @@ a.order_right_c:hover {
     position: relative;
 }
 .order_right_box_c_4_2_bt_1 {
-    background: url("../images4/a35.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a35.gif") no-repeat scroll 0 0 transparent;
     display: block;
     margin-left: 100px;
     padding-left: 20px;
@@ -3925,7 +3918,7 @@ a.order_right_c:hover {
     width: 590px;
 }
 .order_bt_left {
-    background: url("../images4/ver/btn_green_left.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/ver/btn_green_left.gif") no-repeat scroll 0 0 transparent;
     display: block;
     height: 20px;
 }
@@ -3982,7 +3975,7 @@ a.order_right_c:hover {
     margin-top: 3px;
 }
 .NewCustomer_box_left_h1 {
-    background: url("../images4/a41.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a41.gif") repeat scroll 0 0 transparent;
     height: 41px;
     position: relative;
 }
@@ -3994,7 +3987,7 @@ a.order_right_c:hover {
     top: -20px;
 }
 .NewCustomer_box_left_h1n {
-    background: url("../images4/a41.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a41.gif") repeat scroll 0 0 transparent;
     height: 41px;
     position: relative;
 }
@@ -4011,7 +4004,7 @@ a.order_right_c:hover {
     border-right: 2px solid #FFE4AC;
 }
 .NewCustomer_box_left_e {
-    background: url("../images4/a42.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a42.gif") repeat scroll 0 0 transparent;
     height: 10px;
     overflow: hidden;
 }
@@ -4022,7 +4015,7 @@ a.order_right_c:hover {
     padding-bottom: 8px;
 }
 a.nav_center_y:link, a.nav_center_y:active, a.nav_center_y:visited {
-    background: url("../images4/a48.gif") repeat scroll 0 -35px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a48.gif") repeat scroll 0 -35px transparent;
     color: #973C05;
     display: block;
     height: 28px;
@@ -4039,7 +4032,7 @@ a.nav_center_y:hover {
     padding: 10px 10px 2px;
 }
 a.nav_center_n:link, a.nav_center_n:active, a.nav_center_n:visited {
-    background: url("../images4/a48.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a48.gif") repeat scroll 0 0 transparent;
     color: #973C05;
     display: block;
     height: 28px;
@@ -4052,7 +4045,7 @@ a.nav_center_n:hover {
     text-decoration: none;
 }
 .help_ul_nav {
-    background: url("../images4/a57.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a57.gif") repeat scroll 0 0 transparent;
     height: 45px;
     position: relative;
     width: 1000px;
@@ -4088,19 +4081,19 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 821px;
 }
 .right_step_01 {
-    background: url("../images4/f03.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f03.gif") no-repeat scroll 0 bottom transparent;
     margin: 0 0 10px;
     padding: 0;
     width: 821px;
 }
 .right_step_01_2 {
-    background: url("../images4/f02.gif") no-repeat scroll 0 top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f02.gif") no-repeat scroll 0 top transparent;
     color: #943E00;
     margin: 0;
     padding: 10px 20px 0;
 }
 .right_step_01_3 {
-    background: url("../images4/f04.gif") repeat-x scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f04.gif") repeat-x scroll 0 bottom transparent;
     line-height: 160%;
     margin: 0 0 10px;
     padding: 0 0 10px;
@@ -4117,14 +4110,14 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     padding: 0 5px 20px 0;
 }
 .right_step_02 {
-    background: url("../images4/f06.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f06.gif") no-repeat scroll 0 bottom transparent;
     float: left;
     margin: 0;
     padding: 0;
     width: 405px;
 }
 .right_step_02_2 {
-    background: url("../images4/f05.gif") no-repeat scroll 0 top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f05.gif") no-repeat scroll 0 top transparent;
     color: #943E00;
     margin: 0;
     padding: 10px 20px 0;
@@ -4142,19 +4135,19 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-decoration: underline;
 }
 .gnavi_01 {
-    background: url("../images4/f07.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f07.gif") no-repeat scroll 0 0 transparent;
     height: 27px;
     margin: 0 0 10px;
     width: 966px;
 }
 .gnavi_02 {
-    background: url("../images4/f09.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f09.gif") no-repeat scroll 0 0 transparent;
     height: 27px;
     margin: 0 0 10px;
     width: 966px;
 }
 .gnavi_03 {
-    background: url("../images4/f11.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/f11.gif") no-repeat scroll 0 0 transparent;
     height: 27px;
     margin: 0 0 10px;
     width: 966px;
@@ -4292,7 +4285,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     display: none;
 }
 .nav_left_ul li.s {
-    background: url("../images4/kfc-fire.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/kfc-fire.gif") no-repeat scroll 0 0 transparent;
     height: 24px;
     line-height: 24px;
     position: relative;
@@ -4312,7 +4305,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 5px;
 }
 .box_top_2 {
-    background: url("../images4/float_bg_new02.gif") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/float_bg_new02.gif") repeat scroll 0 0 transparent;
     height: 229px;
     overflow: hidden;
     position: relative;
@@ -4329,12 +4322,12 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 100px;
 }
 .eventInner2 {
-    background: url("../images4/a01.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a01.gif") no-repeat scroll 0 0 transparent;
     padding-top: 8px;
     width: 604px;
 }
 .eventInner3 {
-    background: url("../images4/a02.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a02.gif") no-repeat scroll 0 bottom transparent;
     padding: 0 5px 10px;
     width: 594px;
 }
@@ -4355,7 +4348,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 594px;
 }
 .solid {
-    background: url("../images4/t09.png") repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/t09.png") repeat scroll 0 0 transparent;
     bottom: 0;
     height: 72px;
     left: 0;
@@ -4475,7 +4468,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     margin: 0.5em 0;
 }
 .content_box_left_main_left_h1-popoo {
-    background: url("../images4/a1_2_02_popoo.png") repeat-x scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/a1_2_02_popoo.png") repeat-x scroll 0 0 transparent;
     color: #E90000;
     font-family: Arial,Helvetica,sans-serif;
     font-size: 14px;
@@ -4491,7 +4484,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     height: 150px;
 }
 .kfcLogo {
-    background: url("../images4/logo.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/logo.gif") no-repeat scroll 0 0 transparent;
     float: left;
     height: 63px;
     width: 201px;
@@ -4504,7 +4497,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 201px;
 }
 .headLeft {
-    background: url("../images4/new/a45.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a45.gif") no-repeat scroll 0 bottom transparent;
     float: right;
     height: 63px;
     position: relative;
@@ -4565,20 +4558,20 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     color: red;
 }
 .blockLeft {
-    background: url("../images4/new/a01.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a01.gif") no-repeat scroll 0 0 transparent;
     float: left;
     padding-top: 18px;
     width: 798px;
 }
 .blockLeft2 {
-    background: url("../images4/new/a03.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a03.gif") no-repeat scroll 0 bottom transparent;
     padding-bottom: 15px;
 }
 .blockLeft3 {
-    background: url("../images4/new/a02.gif") repeat-y scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a02.gif") repeat-y scroll 0 0 transparent;
 }
 .blockLeft4 {
-    background: url("../images4/new/a04.gif") no-repeat scroll 418px 355px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a04.gif") no-repeat scroll 418px 355px transparent;
     height: 510px;
 }
 .step01 {
@@ -4617,33 +4610,33 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     margin-top: 100px;
 }
 .contentBlock {
-    background: url("../images4/new/a06.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a06.gif") no-repeat scroll 0 0 transparent;
     padding-top: 18px;
     width: 1000px;
 }
 .contentBlock_b {
-    background: url("../imgnew/n_t.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/n_t.gif") no-repeat scroll 0 0 transparent;
     padding-top: 10px;
     width: 1000px;
 }
 .contentBlock2 {
-    background: url("../images4/new/a08.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a08.gif") no-repeat scroll 0 bottom transparent;
     padding-bottom: 11px;
 }
 .contentBlock3 {
-    background: url("../images4/new/a07.gif") repeat-y scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a07.gif") repeat-y scroll 0 0 transparent;
 }
 .contentBlock3_b {
-    background: url("../imgnew/n_b.gif") repeat-y scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/n_b.gif") repeat-y scroll 0 0 transparent;
 }
 .contentBlock4 {
-    background: url("../images4/new/a04.gif") no-repeat scroll 620px 16px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a04.gif") no-repeat scroll 620px 16px transparent;
     height: auto !important;
     min-height: 520px;
     overflow: visible;
 }
 .contentBlock4_b {
-    background: url("../images4/new/a04.gif") no-repeat scroll 620px bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a04.gif") no-repeat scroll 620px bottom transparent;
     height: auto !important;
     min-height: 520px;
     overflow: visible;
@@ -4682,7 +4675,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-decoration: underline;
 }
 .dlStyle01 dt {
-    background: url("../images4/new/a09.gif") no-repeat scroll 0 18px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a09.gif") no-repeat scroll 0 18px transparent;
     float: left;
     line-height: 22px;
     padding: 12px 0 12px 15px;
@@ -4838,7 +4831,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     border-bottom: 1px dashed #C9A17F;
 }
 .dlStyle02 dt {
-    background: url("../images4/new/a09.gif") no-repeat scroll 0 12px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a09.gif") no-repeat scroll 0 12px transparent;
     color: #E60012;
     float: left;
     line-height: 22px;
@@ -4938,7 +4931,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     color: #E60012;
 }
 .modifyCity td .helpRoad2 ul li {
-    background: url("../images4/new/a12.gif") no-repeat scroll 3px 10px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a12.gif") no-repeat scroll 3px 10px transparent;
     padding-left: 10px;
 }
 .step01 .yzmP p {
@@ -4979,7 +4972,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-decoration: underline;
 }
 .yzmTxt ul li {
-    background: url("../images4/new/a14.gif") no-repeat scroll 3px 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a14.gif") no-repeat scroll 3px 8px transparent;
     line-height: 160%;
     padding-left: 10px;
 }
@@ -5001,7 +4994,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-decoration: underline;
 }
 .yzmTxt2 ul li {
-    background: url("../images4/new/a14.gif") no-repeat scroll 3px 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a14.gif") no-repeat scroll 3px 8px transparent;
     line-height: 160%;
     padding-left: 10px;
 }
@@ -5015,7 +5008,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     position: relative;
 }
 .aHelp2 .emailHelp {
-    background: url("../images4/new/a16.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a16.gif") no-repeat scroll 0 bottom transparent;
     display: none;
     left: 65px;
     position: absolute;
@@ -5032,7 +5025,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     display: block;
 }
 .aHelp2 .emailHelp .emailHelp2 {
-    background: url("../images4/new/a15.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a15.gif") no-repeat scroll 0 0 transparent;
     padding: 10px 5px 10px 35px;
     width: 254px;
 }
@@ -5040,25 +5033,25 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     background: none repeat scroll 0 0 #FEE7BE;
 }
 .rightInner {
-    background: url("../images4/new/a20.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a20.gif") no-repeat scroll 0 bottom transparent;
     float: right;
     padding: 0 0 15px 4px;
     width: 800px;
 }
 .rightInner2 {
-    background: url("../images4/new/a19.gif") repeat-y scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a19.gif") repeat-y scroll 0 0 transparent;
     height: auto !important;
     min-height: 530px;
     overflow: hidden;
 }
 .rightInner2b {
-    background: url("../images4/new/a19.gif") repeat-y scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a19.gif") repeat-y scroll 0 0 transparent;
     height: auto !important;
     min-height: 632px;
     overflow: hidden;
 }
 .rightInner3 {
-    background: url("../images4/new/a24.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a24.gif") no-repeat scroll 0 0 transparent;
 }
 .confirmBlock h3 {
     background: none repeat scroll 0 0 #FFE7C0;
@@ -5067,7 +5060,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     position: relative;
 }
 .confirmBlock2 {
-    background: url("../images4/new/a25.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a25.gif") no-repeat scroll 0 0 transparent;
     padding: 12px 11px 0;
 }
 .sumInput {
@@ -5175,7 +5168,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     font-weight: bold;
 }
 .productItem h4 {
-    background: url("../images4/new/a26.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a26.gif") no-repeat scroll 0 0 transparent;
     color: #FFFDE4;
     font-family: Arial;
     font-size: 12px;
@@ -5218,7 +5211,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-align: center;
 }
 .stepNext span {
-    background: url("../images4/new/a27.gif") no-repeat scroll 30px 3px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a27.gif") no-repeat scroll 30px 3px transparent;
     float: left;
     line-height: 18px;
     padding: 0 64px 0 50px;
@@ -5242,7 +5235,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     padding-bottom: 20px;
 }
 .dlStyle04 dt {
-    background: url("../images4/new/a09.gif") no-repeat scroll 0 5px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a09.gif") no-repeat scroll 0 5px transparent;
     float: left;
     padding-left: 13px;
     width: 270px;
@@ -5300,7 +5293,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     padding: 10px 20px 20px;
 }
 .payDiv dt {
-    background: url("../images4/new/a30.gif") no-repeat scroll 0 6px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a30.gif") no-repeat scroll 0 6px transparent;
     color: #E60012;
     float: left;
     line-height: 24px;
@@ -5366,7 +5359,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 600px;
 }
 .noticeStyle01 dl dd ul li {
-    background: url("../images4/new/a14.gif") no-repeat scroll 0 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a14.gif") no-repeat scroll 0 8px transparent;
     padding-bottom: 8px;
     padding-left: 5px;
 }
@@ -5418,7 +5411,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-decoration: underline;
 }
 .dlStyle05 dd ul li {
-    background: url("../images4/new/a32.gif") no-repeat scroll 0 5px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
     line-height: 18px;
     padding-left: 12px;
 }
@@ -5427,7 +5420,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     font-weight: normal;
 }
 .leftInner {
-    background: url("../images4/new/a33_b.gif") no-repeat scroll 0 -1px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a33_b.gif") no-repeat scroll 0 -1px transparent;
     float: left;
     height: 533px;
     padding: 12px 10px 0;
@@ -5439,7 +5432,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 176px;
 }
 .leftInner ul li a {
-    background: url("../images4/new/a35.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a35.gif") no-repeat scroll 0 0 transparent;
     display: block;
     height: 30px;
     line-height: 13px;
@@ -5447,7 +5440,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 166px;
 }
 .leftInner ul li a:hover, .leftInner ul li a.on {
-    background: url("../images4/new/a34.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a34.gif") no-repeat scroll 0 0 transparent;
     color: #934400;
     text-decoration: none;
 }
@@ -5499,10 +5492,10 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     padding-left: 35px;
 }
 .orderDiv h3.cI {
-    background: url("../images4/new/a41.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a41.gif") no-repeat scroll 0 0 transparent;
 }
 .orderDiv h3.oI {
-    background: url("../images4/new/a42.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a42.gif") no-repeat scroll 0 0 transparent;
 }
 .orderDiv h3 strong {
     font-size: 14px;
@@ -5618,7 +5611,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     width: 334px;
 }
 .dlStyle06 dt {
-    background: url("../images4/new/a09.gif") no-repeat scroll 0 12px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a09.gif") no-repeat scroll 0 12px transparent;
     float: left;
     line-height: 22px;
     padding: 6px 0 6px 15px;
@@ -5646,11 +5639,11 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     text-decoration: underline;
 }
 .tips ul li {
-    background: url("../images4/new/a32.gif") no-repeat scroll 0 5px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
     padding-left: 10px;
 }
 .tips .tipsEn ul li {
-    background: url("../images4/new/a32.gif") no-repeat scroll 0 8px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 8px transparent;
 }
 .tips .tipsEn {
     display: none;
@@ -5676,7 +5669,7 @@ a.forget {
     position: relative;
 }
 .selectInput {
-    background: url("../images4/new/a43.gif") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a43.gif") no-repeat scroll 0 0 transparent;
     border: medium none;
     color: #E60012;
     font-size: 14px;
@@ -5738,7 +5731,7 @@ a.forget {
     width: 145px;
 }
 .contentBlock5 {
-    background: url("../images4/new/a04.gif") no-repeat scroll 620px 16px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a04.gif") no-repeat scroll 620px 16px transparent;
     height: auto !important;
     min-height: 551px;
     overflow: visible;
@@ -5751,14 +5744,14 @@ a.forget {
     width: 945px;
 }
 .contentBlock6 {
-    background: url("../images4/new/a08.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a08.gif") no-repeat scroll 0 bottom transparent;
     height: auto !important;
     min-height: 58px;
     overflow: visible;
     padding: 0 40px 11px;
 }
 .contentBlock6_b {
-    background: url("../imgnew/n_d.gif") no-repeat scroll 0 bottom transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/n_d.gif") no-repeat scroll 0 bottom transparent;
     height: auto !important;
     min-height: 20px;
     overflow: visible;
@@ -5786,13 +5779,13 @@ a.forget {
     text-decoration: underline;
 }
 .newtip ul li {
-    background: url("../images4/new/a32.gif") no-repeat scroll 0 5px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
     font-family: Verdana,Geneva,sans-serif,"宋体";
     line-height: 18px;
     padding-left: 10px;
 }
 .newtip .tipsEn ul li {
-    background: url("../images4/new/a32.gif") no-repeat scroll 0 5px transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
     font-family: Verdana,Geneva,sans-serif,"宋体";
     font-size: 11px;
     line-height: 13px;
@@ -5827,7 +5820,7 @@ a.forget {
     padding: 0 15px 15px;
 }
 .yh1 .rtxt {
-    background: url("../imgnew/inc2.gif") no-repeat scroll right top transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/inc2.gif") no-repeat scroll right top transparent;
     color: #E70006;
     float: right;
     font-size: 14px;
@@ -5842,7 +5835,7 @@ a.forget {
     padding: 10px 0 0;
 }
 .yItem h4 {
-    background: url("../imgnew/bar.jpg") no-repeat scroll 0 0 transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/bar.jpg") no-repeat scroll 0 0 transparent;
     color: #FFFDE4;
     font-family: Arial;
     font-size: 12px;
@@ -5856,7 +5849,7 @@ a.forget {
     font-size: 14px;
 }
 .cusSel {
-    background: url("../imgnew/arrow_d.gif") no-repeat scroll right center transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/arrow_d.gif") no-repeat scroll right center transparent;
     border: 1px solid #943F00;
     color: #717171;
     cursor: pointer;
@@ -5869,7 +5862,7 @@ a.forget {
     width: 150px;
 }
 .cusSelOpen {
-    background: url("../imgnew/arrow_u.gif") no-repeat scroll right center transparent;
+    background: url("http://www.4008823823.com.cn/kfcios/imgnew/arrow_u.gif") no-repeat scroll right center transparent;
     border: 1px solid #943F00;
     color: #717171;
     cursor: pointer;
@@ -5922,3 +5915,7 @@ a.alink-popoo {
 a.alink-popoo:hover {
     text-decoration: underline;
 }
+
+
+
+

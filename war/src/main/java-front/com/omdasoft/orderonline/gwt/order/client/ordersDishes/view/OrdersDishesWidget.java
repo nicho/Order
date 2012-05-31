@@ -5,8 +5,8 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Anchor;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
@@ -18,9 +18,9 @@ public class OrdersDishesWidget extends Composite implements
 		OrdersDishesDisplay {
 
 	@UiField
-	Button returnBtn;
+	Image returnBtn;
 	@UiField
-	Button addBtn;
+	Image addBtn;
 	@UiField
 	Panel resultPanel;
 	@UiField

@@ -12,7 +12,7 @@
 			<div class="{new2.header}">
 				<div class="{new2.restaurantlogo}">
 					<a href="/">
-						<img src="/app/www/images/logo.gif" alt="logo" border="0" />
+						 <g:Image url="/app/www/images/logo.gif"/>
 					</a>
 				</div>
 				<div class="{new2.progressbar}">
@@ -126,6 +126,52 @@
   
   </div>
   <div id="orderArea" class="content_box_right" style="margin-top: 0px;">
+  <div id="showOrder" class="content_box_right_dd"> 
+
+
+
+<div id="showO_c" style=""> 
+<div class="content_box_right_dd">
+<h1 class="content_box_right_dd_h1">我的订单</h1>
+                     
+<div class="content_box_right_dd_c">
+     
+    
+     
+     
+	      
+	     
+	     <span id="r_c" class="content_box_right_dd_c_1">提醒：根据你最终提交订单时间，<br/>送餐时间可能略有调整。</span>
+           
+	     
+     
+     					<h3>
+						当前菜品：
+						<g:InlineLabel ui:field="bookingTitle" styleName="redlable" />
+						</h3>
+                           
+                    		
+                       <div class="{new1.table}">
+						<g:FlowPanel ui:field="bookingPanel" />
+					   </div>                               
+                    
+                       
+                          <span class="order_bg_info">总数:<em><g:InlineLabel ui:field="dishesNumber" styleName="{new2.bluebable}" />个</em></span>
+                          <span class="order_bg_info">合计/Total:<em><g:InlineLabel ui:field="dishesMoney" styleName="{new2.bluebable}" />元</em></span>
+                          <span class="order_bt">
+                          	<a href="javascript:;"> <g:Image  ui:field="returnBtn" url="http://www.4008823823.com.cn/kfcios/images2/e6.gif" title="返回修改预定信息" /></a>
+                          	
+                          	<a onclick="Submitorder();" href="javascript:;"> <g:Image ui:field="addBtn"  url="http://www.4008823823.com.cn/kfcios/images2/e7.gif" title="立刻预定" /></a>
+                          </span>
+                        </div>
+ <span class="content_box_right_2_b"></span>
+                       
+</div>  
+</div>
+
+                       
+
+</div>
     <div id="showHot" class="content_box_right_2">
       <table width="100%" cellspacing="0" cellpadding="0" border="0">
         <tbody>
@@ -155,29 +201,8 @@
 							<g:InlineLabel ui:field="room" />
 					</h3>
                 </li>
-                  <li>
-					<h3>
-						当前菜品：
-						<g:InlineLabel ui:field="bookingTitle" styleName="redlable" />
-					</h3>
 
-					<div class="{new1.table}">
-						<g:FlowPanel ui:field="bookingPanel" />
-					</div>
-
-					<h3 style="text-align: right;">
-						总数:
-						<g:InlineLabel ui:field="dishesNumber" styleName="{new2.bluebable}" />
-						个,总金额:
-						<g:InlineLabel ui:field="dishesMoney" styleName="{new2.bluebable}" />
-						元
-					</h3>
-
-				</li>
-				<li>
-											<g:Button ui:field="returnBtn" text="返回修改预定信息" />
-							<g:Button ui:field="addBtn" text="立刻预定" />
-				</li>
+			
                 </ul>
               </div></td>
           </tr>

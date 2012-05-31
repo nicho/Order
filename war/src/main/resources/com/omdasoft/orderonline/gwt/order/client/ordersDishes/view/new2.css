@@ -73,8 +73,14 @@ a:hover{color:#010DFF;text-decoration:underline;}
 /*table*/
 .table2 caption{display:none;}
 .table2 table{width:100%;}
-.table2 table,.table th{border:0px solid #DDDDDD;text-align:center;}
-.table2 td{border:0px solid #DDDDDD;}
+.table2 table,.table th{
+    background: none repeat scroll 0 0 #5C8702;
+    border-right: 1px solid #8BAD57;
+    color: #FFFFFF;
+    height: 30px;
+    padding: 5px 0 0 5px;
+	}
+.table2 td{ border-bottom: 1px solid #943E00;}
 .table2 td,.table th{padding:3px 0;}
 .table2 th{background-color:#CCCCCC;font-size:12px;font-weight:normal;color:#666666;}
 

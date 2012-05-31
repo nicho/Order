@@ -9,10 +9,8 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.cell.client.EditTextCell;
 import com.google.gwt.cell.client.FieldUpdater;
-import com.google.gwt.cell.client.SelectionCell;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -44,7 +42,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequ
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
-import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
+import com.omdasoft.orderonline.gwt.order.client.ui.ImageLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
@@ -357,7 +355,7 @@ public class OrdersDishesPresenterImpl extends
 			for (int i = 0; i < cellBookingTable.getRowCount(); i++) {
 				try {
 					number+=Integer.parseInt(cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().getInnerText());
-					money+=Double.parseDouble(cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().getInnerText());
+					money+=Double.parseDouble(cellBookingTable.getRowElement(i).getCells().getItem(2).getFirstChildElement().getInnerText());
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
@@ -538,47 +536,47 @@ public class OrdersDishesPresenterImpl extends
 					public void update(int index, BookingDishesClient o, String value) {
 						try
 						{
-						     cellBookingTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().setInnerHTML((Double.parseDouble(value))* Double.parseDouble(o.getPrice())+"");
+						     cellBookingTable.getRowElement(index).getCells().getItem(2).getFirstChildElement().setInnerHTML((Double.parseDouble(value))* Double.parseDouble(o.getPrice())+"");
 						     cellBookingTable.getVisibleItem(index).setNumber(Integer.parseInt(value));
 						     sumNumberMoney();
 						}catch (Exception e) {
-							 cellBookingTable.getRowElement(index).getCells().getItem(4).getFirstChildElement().setInnerHTML((1* Double.parseDouble(o.getPrice())+""));
+							 cellBookingTable.getRowElement(index).getCells().getItem(2).getFirstChildElement().setInnerHTML((1* Double.parseDouble(o.getPrice())+""));
 						}
 					}
 
 				});
 
 
-		cellBookingTable.addColumn("单位", new SelectionCell(dwlt),
-				new GetValue<BookingDishesClient, String>() {
-					@Override
-					public String getValue(BookingDishesClient dishes) {
-						return dishes.getUnit();
-					}
-				}, new FieldUpdater<BookingDishesClient, String>() {
-
-					@Override
-					public void update(int index, BookingDishesClient o, String value) {
-						o.setUnit(value);
-					}
-
-				});
-		
-
-		cellBookingTable.addColumn("口味", new SelectionCell(kwlt),
-				new GetValue<BookingDishesClient, String>() {
-					@Override
-					public String getValue(BookingDishesClient dishes) {
-						return dishes.getTaste();
-					}
-				}, new FieldUpdater<BookingDishesClient, String>() {
-
-					@Override
-					public void update(int index, BookingDishesClient o, String value) {
-						o.setTaste(value);
-					}
-
-				});
+//		cellBookingTable.addColumn("单位", new SelectionCell(dwlt),
+//				new GetValue<BookingDishesClient, String>() {
+//					@Override
+//					public String getValue(BookingDishesClient dishes) {
+//						return dishes.getUnit();
+//					}
+//				}, new FieldUpdater<BookingDishesClient, String>() {
+//
+//					@Override
+//					public void update(int index, BookingDishesClient o, String value) {
+//						o.setUnit(value);
+//					}
+//
+//				});
+//		
+//
+//		cellBookingTable.addColumn("口味", new SelectionCell(kwlt),
+//				new GetValue<BookingDishesClient, String>() {
+//					@Override
+//					public String getValue(BookingDishesClient dishes) {
+//						return dishes.getTaste();
+//					}
+//				}, new FieldUpdater<BookingDishesClient, String>() {
+//
+//					@Override
+//					public void update(int index, BookingDishesClient o, String value) {
+//						o.setTaste(value);
+//					}
+//
+//				});
 		cellBookingTable.addColumn("价格", new TextCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override
@@ -586,11 +584,11 @@ public class OrdersDishesPresenterImpl extends
 						return dishes.getPrice();
 					}
 				});
-		cellBookingTable.addColumn("操作", new HyperLinkCell(),
+		cellBookingTable.addColumn("取消", new ImageLinkCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override
 					public String getValue(BookingDishesClient dishesType) {
-						return "删除";
+						return "http://www.4008823823.com.cn/kfcios/images2/btn_close.gif";
 					}
 				}, new FieldUpdater<BookingDishesClient, String>() {
 
@@ -658,7 +656,7 @@ public class OrdersDishesPresenterImpl extends
 				cellBookingTable.getRowElement(i).getCells().getItem(1).getFirstChildElement().setInnerText(number+"");
 				cellBookingTable.getVisibleItem(i).setNumber(number);
 				
-				cellBookingTable.getRowElement(i).getCells().getItem(4).getFirstChildElement().setInnerText((number*Double.parseDouble(cellBookingTable.getVisibleItem(i).getPrice()))+"");
+				cellBookingTable.getRowElement(i).getCells().getItem(2).getFirstChildElement().setInnerText((number*Double.parseDouble(cellBookingTable.getVisibleItem(i).getPrice()))+"");
 				fal=true;
 			}
 			
