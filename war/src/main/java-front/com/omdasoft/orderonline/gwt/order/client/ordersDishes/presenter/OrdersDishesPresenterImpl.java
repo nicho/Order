@@ -15,7 +15,6 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
@@ -141,7 +140,14 @@ public class OrdersDishesPresenterImpl extends
 						injector.getOrderSubmitPresenter().bind();
 					}
 				}));
-
+		registerHandler(display.getMenutypeAll().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						buildTable();
+						doSearch(null);
+					}
+				}));
 	}
 
 	private void setRequestDishesList()
@@ -512,7 +518,8 @@ public class OrdersDishesPresenterImpl extends
 					}
 				});
 
-		Column<BookingDishesClient, String> numberColumn =cellBookingTable.addColumn("数量", new EditTextCell(),
+		//Column<BookingDishesClient, String> numberColumn =
+				cellBookingTable.addColumn("数量", new EditTextCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override
 					public String getValue(BookingDishesClient dishes) {

@@ -4,7 +4,6 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
@@ -33,6 +32,9 @@ public class OrdersDishesWidget extends Composite implements
 
 	@UiField
 	InlineLabel bookingTitle;
+
+	@UiField
+	InlineLabel menutypeAll;
 	
 	@UiField
 	InlineLabel city;
@@ -146,6 +148,10 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public void setBookingTitle(String text) {
 		bookingTitle.setText(text);
+	}
+	@Override
+	public InlineLabel getMenutypeAll() {
+		return menutypeAll;
 	}
 
 }

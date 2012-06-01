@@ -81,7 +81,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
     padding: 5px 0 0 5px;
 	}
 .table2 td{ border-bottom: 1px solid #943E00;}
-.table2 td,.table th{padding:3px 0;}
+.table2 td,.table th{padding:3px 0; text-shadow: 0 0 0 #DDDDFF;}
 .table2 th{background-color:#CCCCCC;font-size:12px;font-weight:normal;color:#666666;}
 
 

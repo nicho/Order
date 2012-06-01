@@ -54,35 +54,16 @@
                 <span class="content_box_left_main_left_c"> <!-- weij 2011-12-22  update --> 
                 
                 <!-- update end -->
-                <h2 class="content_box_left_main_left_c_h2 bmargin cursor"> 大类1</h2>
+                <h2 class="content_box_left_main_left_c_h2 bmargin cursor"> <g:InlineLabel ui:field="menutypeAll" text="全部"/> </h2>
                 <ul id="menu_1" class="nav_left_ul">
                 	 <g:FlowPanel ui:field="tabpage" />
                 </ul>
-                <h2 class="content_box_left_main_left_c_h2 bmargin cursor">大类2</h2>
-                <ul id="menu_2" class="nav_left_ul">
-                  <li style="display:none;" class=""> <a onClick="showProductsNewHtml(this,'L',0);" class="nav_left_n" href="javascript:;"> 天天半价优惠 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'L',1);" class="nav_left_n" href="javascript:;"> 精选套餐 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'L',2);" class="nav_left_n" href="javascript:;"> 经典主食 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'L',3);" class="nav_left_n" href="javascript:;"> 缤纷小食 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'L',4);" class="nav_left_n" href="javascript:;"> 丰富配餐 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'L',5);" class="nav_left_n" href="javascript:;"> 冷饮 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'L',6);" class="nav_left_n" href="javascript:;"> 热饮 </a> </li>
-                </ul>
-                <h2 class="content_box_left_main_left_c_h2 bmargin cursor"> 大类3 </h2>
-                <ul id="menu_3" class="nav_left_ul">
-                  <li class=""> <a onClick="showProductsNewHtml(this,'D',1);" class="nav_left_n" href="javascript:;"> 精选套餐 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'D',2);" class="nav_left_n" href="javascript:;"> 经典主食 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'D',3);" class="nav_left_n" href="javascript:;"> 缤纷小食 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'D',4);" class="nav_left_n" href="javascript:;"> 丰富配餐 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'D',5);" class="nav_left_n" href="javascript:;"> 冷饮 </a> </li>
-                  <li class=""> <a onClick="showProductsNewHtml(this,'D',6);" class="nav_left_n" href="javascript:;"> 热饮 </a> </li>
-                </ul>
-                <span class="content_box_left_main_left_info">大类4 </span> </span> <span class="content_box_left_main_left_b_2"></span> </div>
+               
+               </span> <span class="content_box_left_main_left_b_2"></span> </div>
             </div>
            
         </div>
         <div style="" id="c_content" class="content_box_left_main_right">
-          <h1 style="" id="tab_obj" class="content_box_left_main_right_h1"> <span>点击图片看产品详情</span> <a onClick="$('#c_content').hide();$('#eventInner').show();" href="javascript:void(-1);">看首页广告信息 &gt;&gt;</a> </h1>
           <!-- 产品信息 -->
           <div id="showProductsNew">
             <div id="showP_c" style="">
