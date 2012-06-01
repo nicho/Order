@@ -6,7 +6,7 @@
 
 	<g:HTMLPanel>
 		
-							 <li class=""> <a onClick="showProductsNewHtml(this,'B',1);" class="nav_left_n" href="javascript:;"> <g:InlineLabel ui:field="name" /> </a> </li>
+							 <li class=""><g:Anchor ui:field="name" styleName="nav_left_n" /> </li>
 	
 	</g:HTMLPanel>
 </ui:UiBinder>

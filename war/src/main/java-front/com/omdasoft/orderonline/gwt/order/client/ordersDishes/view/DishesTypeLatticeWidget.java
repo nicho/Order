@@ -5,15 +5,15 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
 
 public class DishesTypeLatticeWidget extends Composite {
 
 	@UiField
-	InlineLabel name;
+	Anchor name;
 	
 	private static AwardShopLatticeWidgetUiBinder uiBinder = GWT
 			.create(AwardShopLatticeWidgetUiBinder.class);

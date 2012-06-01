@@ -76,7 +76,7 @@ a:link {
 a:visited {
 	font-size: 12px;
 	color: #333333;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 a:hover {
@@ -2468,7 +2468,7 @@ ul.token-input-list-facebook3 li input {
     text-decoration: none;
 }
 .chooseBox .priceDiv .priceFat dd.s5 a:link, .chooseBox .priceDiv .priceFat dd.s5 a:visited {
-    text-decoration: underline;
+    text-decoration: none;
 }
 .chooseBox .priceDiv .priceFat dd.s1 {
     clear: both;
@@ -2729,14 +2729,7 @@ ul.token-input-list-facebook3 li input {
 body {
     color: #943E00;
 }
-a {
-    color: #943E00;
-    text-decoration: underline;
-}
-a:hover {
-    color: red;
-    text-decoration: underline;
-}
+
 .public_container {
     margin: auto;
     position: relative;
@@ -2889,7 +2882,7 @@ a.menu_n:hover {
     font-weight: bold;
     position: absolute;
     right: 15px;
-    text-decoration: underline;
+    text-decoration: none;
     top: 0;
 }
 .content_box_left_main_left_c {
@@ -2959,7 +2952,7 @@ a.menu_n:hover {
     line-height: 24px;
     position: relative;
 }
-a.nav_left_n:link, a.nav_left_n:visited, a.nav_left_n:active {
+.nav_left_n,.nav_left_n:link, .nav_left_n:visited, .nav_left_n:active {
     background: url("http://www.4008823823.com.cn/kfcios/images4/a8.gif") no-repeat scroll 155px 8px transparent;
     color: #943E00;
     display: block;
@@ -2970,7 +2963,7 @@ a.nav_left_n:link, a.nav_left_n:visited, a.nav_left_n:active {
     padding-left: 15px;
     text-decoration: none;
 }
-a.nav_left_n:hover {
+.nav_left_n:hover {
     background: url("http://www.4008823823.com.cn/kfcios/images4/a9.gif") no-repeat scroll 0 0 transparent;
 }
 a.nav_left_y:link, a.nav_left_y:visited, a.nav_left_y:active {
@@ -3009,22 +3002,22 @@ a.nav_left_y:hover {
 .content_box_left_main_right_h1 a:link {
     color: #E80000;
     font-size: 14px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .content_box_left_main_right_h1 a:visited {
     color: #E80000;
     font-size: 14px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .content_box_left_main_right_h1 a:hover {
     color: #E80000;
     font-size: 14px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .content_box_left_main_right_h1 a:active {
     color: #E80000;
     font-size: 14px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .content_box_left_main_right_h1_ul li {
     float: left;
@@ -3330,7 +3323,7 @@ a.nav_fff:link, a.nav_fff:active, a.nav_fff:visited {
     font-family: Arial,Helvetica,sans-serif;
 }
 a.nav_fff:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 a.nav_ccc:link, a.nav_ccc:active, a.nav_ccc:visited {
     color: #8E3E03;
@@ -3339,7 +3332,7 @@ a.nav_ccc:link, a.nav_ccc:active, a.nav_ccc:visited {
 }
 a.nav_ccc:hover {
     color: red;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .content_box_left_main_left_info {
     display: block;
@@ -3622,7 +3615,7 @@ a.nav_ccc:hover {
 }
 .order_box_2_n_h1 em a:link, .order_box_2_n_h1 em a:active, .order_box_2_n_h1 em a:visited {
     color: #FFFFFF;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .order_box_2_n_h1 em a:hover {
     color: #FFFFFF;
@@ -3724,7 +3717,7 @@ a.order_box_2_1_Save:link, a.order_box_2_1_Save:active, a.order_box_2_1_Save:vis
 a.nav_red_b:link, a.nav_red_b:active, a.nav_red_b:visited {
     color: #E90000;
     font-size: 22px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a.nav_red_b:hover {
     color: #000000;
@@ -3732,7 +3725,7 @@ a.nav_red_b:hover {
 a.nav_red_c:link, a.nav_red_c:active, a.nav_red_c:visited {
     color: #943E00;
     font-size: 22px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a.nav_red_c:hover {
     color: #000000;
@@ -3851,11 +3844,11 @@ a.order_f_a:link, a.order_f_a:active, a.order_f_a:visited {
 }
 a.order_right_c:link, a.order_right_c:active, a.order_right_c:visited {
     color: #666666;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a.order_right_c:hover {
     color: #000000;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .order_right_box_c_4_2 {
     background: url("http://www.4008823823.com.cn/kfcios/images4/a33.gif") repeat scroll 0 0 transparent;
@@ -3894,7 +3887,7 @@ a.order_right_c:hover {
 }
 .content_box_right_dd_c_1 em a {
     color: #5F890B;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .header_box {
     height: 63px;
@@ -4128,11 +4121,11 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 }
 .page_next a {
     padding-left: 15px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .right_step_02_2 a {
     color: red;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .gnavi_01 {
     background: url("http://www.4008823823.com.cn/kfcios/images4/f07.gif") no-repeat scroll 0 0 transparent;
@@ -4172,7 +4165,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     padding-bottom: 15px;
 }
 #next a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 .selectlist {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -4658,7 +4651,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     cursor: pointer;
     float: right;
     padding: 5px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .welcomeTxt_b {
     font-size: 14px;
@@ -4672,7 +4665,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     cursor: pointer;
     float: right;
     padding: 5px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .dlStyle01 dt {
     background: url("http://www.4008823823.com.cn/kfcios/images4/new/a09.gif") no-repeat scroll 0 18px transparent;
@@ -4699,7 +4692,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 }
 .dlStyle01 dd a {
     color: #943E00;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .dlStyle01 dd a:hover {
     color: #E60012;
@@ -4890,7 +4883,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 }
 .dlStyle03 dt span.on {
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .aHelp .helpRoad {
     display: none;
@@ -4944,7 +4937,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     color: #943E00;
     font-size: 16px;
     font-weight: bold;
-    text-decoration: underline;
+    text-decoration: none;
 }
 #yzmP2 {
     display: none;
@@ -4969,7 +4962,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 .yzmTxt p span.on {
     cursor: pointer;
     font-weight: normal;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .yzmTxt ul li {
     background: url("http://www.4008823823.com.cn/kfcios/images4/new/a14.gif") no-repeat scroll 3px 8px transparent;
@@ -4991,7 +4984,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 .yzmTxt2 p span.on {
     cursor: pointer;
     font-weight: normal;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .yzmTxt2 ul li {
     background: url("http://www.4008823823.com.cn/kfcios/images4/new/a14.gif") no-repeat scroll 3px 8px transparent;
@@ -5398,17 +5391,17 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 }
 .pStyle01 a {
     font-size: 12px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .pStyle01 span a {
     font-size: 14px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .dlStyle05 dt {
     padding-bottom: 5px;
 }
 .dlStyle05 dt a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 .dlStyle05 dd ul li {
     background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
@@ -5473,7 +5466,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     vertical-align: -1px;
 }
 .tableStyle03 td a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 .newtable th {
     padding: 0;
@@ -5504,7 +5497,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     cursor: pointer;
     float: right;
     padding-right: 15px;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .customerDiv {
     padding: 10px 30px 15px;
@@ -5636,7 +5629,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     padding-left: 10px;
 }
 .tips span a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 .tips ul li {
     background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
@@ -5655,14 +5648,14 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 }
 .step3Notice dl dt a {
     color: #7D7D7D;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .btnNext3 {
     margin-top: 25px;
 }
 a.forget {
     color: #707070;
-    text-decoration: underline;
+    text-decoration: none;
 }
 .selectLi {
     padding: 0 3px;
@@ -5776,7 +5769,7 @@ a.forget {
     padding-left: 10px;
 }
 .newtip span a {
-    text-decoration: underline;
+    text-decoration: none;
 }
 .newtip ul li {
     background: url("http://www.4008823823.com.cn/kfcios/images4/new/a32.gif") no-repeat scroll 0 5px transparent;
@@ -5828,7 +5821,7 @@ a.forget {
     height: 20px;
     padding: 0 25px 0 0;
     text-align: right;
-    text-decoration: underline;
+    text-decoration: none;
     width: 280px;
 }
 .yItem {
@@ -5913,7 +5906,7 @@ a.forget {
 a.alink-popoo {
 }
 a.alink-popoo:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
