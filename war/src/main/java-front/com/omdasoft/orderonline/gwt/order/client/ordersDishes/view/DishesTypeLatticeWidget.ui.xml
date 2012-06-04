@@ -5,8 +5,12 @@
 	<ui:style src="new2.css" field="new2"></ui:style>
 
 	<g:HTMLPanel>
-		
-							 <li class=""><g:Anchor ui:field="name" styleName="nav_left_n" /> </li>
-	
+			 
+						<h2 class="content_box_left_main_left_c_h2 bmargin cursor">
+							<g:InlineLabel ui:field="menutype"  />
+						</h2>
+						<ul id="menu_1" class="nav_left_ul">
+							<g:FlowPanel ui:field="tabpage" />
+						</ul>
 	</g:HTMLPanel>
 </ui:UiBinder>

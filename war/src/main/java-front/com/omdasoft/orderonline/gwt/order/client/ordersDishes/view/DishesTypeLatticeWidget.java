@@ -1,19 +1,23 @@
 package com.omdasoft.orderonline.gwt.order.client.ordersDishes.view;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.InlineLabel;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.model.DishesTypeListClient;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
 
 public class DishesTypeLatticeWidget extends Composite {
 
 	@UiField
-	Anchor name;
+	Panel tabpage;
+	@UiField
+	InlineLabel menutype;
 	
 	private static AwardShopLatticeWidgetUiBinder uiBinder = GWT
 			.create(AwardShopLatticeWidgetUiBinder.class);
@@ -26,17 +30,16 @@ public class DishesTypeLatticeWidget extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
-	public DishesTypeLatticeWidget(final String id,final String name,final OrdersDishesPresenter ordersDishesPresenter) {
+	public DishesTypeLatticeWidget(final String typeName, final List<DishesTypeListClient> typeMap,final OrdersDishesPresenter ordersDishesPresenter) {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.name.setText(name);
-		this.name.addClickHandler(new ClickHandler() {
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				ordersDishesPresenter.refulDishes(id);
-				
-			}
-		});
+		menutype.setText(typeName);
+		
+		for (DishesTypeListClient ct:typeMap) {
+			DishesTypeLatticeTooWidget dtw=new DishesTypeLatticeTooWidget(ct.getId(),ct.getName(),ordersDishesPresenter);
+	    	
+			tabpage.add(dtw.asWidget());
+		}
+    	
 
 	}
 

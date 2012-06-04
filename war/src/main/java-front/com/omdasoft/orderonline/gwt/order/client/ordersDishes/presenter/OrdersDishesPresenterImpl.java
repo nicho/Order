@@ -2,8 +2,10 @@ package com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
@@ -283,16 +285,54 @@ public class OrdersDishesPresenterImpl extends
 				if(typeList!=null && typeList.size()>0)
 				{
 				    display.getTabpage().clear();
-
+				    Map<String,List<DishesTypeListClient>> typeMap=new HashMap<String, List<DishesTypeListClient>>();
 				    for (int i=0;i<typeList.size();i++) {
 				    	final DishesTypeListClient client=typeList.get(i);
 				    	
-				    	DishesTypeLatticeWidget dtw=new DishesTypeLatticeWidget(client.getId(),client.getName(),ordersDishesPresenter);
+				    	if(!StringUtil.isEmpty(client.getDishesType()))
+				    	{
+				    		List<DishesTypeListClient> tList=typeMap.get(client.getDishesType());
+				    		if(tList==null)
+				    		{
+				    			tList=new ArrayList<DishesTypeListClient>();
+				    			tList.add(client);
+				    			typeMap.put(client.getDishesType(), tList);
+				    		}
+				    		else
+				    		{
+				    			tList.add(client);
+				    		}
+				    	}
+				    	else
+				    	{
+				    		List<DishesTypeListClient> tList=typeMap.get("未分类");
+				    		if(tList==null)
+				    		{
+				    			tList=new ArrayList<DishesTypeListClient>();
+				    			tList.add(client);
+				    			typeMap.put("未分类", tList);
+				    		}
+				    		else
+				    		{
+				    			tList.add(client);
+				    		}
+				    		
+				    	}
 				    	
-				    	display.getTabpage().add(dtw.asWidget());;
+				    	
+
 					}
+			        Set<Map.Entry<String, List<DishesTypeListClient>>> set = typeMap.entrySet();
+			        for (Iterator<Map.Entry<String, List<DishesTypeListClient>>> it = set.iterator(); it.hasNext();) {
+			            Map.Entry<String, List<DishesTypeListClient>> entry = (Map.Entry<String, List<DishesTypeListClient>>) it.next();
+			            
+				    	DishesTypeLatticeWidget dtw=new DishesTypeLatticeWidget(entry.getKey(),entry.getValue(),ordersDishesPresenter);
+				    	
+				    	display.getTabpage().add(dtw.asWidget());
+			        }
 
 				}
+				
 			}
 
 		});

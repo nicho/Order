@@ -59,9 +59,9 @@
 												<h2 class="content_box_left_main_left_c_h2 bmargin cursor">
 													<g:InlineLabel ui:field="menutypeAll" text="全部" />
 												</h2>
-												<ul id="menu_1" class="nav_left_ul">
-													<g:FlowPanel ui:field="tabpage" />
-												</ul>
+												
+												<g:FlowPanel ui:field="tabpage" />
+												
 
 											</span>
 											<span class="content_box_left_main_left_b_2"></span>
