@@ -7,39 +7,26 @@
 	<g:HTMLPanel>
 
 
-		<div class="{new2.mainpage}">
-
-			<div class="{new2.header}">
-				<div class="{new2.restaurantlogo}">
-					<a href="/">
-						<g:Image url="/app/www/images/logo.gif" />
-					</a>
-				</div>
-				<div class="{new2.progressbar}">
-					<ul>
-						<li>1、选择餐厅</li>
-						<li class="{new2.current}">2、选菜</li>
-						<li>3、确认订单</li>
-					</ul>
-				</div>
-				<div class="{new2.restaurantline} {new2.cb}"></div>
-				<!--网站当前位置 -->
-				<div class="{new2.site-place} {new2.clearfix}">
-					<p class="{new2.sp-link}">
-						<a href="/">首页</a>
-						&gt;
-						<a href="#">餐厅</a>
-						&gt;
-						<a href="#">自助预订</a>
-					</p>
-					<p class="{new2.order-hotline} {new2.clearfix}">
-						<span>预订电话：</span>
-						<span class="{new2.phone-num}">40008888888</span>
-					</p>
-				</div>
-			</div>
-		</div>
 			<div class="public_container">
+			
+			
+			  <!--header_box start-->
+  <div class="header_box clearfix">
+    <h1 class="kfcLogo"> <a href="javascript:void(0);" onclick="giveUpOrder(1);">网上订餐</a> </h1>
+    <div class="headLeft">
+      <div class="tfav"> <a onclick="addfavo(1);" style="cursor: pointer;"><g:Image /></a> </div>
+      <p> <span>欢迎网上订餐！ Welcome to order online!</span>建议使用IE 6.0版本以上浏览本网站 </p>
+      <ul class="clearfix">
+        <li class="m1"><a href="javascript:void(0);" onclick="giveUpOrder(1);" class="on"><strong>首页</strong>Home</a></li>
+        <li class="m2"><a href="javascript:void(0);" id="login_div" onclick="giveUpOrder(2);"><strong>我要订餐</strong>Order Now</a></li>
+        <li class="m3"><a href="javascript:void(0);" onclick="giveUpOrder(3);"><strong>查询订单</strong>Check My Order</a></li>
+        <li class="m4"><a href="javascript:void(0);" onclick="giveUpOrder(4);"><strong>我的优惠</strong>My Special Offer</a></li>
+        <li class="m5"><a href="javascript:void(0);" onclick="javascript:window.open('/kfcios/help/help_new.jsp','_blank');"><strong>帮助中心</strong>Help Desk</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--header_box end-->
+  
 				<!--content_box start -->
 				<div class="spx5px"></div>
 				<div id="content" class="content_box">
@@ -107,15 +94,15 @@
 							<div id="clear_div"></div>
 						</div>
 					</div>
-					<div style="float: right" class="content_box_right_1">
-						<div id="c"><!--weij 2012-01-10 更改图片路径 -->
-						</div>
-
-					</div>
+					    <div class="content_box_right_1" style="float: right"> <a href="http://www.4008823823.com.cn/kfcios/SubscrMealAction/login.jsp"><g:Image url="http://www.4008823823.com.cn/kfcios/images2/b5.gif" height="99" width="194" pixelSize="194,99" /> </a>
+					      <div id="c"> <g:Image url="http://www.4008823823.com.cn/kfcios/images2/b5_3.gif" /><!-- weij 2012-01-10 更改路径 --> 
+					      </div>
+					      <div id="e" style="display: none;"> <g:Image url="http://www.4008823823.com.cn/kfcios/images2/b5_2.gif"  /> </div>
+					    </div>
 					<div id="orderArea" class="content_box_right" style="margin-top: 0px;">
+
+										
 						<div id="showOrder" class="content_box_right_dd">
-
-
 
 							<div id="showO_c" style="">
 								<div class="content_box_right_dd">
