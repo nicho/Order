@@ -35,6 +35,7 @@ public class FindDishesTypeActionHandler extends
 
 		DishesType dictionary= dishesService.findDishesTypeById(action.getDishesTypeId());
 		rep.setName(dictionary.getName());
+		rep.setDishesType(dictionary.getDishesType());
 		rep.setRid(dictionary.getRid());
 
 		return rep;

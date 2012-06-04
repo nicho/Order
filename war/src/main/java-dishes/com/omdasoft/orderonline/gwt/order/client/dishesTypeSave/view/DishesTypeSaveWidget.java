@@ -20,6 +20,9 @@ public class DishesTypeSaveWidget extends Composite implements DishesTypeSaveDis
 	@UiField
 	TextBox name;
 	@UiField
+	TextBox dishestype;
+	
+	@UiField
 	Panel breadCrumbs;
 	@UiField
 	InlineLabel rid;
@@ -57,6 +60,11 @@ public class DishesTypeSaveWidget extends Composite implements DishesTypeSaveDis
 	@Override
 	public void hiddenRid() {
 		rid.getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
+	}
+
+	@Override
+	public TextBox getDishestype() {
+		return dishestype;
 	}
 
 }

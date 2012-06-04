@@ -155,6 +155,13 @@ public class DishesTypeListPresenterImpl extends
 						return dishesType.getId().substring(dishesType.getId().length()-4);
 					}
 				});
+		cellTable.addColumn("大类", new TextCell(),
+				new GetValue<DishesTypeListClient, String>() {
+					@Override
+					public String getValue(DishesTypeListClient dishesType) {
+						return dishesType.getDishesType();
+					}
+				}, ref, "dishesType");
 		cellTable.addColumn("类名", new TextCell(),
 				new GetValue<DishesTypeListClient, String>() {
 					@Override

@@ -23,12 +23,17 @@
 						</div>
 					</div>
 					<div class="{new2.form-line}">
-						<label class="{new2.label}"><span style="color:red">*</span>类名：</label>
+						<label class="{new2.label2}"><span style="color:red">*</span>类名：</label>
 						<div class="{new2.element}">
 							<g:TextBox ui:field="name" styleName="{new2.text}" />
 						</div>
 					</div>
-					
+										<div class="{new2.form-line}">
+						<label class="{new2.label2}"><span style="color:red">*</span>大类：</label>
+						<div class="{new2.element}">
+							<g:TextBox ui:field="dishestype" styleName="{new2.text}" />
+						</div>
+					</div>
 
 					<span class="{new2.cutline}"></span>
 					<div class="{new2.form-line} {new2.form-line-btn}">

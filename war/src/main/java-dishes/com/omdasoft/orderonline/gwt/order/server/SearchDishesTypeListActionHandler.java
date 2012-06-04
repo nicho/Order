@@ -84,6 +84,7 @@ public class SearchDishesTypeListActionHandler extends
 				r.setId(d.getId());
 				r.setName(d.getName());
 				r.setRid(d.getRid());
+				r.setDishesType(d.getDishesType());
 				result.add(r);
 				indexNo++;
 			}

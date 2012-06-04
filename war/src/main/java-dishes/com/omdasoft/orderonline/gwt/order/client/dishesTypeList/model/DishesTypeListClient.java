@@ -14,6 +14,15 @@ public class DishesTypeListClient implements Serializable, Comparable<DishesType
 	String name;
 	private String indexNo;
 	
+	private String dishesType;
+
+	public String getDishesType() {
+		return dishesType;
+	}
+
+	public void setDishesType(String dishesType) {
+		this.dishesType = dishesType;
+	}
 	public String getIndexNo() {
 		return indexNo;
 	}

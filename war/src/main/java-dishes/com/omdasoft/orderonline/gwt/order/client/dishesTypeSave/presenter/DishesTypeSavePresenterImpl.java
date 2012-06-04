@@ -66,6 +66,7 @@ public class DishesTypeSavePresenterImpl extends
 						public void onSuccess(
 								FindDishesTypeResponse response) {
 							display.getName().setValue(response.getName());
+							display.getDishestype().setValue(response.getDishesType());
 							display.setRid(response.getRid());
 	
 						}
@@ -85,6 +86,7 @@ public class DishesTypeSavePresenterImpl extends
 						if(!StringUtil.isEmpty(dishesTypeId))
 							request.setId(dishesTypeId);
 						request.setName(display.getName().getValue());
+						request.setDishesType(display.getDishestype().getValue());
 						request.setSession(sessionManager.getSession());
 						dispatch.execute(request,
 								new AsyncCallback<DishesTypeSaveResponse>() {

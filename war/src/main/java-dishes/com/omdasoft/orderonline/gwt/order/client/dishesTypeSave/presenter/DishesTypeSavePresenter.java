@@ -14,6 +14,7 @@ public void initDishesType(String orderId);
 
 		public HasClickHandlers getAddBtnClickHandlers();
 		TextBox getName();
+		TextBox getDishestype();
 		void setBreadCrumbs(Widget breadCrumbs);
 		void setRid(String text);
 		void hiddenRid();

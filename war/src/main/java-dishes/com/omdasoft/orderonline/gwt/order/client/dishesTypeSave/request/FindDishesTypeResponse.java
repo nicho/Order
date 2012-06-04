@@ -11,6 +11,15 @@ import net.customware.gwt.dispatch.shared.Result;
 public class FindDishesTypeResponse implements Result {
 	String name;
 	String rid;
+	private String dishesType;
+
+	public String getDishesType() {
+		return dishesType;
+	}
+
+	public void setDishesType(String dishesType) {
+		this.dishesType = dishesType;
+	}
 
 	public String getRid() {
 		return rid;

@@ -41,6 +41,7 @@ public class DishesTypeSaveActionHandler extends
 		if(!StringUtil.isEmptyString(action.getId()))
 			vo.setId(action.getId());
 		vo.setName(action.getName());
+		vo.setDishesType(action.getDishesType());
 		dishesService.saveDishesType(u, vo);
 
 		return rep;
