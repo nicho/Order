@@ -157,6 +157,14 @@ public class UserLogicImpl implements UserLogic {
 			criteria.setCorpId(dept.getCorporation().getId());
 		}
 		
+		//没选分店。默认机构
+		if(StringUtil.isEmptyString(criteria.getCorpId()))
+		{
+			Corporation corp=corporationDao.getDeCorp();
+			if(corp!=null)
+				criteria.setCorpId(corp.getId());
+		}
+		
 		return dictionaryDao.queryDictionaryPageAction(criteria);
 	}
 

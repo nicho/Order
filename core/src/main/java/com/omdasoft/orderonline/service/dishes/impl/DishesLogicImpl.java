@@ -7,10 +7,12 @@ import com.google.inject.Inject;
 import com.omdasoft.orderonline.dao.dishes.DishesDao;
 import com.omdasoft.orderonline.dao.dishes.DishesTypeDao;
 import com.omdasoft.orderonline.dao.dishes.OrdersDishesDao;
+import com.omdasoft.orderonline.dao.org.CorporationDao;
 import com.omdasoft.orderonline.dao.org.DepartmentDao;
 import com.omdasoft.orderonline.domain.dishes.Dishes;
 import com.omdasoft.orderonline.domain.dishes.DishesType;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
+import com.omdasoft.orderonline.domain.org.Corporation;
 import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
@@ -29,16 +31,18 @@ public class DishesLogicImpl implements DishesLogic {
 	private DishesTypeDao dishesTypeDao;
 	private CorporationLogic corporationLogic;
 	private DepartmentDao departmentDao;
+	private CorporationDao corporationDao;
 
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Inject
-	protected DishesLogicImpl(DishesDao dishesDao,DishesTypeDao dishesTypeDao,OrdersDishesDao ordersDishesDao,CorporationLogic corporationLogic,DepartmentDao departmentDao) {
+	protected DishesLogicImpl(CorporationDao corporationDao,DishesDao dishesDao,DishesTypeDao dishesTypeDao,OrdersDishesDao ordersDishesDao,CorporationLogic corporationLogic,DepartmentDao departmentDao) {
 		this.dishesTypeDao=dishesTypeDao;
 		this.dishesDao=dishesDao;
 		this.ordersDishesDao=ordersDishesDao;
 		this.corporationLogic=corporationLogic;
 		this.departmentDao=departmentDao;
+		this.corporationDao=corporationDao;
 	}
 
 	@Override
@@ -66,6 +70,13 @@ public class DishesLogicImpl implements DishesLogic {
 			Department dept=departmentDao.findById(Department.class, criteria.getDeptId());
 			if(dept!=null && dept.getCorporation()!=null)
 			criteria.setCorporationId(dept.getCorporation().getId());
+		}
+		//没选分店。默认机构
+		if(StringUtil.isEmptyString(criteria.getCorporationId()))
+		{
+			Corporation corp=corporationDao.getDeCorp();
+			if(corp!=null)
+				criteria.setCorporationId(corp.getId());
 		}
 		return dishesDao.queryDishesPageAction(criteria);
 	}
@@ -120,6 +131,14 @@ public class DishesLogicImpl implements DishesLogic {
 			Department dept=departmentDao.findById(Department.class, criteria.getDeptId());
 			if(dept!=null && dept.getCorporation()!=null)
 			criteria.setCorporationId(dept.getCorporation().getId());
+		}
+		
+		//没选分店。默认机构
+		if(StringUtil.isEmptyString(criteria.getCorporationId()))
+		{
+			Corporation corp=corporationDao.getDeCorp();
+			if(corp!=null)
+				criteria.setCorporationId(corp.getId());
 		}
 		
 		return dishesTypeDao.queryDishesTypePageAction(criteria);

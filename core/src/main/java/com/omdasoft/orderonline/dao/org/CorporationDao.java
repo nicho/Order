@@ -52,5 +52,12 @@ public class CorporationDao extends BaseDao<Corporation> {
 			 sum=list.size();
 		 return sum;
 	}
-	
+	@SuppressWarnings("unchecked")
+	public Corporation getDeCorp() {
+		Corporation sum = null;
+		 List<Corporation> list = getEm().createQuery(" FROM Corporation c  ").getResultList();
+		 if(list.size()>0)
+			 sum=list.get(0);
+		 return sum;
+	}
 }
