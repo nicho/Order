@@ -2850,6 +2850,7 @@ a.menu_n:hover {
 }
 .content_box_left_main_right {
     background: none repeat scroll 0 0 #FEE7BE;
+     float:left;
     width: 604px;
 }
 .content_box_left_main_left_h1 {
