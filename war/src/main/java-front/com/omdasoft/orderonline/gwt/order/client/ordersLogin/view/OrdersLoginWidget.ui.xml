@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<g:HTMLPanel>
+
+
+		<div class="public_container">
+
+
+
+
+			<!--content_box start -->
+			<div class="spx5px"></div>
+			<div id="content" class="content_box">
+				<!--content_box start-->
+		<div class="content_box clearfix">
+			<!--blockLeft start-->
+			<div class="blockLeft">
+				<div class="blockLeft2">
+					<div class="blockLeft3">
+						<div class="blockLeft4">
+							<div class="step01">
+								<p id="txtEmail">
+									<strong>请输入手机：</strong>
+									<br></br>
+									Pls. enter  mobile phone number
+								</p>
+								<input id="teleEmail" name="email" onclick="hideEmail();" onkeyup="hidePd();hideEmail();updatePhone();" onchange="hidePd();hideEmail();" maxlength="50" class="input"></input><br></br>
+								<div id="showEmail" style="display:none;">
+								 <p class="ds">麻烦再输入电子邮箱，才能找到您的<br></br>送餐信息噢！/Email pls :)</p>
+								 <input name="teleEmail" maxlength="50" id="myEmail" class="input" onclick="hidePd();" type="text"></input>
+								</div>
+								
+								
+							
+							
+								<br></br>
+								<div class="btnNext">
+									
+								<a href="javascript:;" id="subBtn" ><g:Image   url="http://www.4008823823.com.cn/kfcios/images4/new/a05.gif" /></a>
+								</div>
+								 <div class="yzmTxt2" style="display:block; ">
+                                	
+                                	
+                                	
+	                                	<p><span>友情提示</span>/<span class="on">Reminder</span>：</p>
+	                                    <ul>
+	                                    	<li>如果您是首次订餐，请输入您常用的手机号码。</li>
+	                                        <li>如果您曾使用我们的订餐服务，请输入您上次使用的手机号码。</li>
+	                                    </ul>
+	                                    <ul style="display:none;">
+	                                    	<li>For new customer, pls. enter your often-used email address or mobile number.</li>
+	                                        <li>For returning users, pls. enter the email address or mobile number you ever used to order.</li>
+	                                    </ul>
+                                    
+                                </div>
+                                <div class="yzmTxt2" style="width:340px; left:400px; _left:300px;display: none;">
+                                	<p><span>友情提示</span>/<span class="on">Reminder</span>：</p>
+                                    <ul>
+                                    	<li>请不要反复获取验证码，如您超过一分钟未收到验证码，再点击重新获取。</li>
+                                        <li>请正确输入验证码，大小写不限，验证码30分钟内有效。</li>
+                                    </ul>
+                                    <ul style="display:none;">
+                                    	<li>If you haven't receive the code, pls. click to retrieve it again only after 1 minute.</li>
+                                        <li>The code is valid in 30mins, no case restrictions.</li>
+                                    </ul>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--blockLeft end-->
+
+     <!--content_box_right start-->
+     	
+
+
+<div class="blockRight">
+	<div class="content_box_right_2">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td>
+						<h1 class="content_box_right_NewCustomer_h1">
+							
+						</h1>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="content_box_right_2_c">
+							<table border="0" cellpadding="0" cellspacing="0" width="100%">
+								<tbody>
+									<tr>
+										<td background="login.jsp_files/bg_news2.htm" height="202" valign="top" align="center">
+											<table border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tbody>
+													<tr>
+														<td class="lh_15" align="left">
+															<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tbody>
+																	<tr>
+																		<td class="lh_15 red" valign="top" width="15" align="left">
+																			1)
+																		</td>
+																		<td class="lh_15 red" align="left">
+																			不设最低消费,谢绝小费；
+																			<br></br>
+																			<span class="red2">No minimum purchase
+																				required and no need for tips;</span>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td class="line_green"></td>
+													</tr>
+													<tr>
+														<td class="lh_15" align="left">
+															<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tbody>
+																	<tr>
+																		<td class="lh_15 red" valign="top" width="15" align="left">
+																			2)
+																		</td>
+																		<td class="lh_15 red" align="left">
+																			每单收取统一外送费；
+																			<br></br>
+																			<span class="red2">Standard delivery fee is
+																				charged for any delivery order;</span>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td class="line_green"></td>
+													</tr>
+													<tr>
+														<td class="lh_15" align="left">
+															<table border="0" cellpadding="0" cellspacing="0" width="100%">
+																<tbody>
+																	<tr>
+																		<td class="lh_13 red" rowspan="2" valign="top" width="15" align="left">
+																			3)
+																		</td>
+																		<td class="lh_15 red" align="left">
+																			为保证产品质量,各分店有送餐范围限制。若您的地址超出服务区造成无法送餐,敬请原谅。
+																		</td>
+																	</tr>
+																	<tr>
+																		<td class="lh_13" align="left">
+																			<span class="red2">Sorry for cannot provide
+																				delivery service if your address exceeds our
+																				coverage,yet take away and dinein are welcomed in
+																				this case. </span>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</td>
+													</tr>
+
+
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="content_box_right_2_b"></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="content_box_right_2" id="helpArea">
+		<h1 class="content_box_right_3_h1">
+			帮助中心
+			<div class="nrlink">
+				<a href="http://www.4008823823.com.cn/kfcios/help/help_new.jsp" target="_blank"><font color="#EA0202"><u>新手入门</u>
+				</font>
+				</a>
+			</div>
+		</h1>
+		<div class="content_box_right_2_c">
+			<ul class="content_box_right_2_c_ul">
+				<li>
+					<a href="http://www.4008823823.com.cn/kfcios/help/help_qa.jsp#id=10" target="_blank" class="nav_right_l_s">如何查询我的订单?</a>
+				</li>
+				<li>
+					<a href="http://www.4008823823.com.cn/kfcios/help/help_qa.jsp#id=3" target="_blank" class="nav_right_l_s">如何输入正确的送餐地址?</a>
+				</li>
+				<li>
+					<a href="http://www.4008823823.com.cn/kfcios/help/help_qa.jsp#id=2" target="_blank" class="nav_right_l_s">如何使用网上订餐的优惠代码?</a>
+				</li>
+				<li>
+					<a href="http://www.4008823823.com.cn/kfcios/help/help_qa.jsp#id=14" target="_blank" class="nav_right_l_s">如何查看网上支付的退款进程?</a>
+				</li>
+			</ul>
+		</div>
+		<span class="content_box_right_2_b"></span>
+	</div>
+</div>
+     	
+        <!--content_box_right end-->
+        <div id="clear_div"></div>
+        <div class="spx5px"></div>
+</div>
+		</div>
+			</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

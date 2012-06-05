@@ -15,5 +15,6 @@ public void initPresenter(Widget widget);
 		Panel getDock();
 		Anchor getAdminpage();
 		Anchor getOrderListpage();
+		Anchor getOrderNow();
 	}
 }
