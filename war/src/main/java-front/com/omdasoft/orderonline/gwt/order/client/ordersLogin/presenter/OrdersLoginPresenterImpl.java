@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
+import com.omdasoft.orderonline.gwt.order.client.orderIndex.module.OrderManager;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginResponse;
@@ -24,15 +25,16 @@ public class OrdersLoginPresenterImpl extends
 		OrdersLoginPresenter {
 
 	private final DispatchAsync dispatch;
-
+	private OrderManager orderManager;
 	final ErrorHandler errorHandler;
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	@Inject
 	public OrdersLoginPresenterImpl(EventBus eventBus,
-			OrdersLoginDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler) {
+			OrdersLoginDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,OrderManager orderManager) {
 		super(eventBus, display);
 		this.dispatch = dispatch;
 		this.errorHandler=errorHandler;
+		this.orderManager=orderManager;
 
 	}
 
@@ -56,8 +58,8 @@ public class OrdersLoginPresenterImpl extends
 							RootLayoutPanel.get().clear();
 							RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
 							
-							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
-							injector.getOrderIndexPresenter().bind();
+							
+							
 							OrderSaveRequest request=new OrderSaveRequest();
 							if(response.getOrderId()!=null)
 							{
@@ -72,13 +74,21 @@ public class OrdersLoginPresenterImpl extends
 								request.setFavoriteRoom(response.getFavoriteRoom());
 								
 								injector.getOrdersDishesPresenter().initDishesList(response.getBookingDishesList());
+
 							}
 							else
 							{
 								request.setOrderPersonPhone(display.getPhone().getValue());
 							}
-							injector.getOrdersDishesPresenter().initOrdersDishes(request);
+							orderManager.setOrderRequest(request);
+						//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
+							
+							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
+							injector.getOrderIndexPresenter().bind();
 							injector.getOrdersDishesPresenter().bind();
+							
+						
+							
 						}
 
 					});

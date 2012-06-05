@@ -11,11 +11,10 @@ import com.google.gwt.user.client.ui.Panel;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesClient;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 
 public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.OrdersDishesDisplay> {
 	public void updateDishesList(String id,String name,String price);
-	public void initOrdersDishes(OrderSaveRequest request);
+
 	public void initDishesList(List<BookingDishesClient> dishesList);
 	public void refulDishes(String typeId);
 	public static interface OrdersDishesDisplay extends Display {

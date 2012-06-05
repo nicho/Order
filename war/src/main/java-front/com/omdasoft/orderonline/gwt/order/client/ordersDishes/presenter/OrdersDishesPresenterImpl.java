@@ -17,7 +17,6 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
@@ -39,7 +38,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.SearchDi
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
+import com.omdasoft.orderonline.gwt.order.client.orderIndex.module.OrderManager;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesTypeLatticeWidget;
@@ -64,7 +63,7 @@ public class OrdersDishesPresenterImpl extends
 	ListCellTable<DishesListClient> cellTable;
 	ListCellTable<BookingDishesClient> cellBookingTable;
 	OrdersDishesViewAdapter listViewAdapter;
-	OrderSaveRequest request;
+
 	Map<Integer,String> map=new HashMap<Integer,String>();
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	List<String> dwlt=new ArrayList<String>();
@@ -72,14 +71,17 @@ public class OrdersDishesPresenterImpl extends
 	int pageSize=ViewConstants.per_page_number_in_12;
 	OrdersDishesPresenter ordersDishesPresenter;
 	private final Provider<DishesDetailedDialog> dishesDetailedDialogProvider;
+	private  OrderManager orderManager;
 	@Inject
 	public OrdersDishesPresenterImpl(EventBus eventBus,
-			OrdersDishesDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,Provider<DishesDetailedDialog> dishesDetailedDialogProvider) {
+			OrdersDishesDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,
+			Provider<DishesDetailedDialog> dishesDetailedDialogProvider,OrderManager orderManager) {
 		super(eventBus, display);
 		this.dispatch = dispatch;
 		this.errorHandler=errorHandler;
 		this.dishesDetailedDialogProvider=dishesDetailedDialogProvider;
 		this.ordersDishesPresenter=this;
+		this.orderManager=orderManager;
 	}
 
 	@Override
@@ -158,7 +160,7 @@ public class OrdersDishesPresenterImpl extends
 						injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter().getDisplay().asWidget());
 						injector.getOrderIndexPresenter().bind();
 						
-						injector.getOrderSubmitPresenter().initOrderRequest(request);
+						injector.getOrderSubmitPresenter().initOrderRequest(orderManager.getOrderRequest());
 						injector.getOrderSubmitPresenter().bind();
 					}
 				}));
@@ -190,7 +192,7 @@ public class OrdersDishesPresenterImpl extends
 				bookingDishesList.add(list);
 			}
 			
-			request.setBookingDishesList(bookingDishesList);
+			orderManager.getOrderRequest().setBookingDishesList(bookingDishesList);
 		}
 
 	
@@ -208,20 +210,20 @@ public class OrdersDishesPresenterImpl extends
 	}
 	private void initOrderMessage()
 	{
-		if(request!=null)
+		if( orderManager.getOrderRequest()!=null)
 		{
-			display.setCity(request.getCity());
-			display.setNumber(request.getAmountOfClient()+"");
-			display.setOrderUser(request.getOrderPersonName());
-			display.setRestaurant(request.getRestaurantName());
-			display.setphone(request.getOrderPersonPhone());
-			if(request.getFavoriteRoom()==1)
+			display.setCity(orderManager.getOrderRequest().getCity());
+			display.setNumber(orderManager.getOrderRequest().getAmountOfClient()+"");
+			display.setOrderUser(orderManager.getOrderRequest().getOrderPersonName());
+			display.setRestaurant(orderManager.getOrderRequest().getRestaurantName());
+			display.setphone(orderManager.getOrderRequest().getOrderPersonPhone());
+			if(orderManager.getOrderRequest().getFavoriteRoom()==1)
 				display.setRoom("只订大厅");
-			else if(request.getFavoriteRoom()==2)
+			else if(orderManager.getOrderRequest().getFavoriteRoom()==2)
 				display.setRoom("只订包间");
-			else if(request.getFavoriteRoom()==3)
+			else if(orderManager.getOrderRequest().getFavoriteRoom()==3)
 				display.setRoom("先订大厅，如无大厅，订包间");
-			else if(request.getFavoriteRoom()==4)
+			else if(orderManager.getOrderRequest().getFavoriteRoom()==4)
 				display.setRoom("先订包间，如无包间，订大厅");
 		}
 	}
@@ -657,36 +659,32 @@ public class OrdersDishesPresenterImpl extends
 	
 	}
 
-	@Override
-	public void initOrdersDishes(OrderSaveRequest request) {
-		this.request=request;
 
-	}
-	private boolean verificationRequest(OrderSaveRequest req)
-	{
-		if (StringUtil.isEmpty(req.getAmountOfClient()+"") || req.getAmountOfClient()==0) {
-			Window.alert("请填写就餐人数");
-			return false;
-		}
-		if (StringUtil.isEmpty(req.getFavoriteRoom()+"") || req.getFavoriteRoom()==0) {
-			Window.alert("请选择预定类型");
-			return false;
-		}
-		if (StringUtil.isEmpty(req.getOrderPersonName())) {
-			Window.alert("请填写姓名");
-			return false;
-		}
-		if (StringUtil.isEmpty(req.getOrderPersonPhone())) {
-			Window.alert("请填写手机号");
-			return false;
-		}
-
-		return true;
-	}
+//	private boolean verificationRequest(OrderSaveRequest req)
+//	{
+//		if (StringUtil.isEmpty(req.getAmountOfClient()+"") || req.getAmountOfClient()==0) {
+//			Window.alert("请填写就餐人数");
+//			return false;
+//		}
+//		if (StringUtil.isEmpty(req.getFavoriteRoom()+"") || req.getFavoriteRoom()==0) {
+//			Window.alert("请选择预定类型");
+//			return false;
+//		}
+//		if (StringUtil.isEmpty(req.getOrderPersonName())) {
+//			Window.alert("请填写姓名");
+//			return false;
+//		}
+//		if (StringUtil.isEmpty(req.getOrderPersonPhone())) {
+//			Window.alert("请填写手机号");
+//			return false;
+//		}
+//
+//		return true;
+//	}
 
 	@Override
 	public void updateDishesList(String id,String name,String price) {
-		if(request==null || request.getOrderPersonPhone()==null)
+		if( orderManager.getOrderRequest()==null || orderManager.getOrderRequest().getOrderPersonPhone()==null)
 		{
 			RootLayoutPanel.get().clear();
 			RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());

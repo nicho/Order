@@ -14,6 +14,10 @@ public class OrderIndexModule extends AbstractGinModule {
 	protected void configure() {
 		bind(OrderIndexPresenter.class).to(OrderIndexPresenterImpl.class).in(Singleton.class);
 		bind(OrderIndexDisplay.class).to(OrderIndexWidget.class).in(Singleton.class);
+		
+		
+		bind(OrderManager.class).to(OrderManagerimpl.class).in(Singleton.class);
+		
 	}
 
 }

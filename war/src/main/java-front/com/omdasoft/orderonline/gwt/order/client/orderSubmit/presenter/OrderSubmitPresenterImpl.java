@@ -162,7 +162,7 @@ public class OrderSubmitPresenterImpl extends
 						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
 						injector.getOrderIndexPresenter().bind();
 						
-						injector.getOrdersDishesPresenter().initOrdersDishes(request);
+//						injector.getOrdersDishesPresenter().initOrdersDishes(request);
 						injector.getOrdersDishesPresenter().bind();
 						}
 					}
