@@ -26,9 +26,9 @@
 									<br></br>
 									Pls. enter  mobile phone number
 								</p>
-								<input id="teleEmail" name="email" onclick="hideEmail();" onkeyup="hidePd();hideEmail();updatePhone();" onchange="hidePd();hideEmail();" maxlength="50" class="input"></input><br></br>
+								<g:TextBox ui:field="phone" styleName="input" /><br></br>
 								<div id="showEmail" style="display:none;">
-								 <p class="ds">麻烦再输入电子邮箱，才能找到您的<br></br>送餐信息噢！/Email pls :)</p>
+								 <p class="ds">麻烦再输入手机，才能找到您的<br></br>送餐信息噢！/Email pls :)</p>
 								 <input name="teleEmail" maxlength="50" id="myEmail" class="input" onclick="hidePd();" type="text"></input>
 								</div>
 								
@@ -38,7 +38,7 @@
 								<br></br>
 								<div class="btnNext">
 									
-								<a href="javascript:;" id="subBtn" ><g:Image   url="http://www.4008823823.com.cn/kfcios/images4/new/a05.gif" /></a>
+								<a href="javascript:;" id="subBtn" ><g:Image ui:field="submitBtn"  url="http://www.4008823823.com.cn/kfcios/images4/new/a05.gif" /></a>
 								</div>
 								 <div class="yzmTxt2" style="display:block; ">
                                 	

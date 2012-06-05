@@ -65,6 +65,19 @@ public class OrderIndexPresenterImpl extends
 
 			}
 		});
+		display.getOrderIndex().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent arg0) {
+				RootLayoutPanel.get().clear();
+				RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+				
+				injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
+				injector.getOrderIndexPresenter().bind();
+				injector.getOrdersDishesPresenter().bind();
+
+			}
+		});
 	}
 
 	@Override

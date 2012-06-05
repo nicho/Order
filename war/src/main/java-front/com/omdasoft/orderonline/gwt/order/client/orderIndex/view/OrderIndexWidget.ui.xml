@@ -39,7 +39,7 @@
       <div class="tfav"> <a onclick="addfavo(1);" style="cursor: pointer;"><g:Image /></a> </div>
       <p> <span>欢迎网上订餐！ Welcome to order online!</span>建议使用IE 6.0版本以上浏览本网站 </p>
       <ul class="clearfix">
-        <li class="m1"><a href="javascript:void(0);" onclick="giveUpOrder(1);" class="on"><strong>首页</strong>Home</a></li>
+        <li class="m1"><g:Anchor ui:field="orderindex" styleName="on" ><strong>首页</strong>Home</g:Anchor></li>
         <li class="m2"><g:Anchor ui:field="orderNow" ><strong>我要订餐</strong>Order Now</g:Anchor></li>
         <li class="m3"><a href="javascript:void(0);" onclick="giveUpOrder(3);"><strong>查询订单</strong>Check My Order</a></li>
         <li class="m4"><a href="javascript:void(0);" onclick="giveUpOrder(4);"><strong>我的优惠</strong>My Special Offer</a></li>

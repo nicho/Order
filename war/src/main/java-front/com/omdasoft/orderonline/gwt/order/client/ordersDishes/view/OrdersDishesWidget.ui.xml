@@ -180,15 +180,15 @@
 													<li>
 														<h3 style='color:red;'>
 															城市:
-															<g:InlineLabel ui:field="city" />
+															<g:InlineLabel ui:field="city" /><br></br>
 															餐厅:
-															<g:InlineLabel ui:field="restaurant" />
+															<g:InlineLabel ui:field="restaurant" /><br></br>
 															订餐人:
-															<g:InlineLabel ui:field="orderUser" />
+															<g:InlineLabel ui:field="orderUser" /><br></br>
 															人数:
-															<g:InlineLabel ui:field="number" />
+															<g:InlineLabel ui:field="number" /><br></br>
 															包间要求:
-															<g:InlineLabel ui:field="room" />
+															<g:InlineLabel ui:field="room" /><br></br>
 														</h3>
 													</li>
 

@@ -16,5 +16,6 @@ public void initPresenter(Widget widget);
 		Anchor getAdminpage();
 		Anchor getOrderListpage();
 		Anchor getOrderNow();
+		Anchor getOrderIndex();
 	}
 }
