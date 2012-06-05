@@ -79,7 +79,7 @@
 							<div id="clear_div"></div>
 						</div>
 					</div>
-					    <div class="content_box_right_1" style="float: right"> <a href="http://www.4008823823.com.cn/kfcios/SubscrMealAction/login.jsp"><g:Image url="http://www.4008823823.com.cn/kfcios/images2/b5.gif" height="99" width="194" pixelSize="194,99" /> </a>
+					    <div class="content_box_right_1" style="float: right"> <a href="#"><g:Image ui:field="ordernow" url="http://www.4008823823.com.cn/kfcios/images2/b5.gif" height="99" width="194" pixelSize="194,99" /> </a>
 					      <div id="c"> <g:Image url="http://www.4008823823.com.cn/kfcios/images2/b5_3.gif" /><!-- weij 2012-01-10 更改路径 --> 
 					      </div>
 					      <div id="e" style="display: none;"> <g:Image url="http://www.4008823823.com.cn/kfcios/images2/b5_2.gif"  /> </div>

@@ -55,6 +55,10 @@ public class OrdersDishesWidget extends Composite implements
 	InlineLabel phone;
 	@UiField
 	ListBox pageNumber;
+	@UiField
+	Image ordernow;
+	
+	
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
 			.create(OrdersDishesWidgetUiBinder.class);
 
@@ -159,6 +163,10 @@ public class OrdersDishesWidget extends Composite implements
 	public void setphone(String text) {
 		phone.setText(text);
 		
+	}
+	@Override
+	public Image getOrdernow() {
+		return ordernow;
 	}
 
 }

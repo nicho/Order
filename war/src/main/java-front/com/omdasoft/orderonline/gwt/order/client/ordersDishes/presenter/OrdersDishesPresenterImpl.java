@@ -86,6 +86,20 @@ public class OrdersDishesPresenterImpl extends
 	@Override
 	public void bind() {
 		init();
+		registerHandler(display.getOrdernow().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent arg0) {
+				RootLayoutPanel.get().clear();
+				RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+				
+				injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter().getDisplay().asWidget());
+				injector.getOrderIndexPresenter().bind();
+				injector.getOrderLoginPresenter().bind();
+
+			}
+		}));
+		
 		registerHandler(display.getPageNumber().addChangeHandler(new ChangeHandler() {			
 			@Override
 			public void onChange(ChangeEvent event) {
@@ -178,22 +192,12 @@ public class OrdersDishesPresenterImpl extends
 	String allCss;
 	List<Span> anchorList=new ArrayList<Span>();
 	private void init() {
-		// allCss=display.getTypeall().getElement().getParentElement().getClassName();
 		initOrderMessage();
 		initDwKw();
 		createTab();
 		buildTable();
 		doSearch(null);
-//		display.getTypeall().addClickHandler(new ClickHandler() {
-//			
-//			@Override
-//			public void onClick(ClickEvent arg0) {
-//				cleanAnchorCss();
-//				display.getTypeall().getElement().getParentElement().setClassName(allCss);
-//				buildTable();
-//				doSearch(null);
-//			}
-//		});
+
 		
 	}
 	private void initOrderMessage()
