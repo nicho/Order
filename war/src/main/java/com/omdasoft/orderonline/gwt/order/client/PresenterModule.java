@@ -18,6 +18,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderList.module.OrderListModul
 import com.omdasoft.orderonline.gwt.order.client.orderSave.module.OrderSaveModule;
 import com.omdasoft.orderonline.gwt.order.client.orderSubmit.module.OrderSubmitModule;
 import com.omdasoft.orderonline.gwt.order.client.orderView.module.OrderViewModule;
+import com.omdasoft.orderonline.gwt.order.client.ordersConfirm.module.OrdersConfirmModule;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.module.OrdersDishesModule;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.module.OrdersLoginModule;
 import com.omdasoft.orderonline.gwt.order.client.password.module.PasswordModule;
@@ -62,7 +63,8 @@ public class PresenterModule extends AbstractGinModule {
 		install(new PasswordModule());
 		install(new AwardShopLatticeModule());
 		install(new OrdersLoginModule());
-
+		install(new OrdersConfirmModule());
+		
 
 	}
 

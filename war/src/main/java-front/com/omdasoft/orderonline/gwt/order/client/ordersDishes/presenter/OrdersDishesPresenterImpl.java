@@ -40,7 +40,6 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider.OrdersDishesViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.view.DishesTypeLatticeWidget;
@@ -115,30 +114,37 @@ public class OrdersDishesPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						setRequestDishesList();
-						if(verificationRequest(request))
-						{
-						dispatch.execute(request,
-								new AsyncCallback<OrderSaveResponse>() {
-									@Override
-									public void onFailure(Throwable e) {
-										errorHandler.alert(e.getMessage());
-									}
-
-									@Override
-									public void onSuccess(
-											OrderSaveResponse response) {
-										Window.alert("保存成功!");
-										RootLayoutPanel.get().clear();
-										RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-										injector.getFrontOrderListPresenter().initFrontOrder(request.getOrderPersonPhone());
-										injector.getFrontOrderListPresenter().bind();
-										injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
-										injector.getOrderIndexPresenter().bind();
-										
-									}
-
-								});
-						}
+						RootLayoutPanel.get().clear();
+						RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+						
+						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter().getDisplay().asWidget());
+						injector.getOrderIndexPresenter().bind();
+						injector.getOrdersConfirmPresenter().bind();
+						//保存屏蔽
+//						if(verificationRequest(request))
+//						{
+//						dispatch.execute(request,
+//								new AsyncCallback<OrderSaveResponse>() {
+//									@Override
+//									public void onFailure(Throwable e) {
+//										errorHandler.alert(e.getMessage());
+//									}
+//
+//									@Override
+//									public void onSuccess(
+//											OrderSaveResponse response) {
+//										Window.alert("保存成功!");
+//										RootLayoutPanel.get().clear();
+//										RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+//										injector.getFrontOrderListPresenter().initFrontOrder(request.getOrderPersonPhone());
+//										injector.getFrontOrderListPresenter().bind();
+//										injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
+//										injector.getOrderIndexPresenter().bind();
+//										
+//									}
+//
+//								});
+//						}
 					}
 				}));
 		registerHandler(display.getReturnBtnClickHandlers().addClickHandler(
@@ -767,7 +773,6 @@ public class OrdersDishesPresenterImpl extends
 	@Override
 	public void initDishesList(List<BookingDishesClient> dishesList) {
 		cellBookingTable.setRowData(dishesList);
-		setRequestDishesList();
 
 	}
 		

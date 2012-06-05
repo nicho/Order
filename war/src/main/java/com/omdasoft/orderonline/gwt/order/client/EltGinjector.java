@@ -10,6 +10,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderIndex.presenter.OrderIndexPresenter;
 import com.omdasoft.orderonline.gwt.order.client.orderSubmit.presenter.OrderSubmitPresenter;
+import com.omdasoft.orderonline.gwt.order.client.ordersConfirm.presenter.OrdersConfirmPresenter;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.presenter.OrdersLoginPresenter;
 import com.omdasoft.orderonline.gwt.order.client.register.presenter.RegisterPresenter;
@@ -37,4 +38,5 @@ public interface EltGinjector extends PlatformGinjector {
 	Main getMain();
 	
 	OrdersLoginPresenter getOrderLoginPresenter();
+	OrdersConfirmPresenter getOrdersConfirmPresenter();
 }
