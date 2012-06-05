@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.common.BaseDao;
 import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
+import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.util.DateUtil;
 import com.omdasoft.orderonline.util.StringUtil;
 
@@ -157,6 +158,16 @@ public class OrderDao extends BaseDao<Orders> {
 		}
 
 		return query;
+	}
+	
+	public Orders findByOrdersPhone(String phone) {
+		try {
+			return (Orders) getEm()
+					.createQuery("FROM Orders o WHERE (o.orderStatus =:status_a or o.orderStatus =:status_b) AND o.orderPerson.phone = :phone order by o.placeOrderTime desc")
+					.setParameter("status_a", OrderStatus.UNHANDLED).setParameter("status_b", OrderStatus.SUCCESS).setParameter("phone", phone).getSingleResult();
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 
 }

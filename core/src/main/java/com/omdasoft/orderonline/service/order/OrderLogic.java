@@ -6,6 +6,7 @@ import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
+import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
@@ -59,6 +60,12 @@ public interface OrderLogic {
 	 * @return
 	 */
 	public InvokeHistory addInvokeHistory(String restApiName,Date invokeTime,String invokeResult,String tokenid);
+	/**
+	 * 根据电话查询，订单。和菜单
+	 * @param phone
+	 * @return
+	 */
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone);
 }
 
 

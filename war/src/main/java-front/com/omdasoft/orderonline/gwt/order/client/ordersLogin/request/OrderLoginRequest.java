@@ -23,7 +23,10 @@ public class OrderLoginRequest implements Action<OrderLoginResponse> {
 		this.phone = phone;
 	}
 
-	public OrderLoginRequest() {
+	public OrderLoginRequest(String phone) {
+		this.phone=phone;
 	}
+	public OrderLoginRequest() {
 
+	}
 }

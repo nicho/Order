@@ -1,17 +1,21 @@
 package com.omdasoft.orderonline.service.order.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.omdasoft.orderonline.dao.dishes.OrdersDishesDao;
 import com.omdasoft.orderonline.dao.order.OrderDao;
 import com.omdasoft.orderonline.dao.rest.InvokeHistoryDao;
 import com.omdasoft.orderonline.domain.order.Orders;
+import com.omdasoft.orderonline.domain.order.OrdersDishes;
 import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
+import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
@@ -24,16 +28,18 @@ import com.omdasoft.orderonline.util.StringUtil;
 
 public class OrderLogicImpl implements OrderLogic{
 	private OrderDao orderDao;
+	private OrdersDishesDao ordersDishesDao;
 	private InvokeHistoryDao invokeHistoryDao;
 	private UserLogic userLogic;
 
 
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Inject
-	protected OrderLogicImpl(OrderDao orderDao,InvokeHistoryDao invokeHistoryDao,UserLogic userLogic){
+	protected OrderLogicImpl(OrderDao orderDao,InvokeHistoryDao invokeHistoryDao,UserLogic userLogic,OrdersDishesDao ordersDishesDao){
 		this.orderDao = orderDao;
 		this.invokeHistoryDao=invokeHistoryDao;
 		this.userLogic=userLogic;
+		this.ordersDishesDao=ordersDishesDao;
 	}
 	
 	@Override
@@ -140,6 +146,23 @@ public class OrderLogicImpl implements OrderLogic{
 		}
 
 		return invokeHistoryDao.save(ih);
+	}
+
+	@Override
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone) {
+		Orders order=orderDao.findByOrdersPhone(phone);
+		if(order!=null)
+		{
+			OrderAndDishesModel model=new OrderAndDishesModel();
+			model.setOrder(order);
+			
+			List<OrdersDishes> dishesList=ordersDishesDao.findOrdersDishesByOrderId(order.getId());
+			if(dishesList!=null && dishesList.size()>0)
+			model.setOrdersDishesList(dishesList);
+			
+			return model;
+		}
+		return null;
 	}
 
 

@@ -50,7 +50,9 @@ public class OrdersDishesWidget extends Composite implements
 	InlineLabel dishesNumber;
 	@UiField
 	InlineLabel dishesMoney;
-
+	
+	@UiField
+	InlineLabel phone;
 	@UiField
 	ListBox pageNumber;
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
@@ -152,6 +154,11 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public InlineLabel getMenutypeAll() {
 		return menutypeAll;
+	}
+	@Override
+	public void setphone(String text) {
+		phone.setText(text);
+		
 	}
 
 }

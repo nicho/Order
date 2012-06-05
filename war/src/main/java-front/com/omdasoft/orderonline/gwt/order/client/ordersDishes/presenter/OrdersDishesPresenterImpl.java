@@ -204,6 +204,7 @@ public class OrdersDishesPresenterImpl extends
 			display.setNumber(request.getAmountOfClient()+"");
 			display.setOrderUser(request.getOrderPersonName());
 			display.setRestaurant(request.getRestaurantName());
+			display.setphone(request.getOrderPersonPhone());
 			if(request.getFavoriteRoom()==1)
 				display.setRoom("只订大厅");
 			else if(request.getFavoriteRoom()==2)
@@ -675,6 +676,16 @@ public class OrdersDishesPresenterImpl extends
 
 	@Override
 	public void updateDishesList(String id,String name,String price) {
+		if(request==null || request.getOrderPersonPhone()==null)
+		{
+			RootLayoutPanel.get().clear();
+			RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+			
+			injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter().getDisplay().asWidget());
+			injector.getOrderIndexPresenter().bind();
+			injector.getOrderLoginPresenter().bind();
+			return;
+		}
 		if(cellBookingTable==null)
 		{
 			buildBookingTable();
@@ -743,9 +754,17 @@ public class OrdersDishesPresenterImpl extends
 
 	@Override
 	public void refulDishes(String typeId) {
-		buildTable();
-		doSearch(typeId);
-		
+
+			buildTable();
+			doSearch(typeId);
+
+	}
+
+	@Override
+	public void initDishesList(List<BookingDishesClient> dishesList) {
+		cellBookingTable.setRowData(dishesList);
+		setRequestDishesList();
+
 	}
 		
 	

@@ -173,7 +173,7 @@
 													<li>
 														<div>
 															<h3>
-																用户预订信息：
+																用户预订信息：<g:InlineLabel ui:field="phone" />
 															</h3>
 														</div>
 													</li>

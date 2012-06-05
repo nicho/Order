@@ -17,6 +17,7 @@ import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.domain.user.SysUserRole;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.order.DishesModel;
+import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderModel;
 import com.omdasoft.orderonline.model.order.OrderReturnModel;
@@ -347,6 +348,11 @@ public class OrderServiceImpl implements OrderService {
 	public InvokeHistory addInvokeHistory(String restApiName, Date invokeTime,
 			String invokeResult,String tokenid) {
 		return orderLogic.addInvokeHistory(restApiName, invokeTime, invokeResult,tokenid);
+	}
+
+	@Override
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone) {
+		return orderLogic.getOrderAndDishesModelByPhone(phone);
 	}
 
 }

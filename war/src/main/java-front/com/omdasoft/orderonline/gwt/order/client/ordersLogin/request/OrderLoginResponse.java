@@ -47,6 +47,16 @@ public class OrderLoginResponse implements Result {
 	 * 餐厅名称
 	 */
 	private String restaurantName;
+	private String city;
+	
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
 
 	public int getAmountOfClient() {
 		return amountOfClient;
