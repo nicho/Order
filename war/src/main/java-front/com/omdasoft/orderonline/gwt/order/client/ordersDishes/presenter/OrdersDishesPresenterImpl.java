@@ -223,7 +223,7 @@ public class OrdersDishesPresenterImpl extends
 		DictionaryListCriteria criteria = new DictionaryListCriteria();
 		criteria.setPagination(pagination);
 		criteria.setDictionaryType(0);
-		criteria.setDeptId(request.getRestaurantId());
+//		criteria.setDeptId(request.getRestaurantId());
 		dispatch.execute(new SearchDictionaryListRequest(criteria, null), new AsyncCallback<SearchDictionaryListResponse>() {
 			@Override
 			public void onFailure(Throwable e) {
@@ -272,7 +272,7 @@ public class OrdersDishesPresenterImpl extends
 		
 		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
 		criteria.setPagination(pagination);
-		criteria.setDeptId(request.getRestaurantId());
+//		criteria.setDeptId(request.getRestaurantId());
 		dispatch.execute(new SearchDishesTypeListRequest(criteria,null), new AsyncCallback<SearchDishesTypeListResponse>() {
 			@Override
 			public void onFailure(Throwable e) {
@@ -374,7 +374,7 @@ public class OrdersDishesPresenterImpl extends
 		DishesListCriteria criteria = new DishesListCriteria();
 		if(!StringUtil.isEmpty(typeId))
 		criteria.setTypeId(typeId);
-		criteria.setDeptId(request.getRestaurantId());
+//		criteria.setDeptId(request.getRestaurantId());
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
 				errorHandler, null,display,this,dishesDetailedDialogProvider);
 		listViewAdapter.addDataDisplay(cellTable);

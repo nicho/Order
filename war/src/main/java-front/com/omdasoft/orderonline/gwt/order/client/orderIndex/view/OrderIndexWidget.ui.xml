@@ -6,7 +6,7 @@
 	<g:ScrollPanel>
 	<g:HTMLPanel>
 
-		<div>
+		<div class="public_container">
 			<div class="{new2.mainpage}">
 				<!--顶部 -->
 				<div class="{new2.site-nav}">
@@ -27,8 +27,27 @@
 							
 
 						</ul>
+						
+						
 					</div>
+					
 				</div>
+							  <!--header_box start-->
+  <div class="header_box clearfix">
+    <h1 class="kfcLogo"> <a href="javascript:void(0);" onclick="giveUpOrder(1);">网上订餐</a> </h1>
+    <div class="headLeft">
+      <div class="tfav"> <a onclick="addfavo(1);" style="cursor: pointer;"><g:Image /></a> </div>
+      <p> <span>欢迎网上订餐！ Welcome to order online!</span>建议使用IE 6.0版本以上浏览本网站 </p>
+      <ul class="clearfix">
+        <li class="m1"><a href="javascript:void(0);" onclick="giveUpOrder(1);" class="on"><strong>首页</strong>Home</a></li>
+        <li class="m2"><a href="javascript:void(0);" id="login_div" onclick="giveUpOrder(2);"><strong>我要订餐</strong>Order Now</a></li>
+        <li class="m3"><a href="javascript:void(0);" onclick="giveUpOrder(3);"><strong>查询订单</strong>Check My Order</a></li>
+        <li class="m4"><a href="javascript:void(0);" onclick="giveUpOrder(4);"><strong>我的优惠</strong>My Special Offer</a></li>
+        <li class="m5"><a href="javascript:void(0);" onclick="javascript:window.open('/kfcios/help/help_new.jsp','_blank');"><strong>帮助中心</strong>Help Desk</a></li>
+      </ul>
+    </div>
+  </div>
+  <!--header_box end-->
 				<!--顶部end -->
 			<g:FlowPanel ui:field="dock" />
 				<!-- 页尾 -->
