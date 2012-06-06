@@ -223,6 +223,7 @@ public class OrdersDishesPresenterImpl extends
 				buildBookingTable();
 				display.hiddenDishesNumber(false);
 				cellBookingTable.setRowData(injector.getOrderManager().getOrderRequest().getBookingDishesListClient());
+				sumNumberMoney();
 			}
 		}
 	}
@@ -586,10 +587,13 @@ public class OrdersDishesPresenterImpl extends
 						try
 						{
 						     cellBookingTable.getRowElement(index).getCells().getItem(2).getFirstChildElement().setInnerHTML((Double.parseDouble(value))* Double.parseDouble(o.getPrice())+"");
-						     cellBookingTable.getVisibleItem(index).setNumber(Integer.parseInt(value));
+						     o.setNumber(Integer.parseInt(value));
+						     o.setPrice((Double.parseDouble(value))* Double.parseDouble(o.getPrice())+"");
 						     sumNumberMoney();
 						}catch (Exception e) {
 							 cellBookingTable.getRowElement(index).getCells().getItem(2).getFirstChildElement().setInnerHTML((1* Double.parseDouble(o.getPrice())+""));
+							 o.setNumber(1);
+						     o.setPrice(1* Double.parseDouble(o.getPrice())+"");
 						}
 					}
 
@@ -720,6 +724,7 @@ public class OrdersDishesPresenterImpl extends
 				col.setName(name);
 				col.setNumber(1);
 				col.setPrice(price);
+				col.setUnitprice(price);
 				if(kwlt.size()>0)
 				col.setTaste(kwlt.get(0));
 				if(dwlt.size()>0)
@@ -741,6 +746,7 @@ public class OrdersDishesPresenterImpl extends
 			col.setName(name);
 			col.setNumber(1);
 			col.setPrice(price);
+			col.setUnitprice(price);
 			if(kwlt.size()>0)
 			col.setTaste(kwlt.get(0));
 			if(dwlt.size()>0)

@@ -67,12 +67,13 @@ public class OrderLoginActionHandler extends
 						{
 
 							r.setName(dishe.getDishes().getName());
-							r.setPrice(dishe.getDishes().getPrice()+"");
+							r.setUnitprice(dishe.getDishes().getPrice()+"");
 							r.setPrice((dishe.getDishes().getPrice()*dishe.getNumber()) +"");
 						}						
 						
 						r.setUnit(dishe.getUnit());
 						r.setTaste(dishe.getTaste());
+					
 						dishesList.add(r);
 					}
 				rep.setBookingDishesList(dishesList);

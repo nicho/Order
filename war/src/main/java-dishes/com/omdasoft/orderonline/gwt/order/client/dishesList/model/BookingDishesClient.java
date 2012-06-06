@@ -15,7 +15,14 @@ public class BookingDishesClient implements Serializable, Comparable<BookingDish
 	private String unit;	
 	private String taste;	
 	private String price;
+	private String unitprice;
 	
+	public String getUnitprice() {
+		return unitprice;
+	}
+	public void setUnitprice(String unitprice) {
+		this.unitprice = unitprice;
+	}
 	public String getId() {
 		return id;
 	}
