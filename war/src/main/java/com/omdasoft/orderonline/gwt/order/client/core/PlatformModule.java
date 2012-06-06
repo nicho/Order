@@ -21,6 +21,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesSave.plugin.DishesSavePlu
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.plugin.DishesTypeListPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.plugin.DishesTypeSavePluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.enterprise.plugin.EnterprisePluginDescriptor;
+import com.omdasoft.orderonline.gwt.order.client.orderIndex.plugin.OrderIndexPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.orderList.plugin.OrderListPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.plugin.OrderSavePluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.orderSubmit.plugin.OrderSubmitPluginDescriptor;
@@ -132,5 +133,22 @@ public class PlatformModule extends AbstractGinModule {
 		}
 		return pluginSet;
 	}
+	@Provides
+	@Named("order")
+	PluginSet provideOrderPluginSet(
+	// ---- PLUGINS DEFINE BELOW (2) ----
+			CorePluginDescriptor core,
+			OrderIndexPluginDescriptor orderIndex
+//			OrdersDishesPluginDescriptor ordersDishes
+	) {
 
+		if (pluginSet == null) {
+			pluginSet = new InMemoryPluginSet();
+			pluginSet.registerPlugin(core);
+			pluginSet.registerPlugin(orderIndex);
+//			pluginSet.registerPlugin(ordersDishes);
+
+		}
+		return pluginSet;
+	}
 }

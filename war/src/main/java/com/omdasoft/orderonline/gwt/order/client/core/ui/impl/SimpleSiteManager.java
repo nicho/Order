@@ -32,6 +32,7 @@ import com.omdasoft.orderonline.gwt.order.client.core.ui.event.EditorCloseEvent;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.event.EditorCloseHandler;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.event.MenuClickEvent;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
+import com.omdasoft.orderonline.gwt.order.client.orderIndex.presenter.OrderIndexPresenter;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.ui.DialogBox;
 
@@ -43,6 +44,8 @@ public class SimpleSiteManager implements SiteManager, EditorCloseHandler,
 	final SessionManager sessionManager;
 
 	final DockPresenter dockPresenter;
+	final OrderIndexPresenter orderIndexPresenter;
+//	final OrdersDishesPresenter ordersDishesPresenter;
 
 	MenuProcessor menuProcessor;
 
@@ -62,11 +65,12 @@ public class SimpleSiteManager implements SiteManager, EditorCloseHandler,
 
 	@Inject
 	public SimpleSiteManager(EventBus eventBus, SessionManager sessionManager,
-			DockPresenter dockPresenter) {
+			DockPresenter dockPresenter,OrderIndexPresenter orderIndexPresenter) {
 		this.eventBus = eventBus;
 		this.sessionManager = sessionManager;
 		this.dockPresenter = dockPresenter;
-
+		this.orderIndexPresenter=orderIndexPresenter;
+//		this.ordersDishesPresenter=ordersDishesPresenter;
 	}
 
 	public void openEditor(final Editor e) {
@@ -136,7 +140,24 @@ public class SimpleSiteManager implements SiteManager, EditorCloseHandler,
 		hookHistoryEvent();
 		hookMenuClickEvent();
 	}
+	public void initializeOrder(RootLayoutPanel rootPanel) {
+
+
+		root = rootPanel;
+
 	
+		orderIndexPresenter.bind();
+		rootPanel.add(orderIndexPresenter.getDisplay().asWidget());
+		
+		
+//		ordersDishesPresenter.bind();
+//		orderIndexPresenter.initPresenter(ordersDishesPresenter.getDisplay().asWidget());
+//		
+//		
+		hookEditorCloseEvent();
+		hookHistoryEvent();
+		hookMenuClickEvent();
+	}
 	public Panel getMenuArea() {
 		return menu;
 	}

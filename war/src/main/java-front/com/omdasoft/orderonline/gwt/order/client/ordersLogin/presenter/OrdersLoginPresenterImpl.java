@@ -84,7 +84,7 @@ public class OrdersLoginPresenterImpl extends
 						//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
 							
 							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
-							injector.getOrderIndexPresenter().bind();
+						
 							injector.getOrdersDishesPresenter().bind();
 							
 						

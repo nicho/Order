@@ -11,13 +11,16 @@ public class Elt implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
+		RootLayoutPanel.get().clear();
 	//	injector.getRegisterPresenter().bind();
 		
-//		injector.getMain().init(RootLayoutPanel.get());
+	//	injector.getMain().initOrder(RootLayoutPanel.get());
 		injector.getOrdersDishesPresenter().bind();
 		injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
 		injector.getOrderIndexPresenter().bind();
-		RootLayoutPanel.get().clear();
+
+		
+		
 		RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
 		
 		// EventBus bus = injector.getEventBus();

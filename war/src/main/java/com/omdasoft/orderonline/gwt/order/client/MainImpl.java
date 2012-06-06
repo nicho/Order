@@ -170,4 +170,11 @@ public class MainImpl implements Main, PlatformInitHandler, LoginHandler {
 		}
 	}
 
+	@Override
+	public void initOrder(RootLayoutPanel panel) {
+		panel.clear();
+		injector.getPlatform().initializeOrder(injector.getPluginSetOrder(),
+				panel);
+	}
+
 }

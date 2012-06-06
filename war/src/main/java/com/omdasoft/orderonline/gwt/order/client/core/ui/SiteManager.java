@@ -14,7 +14,7 @@ public interface SiteManager {
 	Panel getMenuArea();
 
 	void initialize(RootLayoutPanel rootPanel);
-
+	void initializeOrder(RootLayoutPanel rootPanel);
 	/**
 	 * Simply render the editor. To obtain the editors status, use
 	 * <code>EditorRegistry</code>.

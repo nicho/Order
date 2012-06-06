@@ -1,6 +1,5 @@
 package com.omdasoft.orderonline.gwt.order.client.orderIndex.presenter;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
@@ -16,16 +15,28 @@ public class OrderIndexPresenterImpl extends
 		OrderIndexPresenter {
 
 	final ErrorHandler errorHandler;
-	private final EltGinjector injector = GWT.create(EltGinjector.class);
+//	final FrontOrderListPresenter frontorderIndexPresenter;
+//	final OrderIndexPresenter orderIndexPresenter;
+//	final OrdersLoginPresenter orderLoginPresenter;
+//	final OrdersDishesPresenter ordersDishesPresenter;
+	final EltGinjector injector;
 
 	String orderId = null;
 
 	@Inject
 	public OrderIndexPresenterImpl(EventBus eventBus,
-			OrderIndexDisplay display, ErrorHandler errorHandler) {
+			OrderIndexDisplay display, ErrorHandler errorHandler,
+//			FrontOrderListPresenter frontorderIndexPresenter,
+//			OrdersLoginPresenter orderLoginPresenter,OrderIndexPresenter orderIndexPresenter,
+//			OrdersDishesPresenter ordersDishesPresenter,
+			EltGinjector injector) {
 		super(eventBus, display);
 		this.errorHandler = errorHandler;
-
+//		this.frontorderIndexPresenter=frontorderIndexPresenter;
+//		this.orderLoginPresenter=orderLoginPresenter;
+//		this.orderIndexPresenter=orderIndexPresenter;
+//		this.ordersDishesPresenter=ordersDishesPresenter;
+		this.injector=injector;
 	}
 
 	@Override
@@ -39,41 +50,30 @@ public class OrderIndexPresenterImpl extends
 
 			}
 		});
-		display.getOrderListpage().addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent arg0) {
-				RootLayoutPanel.get().clear();
-				RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-				
-				injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
-				injector.getOrderIndexPresenter().bind();
-				injector.getFrontOrderListPresenter().bind();
-
-			}
-		});
-		display.getOrderNow().addClickHandler(new ClickHandler() {
-
-			@Override
-			public void onClick(ClickEvent arg0) {
-				RootLayoutPanel.get().clear();
-				RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-				
-				injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter().getDisplay().asWidget());
-				injector.getOrderIndexPresenter().bind();
-				injector.getOrderLoginPresenter().bind();
-
-			}
-		});
+//		display.getOrderListpage().addClickHandler(new ClickHandler() {
+//
+//			@Override
+//			public void onClick(ClickEvent arg0) {
+//				orderIndexPresenter.initPresenter(frontorderIndexPresenter.getDisplay().asWidget());
+//				frontorderIndexPresenter.bind();
+//			}
+//		});
+//		display.getOrderNow().addClickHandler(new ClickHandler() {
+//
+//			@Override
+//			public void onClick(ClickEvent arg0) {
+//	
+//				
+//				orderIndexPresenter.initPresenter(orderLoginPresenter.getDisplay().asWidget());
+//				orderLoginPresenter.bind();
+//
+//			}
+//		});
 		display.getOrderIndex().addClickHandler(new ClickHandler() {
 
 			@Override
 			public void onClick(ClickEvent arg0) {
-				RootLayoutPanel.get().clear();
-				RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-				
 				injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
-				injector.getOrderIndexPresenter().bind();
 				injector.getOrdersDishesPresenter().bind();
 
 			}
