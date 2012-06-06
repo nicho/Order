@@ -54,17 +54,17 @@
 											<ul class="content_box_right_2_c_ul">
 												<li>
 													<a
-														href="http://www.4008823823.com.cn/kfcios/productpics/2012June/03halfprice.html?utm_source=KfcDelivery&amp;utm_medium=TextLink&amp;utm_content=Promotion_KfcDelivery_TextLink1_&amp;utm_campaign=KFC_Online_Ordering"
+														href="#"
 														target="_blank" class="nav_right_l">网上订餐天天半价！每日一款招牌美食，款款超值。</a>
 												</li>
 												<li>
 													<a
-														href="http://www.4008823823.com.cn/kfcios/productpics/2012June/01rice.html?utm_source=KfcDelivery&amp;utm_medium=TextLink&amp;utm_content=Promotion_KfcDelivery_TextLink2_&amp;utm_campaign=KFC_Online_Ordering"
+														href="#"
 														target="_blank" class="nav_right_l">意式萃蔬烤鸡腿饭套餐新品上市，仅售24元！</a>
 												</li>
 												<li>
 													<a
-														href="http://www.4008823823.com.cn/kfcios/productpics/2012June/02drink.html?utm_source=KfcDelivery&amp;utm_medium=TextLink&amp;utm_content=Promotion_KfcDelivery_TextLink3_&amp;utm_campaign=KFC_Online_Ordering"
+														href="#"
 														target="_blank" class="nav_right_l">单点任1饮料送指定饮料1杯，多买多送！</a>
 												</li>
 											</ul>
@@ -87,17 +87,16 @@
 
 
 			<div class="rightInner"
-				style="background:#ffe7c0 url(/kfcios/images4/new/a20_02_popoo.gif) no-repeat 0 bottom; position: relative;">
+				style="background:#ffe7c0 url(http://www.4008823823.com.cn/kfcios/images4/new/a20_02_popoo.gif) no-repeat 0 bottom; position: relative;">
 				<div class="ltinc" style=" top:0; left:0; "></div>
 				<div id="order1">
 					<div class="rightInner2b" style=" height:auto;">
 						<div class="rightInner3">
 							<div style="margin-top: 0px;" class="confirmBlock" id="orderArea">
 								<h3>
+									<g:Image url="http://www.4008823823.com.cn/kfcios/images4/new/a18.gif" />
 									<map name="Map" id="Map">
-										<!--<area shape="rect" coords="238,9,331,28" href="#" /> <area 
-											shape="rect" coords="434,9,524,25" href="#" /> <area shape="rect" coords="625,11,769,25" 
-											href="#" /> -->
+										
 									</map>
 								</h3>
 								<div class="confirmBlock2" style="margin-left: -10px;">
@@ -127,53 +126,7 @@
 											</dd>
 										</dl>
 									</div>
-									<div style="display: none;" class="codeArea">
-										<div style="display: block;" id="couponcode">
-
-
-											<div>
-												<input name="fudaiSize" id="fudaiSize" value="0" type="hidden" />
-												<table class="tableStyle01" border="0" cellpadding="0"
-													cellspacing="0" width="100%">
-													<tbody>
-														<tr>
-															<th colspan="2" width="35%">
-																优惠代码
-																<br></br>
-																<em>Promotion Code</em>
-															</th>
-															<th width="40%">
-																优惠描述
-																<br></br>
-																<em>Description</em>
-															</th>
-															<th width="25%">
-																有效期
-																<br></br>
-																<em>Valid Date</em>
-															</th>
-														</tr>
-
-														<tr>
-															<td>
-																<input id="couponCode1" name="couponCode1" class="codeInput"
-																	style="width: 80px; margin: 0px 5px;" type="text" />
-															</td>
-															<td>
-																<a href="javascript:;" onclick="useCoupon();">立即使用</a>
-															</td>
-															<td></td>
-															<td></td>
-														</tr>
-
-
-													</tbody>
-												</table>
-											</div>
-
-
-										</div>
-									</div>
+									
 									<div class="productItem">
 										<h4>
 											<strong>根据您的订餐，您还可以选择以下优惠项目，如您未选则视为自动放弃。</strong>
@@ -182,7 +135,13 @@
 											offers.
 										</h4>
 									</div>
-
+							<div class="stepNext clearfix" style="position:relative;  height:35px; ">
+								<span><strong>点击顶部首页继续点餐 </strong>
+								<br></br>Continue to order on the Top Menu</span>
+								<a style="position: absolute; top: 0pt; left: 300px;" href="javascript:void(0);" >
+									<g:Image ui:field="nextBtn" url="http://www.4008823823.com.cn/kfcios/images4/new/a05.gif"/> 
+								</a>
+							</div>
 								</div>
 							</div>
 						</div>

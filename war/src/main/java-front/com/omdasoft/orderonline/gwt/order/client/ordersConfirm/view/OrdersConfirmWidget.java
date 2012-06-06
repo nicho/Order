@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.Widget;
@@ -18,6 +19,8 @@ public class OrdersConfirmWidget extends Composite implements
 	InlineLabel dishesNumber;
 	@UiField
 	InlineLabel dishesMoney;
+	@UiField
+	Image nextBtn;
 	
 	private static OrdersConfirmWidgetUiBinder uiBinder = GWT
 			.create(OrdersConfirmWidgetUiBinder.class);
@@ -44,6 +47,11 @@ public class OrdersConfirmWidget extends Composite implements
 	@Override
 	public void setDishesMoney(String text) {
 		dishesMoney.setText(text);
+	}
+
+	@Override
+	public Image getNextBtn() {
+		return nextBtn;
 	}
 	
 }

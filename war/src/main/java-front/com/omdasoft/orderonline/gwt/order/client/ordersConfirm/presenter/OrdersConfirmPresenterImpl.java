@@ -8,6 +8,8 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 import com.google.gwt.cell.client.EditTextCell;
 import com.google.gwt.cell.client.FieldUpdater;
 import com.google.gwt.cell.client.TextCell;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
@@ -44,6 +46,15 @@ public class OrdersConfirmPresenterImpl extends
 		buildBookingTable();
 		cellBookingTable.setRowData(injector.getOrderManager().getOrderRequest().getBookingDishesListClient());
 		sumNumberMoney();
+		
+		display.getNextBtn().addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				
+				
+			}
+		});
 	}
 
 	private void buildBookingTable() {
