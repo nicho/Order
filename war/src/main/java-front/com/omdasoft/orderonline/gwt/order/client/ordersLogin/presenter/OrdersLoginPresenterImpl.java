@@ -2,18 +2,15 @@ package com.omdasoft.orderonline.gwt.order.client.ordersLogin.presenter;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
-import com.omdasoft.orderonline.gwt.order.client.orderIndex.module.OrderManager;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginResponse;
@@ -25,16 +22,16 @@ public class OrdersLoginPresenterImpl extends
 		OrdersLoginPresenter {
 
 	private final DispatchAsync dispatch;
-	private OrderManager orderManager;
+
 	final ErrorHandler errorHandler;
-	private final EltGinjector injector = GWT.create(EltGinjector.class);
+	private final EltGinjector injector;
 	@Inject
 	public OrdersLoginPresenterImpl(EventBus eventBus,
-			OrdersLoginDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,OrderManager orderManager) {
+			OrdersLoginDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,EltGinjector injector) {
 		super(eventBus, display);
 		this.dispatch = dispatch;
 		this.errorHandler=errorHandler;
-		this.orderManager=orderManager;
+		this.injector=injector;
 
 	}
 
@@ -55,9 +52,7 @@ public class OrdersLoginPresenterImpl extends
 
 						@Override
 						public void onSuccess(OrderLoginResponse response) {
-							RootLayoutPanel.get().clear();
-							RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-							
+					
 							
 							
 							OrderSaveRequest request=new OrderSaveRequest();
@@ -80,7 +75,7 @@ public class OrdersLoginPresenterImpl extends
 							{
 								request.setOrderPersonPhone(display.getPhone().getValue());
 							}
-							orderManager.setOrderRequest(request);
+							injector.getOrderManager().setOrderRequest(request);
 						//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
 							
 							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
