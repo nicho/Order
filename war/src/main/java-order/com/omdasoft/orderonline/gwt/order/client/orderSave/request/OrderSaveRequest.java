@@ -8,6 +8,7 @@ import java.util.List;
 
 import net.customware.gwt.dispatch.shared.Action;
 
+import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesClient;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesList;
 import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
 
@@ -69,7 +70,7 @@ public class OrderSaveRequest implements Action<OrderSaveResponse> {
 	private String restaurantId;
 	private String restaurantName;
 	private OrderStatus orderStatus;
-	
+
 	public String getRestaurantName() {
 		return restaurantName;
 	}
@@ -111,6 +112,16 @@ public class OrderSaveRequest implements Action<OrderSaveResponse> {
 	}
 
 	private List<BookingDishesList> bookingDishesList;
+	private List<BookingDishesClient> bookingDishesListClient ;
+
+	public List<BookingDishesClient> getBookingDishesListClient() {
+		return bookingDishesListClient;
+	}
+
+	public void setBookingDishesListClient(
+			List<BookingDishesClient> bookingDishesListClient) {
+		this.bookingDishesListClient = bookingDishesListClient;
+	}
 
 	public List<BookingDishesList> getBookingDishesList() {
 		return bookingDishesList;

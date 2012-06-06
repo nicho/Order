@@ -68,7 +68,8 @@ public class OrdersLoginPresenterImpl extends
 								request.setMemo(response.getMemo());
 								request.setFavoriteRoom(response.getFavoriteRoom());
 								
-								injector.getOrdersDishesPresenter().initDishesList(response.getBookingDishesList());
+
+								request.setBookingDishesListClient(response.getBookingDishesList());
 
 							}
 							else

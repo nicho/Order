@@ -17,7 +17,6 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
@@ -183,15 +182,18 @@ public class OrdersDishesPresenterImpl extends
 			}
 			
 			injector.getOrderManager().getOrderRequest().setBookingDishesList(bookingDishesList);
+			injector.getOrderManager().getOrderRequest().setBookingDishesListClient(cellBookingTable.getVisibleItems());
 		}
 
 	
 	}
+	
+	
 	String allCss;
 	List<Span> anchorList=new ArrayList<Span>();
 	private void init() {
-		initOrderMessage();
 		initDwKw();
+		initOrderMessage();
 		createTab();
 		buildTable();
 		doSearch(null);
@@ -215,6 +217,13 @@ public class OrdersDishesPresenterImpl extends
 				display.setRoom("先订大厅，如无大厅，订包间");
 			else if(injector.getOrderManager().getOrderRequest().getFavoriteRoom()==4)
 				display.setRoom("先订包间，如无包间，订大厅");
+			
+			if(injector.getOrderManager().getOrderRequest().getBookingDishesListClient()!=null && injector.getOrderManager().getOrderRequest().getBookingDishesListClient().size()>0)
+			{
+				buildBookingTable();
+				display.hiddenDishesNumber(false);
+				cellBookingTable.setRowData(injector.getOrderManager().getOrderRequest().getBookingDishesListClient());
+			}
 		}
 	}
 	public void initDwKw()
@@ -249,10 +258,12 @@ public class OrdersDishesPresenterImpl extends
 
 				}
 
-				
-				display.setBookingTitle("还未点菜");
-				display.getBookingPanel().clear();
-				display.hiddenDishesNumber(true);
+				if(cellBookingTable==null)
+				{
+					display.setBookingTitle("还未点菜");
+					display.getBookingPanel().clear();
+					display.hiddenDishesNumber(true);
+				}
 			}
 
 		});
@@ -676,11 +687,7 @@ public class OrdersDishesPresenterImpl extends
 	public void updateDishesList(String id,String name,String price) {
 		if( injector.getOrderManager().getOrderRequest()==null || injector.getOrderManager().getOrderRequest().getOrderPersonPhone()==null)
 		{
-			RootLayoutPanel.get().clear();
-			RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-			
 			injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter().getDisplay().asWidget());
-			injector.getOrderIndexPresenter().bind();
 			injector.getOrderLoginPresenter().bind();
 			return;
 		}
