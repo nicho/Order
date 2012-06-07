@@ -7,6 +7,7 @@ import java.util.List;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 import com.omdasoft.orderonline.dao.dishes.OrdersDishesDao;
+import com.omdasoft.orderonline.dao.org.CorporationDao;
 import com.omdasoft.orderonline.dao.person.PersonDao;
 import com.omdasoft.orderonline.dao.user.UserRoleDao;
 import com.omdasoft.orderonline.domain.order.Orders;
@@ -46,12 +47,13 @@ public class OrderServiceImpl implements OrderService {
 	private final DishesLogic dishesLogic;
 	private final OrdersDishesDao ordersDishesDao;
 	private UserRoleDao userRoleDao;
+	private CorporationDao corporationDao;
 	
 
 	@Inject
 	public OrderServiceImpl(OrderLogic orderLogic, UserLogic userLogic,
 			PersonDao personDao, DepartmentLogic departmentLogic,
-			DishesLogic dishesLogic, OrdersDishesDao ordersDishesDao,UserRoleDao userRoleDao) {
+			DishesLogic dishesLogic, OrdersDishesDao ordersDishesDao,UserRoleDao userRoleDao,CorporationDao corporationDao) {
 		this.userLogic = userLogic;
 		this.orderLogic = orderLogic;
 		this.personDao = personDao;
@@ -59,6 +61,7 @@ public class OrderServiceImpl implements OrderService {
 		this.dishesLogic = dishesLogic;
 		this.ordersDishesDao = ordersDishesDao;
 		this.userRoleDao=userRoleDao;
+		this.corporationDao=corporationDao;
 	}
 
 	@Override
@@ -388,6 +391,8 @@ public class OrderServiceImpl implements OrderService {
 				}
 				order.setOrderPerson(p2);
 			}
+			
+			order.setCorporation(corporationDao.getDeCorp());
 		}
 
 
@@ -401,7 +406,10 @@ public class OrderServiceImpl implements OrderService {
 		
 		order.setOrderStatus(OrderStatus.UNHANDLED);
 
+		
 
+		
+		
 		order = orderLogic.save(ux, order);
 
 		if (orderVo.getOrdersDishesList() != null	&& orderVo.getOrdersDishesList().size() > 0) {

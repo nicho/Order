@@ -20,6 +20,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesL
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
+import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ui.ImageLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
@@ -57,8 +58,14 @@ public class OrdersConfirmPresenterImpl extends
 			public void onClick(ClickEvent event) {
 				
 		//		保存
-				injector.getOrderManager().getOrderRequest().setDishesOrRoomFal("DISHES");
-				dispatch.execute(injector.getOrderManager().getOrderRequest(),
+				injector.getOrderManager().getOrderRequest();
+				OrderSaveRequest request=new OrderSaveRequest();
+//				request=injector.getOrderManager().getOrderRequest();
+				request.setId(injector.getOrderManager().getOrderRequest().getId());
+				request.setOrderPersonPhone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
+				request.setDishesOrRoomFal("DISHES");
+				request.setBookingDishesList(injector.getOrderManager().getOrderRequest().getBookingDishesList());
+				dispatch.execute(request,
 						new AsyncCallback<OrderSaveResponse>() {
 							@Override
 							public void onFailure(Throwable e) {
