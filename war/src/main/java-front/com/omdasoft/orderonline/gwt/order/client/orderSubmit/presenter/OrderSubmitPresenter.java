@@ -19,8 +19,7 @@ public void initOrderRequest(OrderSaveRequest request);
 	public static interface OrderSubmitDisplay extends Display {
 
 		public HasClickHandlers getAddBtnClickHandlers();
-		public HasClickHandlers getAddDishesBtnClickHandlers();
-		
+	
 		ListBox getCity();
 		
 		ListBox getrestaurant();

@@ -56,7 +56,7 @@ li {
 }
 
 .bggrey {
-	background: none repeat scroll 0 0 #F6F6F6;
+	
 	padding: 10px;
 }
 
@@ -103,23 +103,18 @@ li {
 }
 
 .content {
-	background: none repeat scroll 0 0 #F5F6DE;
-	border: 1px solid #E8E9CB;
-	margin: 0 auto;
-	overflow: hidden;
-	padding: 17px;
-	width: 966px;
+
+
+
 }
 
 .bookinginformation {
-	background: none repeat scroll 0 0 #FFFFFF;
-	padding: 0 20px;
-	position: relative;
+
 }
 
 .bookinginformation h3 {
 	font-weight: bold;
-	padding: 20px;
+	padding-left: 6px;
 }
 
 .bookinginformation select {
@@ -130,12 +125,12 @@ li {
 .bookinginformation dl {
 	margin: 0;
 	overflow: hidden;
-	padding: 0 0 5px;
+
 }
 
 .bookinginformation dl dt {
 	float: left;
-	margin-right: 20px;
+
 	padding-bottom: 8px;
 	text-align: right;
 	width: 50px;
@@ -148,7 +143,7 @@ li {
 
 .bookinginformation dl dd.line4 {
 	line-height: 30px;
-	margin-top: -10px;
+
 }
 
 .textinput {
@@ -193,7 +188,7 @@ li {
 }
 
 .bookinginformation .repastname {
-	background: none repeat scroll 0 0 #F4F4F4;
+
 	border: 1px solid #EBEBEB;
 	margin-bottom: 10px;
 	padding-left: 5px;

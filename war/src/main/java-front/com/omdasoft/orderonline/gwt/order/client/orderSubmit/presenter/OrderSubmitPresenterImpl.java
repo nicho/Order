@@ -146,21 +146,7 @@ public class OrderSubmitPresenterImpl extends
 						}
 					}
 				}));
-		registerHandler(display.getAddDishesBtnClickHandlers().addClickHandler(
-				new ClickHandler() {
-
-					@Override
-					public void onClick(ClickEvent event) {
-					
-						createRequest();
-						if(verificationRequest(request))
-						{
-
-						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
-						
-						}
-					}
-				}));
+	
 
 		dispatch.execute(new OrderInitRequest(sessionManager.getSession()
 				.getCorporationId()), new AsyncCallback<OrderInitResponse>() {

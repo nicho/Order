@@ -5,45 +5,111 @@
 	<ui:style src="xxx.css" field="new2"></ui:style>
 	<g:ScrollPanel>
 		<g:HTMLPanel>
+		
+		
 
-			<div class="{new2.mainpage}">
+		<div class="public_container">
 
-				<div class="{new2.header}">
-					<div class="{new2.restaurantlogo}">
-						<a href="/">
-							<img src="/app/www/images/logo.gif" alt="logo" border="0" />
-						</a>
+			<!--content_box start -->
+			<div class="spx5px"></div>
+			<!-- <div class="map_box">当前位置：首页>我要订餐><span id="daohang">确认订餐内容</span></div> -->
+
+
+
+			<div class="content_box_left_main_left" id="showMenu">
+
+
+
+
+				<div
+					style="width: 196px; overflow: hidden; float: left; background: none repeat scroll 0% 0% rgb(255, 255, 255); margin-top: 0px;"
+					id="menu_china">
+					<div style="width: 196px; overflow: hidden; background: #FFEFCD;">
+						<div style="display: block;" id="china">
+							<h1 class="content_box_left_main_left_h1">
+								
+								
+							</h1>
+							<span class="content_box_left_main_left_c"> <!-- weij 2011-12-22 update -->
+								
+								<span class="content_box_left_main_left_info">
+								</span>
+							</span>
+							<span class="content_box_left_main_left_b_2"></span>
+						</div>
 					</div>
-					<div class="{new2.progressbar}">
-						<ul>
-							<li>1、选择餐厅</li>
-							<li class="{new2.current}">2、填写预订信息</li>
-							<li>3、确认订单</li>
-						</ul>
+
+
+
+					<div class="content_box_right_2">
+
+
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td>
+										<h1 class="content_box_right_2_h1"></h1>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="content_box_right_2_c">
+											<ul class="content_box_right_2_c_ul">
+												<li>
+													<a
+														href="#"
+														target="_blank" class="nav_right_l">网上订餐天天半价！每日一款招牌美食，款款超值。</a>
+												</li>
+												<li>
+													<a
+														href="#"
+														target="_blank" class="nav_right_l">意式萃蔬烤鸡腿饭套餐新品上市，仅售24元！</a>
+												</li>
+												<li>
+													<a
+														href="#"
+														target="_blank" class="nav_right_l">单点任1饮料送指定饮料1杯，多买多送！</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="content_box_right_2_b"></span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					<div class="{new2.restaurantline} {new2.cb}"></div>
-					<!--网站当前位置 -->
-					<div class="{new2.site-place} {new2.clearfix}">
-						<p class="{new2.sp-link}">
-							<a href="/">首页</a>
-							&gt;
-							<a href="#">餐厅</a>
-							&gt;
-							<a href="#">自助预订</a>
-						</p>
-						<p class="{new2.order-hotline} {new2.clearfix}">
-							<span>预订电话：</span>
-							<span class="{new2.phone-num}">40008888888</span>
-						</p>
-					</div>
+
 				</div>
 
-				<div class="{new2.content}">
+			</div>
+
+
+
+			<div class="rightInner"
+				style="background:#ffe7c0 url(http://www.4008823823.com.cn/kfcios/images4/new/a20_02_popoo.gif) no-repeat 0 bottom; position: relative;">
+				<div class="ltinc" style=" top:0; left:0; "></div>
+				<div id="order1">
+					<div class="rightInner2b" style=" height:auto;">
+						<div class="rightInner3">
+							<div style="margin-top: 0px;" class="confirmBlock" id="orderArea">
+								<h3>
+									<g:Image url="http://www.4008823823.com.cn/kfcios/images4/new/a28.gif" />
+									<map name="Map" id="Map">
+										
+									</map>
+								</h3>
+								<div class="confirmBlock2" style="margin-left: -10px;">
+
+										
+									<div class="{new2.content}">
 					<div class="{new2.bookinginformation}">
 						<!--订餐信息 -->
-						<FORM onSubmit="return checkOrder(this);" method="post"
-							action="/">
-							<h3>订餐信息</h3>
+
+							<h4>订餐信息</h4>
 
 							<dl>
 								<dt class="{new2.pt7}">
@@ -121,7 +187,7 @@
 
 							<div class="{new2.restaurantline} {new2.cb}"></div>
 
-							<h3>联系人信息</h3>
+							<h4>联系人信息</h4>
 							<dl>
 								<dt class="{new2.pt7}">
 
@@ -161,7 +227,7 @@
 							</dl>
 
 							<div class="{new2.repastname}">
-								<h3>就餐人信息(选填)</h3>
+								<h4>就餐人信息(选填)</h4>
 								<dl>
 									<dt class="{new2.pt7}">
 
@@ -209,19 +275,34 @@
 									<input type="hidden" name="cid" value="" />
 									<input type="hidden" name="f" value="" />
 
-									<g:Button ui:field="addDishesBtn" text="先点菜" />
-									<g:Button ui:field="addBtn" text="立刻预定" />
+
 								</dd>
 							</dl>
 
-						</FORM>
+				
 					</div>
 				</div>
-
-
-
+									
+							<div class="stepNext clearfix" style="position:relative;  height:35px; ">
+								<a style="position: absolute; top: 0pt; left: 300px;" href="javascript:void(0);" >
+									<g:Image ui:field="addBtn" url="http://www.4008823823.com.cn/kfcios/images4/new/a05.gif"/> 
+								</a>
+							</div>
+							
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+		</div>
+		<!--content_box end -->
+		<div id="clear_div"></div>
+		<div class="spx5px"></div>
+		
+		
 
+	
 
 		</g:HTMLPanel>
 	</g:ScrollPanel>

@@ -119,9 +119,9 @@ public class OrdersDishesPresenterImpl extends
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						setRequestDishesList();
+					
 						
-						injector.getOrderSubmitPresenter().initOrderRequest(injector.getOrderManager().getOrderRequest());
+				//	injector.getOrderSubmitPresenter().initOrderRequest(injector.getOrderManager().getOrderRequest());
 						
 						injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
 

@@ -6,9 +6,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
@@ -59,9 +59,8 @@ public class OrderSubmitWidget extends Composite implements OrderSubmitDisplay {
 	@UiField
 	TextArea memo;
 	@UiField
-	Button addBtn;
-	@UiField
-	Button addDishesBtn;
+	Image addBtn;
+
 
 	
 	private static OrderSubmitWidgetUiBinder uiBinder = GWT
@@ -212,10 +211,7 @@ public class OrderSubmitWidget extends Composite implements OrderSubmitDisplay {
 		return memo;
 	}
 
-	@Override
-	public HasClickHandlers getAddDishesBtnClickHandlers() {
-		return addDishesBtn;
-	}
+
 
 
 
