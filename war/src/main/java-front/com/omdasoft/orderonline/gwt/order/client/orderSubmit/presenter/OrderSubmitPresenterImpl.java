@@ -136,8 +136,8 @@ public class OrderSubmitPresenterImpl extends
 											RootLayoutPanel.get().clear();
 											RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
 											
-											injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
-											injector.getOrderIndexPresenter().bind();
+											injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter());
+											
 											injector.getFrontOrderListPresenter().initFrontOrder(request.getOrderPersonPhone());
 											injector.getFrontOrderListPresenter().bind();
 										}
@@ -155,15 +155,9 @@ public class OrderSubmitPresenterImpl extends
 						createRequest();
 						if(verificationRequest(request))
 						{
+
+						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
 						
-						RootLayoutPanel.get().clear();
-						RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-						
-						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
-						injector.getOrderIndexPresenter().bind();
-						
-//						injector.getOrdersDishesPresenter().initOrdersDishes(request);
-						injector.getOrdersDishesPresenter().bind();
 						}
 					}
 				}));
@@ -189,7 +183,7 @@ public class OrderSubmitPresenterImpl extends
 			}
 
 		});
-		display.getCity().addChangeHandler(new ChangeHandler() {
+		registerHandler(display.getCity().addChangeHandler(new ChangeHandler() {
 
 			@Override
 			public void onChange(ChangeEvent arg0) {
@@ -197,9 +191,9 @@ public class OrderSubmitPresenterImpl extends
 				changeCity();
 
 			}
-		});
+		}));
 		display.getContactPersonName().getElement().getParentElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
-		display.getOtherPersonCheckbox().addClickHandler(new ClickHandler() {
+		registerHandler(display.getOtherPersonCheckbox().addClickHandler(new ClickHandler() {
 			
 			@Override
 			public void onClick(ClickEvent arg0) {
@@ -213,7 +207,7 @@ public class OrderSubmitPresenterImpl extends
 				}
 				
 			}
-		});
+		}));
 
 	}
 	

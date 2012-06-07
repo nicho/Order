@@ -89,8 +89,7 @@ public class OrdersDishesPresenterImpl extends
 			@Override
 			public void onClick(ClickEvent arg0) {
 
-				injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter().getDisplay().asWidget());
-				injector.getOrderLoginPresenter().bind();
+				injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter());
 
 			}
 		}));
@@ -111,8 +110,7 @@ public class OrdersDishesPresenterImpl extends
 					public void onClick(ClickEvent event) {
 						setRequestDishesList();
 	
-						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter().getDisplay().asWidget());
-						injector.getOrdersConfirmPresenter().bind();
+						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter());
 						
 						//保存屏蔽
 //						if(verificationRequest(request))
@@ -146,11 +144,12 @@ public class OrdersDishesPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 						setRequestDishesList();
-
-						injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter().getDisplay().asWidget());
-
+						
 						injector.getOrderSubmitPresenter().initOrderRequest(injector.getOrderManager().getOrderRequest());
-						injector.getOrderSubmitPresenter().bind();
+						
+						injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
+
+
 					}
 				}));
 		registerHandler(display.getMenutypeAll().addClickHandler(
@@ -691,8 +690,7 @@ public class OrdersDishesPresenterImpl extends
 	public void updateDishesList(String id,String name,String price) {
 		if( injector.getOrderManager().getOrderRequest()==null || injector.getOrderManager().getOrderRequest().getOrderPersonPhone()==null)
 		{
-			injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter().getDisplay().asWidget());
-			injector.getOrderLoginPresenter().bind();
+			injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter());
 			return;
 		}
 		if(cellBookingTable==null)

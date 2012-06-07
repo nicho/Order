@@ -15,10 +15,9 @@ public class Elt implements EntryPoint {
 	//	injector.getRegisterPresenter().bind();
 		
 	//	injector.getMain().initOrder(RootLayoutPanel.get());
-		injector.getOrdersDishesPresenter().bind();
-		injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
-		injector.getOrderIndexPresenter().bind();
 
+		injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
+		injector.getOrderIndexPresenter().bind();
 		
 		
 		RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());

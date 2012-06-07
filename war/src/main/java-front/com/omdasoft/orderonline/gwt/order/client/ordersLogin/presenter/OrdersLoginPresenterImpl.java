@@ -37,7 +37,7 @@ public class OrdersLoginPresenterImpl extends
 
 	@Override
 	public void bind() {
-		display.getSubmitBtn().addClickHandler(new ClickHandler() {
+		registerHandler(display.getSubmitBtn().addClickHandler(new ClickHandler() {
 			
 			@Override
 			public void onClick(ClickEvent event) {
@@ -79,9 +79,8 @@ public class OrdersLoginPresenterImpl extends
 							injector.getOrderManager().setOrderRequest(request);
 						//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
 							
-							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter().getDisplay().asWidget());
+							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
 						
-							injector.getOrdersDishesPresenter().bind();
 							
 						
 							
@@ -96,7 +95,7 @@ public class OrdersLoginPresenterImpl extends
 				}
 				
 			}
-		});
+		}));
 	}
 
 	
