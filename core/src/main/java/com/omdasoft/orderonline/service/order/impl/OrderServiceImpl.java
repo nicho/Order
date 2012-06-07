@@ -16,11 +16,13 @@ import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.domain.user.SysUserRole;
 import com.omdasoft.orderonline.model.common.PageStore;
+import com.omdasoft.orderonline.model.order.CarteState;
 import com.omdasoft.orderonline.model.order.DishesModel;
 import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderModel;
 import com.omdasoft.orderonline.model.order.OrderReturnModel;
+import com.omdasoft.orderonline.model.order.OrderSource;
 import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
 import com.omdasoft.orderonline.model.user.UserContext;
@@ -353,6 +355,151 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone) {
 		return orderLogic.getOrderAndDishesModelByPhone(phone);
+	}
+
+	@Override
+	public Orders saveOrdersByPhoneDishes(UserContext context, OrderVo orderVo) {
+		SysUser ux = null;
+		if (context != null && context.getUserId() != null)
+			ux = userLogic.findUserById(context.getUserId());
+
+		Orders order = null;
+		if (!StringUtil.isEmptyString(orderVo.getId())) {
+			order = orderLogic.findOrderById(orderVo.getId());
+		} else {
+			order = new Orders();
+			
+			if (!StringUtil.isEmptyString(orderVo.getOrderPersonPhone())) {
+				
+				Person p2=personDao.findPersonByPhone(orderVo.getOrderPersonPhone());
+				if(p2==null)
+				{
+					p2 = new Person();
+					p2.setName(orderVo.getOrderPersonName());
+					p2.setPhone(orderVo.getOrderPersonPhone());
+					p2.setSex(orderVo.getOrderPersonSex());
+					p2 = personDao.save(p2);
+				}
+				else
+				{
+					p2.setName(orderVo.getOrderPersonName());
+					p2.setSex(orderVo.getOrderPersonSex());
+					p2=personDao.update(p2);
+				}
+				order.setOrderPerson(p2);
+			}
+		}
+
+
+		order.setOrderSource(OrderSource.ONLINE);
+		
+		if (orderVo.getOrdersDishesList() != null	&& orderVo.getOrdersDishesList().size() > 0) 
+			order.setCarteState(CarteState.ALREADYPOINTS);
+		else
+			order.setCarteState(CarteState.NOTPOINT);
+		
+		
+		order.setOrderStatus(OrderStatus.UNHANDLED);
+
+
+		order = orderLogic.save(ux, order);
+
+		if (orderVo.getOrdersDishesList() != null	&& orderVo.getOrdersDishesList().size() > 0) {
+			for (OrderDishesVo dishes : orderVo.getOrdersDishesList()) {
+				OrdersDishes od = new OrdersDishes();
+				od.setDishes(dishesLogic.findDishesById(dishes.getDishesId()));
+				od.setNumber(dishes.getNumber());
+				od.setOrders(order);
+				od.setTaste(dishes.getTaste());
+				od.setUnit(dishes.getUnit());
+				od.setPrice(dishes.getPrice());
+				od.setDeleted(false);
+				ordersDishesDao.save(od);
+			}
+		}
+
+		return order;
+	}
+
+	@Override
+	public Orders saveOrdersByRoom(UserContext context, OrderVo orderVo) {
+		SysUser ux = null;
+		if (context != null && context.getUserId() != null)
+			ux = userLogic.findUserById(context.getUserId());
+
+		Orders order = null;
+		if (!StringUtil.isEmptyString(orderVo.getId())) {
+			order = orderLogic.findOrderById(orderVo.getId());
+		} else {
+			order = new Orders();
+		}
+
+		order.setAmountOfClient(orderVo.getAmountOfClient());
+		order.setCity(orderVo.getCity());
+		order.setFavoriteRoom(orderVo.getFavoriteRoom());
+		order.setMemo(orderVo.getMemo());
+
+		if (!StringUtil.isEmptyString(orderVo.getContactPersonName())
+				&& !StringUtil.isEmptyString(orderVo.getContactPersonPhone())) {
+			
+			Person p1=personDao.findPersonByPhone(orderVo.getContactPersonPhone());
+			if(p1==null)
+			{
+			    p1 = new Person();
+				p1.setName(orderVo.getContactPersonName());
+				p1.setPhone(orderVo.getContactPersonPhone());
+				p1.setSex(orderVo.getContactPersonSex());
+				p1 = personDao.save(p1);
+			}
+			else
+			{
+				p1.setName(orderVo.getContactPersonName());
+				p1.setSex(orderVo.getContactPersonSex());
+				p1=personDao.update(p1);
+			}
+			
+			
+			order.setContactPerson(p1);
+		}
+
+		if (!StringUtil.isEmptyString(orderVo.getOrderPersonName())
+				&& !StringUtil.isEmptyString(orderVo.getOrderPersonPhone())) {
+			
+			Person p2=personDao.findPersonByPhone(orderVo.getOrderPersonPhone());
+			if(p2==null)
+			{
+				p2 = new Person();
+				p2.setName(orderVo.getOrderPersonName());
+				p2.setPhone(orderVo.getOrderPersonPhone());
+				p2.setSex(orderVo.getOrderPersonSex());
+				p2 = personDao.save(p2);
+			}
+			else
+			{
+				p2.setName(orderVo.getOrderPersonName());
+				p2.setSex(orderVo.getOrderPersonSex());
+				p2=personDao.update(p2);
+			}
+			order.setOrderPerson(p2);
+		}
+
+		order.setPlaceOrderTime(new Date());
+		order.setReserveTimeDate(orderVo.getReserveTimeDate());
+		order.setReserveTimeDateH(orderVo.getReserveTimeDateH());
+		order.setReserveTimeDateS(orderVo.getReserveTimeDateS());
+		
+		order.setOrderStatus(OrderStatus.UNHANDLED);
+
+		if (!StringUtil.isEmptyString(orderVo.getRestaurantId())) {
+			order.setDepartment(departmentLogic.findDepartmentById(orderVo.getRestaurantId()));
+			order.setCorporation(order.getDepartment().getCorporation());
+		}
+		
+		
+		order = orderLogic.save(ux, order);
+
+
+		return order;
 	}
 
 }

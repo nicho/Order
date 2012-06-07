@@ -88,4 +88,20 @@ public interface OrderService {
 	 * @return
 	 */
 	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone);
+	
+	/**
+	 * 保存订单（电话+点菜信息）
+	 * @param context
+	 * @param order
+	 * @return
+	 */
+	public Orders saveOrdersByPhoneDishes(UserContext context, OrderVo orderVo);
+	
+	/**
+	 * 保存订单（订房信息）
+	 * @param context
+	 * @param order
+	 * @return
+	 */
+	public Orders saveOrdersByRoom(UserContext context, OrderVo orderVo);
 }

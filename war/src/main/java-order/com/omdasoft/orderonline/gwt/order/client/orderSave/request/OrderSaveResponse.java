@@ -11,6 +11,7 @@ import net.customware.gwt.dispatch.shared.Result;
 public class OrderSaveResponse implements Result {
 
 	private int total;
+	private String orderId;
 
 	public int getTotal() {
 		return total;
@@ -22,6 +23,14 @@ public class OrderSaveResponse implements Result {
 
 	public OrderSaveResponse() {
 
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
 	}
 
 	public OrderSaveResponse(int total) {

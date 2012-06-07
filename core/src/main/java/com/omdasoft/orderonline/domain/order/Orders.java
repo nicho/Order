@@ -16,7 +16,10 @@ import org.hibernate.annotations.GenericGenerator;
 import com.omdasoft.orderonline.domain.org.Corporation;
 import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.person.Person;
+import com.omdasoft.orderonline.model.order.CarteState;
+import com.omdasoft.orderonline.model.order.OrderSource;
 import com.omdasoft.orderonline.model.order.OrderStatus;
+import com.omdasoft.orderonline.model.order.OrderType;
 
 @Entity
 @XmlRootElement
@@ -98,7 +101,80 @@ public class Orders implements Serializable {
 	private Department department;
 	private String  result;
 	
+	/**
+	 * 点菜状态
+	 */
+	private CarteState carteState;
+	/**
+	 * 订单来源
+	 */
+	private OrderSource orderSource;
+	/**
+	 * 订单类型
+	 */
+	private OrderType orderType;
+	/**
+	 * 订单房号
+	 */
+	private String orderRoom;
+	/**
+	 * 排队号
+	 */
+	private String queuingNumber;
+	/**
+	 * RID
+	 */
+	private String rid;
 	
+
+	public String getOrderRoom() {
+		return orderRoom;
+	}
+
+	public void setOrderRoom(String orderRoom) {
+		this.orderRoom = orderRoom;
+	}
+
+	public String getQueuingNumber() {
+		return queuingNumber;
+	}
+
+	public void setQueuingNumber(String queuingNumber) {
+		this.queuingNumber = queuingNumber;
+	}
+
+	public String getRid() {
+		return rid;
+	}
+
+	public void setRid(String rid) {
+		this.rid = rid;
+	}
+
+	public OrderSource getOrderSource() {
+		return orderSource;
+	}
+
+	public void setOrderSource(OrderSource orderSource) {
+		this.orderSource = orderSource;
+	}
+
+	public OrderType getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(OrderType orderType) {
+		this.orderType = orderType;
+	}
+
+	public CarteState getCarteState() {
+		return carteState;
+	}
+
+	public void setCarteState(CarteState carteState) {
+		this.carteState = carteState;
+	}
+
 	public String getResult() {
 		return result;
 	}

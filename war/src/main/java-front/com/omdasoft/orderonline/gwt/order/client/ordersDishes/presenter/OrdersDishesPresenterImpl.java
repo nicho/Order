@@ -112,31 +112,7 @@ public class OrdersDishesPresenterImpl extends
 	
 						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter());
 						
-						//保存屏蔽
-//						if(verificationRequest(request))
-//						{
-//						dispatch.execute(request,
-//								new AsyncCallback<OrderSaveResponse>() {
-//									@Override
-//									public void onFailure(Throwable e) {
-//										errorHandler.alert(e.getMessage());
-//									}
-//
-//									@Override
-//									public void onSuccess(
-//											OrderSaveResponse response) {
-//										Window.alert("保存成功!");
-//										RootLayoutPanel.get().clear();
-//										RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
-//										injector.getFrontOrderListPresenter().initFrontOrder(request.getOrderPersonPhone());
-//										injector.getFrontOrderListPresenter().bind();
-//										injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter().getDisplay().asWidget());
-//										injector.getOrderIndexPresenter().bind();
-//										
-//									}
-//
-//								});
-//						}
+
 					}
 				}));
 		registerHandler(display.getReturnBtnClickHandlers().addClickHandler(

@@ -11,6 +11,7 @@ import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
@@ -19,9 +20,11 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesL
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
+import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.ui.ImageLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
 import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 
 public class OrdersConfirmPresenterImpl extends
@@ -53,7 +56,28 @@ public class OrdersConfirmPresenterImpl extends
 			@Override
 			public void onClick(ClickEvent event) {
 				
-				Window.alert("待实现");
+		//		保存
+				injector.getOrderManager().getOrderRequest().setDishesOrRoomFal("DISHES");
+				dispatch.execute(injector.getOrderManager().getOrderRequest(),
+						new AsyncCallback<OrderSaveResponse>() {
+							@Override
+							public void onFailure(Throwable e) {
+								errorHandler.alert(e.getMessage());
+							}
+
+							@Override
+							public void onSuccess(
+									OrderSaveResponse response) {
+								Window.alert("点菜成功!");
+								
+								if(!StringUtil.isEmpty(injector.getOrderManager().getOrderRequest().getRestaurantId()))
+									injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter());
+								else
+									injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
+						
+							}
+
+						});
 			}
 		}));
 	}

@@ -9,12 +9,12 @@ import javax.inject.Inject;
 import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.DispatchException;
 
+import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesList;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
-import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.vo.OrderDishesVo;
 import com.omdasoft.orderonline.model.vo.OrderVo;
@@ -49,39 +49,53 @@ public class OrderSaveActionHandler extends
 		{
 			vo.setId(action.getId());
 		}
-		vo.setAmountOfClient(action.getAmountOfClient());
-		vo.setCity(action.getCity());
-		vo.setContactPersonName(action.getContactPersonName());
-		vo.setContactPersonPhone(action.getContactPersonPhone());
-		vo.setCorporationId(action.getCorporationId());
-		vo.setFavoriteRoom(action.getFavoriteRoom());
-		vo.setMemo(action.getMemo());
-		vo.setOrderPersonName(action.getOrderPersonName());
-		vo.setOrderPersonPhone(action.getOrderPersonPhone());
-		vo.setPlaceOrderTime(new Date());
-		vo.setReserveTimeDate(action.getReserveTimeDate());
-		vo.setReserveTimeDateH(action.getReserveTimeDateH());
-		vo.setReserveTimeDateS(action.getReserveTimeDateS());
-		vo.setContactPersonSex(action.getContactPersonSex());
-		vo.setOrderPersonSex(action.getOrderPersonSex());
-		vo.setRestaurantId(action.getRestaurantId());
-		vo.setOrderStatus(OrderStatus.valueOf(action.getOrderStatus().toString()));
-		if(action.getBookingDishesList()!=null && action.getBookingDishesList().size()>0)
+		
+		//点菜or订房
+		if("DISHES".equals(action.getDishesOrRoomFal()))
 		{
-			List<OrderDishesVo> ordersDishesList=new ArrayList<OrderDishesVo>();
-			for (BookingDishesList client:action.getBookingDishesList()) {
-				OrderDishesVo dishes=new OrderDishesVo();
-				dishes.setDishesId(client.getId());
-				dishes.setNumber(client.getNumber());
-				dishes.setPrice(client.getPrice());
-				dishes.setTaste(client.getTaste());
-				dishes.setUnit(client.getUnit());
-				ordersDishesList.add(dishes);
+			//订房电话
+			vo.setOrderPersonPhone(action.getOrderPersonPhone());
+			
+			if(action.getBookingDishesList()!=null && action.getBookingDishesList().size()>0)
+			{
+				List<OrderDishesVo> ordersDishesList=new ArrayList<OrderDishesVo>();
+				for (BookingDishesList client:action.getBookingDishesList()) {
+					OrderDishesVo dishes=new OrderDishesVo();
+					dishes.setDishesId(client.getId());
+					dishes.setNumber(client.getNumber());
+					dishes.setPrice(client.getPrice());
+					dishes.setTaste(client.getTaste());
+					dishes.setUnit(client.getUnit());
+					ordersDishesList.add(dishes);
+				}
+				vo.setOrdersDishesList(ordersDishesList);
 			}
-			vo.setOrdersDishesList(ordersDishesList);
+			Orders order=orderService.saveOrdersByPhoneDishes(u, vo);
+			rep.setOrderId(order.getId());
 		}
-		orderService.saveOrders(u, vo);
-
+		else if("ROOM".equals(action.getDishesOrRoomFal()))
+		{
+			vo.setAmountOfClient(action.getAmountOfClient());
+			vo.setCity(action.getCity());
+			vo.setContactPersonName(action.getContactPersonName());
+			vo.setContactPersonPhone(action.getContactPersonPhone());
+			vo.setCorporationId(action.getCorporationId());
+			vo.setFavoriteRoom(action.getFavoriteRoom());
+			vo.setMemo(action.getMemo());
+			vo.setOrderPersonName(action.getOrderPersonName());
+			vo.setOrderPersonPhone(action.getOrderPersonPhone());
+			vo.setPlaceOrderTime(new Date());
+			vo.setReserveTimeDate(action.getReserveTimeDate());
+			vo.setReserveTimeDateH(action.getReserveTimeDateH());
+			vo.setReserveTimeDateS(action.getReserveTimeDateS());
+			vo.setContactPersonSex(action.getContactPersonSex());
+			vo.setOrderPersonSex(action.getOrderPersonSex());
+			vo.setRestaurantId(action.getRestaurantId());
+			
+			Orders order=orderService.saveOrdersByRoom(u, vo);
+			rep.setOrderId(order.getId());
+		}
+		
 		return rep;
 	}
 

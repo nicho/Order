@@ -21,6 +21,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriter
 public class OrderSaveRequest implements Action<OrderSaveResponse> {
 
 	private String id;
+	private String dishesOrRoomFal;
 
 	/**
 	 * 就餐时间
@@ -70,6 +71,14 @@ public class OrderSaveRequest implements Action<OrderSaveResponse> {
 	private String restaurantId;
 	private String restaurantName;
 	private OrderStatus orderStatus;
+
+	public String getDishesOrRoomFal() {
+		return dishesOrRoomFal;
+	}
+
+	public void setDishesOrRoomFal(String dishesOrRoomFal) {
+		this.dishesOrRoomFal = dishesOrRoomFal;
+	}
 
 	public String getRestaurantName() {
 		return restaurantName;
