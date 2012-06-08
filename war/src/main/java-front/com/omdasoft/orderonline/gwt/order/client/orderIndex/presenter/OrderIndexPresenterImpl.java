@@ -42,15 +42,7 @@ public class OrderIndexPresenterImpl extends
 
 			}
 		}));
-		registerHandler(display.getOrderListpage().addClickHandler(new ClickHandler() {
 
-			@Override
-			public void onClick(ClickEvent arg0) {
-				injector.getOrderIndexPresenter().initPresenter(
-						injector.getFrontOrderListPresenter());
-
-			}
-		}));
 		registerHandler(display.getOrderNow().addClickHandler(new ClickHandler() {
 
 			@Override

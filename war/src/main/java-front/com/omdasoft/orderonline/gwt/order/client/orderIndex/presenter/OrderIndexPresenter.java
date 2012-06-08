@@ -13,7 +13,7 @@ public void initPresenter(Presenter<?> presenter);
 
 		Panel getDock();
 		Anchor getAdminpage();
-		Anchor getOrderListpage();
+
 		Anchor getOrderNow();
 		Anchor getOrderIndex();
 		Anchor getQueryOrder();

@@ -16,8 +16,6 @@ public class OrderIndexWidget extends Composite implements OrderIndexDisplay {
 	@UiField
 	Anchor adminpage;
 
-	@UiField
-	Anchor orderListpage;
 
 	@UiField
 	Anchor orderNow;
@@ -48,10 +46,7 @@ public class OrderIndexWidget extends Composite implements OrderIndexDisplay {
 		return dock;
 	}
 
-	@Override
-	public Anchor getOrderListpage() {
-		return orderListpage;
-	}
+
 
 	@Override
 	public Anchor getOrderNow() {

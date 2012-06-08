@@ -20,10 +20,7 @@
 								<g:Anchor text="后台管理" ui:field="adminpage" styleName="{new2.link-2}" />
 									<em></em>
 							</li>
-							<li>
-								<g:Anchor text="订单查询" ui:field="orderListpage" styleName="{new2.link-2}" />
-									<em></em>
-							</li>
+
 							
 
 						</ul>
