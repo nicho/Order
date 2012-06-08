@@ -1,5 +1,7 @@
 package com.omdasoft.orderonline.service.dishes.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -184,5 +186,10 @@ public class DishesLogicImpl implements DishesLogic {
 			return 0;
 		} else
 			return 1;
+	}
+
+	@Override
+	public List<String> findDishesTypePanel() {
+		return dishesTypeDao.findDishesTypePanel();
 	}
 }

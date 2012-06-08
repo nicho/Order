@@ -1,5 +1,7 @@
 package com.omdasoft.orderonline.service.dishes;
 
+import java.util.List;
+
 import com.omdasoft.orderonline.domain.dishes.Dishes;
 import com.omdasoft.orderonline.domain.dishes.DishesType;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
@@ -156,5 +158,6 @@ public interface DishesService {
 	 * @return
 	 */
 	public DishesReturnModel findDishes(String tokenId);
-	
+
+	public List<String> findDishesTypePanel();
 }

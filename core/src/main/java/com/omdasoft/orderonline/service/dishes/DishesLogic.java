@@ -1,5 +1,7 @@
 package com.omdasoft.orderonline.service.dishes;
 
+import java.util.List;
+
 import com.omdasoft.orderonline.domain.dishes.Dishes;
 import com.omdasoft.orderonline.domain.dishes.DishesType;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
@@ -102,6 +104,7 @@ public interface DishesLogic {
 	 * @return
 	 */
 	public PageStore<OrdersDishes> getOrderDishesList(UserContext context,OrderDishesSearchCriteria criteria);
+	public List<String> findDishesTypePanel();
 }
 
 

@@ -26,6 +26,8 @@ public class DishesTypeSaveWidget extends Composite implements DishesTypeSaveDis
 	Panel breadCrumbs;
 	@UiField
 	InlineLabel rid;
+	@UiField
+	Panel dishestypePanel;
 	
 	private static DishesTypeSaveWidgetUiBinder uiBinder = GWT
 			.create(DishesTypeSaveWidgetUiBinder.class);
@@ -65,6 +67,11 @@ public class DishesTypeSaveWidget extends Composite implements DishesTypeSaveDis
 	@Override
 	public TextBox getDishestype() {
 		return dishestype;
+	}
+
+	@Override
+	public Panel getDishestypePanel() {
+		return dishestypePanel;
 	}
 
 }

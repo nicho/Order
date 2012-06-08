@@ -12,6 +12,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesSave.request.DishesSaveRe
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.request.FindDishesRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.SearchDishesTypeListRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypePanelRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypeSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.FindDishesTypeRequest;
 import com.omdasoft.orderonline.gwt.order.client.enterprise.request.EnterpriseInitRequest;
@@ -141,6 +142,7 @@ public class ActionModule extends ActionHandlerModule {
 		bindHandler(UpdateUserPwdRequest.class,UpdateUserPwdActionHandler.class);
 		bindHandler(OrderLoginRequest.class,OrderLoginActionHandler.class);
 		bindHandler(OrderWaitRequest.class,OrderWaitActionHandler.class);
+		bindHandler(DishesTypePanelRequest.class,DishesTypePanelActionHandler.class);
 		
 	}
 }

@@ -108,4 +108,14 @@ public class DishesTypeDao extends BaseDao<DishesType> {
 			return null;
 		}
 	}
+	@SuppressWarnings("unchecked")
+	public List<String> findDishesTypePanel() {
+		try {
+			return  getEm()
+					.createQuery("SELECT distinct s.dishesType FROM DishesType s ")
+					.getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }

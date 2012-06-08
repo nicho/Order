@@ -463,4 +463,9 @@ public class DishesServiceImpl implements DishesService {
 		return dishesLogic.deleteDishesTypeId(ux, id);
 	}
 
+	@Override
+	public List<String> findDishesTypePanel() {
+		return dishesLogic.findDishesTypePanel();
+	}
+
 }

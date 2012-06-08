@@ -5,10 +5,13 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.presenter.BreadCrumbsPresenter;
 import com.omdasoft.orderonline.gwt.order.client.core.Platform;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.plugin.DishesTypeListConstants;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypePanelRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypePanelResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypeSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypeSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.FindDishesTypeRequest;
@@ -109,6 +112,38 @@ public class DishesTypeSavePresenterImpl extends
 								});
 					}
 				}));
+		
+		dispatch.execute(new DishesTypePanelRequest(),
+				new AsyncCallback<DishesTypePanelResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						errorHandler.alert(e.getMessage());
+					}
+
+					@Override
+					public void onSuccess(
+							DishesTypePanelResponse response) {
+						display.getDishestypePanel().clear();
+						if(response.getTypeNameList()!=null && response.getTypeNameList().size()>0)
+						{
+							for (final String name:response.getTypeNameList()) {
+								Anchor ar=new Anchor(name);
+								ar.setStyleName("paddingleft5");
+								ar.addClickHandler(new ClickHandler() {
+									
+									@Override
+									public void onClick(ClickEvent event) {
+										display.getDishestype().setText(name);
+										
+									}
+								});
+								display.getDishestypePanel().add(ar);
+							}
+						}
+						
+					}
+
+				});
 	}
 
 	@Override
