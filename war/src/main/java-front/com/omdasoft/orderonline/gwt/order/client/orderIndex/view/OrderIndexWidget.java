@@ -23,6 +23,9 @@ public class OrderIndexWidget extends Composite implements OrderIndexDisplay {
 	Anchor orderNow;
 	@UiField
 	Anchor orderindex;
+	@UiField
+	Anchor queryOrder;
+	
 	private static OrderIndexWidgetUiBinder uiBinder = GWT
 			.create(OrderIndexWidgetUiBinder.class);
 
@@ -58,6 +61,11 @@ public class OrderIndexWidget extends Composite implements OrderIndexDisplay {
 	@Override
 	public Anchor getOrderIndex() {
 		return orderindex;
+	}
+
+	@Override
+	public Anchor getQueryOrder() {
+		return queryOrder;
 	}
 
 }

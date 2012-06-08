@@ -3,110 +3,165 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 
 	<ui:style src="new2.css" field="new2"></ui:style>
-	<ui:style src="xxx.css" field="new1"></ui:style>
 
 
-	<g:ScrollPanel>
-		<g:HTMLPanel>
-
-			<div>
-				<div class="{new1.mainpage}">
-
-					<div class="{new1.header}">
-						<div class="{new1.restaurantlogo}">
-							<a href="/">
-								<img src="/app/www/images/logo.gif" alt="logo" border="0" />
-							</a>
-						</div>
-
-						<div class="{new1.restaurantline} {new1.cb}"></div>
-						<!--网站当前位置 -->
-						<div class="{new1.site-place} {new1.clearfix}">
-							<p class="{new1.sp-link}">
-								<a href="/">首页</a>
-								&gt;
-								<a href="#">餐厅</a>
-								&gt;
-								<a href="#">自助预订查询</a>
-							</p>
-							<p class="{new1.order-hotline} {new1.clearfix}">
-								<span>预订电话：</span>
-								<span class="{new1.phone-num}">40008888888</span>
-							</p>
-						</div>
-					</div>
-
-					<div class="{new1.content}">
-						<div class="{new1.bookinginformation}">
-							<!--订餐信息 -->
-						
-								<h3>订餐查询</h3>
-								<dl>
-									<dt style="width:100%;height:100%;text-align: left;">
-									
-								<div class="{new2.frame-wrap}">
-							
-
-									<!--查询条件 [[ -->
-									<div class="{new2.query-wrap}">
-										<div class="{new2.form}">
-
-											<label for="">订餐人手机号:</label>
-											<g:TextBox maxLength="30" ui:field="queryphone"
-												styleName="{new2.text2}" />
-											<span class="{new2.nbspbig}"></span>
-
-										
-											<g:Button ui:field="searchBtn" text="查询"  />
-											
-										</div>
-									</div>
-									<!--查询条件 ]] -->
+	<g:HTMLPanel>
 
 
-									<span class="{new2.cutline}"></span>
+		<div class="public_container">
 
-									<div class="{new2.divtext}">
-										共有
-										<g:InlineLabel ui:field="dataCount" styleName="{new2.divfont}"></g:InlineLabel>
-										订单
-									</div>
-									<div class="{new2.divend}"></div>
-									<div class="{new2.table}">
-										<g:FlowPanel ui:field="resultPanel" />
-									</div>
+			<!--content_box start -->
+			<div class="spx5px"></div>
+			<!-- <div class="map_box">当前位置：首页>我要订餐><span id="daohang">确认订餐内容</span></div> -->
 
 
-									<!--分页 [[ -->
-									<div id="rewardlist_page2" class="{new2.pager}">
-										<div class="{new2.pager-left}">
-											每页显示条数
-											<g:ListBox ui:field="pageNumber" styleName="{new2.select}" /> 
-										</div>
 
-										<div class="{new2.pager-right}">
-											<g:FlowPanel ui:field="resultpage" />
-										</div>
-									</div>
-									<!--分页 ]] -->
+			<div class="content_box_left_main_left" id="showMenu">
 
-								</div>
-									
-									</dt>
-		
-								</dl>
-								
-							
+
+
+
+				<div
+					style="width: 196px; overflow: hidden; float: left; background: none repeat scroll 0% 0% rgb(255, 255, 255); margin-top: 0px;"
+					id="menu_china">
+					<div style="width: 196px; overflow: hidden; background: #FFEFCD;">
+						<div style="display: block;" id="china">
+							<h1 class="content_box_left_main_left_h1">
+
+
+							</h1>
+							<span class="content_box_left_main_left_c"> <!-- weij 2011-12-22 update -->
+
+								<span class="content_box_left_main_left_info">
+								</span>
+							</span>
+							<span class="content_box_left_main_left_b_2"></span>
 						</div>
 					</div>
 
 
+
+					<div class="content_box_right_2">
+
+
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td>
+										<h1 class="content_box_right_2_h1"></h1>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div class="content_box_right_2_c">
+											<ul class="content_box_right_2_c_ul">
+												<li>
+													<a href="#" target="_blank" class="nav_right_l">网上订餐天天半价！每日一款招牌美食，款款超值。</a>
+												</li>
+												<li>
+													<a href="#" target="_blank" class="nav_right_l">意式萃蔬烤鸡腿饭套餐新品上市，仅售24元！</a>
+												</li>
+												<li>
+													<a href="#" target="_blank" class="nav_right_l">单点任1饮料送指定饮料1杯，多买多送！</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="content_box_right_2_b"></span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
 				</div>
 
-
-
 			</div>
-		</g:HTMLPanel>
-	</g:ScrollPanel>
+
+
+
+			<div class="rightInner"
+				style="background:#ffe7c0 url(http://www.4008823823.com.cn/kfcios/images4/new/a20_02_popoo.gif) no-repeat 0 bottom; position: relative;">
+				<div class="ltinc" style=" top:0; left:0; "></div>
+				<div id="order1">
+					<div class="rightInner2b" style=" height:auto;">
+						<div class="rightInner3">
+							<div style="margin-top: 0px;" class="confirmBlock" id="orderArea">
+								<h3>
+									<g:Image
+										url="http://www.4008823823.com.cn/kfcios/images4/new/a18.gif" />
+									<map name="Map" id="Map">
+
+									</map>
+								</h3>
+								<div class="confirmBlock2" style="margin-left: -10px;">
+									<div class="{new2.frame-wrap}">
+
+
+										<!--查询条件 [[ -->
+										<div class="{new2.query-wrap}">
+											<div class="{new2.form}">
+
+												<label for="">订餐人手机号:</label>
+												<g:TextBox maxLength="30" ui:field="queryphone"
+													styleName="{new2.text2}" />
+												<span class="{new2.nbspbig}"></span>
+
+
+												<g:Button ui:field="searchBtn" text="查询" />
+
+											</div>
+										</div>
+										<!--查询条件 ]] -->
+
+
+										<span class="{new2.cutline}"></span>
+
+										<div class="{new2.divtext}">
+											共有
+											<g:InlineLabel ui:field="dataCount" styleName="{new2.divfont}"></g:InlineLabel>
+											订单
+										</div>
+										<div class="{new2.divend}"></div>
+										<div class="{new2.table}">
+											<g:FlowPanel ui:field="resultPanel" />
+										</div>
+
+
+										<!--分页 [[ -->
+										<div id="rewardlist_page2" class="{new2.pager}">
+											<div class="{new2.pager-left}">
+												每页显示条数
+												<g:ListBox ui:field="pageNumber" styleName="{new2.select}" />
+											</div>
+
+											<div class="{new2.pager-right}">
+												<g:FlowPanel ui:field="resultpage" />
+											</div>
+										</div>
+										<!--分页 ]] -->
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--content_box end -->
+		<div id="clear_div"></div>
+		<div class="spx5px"></div>
+
+
+
+
+
+
+	</g:HTMLPanel>
+
 </ui:UiBinder> 

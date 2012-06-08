@@ -41,9 +41,9 @@
       <ul class="clearfix">
         <li class="m1"><g:Anchor ui:field="orderindex" styleName="on" ><strong>首页</strong>Home</g:Anchor></li>
         <li class="m2"><g:Anchor ui:field="orderNow" ><strong>我要订餐</strong>Order Now</g:Anchor></li>
-        <li class="m3"><a href="javascript:void(0);" onclick="giveUpOrder(3);"><strong>查询订单</strong>Check My Order</a></li>
-        <li class="m4"><a href="javascript:void(0);" onclick="giveUpOrder(4);"><strong>我的优惠</strong>My Special Offer</a></li>
-        <li class="m5"><a href="javascript:void(0);" onclick="javascript:window.open('/kfcios/help/help_new.jsp','_blank');"><strong>帮助中心</strong>Help Desk</a></li>
+        <li class="m3"><g:Anchor ui:field="queryOrder" ><strong>查询订单</strong>Check My Order</g:Anchor></li>
+        <li class="m4"><a href="javascript:void(0);" ><strong>我的优惠</strong>My Special Offer</a></li>
+        <li class="m5"><a href="javascript:void(0);" ><strong>帮助中心</strong>Help Desk</a></li>
       </ul>
     </div>
   </div>

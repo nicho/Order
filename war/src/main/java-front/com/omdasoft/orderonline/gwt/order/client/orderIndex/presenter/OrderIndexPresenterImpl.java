@@ -70,6 +70,15 @@ public class OrderIndexPresenterImpl extends
 
 			}
 		}));
+		registerHandler(display.getQueryOrder().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent arg0) {
+				injector.getOrderIndexPresenter().initPresenter(
+						injector.getFrontOrderListPresenter());
+
+			}
+		}));
 	}
 
 	@Override

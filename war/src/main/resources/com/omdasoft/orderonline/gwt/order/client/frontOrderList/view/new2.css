@@ -69,6 +69,21 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .table td,.table th{padding:3px 0;}
 .table th{background-color:#CCCCCC;font-size:12px;font-weight:normal;color:#666666;}
 
+
+/*table*/
+.table2 caption{display:none;}
+.table2 table{width:100%;}
+.table2 table,.table th{
+    background: none repeat scroll 0 0 #FFEFCD;
+    border-right: 1px solid #8BAD57;
+    color: black;
+    height: 30px;
+    padding: 5px 0 0 5px;
+	}
+.table2 td{ border-bottom: 1px solid #943E00;}
+.table2 td,.table th{padding:3px 0; text-shadow: 0 0 0 #DDDDFF;}
+.table2 th{background-color:#CCCCCC;font-size:12px;font-weight:normal;color:#666666;}
+
 /*pager*/
 .pager:after{content:".";display:block;clear:both;height:0;visibility:hidden;}
 .pager{margin-top:15px;color:#569B01;\*zoom:1;}
@@ -119,7 +134,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .frame-wrap .breadcrumb-left{float:left;width:50%;}
 .frame-wrap .breadcrumb-right{float:right;width:70px;}
 .frame-wrap .cutline{background-position:0 0;height:2px;display:block;margin:10px 0;}
-.frame-wrap .query-wrap{border:1px solid #DDDDDD;padding:10px 15px;}
+.frame-wrap .query-wrap{border:1px solid #cc6600;background:#FFEFCD;padding:10px 15px;}
 .frame-wrap .send-news{margin:10px 0;}
 .frame-wrap .content-wrap{padding-top:0px;}
 /*-nicho自定义-*/

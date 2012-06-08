@@ -16,5 +16,6 @@ public void initPresenter(Presenter<?> presenter);
 		Anchor getOrderListpage();
 		Anchor getOrderNow();
 		Anchor getOrderIndex();
+		Anchor getQueryOrder();
 	}
 }
