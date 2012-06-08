@@ -75,7 +75,7 @@ public class OrdersConfirmPresenterImpl extends
 							@Override
 							public void onSuccess(
 									OrderSaveResponse response) {
-								
+								injector.getOrderManager().getOrderRequest().setId(response.getOrderId());
 								
 								if(!StringUtil.isEmpty(injector.getOrderManager().getOrderRequest().getRestaurantId()))
 								{

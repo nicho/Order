@@ -508,7 +508,8 @@ public class OrderServiceImpl implements OrderService {
 		order.setReserveTimeDateH(orderVo.getReserveTimeDateH());
 		order.setReserveTimeDateS(orderVo.getReserveTimeDateS());
 		
-		order.setOrderStatus(OrderStatus.UNHANDLED);
+		if(orderVo.getOrderStatus()!=null)
+		order.setOrderStatus(orderVo.getOrderStatus());
 
 		if (!StringUtil.isEmptyString(orderVo.getRestaurantId())) {
 			order.setDepartment(departmentLogic.findDepartmentById(orderVo.getRestaurantId()));

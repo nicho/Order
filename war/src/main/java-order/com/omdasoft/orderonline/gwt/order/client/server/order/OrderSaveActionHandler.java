@@ -15,6 +15,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequ
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
+import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.vo.OrderDishesVo;
 import com.omdasoft.orderonline.model.vo.OrderVo;
@@ -91,7 +92,8 @@ public class OrderSaveActionHandler extends
 			vo.setContactPersonSex(action.getContactPersonSex());
 			vo.setOrderPersonSex(action.getOrderPersonSex());
 			vo.setRestaurantId(action.getRestaurantId());
-			
+			if(action.getOrderStatus()!=null)
+				vo.setOrderStatus(OrderStatus.valueOf(action.getOrderStatus().toString()));
 			Orders order=orderService.saveOrdersByRoom(u, vo);
 			rep.setOrderId(order.getId());
 		}

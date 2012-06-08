@@ -16,6 +16,7 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -108,10 +109,15 @@ public class OrdersDishesPresenterImpl extends
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						setRequestDishesList();
-	
-						injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter());
-						
+						if(cellBookingTable==null)
+						{
+							Window.alert("请先点菜！");
+						}
+						else
+						{
+							setRequestDishesList();
+							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter());
+						}
 
 					}
 				}));
@@ -142,7 +148,7 @@ public class OrdersDishesPresenterImpl extends
 	private void setRequestDishesList()
 	{
 		
-		if(cellBookingTable.getVisibleItems()!=null && cellBookingTable.getVisibleItems().size()>0)
+		if(cellBookingTable!=null && cellBookingTable.getVisibleItems()!=null && cellBookingTable.getVisibleItems().size()>0)
 		{
 			List<BookingDishesList> bookingDishesList=new ArrayList<BookingDishesList>();
 			for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {

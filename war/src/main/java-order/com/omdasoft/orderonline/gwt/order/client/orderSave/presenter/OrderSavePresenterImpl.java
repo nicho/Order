@@ -190,6 +190,7 @@ public class OrderSavePresenterImpl extends
 						{
 							if(!StringUtil.isEmpty(orderId))
 								request.setId(orderId);
+							request.setDishesOrRoomFal("ROOM");
 						dispatch.execute(request,
 								new AsyncCallback<OrderSaveResponse>() {
 									@Override

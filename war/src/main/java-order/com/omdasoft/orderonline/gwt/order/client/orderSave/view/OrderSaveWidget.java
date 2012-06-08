@@ -242,6 +242,8 @@ public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
 			this.status.addItem("未消费","NOTCONSUMPR");
 			this.status.addItem("已消费","HASCONSUMER");
 			this.status.addItem("已取消","HASCANCEL");
+			this.status.addItem("已取消待读","WAITREAD");
+			this.status.addItem("已取消已读","ALREADYREAD");
 		}
 		else if(status==OrderStatus.SUCCESS || status==OrderStatus.FAILURE)
 		{
@@ -250,16 +252,22 @@ public class OrderSaveWidget extends Composite implements OrderSaveDisplay {
 			this.status.addItem("未消费","NOTCONSUMPR");
 			this.status.addItem("已消费","HASCONSUMER");
 			this.status.addItem("已取消","HASCANCEL");
+			this.status.addItem("已取消待读","WAITREAD");
+			this.status.addItem("已取消已读","ALREADYREAD");
 		}
 		else if(status==OrderStatus.NOTCONSUMPR || status==OrderStatus.HASCONSUMER)
 		{
 			this.status.addItem("未消费","NOTCONSUMPR");
 			this.status.addItem("已消费","HASCONSUMER");
 			this.status.addItem("已取消","HASCANCEL");
+			this.status.addItem("已取消待读","WAITREAD");
+			this.status.addItem("已取消已读","ALREADYREAD");
 		}
 		else if(status==OrderStatus.HASCANCEL)
 		{
 			this.status.addItem("已取消","HASCANCEL");
+			this.status.addItem("已取消待读","WAITREAD");
+			this.status.addItem("已取消已读","ALREADYREAD");
 		}
 		
 

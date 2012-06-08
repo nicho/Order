@@ -58,8 +58,11 @@ public class FindOrderActionHandler extends
 		rep.setContactPersonPhone(order.getContactPerson().getPhone());
 		rep.setContactPersonSex(order.getContactPerson().getSex());
 		}
+		if(order.getDepartment()!=null)
+		{
 		rep.setRestaurantId(order.getDepartment().getId());
 		rep.setRestaurantName(order.getDepartment().getName());
+		}
 		rep.setResult(order.getResult());
 		rep.setStatus(OrderStatus.valueOf(order.getOrderStatus().toString()));
 		return rep;

@@ -63,7 +63,12 @@ public class OrderLogicImpl implements OrderLogic{
 
 	@Override
 	public Orders findOrderById(String id) {
-		return  orderDao.findById(Orders.class, id);
+		try {
+			return  orderDao.findById(Orders.class, id);
+		} catch (Exception e) {
+			return null;
+		}
+		
 	}
 
 	@Override
