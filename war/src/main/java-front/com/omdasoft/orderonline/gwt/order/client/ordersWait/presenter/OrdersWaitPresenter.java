@@ -10,5 +10,6 @@ public interface OrdersWaitPresenter extends Presenter<OrdersWaitPresenter.Order
 	public static interface OrdersWaitDisplay extends Display {
 	
 		InlineLabel getTitletext();
+		InlineLabel getTimeText();
 	}
 }

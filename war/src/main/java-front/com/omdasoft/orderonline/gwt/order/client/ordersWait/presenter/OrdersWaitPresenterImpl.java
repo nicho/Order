@@ -2,6 +2,7 @@ package com.omdasoft.orderonline.gwt.order.client.ordersWait.presenter;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
+import com.google.gwt.user.client.Timer;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
@@ -31,6 +32,17 @@ public class OrdersWaitPresenterImpl extends
 		if(roomfal==true)
 		{
 			display.getTitletext().setText("订餐已完成，正在等待线下接收。。。");
+
+	
+			 Timer timer = new Timer() {  
+			      public void run() {  
+			 
+			        display.getTimeText().setText((Integer.parseInt(display.getTimeText().getText())+1)+"");
+			      }  
+			    };  
+			  
+			    // Schedule the timer to run once every second  
+			    timer.scheduleRepeating(1000);  
 		}
 		else
 		{

@@ -14,7 +14,9 @@ public class OrdersWaitWidget extends Composite implements
 
 	@UiField
 	InlineLabel titletext;
-
+	@UiField
+	InlineLabel timeText;
+	
 	private static OrdersWaitWidgetUiBinder uiBinder = GWT
 			.create(OrdersWaitWidgetUiBinder.class);
 
@@ -33,6 +35,11 @@ public class OrdersWaitWidget extends Composite implements
 
 	public void setTitletext(InlineLabel titletext) {
 		this.titletext = titletext;
+	}
+
+	@Override
+	public InlineLabel getTimeText() {
+		return timeText;
 	}
 
 	

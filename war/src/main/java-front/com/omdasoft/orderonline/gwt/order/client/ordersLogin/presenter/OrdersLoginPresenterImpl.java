@@ -4,6 +4,9 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
@@ -41,64 +44,76 @@ public class OrdersLoginPresenterImpl extends
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				if(!StringUtil.isEmpty(display.getPhone().getValue()))
-				{
-					//查询订单信息，和点菜信息
-					dispatch.execute(new OrderLoginRequest(display.getPhone().getValue()), new AsyncCallback<OrderLoginResponse>() {
-						@Override
-						public void onFailure(Throwable e) {
-							errorHandler.alert(e.getMessage());
-						}
-
-						@Override
-						public void onSuccess(OrderLoginResponse response) {
-					
-							
-							
-							OrderSaveRequest request=new OrderSaveRequest();
-							if(response.getOrderId()!=null)
-							{
-								
-								request.setAmountOfClient(response.getAmountOfClient());
-								request.setCity(response.getCity());
-								request.setOrderPersonName(response.getOrderPersonName());
-								request.setOrderPersonPhone(response.getOrderPersonPhone());
-								request.setId(response.getOrderId());
-								request.setRestaurantName(response.getRestaurantName());
-								request.setRestaurantId(response.getRestaurantId());
-								request.setMemo(response.getMemo());
-								request.setFavoriteRoom(response.getFavoriteRoom());
-								
-
-								request.setBookingDishesListClient(response.getBookingDishesList());
-
-							}
-							else
-							{
-								request.setOrderPersonPhone(display.getPhone().getValue());
-							}
-							injector.getOrderManager().setOrderRequest(request);
-						//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
-							
-							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
-						
-							
-						
-							
-						}
-
-					});
-				}
-				else
-				{
-					Window.alert("请输入手机号码！");
-					return;
-				}
-				
+				doLogin();
 			}
 		}));
+		
+		registerHandler(display.getPhone().addKeyUpHandler(
+				new KeyUpHandler() {
+					@Override
+					public void onKeyUp(KeyUpEvent e) {
+						if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+							doLogin();
+						}
+					}
+				}));
 	}
 
-	
+	void doLogin()
+	{
+		if(!StringUtil.isEmpty(display.getPhone().getValue()))
+		{
+			//查询订单信息，和点菜信息
+			dispatch.execute(new OrderLoginRequest(display.getPhone().getValue()), new AsyncCallback<OrderLoginResponse>() {
+				@Override
+				public void onFailure(Throwable e) {
+					errorHandler.alert(e.getMessage());
+				}
+
+				@Override
+				public void onSuccess(OrderLoginResponse response) {
+			
+					
+					
+					OrderSaveRequest request=new OrderSaveRequest();
+					if(response.getOrderId()!=null)
+					{
+						
+						request.setAmountOfClient(response.getAmountOfClient());
+						request.setCity(response.getCity());
+						request.setOrderPersonName(response.getOrderPersonName());
+						request.setOrderPersonPhone(response.getOrderPersonPhone());
+						request.setId(response.getOrderId());
+						request.setRestaurantName(response.getRestaurantName());
+						request.setRestaurantId(response.getRestaurantId());
+						request.setMemo(response.getMemo());
+						request.setFavoriteRoom(response.getFavoriteRoom());
+						
+
+						request.setBookingDishesListClient(response.getBookingDishesList());
+
+					}
+					else
+					{
+						request.setOrderPersonPhone(display.getPhone().getValue());
+					}
+					injector.getOrderManager().setOrderRequest(request);
+				//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
+					
+					injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
+				
+					
+				
+					
+				}
+
+			});
+		}
+		else
+		{
+			Window.alert("请输入手机号码！");
+			return;
+		}
+	}
 	
 }

@@ -103,7 +103,9 @@
 						<p class="totalAll lineStyle">
 							<strong><g:InlineLabel ui:field="titletext" /></strong>
 						</p>
-										
+						<p class="totalAll lineStyle">
+							您已等待：<strong><g:InlineLabel ui:field="timeText" text="0" /></strong>秒
+						</p>			
 								</div>
 							</div>
 						</div>
