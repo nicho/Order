@@ -409,7 +409,7 @@ public class OrderServiceImpl implements OrderService {
 		order.setOrderSource(OrderSource.ONLINE);
 		
 		if (orderVo.getOrdersDishesList() != null	&& orderVo.getOrdersDishesList().size() > 0) 
-			order.setCarteState(CarteState.ALREADYPOINTS);
+			order.setCarteState(CarteState.WAITREAD);
 		else
 			order.setCarteState(CarteState.NOTPOINT);
 		

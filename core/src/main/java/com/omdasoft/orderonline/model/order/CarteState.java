@@ -3,7 +3,7 @@ package com.omdasoft.orderonline.model.order;
 public enum CarteState {
 
 	NOTPOINT("未点"),
-	ALREADYPOINTS("已点"), WAITREAD("待读"), ALREADYREAD("已读");
+	WAITREAD("已点待读"), ALREADYREAD("已点已读");
 
 	private final String displayName;
 
