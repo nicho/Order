@@ -47,8 +47,17 @@ public class OrderLoginResponse implements Result {
 	 * 餐厅名称
 	 */
 	private String restaurantName;
+	private String restaurantId;
 	private String city;
 	
+
+	public String getRestaurantId() {
+		return restaurantId;
+	}
+
+	public void setRestaurantId(String restaurantId) {
+		this.restaurantId = restaurantId;
+	}
 
 	public String getCity() {
 		return city;

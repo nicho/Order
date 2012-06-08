@@ -65,6 +65,7 @@ public class OrdersLoginPresenterImpl extends
 								request.setOrderPersonPhone(response.getOrderPersonPhone());
 								request.setId(response.getOrderId());
 								request.setRestaurantName(response.getRestaurantName());
+								request.setRestaurantId(response.getRestaurantId());
 								request.setMemo(response.getMemo());
 								request.setFavoriteRoom(response.getFavoriteRoom());
 								

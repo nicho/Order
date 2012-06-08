@@ -45,8 +45,7 @@ public class OrderSubmitEditor extends AbstractEditor {
 
 	public void setModel(Object model) {
 		this.model = model;
-		if(model!=null)
-			OrderSubmitPresenter.initOrder((String)model);
+
 		OrderSubmitPresenter.bind();
 	}
 }

@@ -9,12 +9,11 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 
 public interface OrderSubmitPresenter extends Presenter<OrderSubmitPresenter.OrderSubmitDisplay> {
 	
-public void initOrder(String orderId);
-public void initOrderRequest(OrderSaveRequest request);
+
+public void initOrderPhone(String phone);
 
 	public static interface OrderSubmitDisplay extends Display {
 

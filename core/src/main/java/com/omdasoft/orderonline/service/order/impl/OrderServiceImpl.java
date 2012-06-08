@@ -369,6 +369,16 @@ public class OrderServiceImpl implements OrderService {
 		Orders order = null;
 		if (!StringUtil.isEmptyString(orderVo.getId())) {
 			order = orderLogic.findOrderById(orderVo.getId());
+			
+			//删除以前点的菜
+			List<OrdersDishes> orderdishesList=ordersDishesDao.findOrdersDishesByOrderId(orderVo.getId());
+			if(orderdishesList!=null && orderdishesList.size()>0)
+			{
+				for (OrdersDishes od:orderdishesList) {
+					ordersDishesDao.delete(od);
+				}
+			}
+			
 		} else {
 			order = new Orders();
 			
@@ -412,6 +422,8 @@ public class OrderServiceImpl implements OrderService {
 		
 		order = orderLogic.save(ux, order);
 
+	
+		
 		if (orderVo.getOrdersDishesList() != null	&& orderVo.getOrdersDishesList().size() > 0) {
 			for (OrderDishesVo dishes : orderVo.getOrdersDishesList()) {
 				OrdersDishes od = new OrdersDishes();

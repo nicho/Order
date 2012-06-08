@@ -53,7 +53,10 @@ public class OrderLoginActionHandler extends
 				rep.setOrderPersonPhone(model.getOrder().getOrderPerson().getPhone());
 			}
 			if(model.getOrder().getDepartment()!=null)
+			{
 				rep.setRestaurantName(model.getOrder().getDepartment().getName());
+				rep.setRestaurantId(model.getOrder().getDepartment().getId());
+			}
 			
 			if(model.getOrdersDishesList()!=null && model.getOrdersDishesList().size()>0)
 			{
@@ -61,11 +64,10 @@ public class OrderLoginActionHandler extends
 				
 					for (OrdersDishes dishe:model.getOrdersDishesList()) {
 						BookingDishesClient r=new BookingDishesClient();
-						r.setId(dishe.getId());
-						r.setNumber(dishe.getNumber());
+
 						if(dishe.getDishes()!=null)
 						{
-
+							r.setId(dishe.getDishes().getId());
 							r.setName(dishe.getDishes().getName());
 							r.setUnitprice(dishe.getDishes().getPrice()+"");
 							r.setPrice((dishe.getDishes().getPrice()*dishe.getNumber()) +"");
@@ -73,7 +75,7 @@ public class OrderLoginActionHandler extends
 						
 						r.setUnit(dishe.getUnit());
 						r.setTaste(dishe.getTaste());
-					
+						r.setNumber(dishe.getNumber());
 						dishesList.add(r);
 					}
 				rep.setBookingDishesList(dishesList);

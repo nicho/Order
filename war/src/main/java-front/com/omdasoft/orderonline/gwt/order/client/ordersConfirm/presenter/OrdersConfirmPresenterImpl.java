@@ -75,12 +75,27 @@ public class OrdersConfirmPresenterImpl extends
 							@Override
 							public void onSuccess(
 									OrderSaveResponse response) {
-								Window.alert("点菜成功!");
+								
 								
 								if(!StringUtil.isEmpty(injector.getOrderManager().getOrderRequest().getRestaurantId()))
-									injector.getOrderIndexPresenter().initPresenter(injector.getFrontOrderListPresenter());
+								{
+									injector.getOrdersWaitPresenter().setRoomFal(true);
+									injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());
+								}
 								else
-									injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
+								{
+									Window.alert("您所点的菜品已经保存在网上，当您前往餐厅消费时，可到营业厅通过手机号下载使用您的菜单。");
+									if(Window.confirm("要网上订房吗？"))
+									{
+										injector.getOrderSubmitPresenter().initOrderPhone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
+										injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
+									}
+									else
+									{
+										injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());
+									}
+									
+								}
 						
 							}
 
