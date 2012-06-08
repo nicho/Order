@@ -10,7 +10,6 @@ import com.google.gwt.cell.client.FieldUpdater;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
@@ -22,9 +21,11 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
+import com.omdasoft.orderonline.gwt.order.client.ui.DialogBox;
 import com.omdasoft.orderonline.gwt.order.client.ui.ImageLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
 import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
+import com.omdasoft.orderonline.gwt.order.client.win.confirm.OrderConfirmWidget;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 
@@ -83,17 +84,34 @@ public class OrdersConfirmPresenterImpl extends
 									injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());
 								}
 								else
-								{
-									Window.alert("您所点的菜品已经保存在网上，当您前往餐厅消费时，可到营业厅通过手机号下载使用您的菜单。");
-									if(Window.confirm("要网上订房吗？"))
-									{
-										injector.getOrderSubmitPresenter().initOrderPhone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
-										injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
-									}
-									else
-									{
-										injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());
-									}
+								{		
+									final OrderConfirmWidget ae = new OrderConfirmWidget();
+									final DialogBox dialogBoxae = new DialogBox();
+									ae.getOkBtn().addClickHandler(new ClickHandler() {
+										@Override
+										public void onClick(ClickEvent arg0) {
+											dialogBoxae.hide();
+											injector.getOrderSubmitPresenter().initOrderPhone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
+											injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
+										}
+									});
+									
+									ae.getCancelBtn().addClickHandler(new ClickHandler() {
+										@Override
+										public void onClick(ClickEvent arg0) {
+											dialogBoxae.hide();
+											injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());
+										}
+									});
+									ae.setMsg("您所点的菜品已经保存在网上，当您前往餐厅消费时，可到营业厅通过手机号下载使用您的菜单!<br><br><font color='blue'>需要网上订房吗？</font>");
+									dialogBoxae.setWidget(ae);
+									dialogBoxae.setGlassEnabled(true);
+									dialogBoxae.setAnimationEnabled(true);
+									dialogBoxae.setWidth("350px");
+									dialogBoxae.setText("提示");
+									dialogBoxae.center();
+									dialogBoxae.show();
+									
 									
 								}
 						
