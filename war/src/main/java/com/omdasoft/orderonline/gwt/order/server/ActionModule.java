@@ -26,6 +26,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderInitRequ
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderView.request.SearchOrderDishesListRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
+import com.omdasoft.orderonline.gwt.order.client.ordersWait.request.OrderWaitRequest;
 import com.omdasoft.orderonline.gwt.order.client.password.request.PasswordRequest;
 import com.omdasoft.orderonline.gwt.order.client.register.request.RegisterInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.register.request.RegisterRequest;
@@ -55,6 +56,7 @@ import com.omdasoft.orderonline.gwt.order.server.enterprise.EnterpriseInitAction
 import com.omdasoft.orderonline.gwt.order.server.login.LoginActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.TokenValidActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.ordersLogin.OrderLoginActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.ordersLogin.OrderWaitActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.register.RegisterActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.register.RegisterHrActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.register.RegisterInitActionHandler;
@@ -138,6 +140,7 @@ public class ActionModule extends ActionHandlerModule {
 		bindHandler(PasswordRequest.class,UpdateStaffPwdActionHandler.class);
 		bindHandler(UpdateUserPwdRequest.class,UpdateUserPwdActionHandler.class);
 		bindHandler(OrderLoginRequest.class,OrderLoginActionHandler.class);
+		bindHandler(OrderWaitRequest.class,OrderWaitActionHandler.class);
 		
 	}
 }

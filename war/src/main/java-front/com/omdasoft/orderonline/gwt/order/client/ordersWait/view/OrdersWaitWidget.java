@@ -16,6 +16,8 @@ public class OrdersWaitWidget extends Composite implements
 	InlineLabel titletext;
 	@UiField
 	InlineLabel timeText;
+	@UiField
+	InlineLabel messageText;
 	
 	private static OrdersWaitWidgetUiBinder uiBinder = GWT
 			.create(OrdersWaitWidgetUiBinder.class);
@@ -40,6 +42,11 @@ public class OrdersWaitWidget extends Composite implements
 	@Override
 	public InlineLabel getTimeText() {
 		return timeText;
+	}
+
+	@Override
+	public InlineLabel getMessageText() {
+		return messageText;
 	}
 
 	

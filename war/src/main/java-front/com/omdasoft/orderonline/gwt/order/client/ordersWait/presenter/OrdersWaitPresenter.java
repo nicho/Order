@@ -11,5 +11,6 @@ public interface OrdersWaitPresenter extends Presenter<OrdersWaitPresenter.Order
 	
 		InlineLabel getTitletext();
 		InlineLabel getTimeText();
+		InlineLabel getMessageText();
 	}
 }
