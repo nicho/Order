@@ -34,6 +34,10 @@ public class OrdersWaitPresenterImpl extends
 	 Timer timer2;
 	@Override
 	public void bind() {
+		
+		   display.getTimeText().setText("0");
+		   display.getMessageText().setText("");
+
 		if(roomfal==true)
 		{
 			display.getTitletext().setText("订餐已完成，正在等待线下接收。。。");

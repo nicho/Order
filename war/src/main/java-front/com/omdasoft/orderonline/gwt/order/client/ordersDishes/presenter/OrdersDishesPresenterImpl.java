@@ -120,11 +120,12 @@ public class OrdersDishesPresenterImpl extends
 					@Override
 					public void onClick(ClickEvent event) {
 					
-						
-				//	injector.getOrderSubmitPresenter().initOrderRequest(injector.getOrderManager().getOrderRequest());
-						
-						injector.getOrderIndexPresenter().initPresenter(injector.getOrderSubmitPresenter());
-
+	
+						injector.getOrderManager().getOrderRequest().setBookingDishesList(null);
+						injector.getOrderManager().getOrderRequest().setBookingDishesListClient(null);
+						List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+						cellBookingTable.setRowData(lt);
+						sumNumberMoney();
 
 					}
 				}));
