@@ -223,7 +223,9 @@ public class OrderServiceImpl implements OrderService {
 						model.setAmountOfClient(order.getAmountOfClient());
 						model.setFavoriteRoom(order.getFavoriteRoom());
 						model.setMemo(order.getMemo());
+						if(order.getPlaceOrderTime()!=null)
 						model.setPlaceOrderTime(DateUtil.formatData(null, order.getPlaceOrderTime()));
+						if(order.getReserveTimeDate()!=null && order.getReserveTimeDateH()!=null && order.getReserveTimeDateS()!=null)
 						model.setReserveTimeDate(order.getReserveTimeDate()+" "+order.getReserveTimeDateH()+":"+order.getReserveTimeDateS());
 						if(order.getOrderPerson()!=null)
 						{

@@ -173,12 +173,14 @@
 													<li>
 														<div>
 															<h3>
-																用户预订信息：<g:InlineLabel ui:field="phone" />
+																用户预订信息：
 															</h3>
 														</div>
 													</li>
 													<li>
 														<h3 style='color:red;'>
+															电话：
+															<g:InlineLabel ui:field="phone" /><br></br>
 															城市:
 															<g:InlineLabel ui:field="city" /><br></br>
 															餐厅:

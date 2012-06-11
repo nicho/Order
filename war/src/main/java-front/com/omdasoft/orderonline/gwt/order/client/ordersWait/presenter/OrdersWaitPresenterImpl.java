@@ -12,6 +12,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
 import com.omdasoft.orderonline.gwt.order.client.ordersWait.request.OrderWaitRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersWait.request.OrderWaitResponse;
+import com.omdasoft.orderonline.gwt.order.client.view.constant.CssStyleConstants;
 
 
 public class OrdersWaitPresenterImpl extends
@@ -35,6 +36,9 @@ public class OrdersWaitPresenterImpl extends
 	@Override
 	public void bind() {
 		
+		display.getTimeText().getElement().getParentElement().getParentElement().setClassName("totalAll lineStyle");
+		display.getTitletext().getElement().getParentElement().getParentElement().setClassName("totalAll lineStyle");
+
 		   display.getTimeText().setText("0");
 		   display.getMessageText().setText("");
 
@@ -69,12 +73,16 @@ public class OrdersWaitPresenterImpl extends
 										display.getMessageText().setText("订餐信息已被东北人珠海拱北店接收，当您前往餐厅消费时，请到营业台办理现场核对手续。");
 										timer.cancel();
 										timer2.cancel();
+										display.getTimeText().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
+										display.getTitletext().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
 									}
 									else if(response.getStatus()==OrderStatus.FAILURE)
 									{
 										display.getMessageText().setText("您的订房暂时未被接受，您可以稍后通过电话、网络再次尝试订房，也可以到现场侯位，然后下载使用您的菜单。");
 										timer.cancel();
 										timer2.cancel();
+										display.getTimeText().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
+										display.getTitletext().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
 									}
 
 									
@@ -90,6 +98,7 @@ public class OrdersWaitPresenterImpl extends
 		}
 		else
 		{
+			display.getTimeText().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
 			display.getTitletext().setText("您所点的菜品已经保存在网上，当您前往餐厅消费时，可到营业厅通过手机号下载使用您的菜单。");
 		}
 	}
