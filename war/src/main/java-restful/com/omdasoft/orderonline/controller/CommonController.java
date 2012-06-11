@@ -55,10 +55,10 @@ public class CommonController {
      * @return
      */
     @GET
-    @Path("/unorder")
+    @Path("/unorder/by/{phonenumber}")
     @Produces("application/json")
-    public OrderReturnModel getUnhandledOrder(@HeaderParam("tokenid") String tokenid){
-    	OrderReturnModel model=orderService.getUnhandledOrderList(tokenid);
+    public OrderReturnModel getUnhandledOrder(@HeaderParam("tokenid") String tokenid,@PathParam("phonenumber") String phonenumber){
+    	OrderReturnModel model=orderService.getUnhandledOrderList(tokenid,phonenumber);
     	if(model.getData()!=null)
     		orderService.addInvokeHistory("getUnhandledOrder", new Date(), "共获取"+model.getData().size()+"条数据",tokenid);
     	else

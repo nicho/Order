@@ -181,7 +181,7 @@ public class OrderServiceImpl implements OrderService {
 	 * (com.omdasoft.orderonline.model.user.UserContext)
 	 */
 	@Override
-	public OrderReturnModel getUnhandledOrderList(String tokenId) {
+	public OrderReturnModel getUnhandledOrderList(String tokenId,String phonenumber) {
 		OrderReturnModel returnModel = new OrderReturnModel();
 
 		try {
@@ -196,6 +196,10 @@ public class OrderServiceImpl implements OrderService {
 				if (user != null) {
 					OrderListCriteria criteria = new OrderListCriteria();
 					criteria.setOrderStatus(OrderStatus.UNHANDLED);
+					if(!StringUtil.isEmptyString(phonenumber))
+					{
+						criteria.setPhone(phonenumber);
+					}
 					// done...加入机构,分店过滤数据
 					
 					UserContext uc=new UserContext();
