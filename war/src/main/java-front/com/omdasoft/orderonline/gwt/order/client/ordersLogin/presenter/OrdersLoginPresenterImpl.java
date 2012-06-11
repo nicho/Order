@@ -115,5 +115,10 @@ public class OrdersLoginPresenterImpl extends
 			return;
 		}
 	}
+
+	@Override
+	public void rsDoLogin() {
+		doLogin();
+	}
 	
 }

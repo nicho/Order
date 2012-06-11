@@ -8,6 +8,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
 
 public interface OrdersLoginPresenter extends Presenter<OrdersLoginPresenter.OrdersLoginDisplay> {
 
+	public void rsDoLogin();
 	public static interface OrdersLoginDisplay extends Display {
 		TextBox getPhone();
 		Image getSubmitBtn();

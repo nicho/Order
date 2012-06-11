@@ -187,6 +187,7 @@ public class OrdersDishesPresenterImpl extends
 		if( injector.getOrderManager().getOrderRequest()!=null)
 		{
 			display.setCity(injector.getOrderManager().getOrderRequest().getCity());
+			if(injector.getOrderManager().getOrderRequest().getAmountOfClient()!=0)
 			display.setNumber(injector.getOrderManager().getOrderRequest().getAmountOfClient()+"");
 			display.setOrderUser(injector.getOrderManager().getOrderRequest().getOrderPersonName());
 			display.setRestaurant(injector.getOrderManager().getOrderRequest().getRestaurantName());
@@ -199,6 +200,8 @@ public class OrdersDishesPresenterImpl extends
 				display.setRoom("先订大厅，如无大厅，订包间");
 			else if(injector.getOrderManager().getOrderRequest().getFavoriteRoom()==4)
 				display.setRoom("先订包间，如无包间，订大厅");
+			else
+				display.setRoom("");
 			
 			if(injector.getOrderManager().getOrderRequest().getBookingDishesListClient()!=null && injector.getOrderManager().getOrderRequest().getBookingDishesListClient().size()>0)
 			{

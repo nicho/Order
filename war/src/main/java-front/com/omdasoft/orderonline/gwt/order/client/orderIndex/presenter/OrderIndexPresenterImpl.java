@@ -38,6 +38,7 @@ public class OrderIndexPresenterImpl extends
 
 			@Override
 			public void onClick(ClickEvent arg0) {
+		
 				injector.getMain().init(RootLayoutPanel.get());
 
 			}
@@ -57,6 +58,7 @@ public class OrderIndexPresenterImpl extends
 
 			@Override
 			public void onClick(ClickEvent arg0) {
+				injector.getOrderLoginPresenter().rsDoLogin();
 				injector.getOrderIndexPresenter().initPresenter(
 						injector.getOrdersDishesPresenter());
 
