@@ -62,6 +62,8 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 	@UiField
 	Anchor day4;
 	@UiField
+	Anchor nodate;
+	@UiField
 	DateBox dateStart;
 	@UiField
 	DateBox dateEnd;
@@ -187,6 +189,10 @@ public class OrderListWidget extends Composite implements OrderListDisplay {
 	@Override
 	public DateBox getDateEnd() {
 		return dateEnd;
+	}
+	@Override
+	public Anchor getNoDate() {
+		return nodate;
 	}
 
 

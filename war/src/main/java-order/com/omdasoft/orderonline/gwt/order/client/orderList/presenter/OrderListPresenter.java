@@ -35,6 +35,7 @@ public interface OrderListPresenter extends Presenter<OrderListPresenter.OrderLi
 		Anchor getDate3();
 		Anchor getDate4();
 		Anchor getDate5();
+		Anchor getNoDate();
 		
 		Anchor getDay1();
 		Anchor getDay2();

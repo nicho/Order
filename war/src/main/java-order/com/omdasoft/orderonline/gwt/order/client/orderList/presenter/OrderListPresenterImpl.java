@@ -94,6 +94,29 @@ public class OrderListPresenterImpl extends
 				doSearch();
 			}
 		}));
+		
+		registerHandler(display.getNoDate().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dateType="placeOrderTime";
+						display.getNoDate().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getDate1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
+						
+						
+						display.getDateStart().setValue(null);
+						display.getDateEnd().setValue(null);
+						
+						display.getDay1().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay2().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay3().getElement().getParentElement().getParentElement().setClassName("");
+						display.getDay4().getElement().getParentElement().getParentElement().setClassName("");
+					}
+				}));
 		registerHandler(display.getDate1().addClickHandler(
 				new ClickHandler() {
 					@Override
@@ -104,6 +127,7 @@ public class OrderListPresenterImpl extends
 						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
+						display.getNoDate().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDate2().addClickHandler(
@@ -116,6 +140,7 @@ public class OrderListPresenterImpl extends
 						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
+						display.getNoDate().getElement().getParentElement().getParentElement().setClassName("");
 						
 					}
 				}));
@@ -129,6 +154,7 @@ public class OrderListPresenterImpl extends
 						display.getDate3().getElement().getParentElement().getParentElement().setClassName("all cur");
 						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
+						display.getNoDate().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDate4().addClickHandler(
@@ -141,6 +167,7 @@ public class OrderListPresenterImpl extends
 						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate4().getElement().getParentElement().getParentElement().setClassName("all cur");
 						display.getDate5().getElement().getParentElement().getParentElement().setClassName("");
+						display.getNoDate().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		registerHandler(display.getDate5().addClickHandler(
@@ -153,6 +180,7 @@ public class OrderListPresenterImpl extends
 						display.getDate3().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate4().getElement().getParentElement().getParentElement().setClassName("");
 						display.getDate5().getElement().getParentElement().getParentElement().setClassName("all cur");
+						display.getNoDate().getElement().getParentElement().getParentElement().setClassName("");
 					}
 				}));
 		
