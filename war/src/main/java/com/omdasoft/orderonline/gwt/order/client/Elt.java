@@ -7,10 +7,13 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 public class Elt implements EntryPoint {
 
 	public static final String GWT_MODULE_PATH = "/elt";
+	public static  String GWT_IMAGE_PATH = "http://127.0.0.1:8888/upload/";
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 
 	@Override
 	public void onModuleLoad() {
+		
+		
 		RootLayoutPanel.get().clear();
 	//	injector.getRegisterPresenter().bind();
 		

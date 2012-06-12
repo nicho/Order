@@ -75,16 +75,16 @@ public class ImageShowServlet extends HttpServlet {
 				.getRealPath("/");
 		String uploadPath = null;
 		// System.out.println("============realPath:" + realPath);
-		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
-		if (rootIndex < 0) {
-			rootIndex = realPath.indexOf("war");
-		}
-
-		if (rootIndex < 0) {
-			return null;
-		} else {
-			realPath = realPath.substring(0, rootIndex);
-		}
+//		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
+//		if (rootIndex < 0) {
+//			rootIndex = realPath.indexOf("war");
+//		}
+//
+//		if (rootIndex < 0) {
+//			return null;
+//		} else {
+//			realPath = realPath.substring(0, rootIndex);
+//		}
 		
 		uploadPath = realPath + "upload";
 
