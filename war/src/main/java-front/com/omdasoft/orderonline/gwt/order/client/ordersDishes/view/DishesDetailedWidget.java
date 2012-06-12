@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
+import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.DishesDetailedPresenter.DishesDetailedDisplay;
 
 public class DishesDetailedWidget extends Composite implements
@@ -36,7 +37,7 @@ public class DishesDetailedWidget extends Composite implements
 		this.dishesName.setText(dishesName);
 		this.price.setText(price);
 		this.description.setText(description);
-		this.photo.setUrl("imageshow?imageName=" + photo);
+		this.photo.setUrl(Elt.GWT_IMAGE_PATH + photo);
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class DishesDetailedWidget extends Composite implements
 
 	@Override
 	public void setPhoto(String text) {
-		this.photo.setUrl("imageshow?imageName=" + text);
+		this.photo.setUrl(Elt.GWT_IMAGE_PATH + text);
 
 	}
 

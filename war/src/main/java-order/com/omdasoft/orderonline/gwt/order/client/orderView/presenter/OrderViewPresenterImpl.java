@@ -5,6 +5,7 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
+import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.presenter.BreadCrumbsPresenter;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
@@ -134,7 +135,7 @@ public class OrderViewPresenterImpl extends
 				new GetValue<OrderDishesListClient, String>() {
 					@Override
 					public String getValue(OrderDishesListClient dishes) {
-						return  "<img width='50px' height='50px' src='imageshow?imageName="+dishes.getPhoto()+"'>";
+						return  "<img width='50px' height='50px' src='"+Elt.GWT_IMAGE_PATH+""+dishes.getPhoto()+"'>";
 					}
 				});
 
