@@ -48,16 +48,31 @@ public class CommonController {
     	orderService.addInvokeHistory("loginUser", new Date(), model.getFlag(),tokenid);
     	return model;
     }
-	
     /**
      * 获取未处理订单查询
      * @param tokenid
      * @return
      */
     @GET
+    @Path("/unorder")
+    @Produces("application/json")
+    public OrderReturnModel getUnhandledOrderAll(@HeaderParam("tokenid") String tokenid){
+    	OrderReturnModel model=orderService.getUnhandledOrderList(tokenid,null);
+    	if(model.getData()!=null)
+    		orderService.addInvokeHistory("getUnhandledOrder", new Date(), "共获取"+model.getData().size()+"条数据",tokenid);
+    	else
+    		orderService.addInvokeHistory("getUnhandledOrder", new Date(), model.getFlag(),tokenid);
+    	return model;
+    }
+    /**
+     * 获取未处理订单查询（通过手机号）
+     * @param tokenid
+     * @return
+     */
+    @GET
     @Path("/unorder/by/{phonenumber}")
     @Produces("application/json")
-    public OrderReturnModel getUnhandledOrder(@HeaderParam("tokenid") String tokenid,@PathParam("phonenumber") String phonenumber){
+    public OrderReturnModel getUnhandledOrderByPhone(@HeaderParam("tokenid") String tokenid,@PathParam("phonenumber") String phonenumber){
     	OrderReturnModel model=orderService.getUnhandledOrderList(tokenid,phonenumber);
     	if(model.getData()!=null)
     		orderService.addInvokeHistory("getUnhandledOrder", new Date(), "共获取"+model.getData().size()+"条数据",tokenid);

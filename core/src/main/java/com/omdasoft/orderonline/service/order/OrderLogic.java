@@ -44,6 +44,13 @@ public interface OrderLogic {
 	 */
 	public PageStore<Orders> getOrderList(UserContext context,OrderListCriteria criteria);
 	/**
+	 * 订单列表（修改版：为接口）
+	 * @param context
+	 * @param Orders
+	 * @return
+	 */
+	public PageStore<Orders> getOrderListToo(UserContext context,OrderListCriteria criteria);
+	/**
 	 * 处理订单结果反馈
 	 * @param context
 	 * @param Orders

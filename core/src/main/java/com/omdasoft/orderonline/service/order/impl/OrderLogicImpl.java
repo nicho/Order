@@ -101,7 +101,34 @@ public class OrderLogicImpl implements OrderLogic{
 		}
 		return orderDao.queryOrderPageAction(criteria);
 	}
+	@Override
+	public PageStore<Orders> getOrderListToo(UserContext context,
+			OrderListCriteria criteria) {
 
+		if(!StringUtil.isEmptyString(criteria.getPhone()))
+		{
+			criteria.setCorpId(context.getCorporationId());
+		}
+		else
+		{
+			UserRole[] role=context.getUserRoles();
+			if(role!=null && role.length>0)
+			{
+				for (int i = 0; i < role.length; i++) {
+					UserRole re=role[i];
+					if(re==UserRole.CORP_ADMIN)
+					{
+						criteria.setCorpId(context.getCorporationId());
+					}
+					else if(re==UserRole.DEPT_MGR)
+					{
+						criteria.setDeptId(context.getDeptId());
+					}
+				}
+			}
+		}
+		return orderDao.queryOrderPageAction(criteria);
+	}
 	@Override
 	public UpdateOrderReturnModel processingOrdersResult(String orderId, OrderStatus status,String result) {
 		Orders order=orderDao.findByOrdersId(orderId);

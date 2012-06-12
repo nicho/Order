@@ -200,6 +200,10 @@ public class OrderServiceImpl implements OrderService {
 					{
 						criteria.setPhone(phonenumber);
 					}
+					else
+					{
+						criteria.setNotDept(true);
+					}
 					// done...加入机构,分店过滤数据
 					
 					UserContext uc=new UserContext();
@@ -218,7 +222,7 @@ public class OrderServiceImpl implements OrderService {
 						uc.setUserRoles(urole);
 					}
 				
-					PageStore<Orders> orderList = orderLogic.getOrderList(uc,criteria);
+					PageStore<Orders> orderList = orderLogic.getOrderListToo(uc,criteria);
 					List<OrderModel> ordermodel = new ArrayList<OrderModel>();
 					for (Orders order : orderList.getResultList()) {
 						OrderModel model = new OrderModel();

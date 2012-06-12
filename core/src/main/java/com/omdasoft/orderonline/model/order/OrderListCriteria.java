@@ -26,8 +26,17 @@ public class OrderListCriteria implements Serializable {
 	private String dateType;
 	private Date dateStart;
 	private Date dateEnd;
+	private boolean notDept;
 	
 
+
+	public boolean isNotDept() {
+		return notDept;
+	}
+
+	public void setNotDept(boolean notDept) {
+		this.notDept = notDept;
+	}
 
 	public String getDateType() {
 		return dateType;

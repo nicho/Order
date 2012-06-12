@@ -99,7 +99,11 @@ public class OrderDao extends BaseDao<Orders> {
 			param.put("deptId", vo.getDeptId());
 			fal=true; 
 		}
-		
+		if(vo.isNotDept()==true)
+		{
+			eql.append(" AND o.department.id is not null ");
+			fal=true; 
+		}
 		if(!StringUtil.isEmptyString(vo.getDateType()) && vo.getDateStart()!=null && vo.getDateEnd()!=null)
 		{
 
