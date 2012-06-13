@@ -21,9 +21,7 @@ public class EltServletModule extends ServletModule {
 
 	@Override
 	protected void configureServlets() {
-
 		logger.info("Configuring servlet modules...");
-
 		serve(Elt.GWT_MODULE_PATH + "/dispatch").with(
 				GuiceStandardDispatchServlet.class);
 		bind(InitServlet.class).in(Singleton.class);

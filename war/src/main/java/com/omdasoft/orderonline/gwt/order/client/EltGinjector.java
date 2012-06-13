@@ -1,5 +1,7 @@
 package com.omdasoft.orderonline.gwt.order.client;
 
+import net.customware.gwt.dispatch.client.DispatchAsync;
+
 import com.google.gwt.inject.client.GinModules;
 import com.omdasoft.orderonline.gwt.order.client.core.PlatformGinjector;
 import com.omdasoft.orderonline.gwt.order.client.dispatch.EltStandardDispatchModule;
@@ -32,7 +34,7 @@ public interface EltGinjector extends PlatformGinjector {
 	OrdersDishesPresenter getOrdersDishesPresenter();
 	FrontOrderListPresenter getFrontOrderListPresenter();
 	EventBus getEventBus();
-
+	DispatchAsync getDispatch();
 	SessionManager getSessionManager();
 
 	ErrorHandler getErrorHandler();

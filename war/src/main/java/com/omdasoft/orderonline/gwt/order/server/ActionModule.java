@@ -2,6 +2,7 @@ package com.omdasoft.orderonline.gwt.order.server;
 
 import net.customware.gwt.dispatch.server.guice.ActionHandlerModule;
 
+import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.DictionaryDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionarySave.request.DictionarySaveRequest;
@@ -54,6 +55,7 @@ import com.omdasoft.orderonline.gwt.order.client.userList.request.UserDeleteRequ
 import com.omdasoft.orderonline.gwt.order.client.userView.request.UserViewRequest;
 import com.omdasoft.orderonline.gwt.order.server.enterprise.EnterpriseActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.enterprise.EnterpriseInitActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.login.ImageUrlActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.LoginActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.TokenValidActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.ordersLogin.OrderLoginActionHandler;
@@ -143,6 +145,7 @@ public class ActionModule extends ActionHandlerModule {
 		bindHandler(OrderLoginRequest.class,OrderLoginActionHandler.class);
 		bindHandler(OrderWaitRequest.class,OrderWaitActionHandler.class);
 		bindHandler(DishesTypePanelRequest.class,DishesTypePanelActionHandler.class);
+		bindHandler(ImageUrlInitRequest.class,ImageUrlActionHandler.class);
 		
 	}
 }

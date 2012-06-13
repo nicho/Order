@@ -230,15 +230,15 @@ public class FileUploadServlet extends HttpServlet {
 				.getRealPath("/");
 		String uploadPath = null;
 		// System.out.println("============realPath:" + realPath);
-//		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
-//		if (rootIndex < 0) {
-//			rootIndex = realPath.indexOf("war");
-//		}
+		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
+		if (rootIndex < 0) {
+			rootIndex = realPath.indexOf("war");
+		}
 
-//		if (rootIndex < 0) {
-//			return null;
-//		} else {
-	//		realPath = realPath.substring(0, rootIndex);
+		if (rootIndex < 0) {
+			return null;
+		} else {
+			realPath = realPath.substring(0, rootIndex);
 
 			uploadPath = realPath + uploadRootName;
 			// System.out.println("============uploadPath:" + uploadPath);
@@ -247,7 +247,7 @@ public class FileUploadServlet extends HttpServlet {
 				myFilePath.mkdir();
 				System.out.println("创建图片上传文件夹：" + myFilePath);
 			}
-//		}
+		}
 		return uploadPath;
 	}
 

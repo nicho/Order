@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.omdasoft.orderonline.gwt.order.client.Elt;
-
 
 /**
  * Initialize servlet.
@@ -36,7 +34,7 @@ public class InitServlet extends HttpServlet {
 	public void init() throws ServletException {
 		// this must be invoked.
 		super.init();
-		//Elt.GWT_IMAGE_PATH=this.getInitParameter("GWT_IMAGE_PATH");
+		
 		logger.info("System initialization started");
 
 		try {

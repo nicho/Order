@@ -2,7 +2,10 @@ package com.omdasoft.orderonline.gwt.order.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitRequest;
+import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitResponse;
 
 public class Elt implements EntryPoint {
 
@@ -12,18 +15,34 @@ public class Elt implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
+	
+		injector.getDispatch().execute(new ImageUrlInitRequest(),
+				new AsyncCallback<ImageUrlInitResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						injector.getErrorHandler().alert(e.getMessage());
+					}
+
+					@Override
+					public void onSuccess(
+							ImageUrlInitResponse response) {
+						
+							GWT_IMAGE_PATH=response.getUrl();
+							RootLayoutPanel.get().clear();
+							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
+							injector.getOrderIndexPresenter().bind();
+							RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+						}
+				
+				});
 		
 		
-		RootLayoutPanel.get().clear();
+		
 	//	injector.getRegisterPresenter().bind();
 		
 	//	injector.getMain().initOrder(RootLayoutPanel.get());
 
-		injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
-		injector.getOrderIndexPresenter().bind();
 		
-		
-		RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
 		
 		// EventBus bus = injector.getEventBus();
 		// final LoginPresenter p = injector.getLoginPresenter();
