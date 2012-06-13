@@ -7,22 +7,27 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.cell.client.EditTextCell;
 import com.google.gwt.cell.client.FieldUpdater;
+import com.google.gwt.cell.client.SelectionCell;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesClient;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesList;
+import com.omdasoft.orderonline.gwt.order.client.login.presenter.AlertErrorWidget;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
+import com.omdasoft.orderonline.gwt.order.client.ordersConfirm.dialog.kwDialog;
 import com.omdasoft.orderonline.gwt.order.client.ui.DialogBox;
 import com.omdasoft.orderonline.gwt.order.client.ui.ImageLinkCell;
+import com.omdasoft.orderonline.gwt.order.client.ui.SelectHyperLinkCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
 import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
 import com.omdasoft.orderonline.gwt.order.client.win.confirm.OrderConfirmWidget;
@@ -38,13 +43,17 @@ public class OrdersConfirmPresenterImpl extends
 	final ErrorHandler errorHandler;
 	private final EltGinjector injector;
 	ListCellTable<BookingDishesClient> cellBookingTable;
+	List<String> dwlt=new ArrayList<String>();
+	List<String> kwlt=new ArrayList<String>();
+	private final Provider<kwDialog> kwDialogProvider;
 	@Inject
 	public OrdersConfirmPresenterImpl(EventBus eventBus,
-			OrdersConfirmDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,EltGinjector injector) {
+			OrdersConfirmDisplay display, DispatchAsync dispatch,ErrorHandler errorHandler,EltGinjector injector,Provider<kwDialog> kwDialogProvider) {
 		super(eventBus, display);
 		this.dispatch = dispatch;
 		this.errorHandler=errorHandler;
 		this.injector=injector;
+		this.kwDialogProvider=kwDialogProvider;
 	}
 
 	@Override
@@ -57,7 +66,7 @@ public class OrdersConfirmPresenterImpl extends
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				
+				setRequestDishesList();
 		//		保存
 				injector.getOrderManager().getOrderRequest();
 				OrderSaveRequest request=new OrderSaveRequest();
@@ -66,6 +75,7 @@ public class OrdersConfirmPresenterImpl extends
 				request.setOrderPersonPhone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
 				request.setDishesOrRoomFal("DISHES");
 				request.setBookingDishesList(injector.getOrderManager().getOrderRequest().getBookingDishesList());
+					
 				dispatch.execute(request,
 						new AsyncCallback<OrderSaveResponse>() {
 							@Override
@@ -182,21 +192,76 @@ private void initBookingTableColumns() {
 				});
 
 
-		cellBookingTable.addColumn("单位", new TextCell(),
-				new GetValue<BookingDishesClient, String>() {
-					@Override
-					public String getValue(BookingDishesClient dishes) {
-						return dishes.getUnit();
-					}
-				});
+		cellBookingTable.addColumn("单位", new SelectionCell(dwlt),
+			new GetValue<BookingDishesClient, String>() {
+				@Override
+				public String getValue(BookingDishesClient dishes) {
+					return dishes.getUnit();
+				}
+			}, new FieldUpdater<BookingDishesClient, String>() {
+	
+				@Override
+				public void update(int index, BookingDishesClient o, String value) {
+					o.setUnit(value);
+				}
+
+		});
 		
-		cellBookingTable.addColumn("口味", new TextCell(),
+		
+		cellBookingTable.addColumn("口味", new SelectHyperLinkCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override
 					public String getValue(BookingDishesClient dishes) {
 						return dishes.getTaste();
 					}
-				});
+				}, new FieldUpdater<BookingDishesClient, String>() {
+					
+					@Override
+					public void update(final int index, BookingDishesClient o, String value) {
+						
+						final kwDialog dialog = kwDialogProvider.get();
+						dialog.initKW(kwlt);
+						
+						final AlertErrorWidget ae = new AlertErrorWidget();
+						final DialogBox dialogBoxae = new DialogBox();
+						ae.getOkBtn().addClickHandler(new ClickHandler() {
+							@Override
+							public void onClick(ClickEvent arg0) {
+								dialogBoxae.hide();
+							}
+						});
+						dialog.getPresenter().getDisplay().getButtonSelect().addClickHandler(new ClickHandler() {
+							
+							@Override
+							public void onClick(ClickEvent event) {
+								dialogBoxae.hide();
+								if(dialog.getkwlt()!=null && dialog.getkwlt().size()>0)
+								{
+									String strkw="";
+									for (int i = 0; i < dialog.getkwlt().size(); i++) {
+										strkw+=dialog.getkwlt().get(i)+",";
+									}
+									List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+									BookingDishesClient xxx=cellBookingTable.getVisibleItem(index);
+									if(!StringUtil.isEmpty(strkw))
+									xxx.setTaste(strkw.substring(0,strkw.length()-1));
+									lt.add(xxx);
+									cellBookingTable.setRowData(index,lt);
+								}
+								
+							}
+						});
+					
+						dialogBoxae.setWidget(dialog.asWidget());
+						dialogBoxae.setGlassEnabled(true);
+						dialogBoxae.setAnimationEnabled(true);
+						dialogBoxae.setWidth("100px");
+						dialogBoxae.setText("口味");
+						dialogBoxae.center();
+						dialogBoxae.show();
+					}
+
+			} );
 		cellBookingTable.addColumn("价格", new TextCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override
@@ -278,5 +343,11 @@ private void setRequestDishesList()
 	}
 
 
+}
+
+@Override
+public void initDwKw(List<String> dwlt, List<String> kwlt) {
+	this.dwlt=dwlt;
+	this.kwlt=kwlt;
 }
 }

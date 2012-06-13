@@ -116,6 +116,7 @@ public class OrdersDishesPresenterImpl extends
 						else
 						{
 							setRequestDishesList();
+							injector.getOrdersConfirmPresenter().initDwKw(dwlt, kwlt);
 							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersConfirmPresenter());
 						}
 
