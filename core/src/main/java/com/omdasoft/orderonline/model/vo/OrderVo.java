@@ -7,6 +7,7 @@ import com.omdasoft.orderonline.model.order.OrderStatus;
 
 public class OrderVo {
 	String id;
+	String rid;
 	/**
 	 * 就餐时间
 	 */
@@ -52,6 +53,14 @@ public class OrderVo {
 	 * 餐厅
 	 */
 	private String restaurantId;
+
+	public String getRid() {
+		return rid;
+	}
+
+	public void setRid(String rid) {
+		this.rid = rid;
+	}
 
 	public String getId() {
 		return id;

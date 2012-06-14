@@ -6,6 +6,7 @@ import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
+import com.omdasoft.orderonline.model.order.CarteState;
 import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderStatus;
@@ -57,6 +58,13 @@ public interface OrderLogic {
 	 * @return
 	 */
 	public UpdateOrderReturnModel processingOrdersResult(String orderId,OrderStatus status,String result);
+	/**
+	 * 处理订单结果反馈
+	 * @param context
+	 * @param Orders
+	 * @return
+	 */
+	public UpdateOrderReturnModel processingOrdersResultCarteState(String orderId,CarteState status);
 	/**
 	 * 保存调用历史
 	 * @param restApiName

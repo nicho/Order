@@ -533,4 +533,390 @@ public class OrderServiceImpl implements OrderService {
 		return order;
 	}
 
+	@Override
+	public OrderReturnModel findUnreadorderwithdish(String tokenId) {
+		OrderReturnModel returnModel = new OrderReturnModel();
+
+		try {
+
+			if (StringUtil.isEmptyString(tokenId)) {
+				returnModel.setData(null);
+				returnModel.setFlag("1");
+				returnModel.setException_code("10");
+				returnModel.setException_msg("未登录");
+			} else {
+				SysUser user = userLogic.getSysUserByTokenId(tokenId);
+				if (user != null) {
+					OrderListCriteria criteria = new OrderListCriteria();
+					//点菜状态已点待读
+					criteria.setCarteState(CarteState.WAITREAD);
+				
+					
+					UserContext uc=new UserContext();
+					if(user.getCorporation()!=null)
+					uc.setCorporationId(user.getCorporation().getId());
+					if(user.getStaff()!=null && user.getStaff().getDepartment()!=null)
+					uc.setDeptId(user.getStaff().getDepartment().getId());
+					
+					List<SysUserRole> lt = userRoleDao.findUserRoleByUserId(user.getId());
+					
+					if (lt.size() > 0) {
+						UserRole [] urole=new UserRole[lt.size()];
+						for (int i = 0; i < lt.size(); i++) {
+							urole[i]=lt.get(i).getRole().getName();
+						}
+						uc.setUserRoles(urole);
+					}
+				
+					PageStore<Orders> orderList = orderLogic.getOrderList(uc,criteria);
+					List<OrderModel> ordermodel = new ArrayList<OrderModel>();
+					for (Orders order : orderList.getResultList()) {
+						OrderModel model = new OrderModel();
+						model.setId(order.getId());
+						model.setCode(order.getCode());
+						model.setAmountOfClient(order.getAmountOfClient());
+						model.setFavoriteRoom(order.getFavoriteRoom());
+						model.setMemo(order.getMemo());
+						if(order.getPlaceOrderTime()!=null)
+						model.setPlaceOrderTime(DateUtil.formatData(null, order.getPlaceOrderTime()));
+						if(order.getReserveTimeDate()!=null && order.getReserveTimeDateH()!=null && order.getReserveTimeDateS()!=null)
+						model.setReserveTimeDate(order.getReserveTimeDate()+" "+order.getReserveTimeDateH()+":"+order.getReserveTimeDateS());
+						if(order.getOrderPerson()!=null)
+						{
+							model.setOrderPersonPhone(order.getOrderPerson().getPhone());
+							model.setOrderPersonName(order.getOrderPerson().getName());
+							model.setOrderPersonSex(order.getOrderPerson().getSex());
+						}
+						if(order.getContactPerson()!=null)
+						{
+							model.setContactPersonPhone(order.getContactPerson().getPhone());
+							model.setContactPersonName(order.getContactPerson().getName());
+							model.setContactPersonSex(order.getContactPerson().getSex());
+						}
+						List<OrdersDishes> dishesList = ordersDishesDao
+								.findOrdersDishesByOrderId(order.getId());
+						if (dishesList != null && dishesList.size() > 0) {
+							List<DishesModel> dishesmodelList = new ArrayList<DishesModel>();
+							for (OrdersDishes dishes : dishesList) {
+								DishesModel dishesmodel = new DishesModel();
+								dishesmodel.setDishesId(dishes.getDishes()
+										.getId());
+								dishesmodel.setDishesName(dishes.getDishes()
+										.getName());
+								if (dishes.getDishes().getDishesType() != null)
+									dishesmodel.setDishesType(dishes
+											.getDishes().getDishesType()
+											.getName().toString());
+								dishesmodel.setNumber(dishes.getNumber());
+								dishesmodel.setPrice(dishes.getDishes()
+										.getPrice());
+								dishesmodel.setTaste(dishes.getTaste());
+								dishesmodel.setUnit(dishes.getUnit());
+								dishesmodelList.add(dishesmodel);
+							}
+
+							model.setDishesList(dishesmodelList);
+						}
+
+						ordermodel.add(model);
+					}
+
+					returnModel.setData(ordermodel);
+					returnModel.setFlag("0");
+					returnModel.setException_code(null);
+					returnModel.setException_msg(null);
+				} else {
+					returnModel.setData(null);
+					returnModel.setFlag("1");
+					returnModel.setException_code("11");
+					returnModel.setException_msg("登录失效");
+				}
+			}
+
+		} catch (Exception e) {
+			returnModel.setData(null);
+			returnModel.setFlag("1");
+			returnModel.setException_code("12");
+			returnModel.setException_msg(e.getStackTrace().toString());
+		}
+
+		return returnModel;
+	}
+
+	@Override
+	public UpdateOrderReturnModel updatehandleorderdishstatus(String tokenId,
+			String orderId, String carteState) {
+		UpdateOrderReturnModel returnModel = new UpdateOrderReturnModel();
+		try {
+			CarteState status = null;
+
+
+			if (StringUtil.isEmptyString(tokenId)) {
+				returnModel.setFlag("1");
+				returnModel.setException_code("10");
+				returnModel.setException_msg("未登录");
+			} else {
+				int intstatus=0;
+				if(!StringUtil.isEmptyString(carteState))
+				{
+					intstatus=Integer.parseInt(carteState);
+					if (intstatus == 0)
+						status = CarteState.NOTPOINT;
+					else if (intstatus == 1)
+						status = CarteState.WAITREAD;
+					else if (intstatus == 2)
+						status = CarteState.ALREADYREAD;
+
+				}
+				else
+				{
+					returnModel.setFlag("1");
+					returnModel.setException_code("12");
+					returnModel.setException_msg("传入状态为空!");
+				}
+				
+				SysUser user = userLogic.getSysUserByTokenId(tokenId);
+				if (user != null) {
+					
+					return orderLogic.processingOrdersResultCarteState(orderId, status);
+				} else {
+					returnModel.setFlag("1");
+					returnModel.setException_code("11");
+					returnModel.setException_msg("登录失效");
+				}
+			}
+
+		} catch (Exception e) {
+			returnModel.setFlag("1");
+			returnModel.setException_code("12");
+			returnModel.setException_msg(e.getStackTrace().toString());
+		}
+		return returnModel;
+	}
+
+	@Override
+	public UpdateOrderReturnModel uploadorder(String tokenId, OrderModel ordermodel) {
+		UpdateOrderReturnModel returnModel = new UpdateOrderReturnModel();
+		try {
+			
+
+
+			if (StringUtil.isEmptyString(tokenId)) {
+				returnModel.setFlag("1");
+				returnModel.setException_code("10");
+				returnModel.setException_msg("未登录");
+			} else {
+				
+				
+				SysUser user = userLogic.getSysUserByTokenId(tokenId);
+				
+				if (user != null) {
+					UserContext context=new UserContext();
+					context.setUserId(user.getId());
+					
+				OrderVo	orderVo=new OrderVo();
+				orderVo.setRid(ordermodel.getRid());
+				orderVo.setAmountOfClient(ordermodel.getAmountOfClient());
+				orderVo.setContactPersonName(ordermodel.getContactPersonName());
+				orderVo.setContactPersonPhone(ordermodel.getContactPersonPhone());
+				orderVo.setContactPersonSex(ordermodel.getContactPersonSex());
+				orderVo.setCorporationId(user.getCorporation().getId());
+				orderVo.setFavoriteRoom(ordermodel.getFavoriteRoom());
+				orderVo.setMemo(ordermodel.getMemo());
+				orderVo.setOrderPersonName(ordermodel.getOrderPersonName());
+				orderVo.setOrderPersonPhone(ordermodel.getOrderPersonPhone());
+				orderVo.setOrderPersonSex(ordermodel.getOrderPersonSex());
+				
+				if(ordermodel.getOrderStatus()==0)
+					orderVo.setOrderStatus(OrderStatus.UNHANDLED);
+				else if(ordermodel.getOrderStatus()==1)
+					orderVo.setOrderStatus(OrderStatus.SUCCESS);
+				else if(ordermodel.getOrderStatus()==2)
+					orderVo.setOrderStatus(OrderStatus.FAILURE);
+				else if(ordermodel.getOrderStatus()==3)
+					orderVo.setOrderStatus(OrderStatus.NOTCONSUMPR);
+				else if(ordermodel.getOrderStatus()==4)
+					orderVo.setOrderStatus(OrderStatus.HASCONSUMER);
+				else if(ordermodel.getOrderStatus()==5)
+					orderVo.setOrderStatus(OrderStatus.HASCANCEL);
+				else if(ordermodel.getOrderStatus()==6)
+					orderVo.setOrderStatus(OrderStatus.ALREADYREAD);
+				
+
+				orderVo.setPlaceOrderTime(DateUtil.getStringDate(ordermodel.getPlaceOrderTime()));
+				orderVo.setReserveTimeDate(DateUtil.dateToString(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+				orderVo.setReserveTimeDateH(DateUtil.dateToStringH(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+				orderVo.setReserveTimeDateS(DateUtil.dateToStringS(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+				
+				
+				if(user.getStaff().getDepartment()!=null)
+				{
+				orderVo.setRestaurantId(user.getStaff().getDepartment().getId());
+				orderVo.setCity(user.getStaff().getDepartment().getCity());
+				}
+				
+					Orders order=this.saveOrdersByRoom(context, orderVo);
+					if(order!=null)
+						returnModel.setFlag("0");
+					
+					
+					return returnModel;
+				} else {
+					returnModel.setFlag("1");
+					returnModel.setException_code("11");
+					returnModel.setException_msg("登录失效");
+				}
+			}
+
+		} catch (Exception e) {
+			returnModel.setFlag("1");
+			returnModel.setException_code("12");
+			returnModel.setException_msg(e.getStackTrace().toString());
+		}
+		return returnModel;
+	}
+
+	@Override
+	public OrderReturnModel cancelunreadorder(String tokenId) {
+		OrderReturnModel returnModel = new OrderReturnModel();
+
+		try {
+
+			if (StringUtil.isEmptyString(tokenId)) {
+				returnModel.setData(null);
+				returnModel.setFlag("1");
+				returnModel.setException_code("10");
+				returnModel.setException_msg("未登录");
+			} else {
+				SysUser user = userLogic.getSysUserByTokenId(tokenId);
+				if (user != null) {
+					OrderListCriteria criteria = new OrderListCriteria();
+					//已取消。待读
+					criteria.setOrderStatus(OrderStatus.HASCANCEL);
+				
+					
+					UserContext uc=new UserContext();
+					if(user.getCorporation()!=null)
+					uc.setCorporationId(user.getCorporation().getId());
+					if(user.getStaff()!=null && user.getStaff().getDepartment()!=null)
+					uc.setDeptId(user.getStaff().getDepartment().getId());
+					
+					List<SysUserRole> lt = userRoleDao.findUserRoleByUserId(user.getId());
+					
+					if (lt.size() > 0) {
+						UserRole [] urole=new UserRole[lt.size()];
+						for (int i = 0; i < lt.size(); i++) {
+							urole[i]=lt.get(i).getRole().getName();
+						}
+						uc.setUserRoles(urole);
+					}
+				
+					PageStore<Orders> orderList = orderLogic.getOrderList(uc,criteria);
+					List<OrderModel> ordermodel = new ArrayList<OrderModel>();
+					for (Orders order : orderList.getResultList()) {
+						OrderModel model = new OrderModel();
+						model.setId(order.getId());
+						model.setCode(order.getCode());
+						model.setAmountOfClient(order.getAmountOfClient());
+						model.setFavoriteRoom(order.getFavoriteRoom());
+						model.setMemo(order.getMemo());
+						if(order.getPlaceOrderTime()!=null)
+						model.setPlaceOrderTime(DateUtil.formatData(null, order.getPlaceOrderTime()));
+						if(order.getReserveTimeDate()!=null && order.getReserveTimeDateH()!=null && order.getReserveTimeDateS()!=null)
+						model.setReserveTimeDate(order.getReserveTimeDate()+" "+order.getReserveTimeDateH()+":"+order.getReserveTimeDateS());
+						if(order.getOrderPerson()!=null)
+						{
+							model.setOrderPersonPhone(order.getOrderPerson().getPhone());
+							model.setOrderPersonName(order.getOrderPerson().getName());
+							model.setOrderPersonSex(order.getOrderPerson().getSex());
+						}
+						if(order.getContactPerson()!=null)
+						{
+							model.setContactPersonPhone(order.getContactPerson().getPhone());
+							model.setContactPersonName(order.getContactPerson().getName());
+							model.setContactPersonSex(order.getContactPerson().getSex());
+						}
+						List<OrdersDishes> dishesList = ordersDishesDao
+								.findOrdersDishesByOrderId(order.getId());
+						if (dishesList != null && dishesList.size() > 0) {
+							List<DishesModel> dishesmodelList = new ArrayList<DishesModel>();
+							for (OrdersDishes dishes : dishesList) {
+								DishesModel dishesmodel = new DishesModel();
+								dishesmodel.setDishesId(dishes.getDishes()
+										.getId());
+								dishesmodel.setDishesName(dishes.getDishes()
+										.getName());
+								if (dishes.getDishes().getDishesType() != null)
+									dishesmodel.setDishesType(dishes
+											.getDishes().getDishesType()
+											.getName().toString());
+								dishesmodel.setNumber(dishes.getNumber());
+								dishesmodel.setPrice(dishes.getDishes()
+										.getPrice());
+								dishesmodel.setTaste(dishes.getTaste());
+								dishesmodel.setUnit(dishes.getUnit());
+								dishesmodelList.add(dishesmodel);
+							}
+
+							model.setDishesList(dishesmodelList);
+						}
+
+						ordermodel.add(model);
+					}
+
+					returnModel.setData(ordermodel);
+					returnModel.setFlag("0");
+					returnModel.setException_code(null);
+					returnModel.setException_msg(null);
+				} else {
+					returnModel.setData(null);
+					returnModel.setFlag("1");
+					returnModel.setException_code("11");
+					returnModel.setException_msg("登录失效");
+				}
+			}
+
+		} catch (Exception e) {
+			returnModel.setData(null);
+			returnModel.setFlag("1");
+			returnModel.setException_code("12");
+			returnModel.setException_msg(e.getStackTrace().toString());
+		}
+
+		return returnModel;
+	}
+
+	@Override
+	public UpdateOrderReturnModel cancelorder(String tokenId, String id) {
+		UpdateOrderReturnModel returnModel = new UpdateOrderReturnModel();
+		try {
+			OrderStatus status = OrderStatus.HASCANCEL;
+
+
+			if (StringUtil.isEmptyString(tokenId)) {
+				returnModel.setFlag("1");
+				returnModel.setException_code("10");
+				returnModel.setException_msg("未登录");
+			} else {
+			
+				SysUser user = userLogic.getSysUserByTokenId(tokenId);
+				if (user != null) {
+					
+					return orderLogic.processingOrdersResult(id, status,"取消订单接口修改");
+				} else {
+					returnModel.setFlag("1");
+					returnModel.setException_code("11");
+					returnModel.setException_msg("登录失效");
+				}
+			}
+
+		} catch (Exception e) {
+			returnModel.setFlag("1");
+			returnModel.setException_code("12");
+			returnModel.setException_msg(e.getStackTrace().toString());
+		}
+		return returnModel;
+
+	}
+
 }

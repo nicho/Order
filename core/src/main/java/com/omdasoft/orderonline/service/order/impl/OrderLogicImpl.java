@@ -15,6 +15,7 @@ import com.omdasoft.orderonline.domain.order.OrdersDishes;
 import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
+import com.omdasoft.orderonline.model.order.CarteState;
 import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderStatus;
@@ -195,6 +196,31 @@ public class OrderLogicImpl implements OrderLogic{
 			return model;
 		}
 		return null;
+	}
+
+	@Override
+	public UpdateOrderReturnModel processingOrdersResultCarteState(
+			String orderId, CarteState status) {
+		Orders order=orderDao.findByOrdersId(orderId);
+		UpdateOrderReturnModel model=new UpdateOrderReturnModel();
+		if(order!=null && status!=null)
+		{
+			order.setCarteState(status);
+			order.setHandleTime(new Date());
+			order.setModifyTime(new Date());
+
+			orderDao.update(order);
+			
+			model.setFlag("0");
+			return model;
+		}
+		else
+		{
+			model.setFlag("1");
+			model.setException_code("12");
+			model.setException_msg("找不到订单,或者状态为null");
+			return model;
+		}
 	}
 
 

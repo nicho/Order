@@ -3,6 +3,7 @@
  */
 package com.omdasoft.orderonline.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,10 +17,12 @@ import java.util.Random;
  * @since 0.2.0
  */
 public class DateUtil {
-	private static Random random = new Random(); 
+	private static Random random = new Random();
+
 	public static Date getTime() {
 		return new Date();
 	}
+
 	/**
 	 * 加上N天后是哪一天
 	 * 
@@ -33,6 +36,7 @@ public class DateUtil {
 		long s2 = s + s1;
 		return new Date(s2);
 	}
+
 	public static Date getLastTimeOfThisDay(Date date) {
 		Date para = null;
 		para = date == null ? new Date() : date;
@@ -152,18 +156,18 @@ public class DateUtil {
 			}
 		}
 	}
+
 	@SuppressWarnings("deprecation")
-	public static boolean compareData(Date date1,Date date2) {
-		if(date1.getYear()==date2.getYear() && date1.getMonth()==date2.getMonth() && date1.getDate()==date2.getDate())
-		{
+	public static boolean compareData(Date date1, Date date2) {
+		if (date1.getYear() == date2.getYear()
+				&& date1.getMonth() == date2.getMonth()
+				&& date1.getDate() == date2.getDate()) {
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * 当前日期字符串
 	 * */
@@ -171,16 +175,74 @@ public class DateUtil {
 		java.util.Calendar calendar = java.util.Calendar.getInstance();
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 		return dateFormat.format(calendar.getTime());
-//		return "111111225";
+		// return "111111225";
+	}
+
+	/**
+	 * 得到随机�?
+	 * 
+	 * @param max
+	 *            �?大随机数
+	 * @return
+	 */
+
+	public static int rand(int max) {
+		return random.nextInt(max + 1);
+	}
+
+	public static Date getStringDate(String sdate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+		sdf.setLenient(false);
+
+		Date ddate = null;
+		try {
+			ddate = sdf.parse(sdate);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ddate;
 	}
 	
 	/**
-	 * 得到随机�?
-	 * @param max  �?大随机数
+	 * 去掉时间,留下年月日
+	 * 
+	 * @param d
 	 * @return
 	 */
-	
-	public static int rand(int max){
-		return random.nextInt(max+1);
+	@SuppressWarnings("deprecation")
+	public static String dateToString(Date d) {
+		if (d == null) {
+			return null;
+		}
+		return (1900 + d.getYear()) + "-" + (d.getMonth() + 1) + "-"
+				+ d.getDate();
+	}
+	/**
+	 * 去掉时间,留下时
+	 * 
+	 * @param d
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	public static String dateToStringH(Date d) {
+		if (d == null) {
+			return null;
+		}
+		return d.getHours()+"";
+	}
+	/**
+	 * 去掉时间,留下分
+	 * 
+	 * @param d
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	public static String dateToStringS(Date d) {
+		if (d == null) {
+			return null;
+		}
+		return d.getMinutes()+"";
 	}
 }

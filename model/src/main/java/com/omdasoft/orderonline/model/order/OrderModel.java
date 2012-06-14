@@ -11,6 +11,7 @@ public class OrderModel   implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;
+	private String rid;
 	private String code;
 	private String reserveTimeDate;
 	private int amountOfClient;
@@ -26,6 +27,14 @@ public class OrderModel   implements Serializable {
 	private String contactPersonName;
 	private String contactPersonSex;
 	
+
+	public String getRid() {
+		return rid;
+	}
+
+	public void setRid(String rid) {
+		this.rid = rid;
+	}
 
 	public String getOrderPersonPhone() {
 		return orderPersonPhone;

@@ -87,6 +87,12 @@ public class OrderDao extends BaseDao<Orders> {
 			param.put("orderStatus", vo.getOrderStatus());
 			fal=true;
 		}
+		if(vo.getCarteState()!=null)
+		{
+			eql.append(" AND o.carteState = :carteState "); 
+			param.put("carteState", vo.getCarteState());
+			fal=true;
+		}
 		if(!StringUtil.isEmptyString(vo.getCorpId()))
 		{
 			eql.append(" AND o.corporation.id = :corpId ");

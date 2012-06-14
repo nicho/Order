@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -16,6 +17,7 @@ import javax.ws.rs.Produces;
 import com.omdasoft.orderonline.model.order.DishcategoryReturnModel;
 import com.omdasoft.orderonline.model.order.DishesReturnModel;
 import com.omdasoft.orderonline.model.order.LoginReturnModel;
+import com.omdasoft.orderonline.model.order.OrderModel;
 import com.omdasoft.orderonline.model.order.OrderReturnModel;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
 import com.omdasoft.orderonline.service.dishes.DishesService;
@@ -258,5 +260,100 @@ public class CommonController {
     	else
     		orderService.addInvokeHistory("findDishes", new Date(), model.getFlag(),tokenid);
     	return model;
+    }
+    
+    /**
+     * 读取点菜状态为已点，待读订单
+     * @param tokenid
+     * @return
+     */
+    @GET
+    @Path("/unreadorderwithdish")
+    @Produces("application/json")
+    public OrderReturnModel findUnreadorderwithdish(@HeaderParam("tokenid") String tokenid){
+    	OrderReturnModel model= orderService.findUnreadorderwithdish(tokenid);
+    	if(model.getData()!=null)
+    		orderService.addInvokeHistory("findUnreadorderwithdish", new Date(),  "共获取"+model.getData().size()+"条数据",tokenid);
+    	else
+    		orderService.addInvokeHistory("findUnreadorderwithdish", new Date(), model.getFlag(),tokenid);
+    	return model;
+    }
+	/**
+	 * 修改订单点菜状态
+	 * @param tokenid
+	 * @param orderId
+	 * @param orderStatus
+	 * @return
+	 */
+    @POST
+    @Path("/handleorderdishstatus/{id}")
+    @Produces("application/json")
+    public UpdateOrderReturnModel updatehandleorderdishstatus(@HeaderParam("tokenid") String tokenid,@PathParam("id") String id, @HeaderParam("status") String status){
+    	
+		UpdateOrderReturnModel model= orderService.updatehandleorderdishstatus(tokenid,id, status);
+		orderService.addInvokeHistory("updatehandleorderdishstatus", new Date(), model.getFlag(),tokenid);
+		return model;
+   
+    }
+    
+    
+	/**
+	 * 上传订单
+	 * @param tokenid
+	 * @param orderrid
+	 * @return
+	 */
+    @POST
+    @Path("/uploadorder")
+    @Produces("application/json")
+    @Consumes("application/json")
+    public UpdateOrderReturnModel uploadorder(@HeaderParam("tokenid") String tokenid,OrderModel ordermodel){
+//    	 @HeaderParam("orderrid") String orderrid,
+// 		@HeaderParam("amountOfClient") String amountOfClient,@HeaderParam("code") String code,
+// 		@HeaderParam("contactPersonName") String contactPersonName,@HeaderParam("contactPersonPhone") String contactPersonPhone,
+// 		@HeaderParam("contactPersonSex") String contactPersonSex,@HeaderParam("favoriteRoom") String favoriteRoom,@HeaderParam("memo") String memo,
+// 		@HeaderParam("orderPersonName") String orderPersonName,@HeaderParam("orderPersonPhone") String orderPersonPhone,@HeaderParam("orderPersonSex") String orderPersonSex,
+// 		@HeaderParam("orderStatus") String orderStatus,@HeaderParam("placeOrderTime") String placeOrderTime,@HeaderParam("reserveTimeDate") String reserveTimeDate
+
+    	UpdateOrderReturnModel model= orderService.uploadorder(tokenid,ordermodel);
+		orderService.addInvokeHistory("uploadorder", new Date(), model.getFlag(),tokenid);
+		return model;
+   
+    }
+    
+    /**
+     * 读取已取消，待读订单
+     * @param tokenid
+     * @return
+     */
+    @GET
+    @Path("/cancelunreadorder")
+    @Produces("application/json")
+    public OrderReturnModel cancelunreadorder(@HeaderParam("tokenid") String tokenid){
+    	OrderReturnModel model= orderService.cancelunreadorder(tokenid);
+    	if(model.getData()!=null)
+    		orderService.addInvokeHistory("cancelunreadorder", new Date(),  "共获取"+model.getData().size()+"条数据",tokenid);
+    	else
+    		orderService.addInvokeHistory("cancelunreadorder", new Date(), model.getFlag(),tokenid);
+    	return model;
+    }
+    
+    
+	/**
+	 * 取消订单
+	 * @param tokenid
+	 * @param orderId
+	 * @param orderStatus
+	 * @return
+	 */
+    @POST
+    @Path("/cancelorder/{id}")
+    @Produces("application/json")
+    public UpdateOrderReturnModel cancelorder(@HeaderParam("tokenid") String tokenid,@PathParam("id") String id){
+    	
+		UpdateOrderReturnModel model= orderService.cancelorder(tokenid,id);
+		orderService.addInvokeHistory("cancelorder", new Date(), model.getFlag(),tokenid);
+		return model;
+   
     }
 }

@@ -50,65 +50,11 @@
 				<!-- 页尾 -->
 				<div class="{new2.footer} ">
 					<div class="{new2.footer-nav}">
-						<a href="#" target="blank" rel="nofollow">关于我们</a>
-						|
-						<a href="#" target="blank" rel="nofollow">广告服务</a>
-						|
-						<a href="#" target="blank">网站地图</a>
-						|
-						<a href="#" target="blank" rel="nofollow">联系我们</a>
-						|
-						<a href="#" target="blank" rel="nofollow">诚招英才</a>
-						|
-						<a href="#" target="blank" rel="nofollow">地区合作</a>
-						|
-						<a href="#" target="blank" rel="nofollow">友情链接</a>
-						|
-						<a href="#" target="blank" rel="nofollow">版权声明</a>
-						|
-						<a href="#" target="blank" rel="nofollow">隐私保护</a>
-						|
-						<a href="#" target="blank" rel="nofollow">媒体报道</a>
-						|
-						<a href="#" target="blank" rel="nofollow">帮助中心</a>
-						|
-						<a href="#" target="blank" rel="nofollow">客户投诉</a>
-
+				
+						www.OMDASOFT.com Copyright 2012, All Rights Reserved
 
 					</div>
-					<div class="{new2.copyright}">
-						<div class="{new2.left-logos}">
-							<a
-								href="#"
-								target="blank">
-								<img alt="备案信息" src="/app/www/images/gongs.gif" />
-								网站备案信息
-							</a>
-						</div>
-						<div class="{new2.right-logos">
-
-
-							<p>
-								<a
-									href="#"
-									target="blank">
-									<img alt="商务部信用认证" src="/app/www/images/logo-BCP.jpg" />
-									商务部信用认证
-								</a>
-							</p>
-							<p>
-								<a href="#"
-									target="blank" rel="nofollow">
-									<img alt="信息安全等级保护" src="/app/www/images/security.gif" />
-									信息安全等级保护
-								</a>
-							</p>
-
-						</div>
-						全国免费订餐电话：xxxxxxxx   餐厅预订
-						<br>Copyright 2003-2012, 版权所有xxxxxx 京ICP证xxxx号
-							声明：本站所登内容未经许可严禁转载</br>
-					</div>
+					
 				</div>
 
 			</div>

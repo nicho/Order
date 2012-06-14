@@ -17,6 +17,7 @@ public class OrderListCriteria implements Serializable {
 	private SortingDetail sortingDetail = new SortingDetail();
 
 	private OrderStatus orderStatus;
+	private CarteState carteState;
 	private boolean deleted;
 	private String phone;
 	private String phoneorName;
@@ -29,6 +30,14 @@ public class OrderListCriteria implements Serializable {
 	private boolean notDept;
 	
 
+
+	public CarteState getCarteState() {
+		return carteState;
+	}
+
+	public void setCarteState(CarteState carteState) {
+		this.carteState = carteState;
+	}
 
 	public boolean isNotDept() {
 		return notDept;
