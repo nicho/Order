@@ -207,7 +207,8 @@ private void initBookingTableColumns() {
 
 		});
 		
-		
+		final int x=display.getBookingPanel().getAbsoluteLeft();
+		final int y=display.getBookingPanel().getAbsoluteTop();
 		cellBookingTable.addColumn("口味", new SelectHyperLinkCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override
@@ -220,7 +221,7 @@ private void initBookingTableColumns() {
 					public void update(final int index, BookingDishesClient o, String value) {
 						
 						final kwDialog dialog = kwDialogProvider.get();
-						dialog.initKW(kwlt);
+						dialog.initKW(kwlt,value);
 						
 						final AlertErrorWidget ae = new AlertErrorWidget();
 						final DialogBox dialogBoxae = new DialogBox();
@@ -257,11 +258,14 @@ private void initBookingTableColumns() {
 						dialogBoxae.setAnimationEnabled(true);
 						dialogBoxae.setWidth("100px");
 						dialogBoxae.setText("口味");
-						dialogBoxae.center();
+	
+						dialogBoxae.setPopupPosition(x+600, y+(index*30));
+//						dialogBoxae.center();
 						dialogBoxae.show();
 					}
 
 			} );
+		
 		cellBookingTable.addColumn("价格", new TextCell(),
 				new GetValue<BookingDishesClient, String>() {
 					@Override

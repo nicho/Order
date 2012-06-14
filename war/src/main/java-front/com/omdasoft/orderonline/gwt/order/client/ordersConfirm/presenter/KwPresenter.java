@@ -9,7 +9,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 
 public interface KwPresenter extends
 		DialogPresenter<KwPresenter.KwDisplay> {
-	public void initKw(List<String> kwlt);
+	public void initKw(List<String> kwlt,String value);
 	public List<String> getkwlt();
 	public static interface KwDisplay extends Display {
 		

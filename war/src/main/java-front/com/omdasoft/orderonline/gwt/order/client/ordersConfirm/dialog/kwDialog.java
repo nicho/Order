@@ -41,9 +41,9 @@ public class kwDialog extends AbstractDialog {
 		presenter.unbind();
 		return true;
 	}
-	public void initKW(List<String> kwlt)
+	public void initKW(List<String> kwlt,String value)
 	{
-		presenter.initKw(kwlt);	
+		presenter.initKw(kwlt,value);	
 	}
 	public KwPresenter getPresenter()
 	{

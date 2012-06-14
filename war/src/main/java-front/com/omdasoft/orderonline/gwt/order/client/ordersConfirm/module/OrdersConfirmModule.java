@@ -19,8 +19,8 @@ public class OrdersConfirmModule extends AbstractGinModule {
 		bind(OrdersConfirmPresenter.class).to(OrdersConfirmPresenterImpl.class).in(Singleton.class);
 		bind(OrdersConfirmDisplay.class).to(OrdersConfirmWidget.class).in(Singleton.class);
 		
-		bind(KwPresenter.class).to(KwPresenterImpl.class).in(Singleton.class);
-		bind(KwDisplay.class).to(KwWidget.class).in(Singleton.class);
+		bind(KwPresenter.class).to(KwPresenterImpl.class);
+		bind(KwDisplay.class).to(KwWidget.class);
 
 	}
 

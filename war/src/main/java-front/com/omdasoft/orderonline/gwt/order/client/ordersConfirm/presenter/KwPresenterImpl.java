@@ -38,17 +38,25 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 	}
 
 	@Override
-	public void initKw(List<String> kwlt) {
+	public void initKw(List<String> kwlt,String value) {
 		display.getCheckBoxPanel().clear();
 		selectKw.clear();
 		
 		for (final String kw:kwlt) {
-			CheckBox cb=new CheckBox(kw);
+			final CheckBox cb=new CheckBox(kw);
+			if(value.indexOf(kw)!=-1)
+			{
+				cb.setValue(true);
+				selectKw.add(kw);
+			}
 			cb.addClickHandler(new ClickHandler() {
 				
 				@Override
 				public void onClick(ClickEvent event) {
-					selectKw.add(kw);
+					if(cb.getValue())
+						selectKw.add(kw);
+					else
+						selectKw.remove(kw);
 					
 				}
 			});
