@@ -66,8 +66,8 @@ public class SelectHyperLinkCell extends AbstractSafeHtmlCell<String> {
 			if (data != null) {
 				sb.appendHtmlConstant(data);
 			}
-			sb.appendHtmlConstant("<a style=\"color:bule;float: right;\" href=\"javascript:void(0);\">修改");
-			sb.appendHtmlConstant("</a>");
+			sb.appendHtmlConstant("<img src='elt/images/mmexport.jpg'>");
+			sb.appendHtmlConstant("</img>");
 	  }
 	  @Override
 	  protected void onEnterKeyDown(Context context, Element parent, String value,
