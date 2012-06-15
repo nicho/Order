@@ -8,6 +8,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class DishesDetailedPresenterImpl extends	BaseDialogPresenter<DishesDetailedPresenter.DishesDetailedDisplay> implements	DishesDetailedPresenter {
 
@@ -38,6 +39,7 @@ public class DishesDetailedPresenterImpl extends	BaseDialogPresenter<DishesDetai
 		display.setName(name);
 		display.setPrice(prices);
 		display.setDescription(description);
+		if(!StringUtil.isEmpty(photo))
 		display.setPhoto(photo);
 		
 	}

@@ -40,7 +40,7 @@
 								</dt>
 								<dd>
 								图片：
-									<g:Image ui:field="photo" pixelSize="500,300" width="500" height="300" />
+									<g:Image ui:field="photo" pixelSize="500,300" width="500" height="300" url="elt/images/gift.png" />
 								</dd>
 							</dl>
 														<dl>

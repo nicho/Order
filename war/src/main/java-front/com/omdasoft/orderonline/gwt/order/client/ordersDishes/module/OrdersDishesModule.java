@@ -19,8 +19,8 @@ public class OrdersDishesModule extends AbstractGinModule {
 		bind(OrdersDishesPresenter.class).to(OrdersDishesPresenterImpl.class).in(Singleton.class);
 		bind(OrdersDishesDisplay.class).to(OrdersDishesWidget.class).in(Singleton.class);
 		
-		bind(DishesDetailedPresenter.class).to(DishesDetailedPresenterImpl.class).in(Singleton.class);
-		bind(DishesDetailedDisplay.class).to(DishesDetailedWidget.class).in(Singleton.class);
+		bind(DishesDetailedPresenter.class).to(DishesDetailedPresenterImpl.class);
+		bind(DishesDetailedDisplay.class).to(DishesDetailedWidget.class);
 	}
 
 }

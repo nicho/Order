@@ -118,6 +118,7 @@ public class OrdersLoginPresenterImpl extends
 
 	@Override
 	public void rsDoLogin() {
+		if(!StringUtil.isEmpty(display.getPhone().getValue()))
 		doLogin();
 	}
 	
