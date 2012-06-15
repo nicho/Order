@@ -11,6 +11,7 @@ import com.google.gwt.cell.client.SelectionCell;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -219,7 +220,8 @@ private void initBookingTableColumns() {
 					
 					@Override
 					public void update(final int index, BookingDishesClient o, String value) {
-						
+						if(o.getTasteList()!=null && o.getTasteList().size()>0)
+						{
 						final kwDialog dialog = kwDialogProvider.get();
 						dialog.initKW(o.getTasteList(),value);
 						
@@ -272,6 +274,12 @@ private void initBookingTableColumns() {
 //						dialogBoxae.center();
 						dialogBoxae.show();
 					}
+						else
+							Window.alert("无口味");		
+					}
+
+				
+						
 
 			} );
 		

@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesC
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.service.order.OrderService;
 
@@ -71,11 +72,23 @@ public class OrderLoginActionHandler extends
 							r.setName(dishe.getDishes().getName());
 							r.setUnitprice(dishe.getDishes().getPrice()+"");
 							r.setPrice((dishe.getDishes().getPrice()*dishe.getNumber()) +"");
+							
+							
+				    		  List<String> tasteLt=new ArrayList<String>();
+				    		  if(!StringUtil.isEmpty((dishe.getDishes().getTaste())))
+				    		  {
+				    			  String [] arrtasts=dishe.getDishes().getTaste().split(",");
+				    			  for (int i = 0; i < arrtasts.length; i++) {
+				    				  tasteLt.add(arrtasts[i]);
+								 }
+				    		  }
+							 r.setTasteList(tasteLt);
 						}						
 						
 						r.setUnit(dishe.getUnit());
 						r.setTaste(dishe.getTaste());
 						r.setNumber(dishe.getNumber());
+						
 						dishesList.add(r);
 					}
 				rep.setBookingDishesList(dishesList);
