@@ -39,7 +39,7 @@ public class DishesDetailedWidget extends Composite implements
 		this.price.setText(price);
 		this.description.setText(description);
 		if(!StringUtil.isEmpty(photo))
-		this.photo.setUrl(Elt.GWT_IMAGE_PATH + photo);
+		this.photo.setUrl(StringUtil.getCompleteImageUrl(photo));
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class DishesDetailedWidget extends Composite implements
 
 	@Override
 	public void setPhoto(String text) {
-		this.photo.setUrl(Elt.GWT_IMAGE_PATH + text);
+		this.photo.setUrl(StringUtil.getCompleteImageUrl(text));
 
 	}
 

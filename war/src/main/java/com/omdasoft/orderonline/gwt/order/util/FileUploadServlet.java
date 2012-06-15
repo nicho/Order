@@ -2,8 +2,8 @@ package com.omdasoft.orderonline.gwt.order.util;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,6 +19,7 @@ import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +59,7 @@ public class FileUploadServlet extends HttpServlet {
 				FileItemStream item = iter.next();
 				String name = item.getFieldName();
 				InputStream stream = item.openStream();
+		
 				if (item.isFormField()) {
 					info = "Form field " + name + " with value "
 							+ Streams.asString(stream) + " detected.";
@@ -67,10 +69,11 @@ public class FileUploadServlet extends HttpServlet {
 					finishPrintResponseMsg(response, responseMessage);
 					return;
 				} else {
-					BufferedInputStream inputStream = new BufferedInputStream(
-							stream);// 获得输入流
-
-					String uploadPath = getUploadPath(request, "upload");
+					byte[] bytes = IOUtils.toByteArray(stream);
+//					BufferedInputStream inputStream = new BufferedInputStream(bytes);// 获得输入流
+					
+					
+					String uploadPath = getUploadPath(request, "upload/"+request.getParameter("corpid"));
 					if (uploadPath != null) {
 						String fileName = getOutputFileName(item);
 						String outputFilePath = getOutputFilePath(uploadPath,
@@ -79,17 +82,25 @@ public class FileUploadServlet extends HttpServlet {
 						int widthdist = 72;
 						int heightdist = 72;
 
-						widthdist = 200;
-						heightdist = 200;
+						widthdist = 144;
+						heightdist = 144;
 						
-						 BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(new File(outputFilePath)));// 获得文件输出流
-						 Streams.copy(inputStream, outputStream, true); //开始把文件写到你指定的上传文件夹
+						String uploadPathmin = getUploadPathMin(request, "upload/"+request.getParameter("corpid"));
+						String outputFilePathMin = getOutputFilePath(uploadPathmin,fileName);
+						
+						 FileOutputStream outputStream = new FileOutputStream(new File(outputFilePath));// 获得文件输出流
+						 
 //						 stream.close();
-
-						reduceImg(inputStream, outputFilePath, outputFilePath, widthdist, heightdist, 0);
-
+						 
+						 IOUtils.write(bytes, outputStream);
+//						Streams.copy(inputStream, outputStream, true); //开始把文件写到你指定的上传文件夹
+						 
+						reduceImg(new ByteArrayInputStream(bytes), outputFilePathMin, outputFilePathMin, widthdist, heightdist, 0);
+						
+						
+						 
 						stream.close();
-
+						
 						responseMessage.append("<result>").append("SUCCESS")
 								.append("</result>");
 						responseMessage.append("<info>");
@@ -140,7 +151,7 @@ public class FileUploadServlet extends HttpServlet {
 	 * 
 	 */
 	public  void reduceImg(InputStream inputStream, String outputFilePath,
-			String imgdist, int widthdist, int heightdist, int benchmark) {
+			String imgdist, int widthdist, int heightdist, int benchmark ) {
 		try {
 			// File srcfile = new File(srcFile);
 			// if (!srcfile.exists()) {
@@ -148,15 +159,16 @@ public class FileUploadServlet extends HttpServlet {
 			// }
 
 			boolean flag=true;
-			
+
+		
 			Image srcImage = javax.imageio.ImageIO.read(inputStream);
+			
 			if (srcImage!=null) {
 				int width = srcImage.getWidth(null);
 				int height = srcImage.getHeight(null);
 				if (width <= widthdist && height <= heightdist) {// 像素更小，直接上传
 					BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(new File(outputFilePath)));
-					Streams.copy(inputStream, outputStream, true);
-						
+					Streams.copy(inputStream, outputStream, true);			
 					flag=false;
 				}
 				
@@ -250,7 +262,37 @@ public class FileUploadServlet extends HttpServlet {
 		}
 		return uploadPath;
 	}
+	/**
+	 * @param uploadRootName
+	 *            上传图片目录
+	 * 
+	 * */
+	private static String getUploadPathMin(HttpServletRequest request,
+			String uploadRootName) {
+		String realPath = request.getSession().getServletContext()
+				.getRealPath("/");
+		String uploadPath = null;
+		// System.out.println("============realPath:" + realPath);
+		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
+		if (rootIndex < 0) {
+			rootIndex = realPath.indexOf("war");
+		}
 
+		if (rootIndex < 0) {
+			return null;
+		} else {
+			realPath = realPath.substring(0, rootIndex);
+
+			uploadPath = realPath + uploadRootName+"/thumb";
+			// System.out.println("============uploadPath:" + uploadPath);
+			File myFilePath = new File(uploadPath);
+			if (!myFilePath.exists()) {
+				myFilePath.mkdir();
+				System.out.println("创建图片上传文件夹：" + myFilePath);
+			}
+		}
+		return uploadPath;
+	}
 	private void finishPrintResponseMsg(HttpServletResponse response,
 			StringBuffer responseMessage) {
 		try {

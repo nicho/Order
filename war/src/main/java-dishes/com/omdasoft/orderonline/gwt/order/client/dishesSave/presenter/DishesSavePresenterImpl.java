@@ -12,7 +12,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteHandler;
 import com.google.inject.Inject;
-import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.presenter.BreadCrumbsPresenter;
 import com.omdasoft.orderonline.gwt.order.client.core.Platform;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.plugin.DishesListConstants;
@@ -80,7 +79,8 @@ public class DishesSavePresenterImpl extends
 								FindDishesResponse response) {
 							display.getName().setValue(response.getName());
 							display.getDescription().setValue(response.getDescription());
-							display.getGiftImage().setUrl(Elt.GWT_IMAGE_PATH+response.getPhoto());
+							if(!StringUtil.isEmpty(response.getPhoto()))
+							display.getGiftImage().setUrl(StringUtil.getThumbImageUrl(response.getPhoto()));
 							display.getGiftImage().setVisible(true);
 							display.getPhoto().setValue(response.getPhoto());
 							display.getPrice().setValue(response.getPrice());
@@ -118,7 +118,7 @@ public class DishesSavePresenterImpl extends
 						request.setName(display.getName().getValue());
 						request.setDescription(display.getDescription().getValue());
 						request.setDishesType(display.getDishesType().getValue(display.getDishesType().getSelectedIndex()));
-						request.setPhoto(display.getPhoto().getValue());
+						request.setPhoto(sessionManager.getSession().getCorporationId()+"/"+display.getPhoto().getValue());
 						request.setPrice(display.getPrice().getValue());
 						request.setStatus(display.getStatus());
 						request.setSession(sessionManager.getSession());
@@ -152,7 +152,7 @@ public class DishesSavePresenterImpl extends
 								System.out.println("==========="+display.getPhotoUpload());
 								
 								display.getGiftImage().setVisible(true);
-								display.getPhotoForm().setAction("fileupload");
+								display.getPhotoForm().setAction("fileupload?corpid="+sessionManager.getSession().getCorporationId());
 								display.getPhotoForm().submit();
 								display.setAddBtnDisable(false);
 							}
@@ -163,7 +163,7 @@ public class DishesSavePresenterImpl extends
 						new ClickHandler() {
 							@Override
 							public void onClick(ClickEvent arg0) {
-								display.getPhotoForm().setAction("fileupload");
+								display.getPhotoForm().setAction("fileupload?corpid="+sessionManager.getSession().getCorporationId());
 								display.getPhotoForm().submit();
 							}
 						}));
@@ -191,7 +191,7 @@ public class DishesSavePresenterImpl extends
 										if ("SUCCESS".equals(result)) {
 											display.getPhoto().setValue(info);
 											String giftImageUrl = "imageshow?imageName="
-													+ info;
+													+ info+"&corpid="+sessionManager.getSession().getCorporationId();
 											display.getGiftImage().setUrl(giftImageUrl);
 											display.setAddBtnDisable(true);
 										} else {

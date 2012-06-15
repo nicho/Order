@@ -3,6 +3,8 @@
  */
 package com.omdasoft.orderonline.gwt.order.util;
 
+import com.omdasoft.orderonline.gwt.order.client.Elt;
+
 /**
  * @author Cream
  * @since 0.2.0 2011-01-07
@@ -225,4 +227,27 @@ public class StringUtil {
 
         return valid;
 }
+    
+    public static String getCompleteImageUrl(String photo)
+    {
+		if(photo.indexOf("/")!=-1)
+		{
+			String corpid=photo.substring(0,photo.indexOf("/"));
+			String photoName=photo.substring(photo.indexOf("/")+1);
+			return Elt.GWT_IMAGE_PATH+corpid+"/"+photoName;
+		}
+		else
+		return Elt.GWT_IMAGE_PATH+"thumb/"+photo;
+    }
+    public static String getThumbImageUrl(String photo)
+    {
+		if(photo.indexOf("/")!=-1)
+		{
+			String corpid=photo.substring(0,photo.indexOf("/"));
+			String photoName=photo.substring(photo.indexOf("/")+1);
+			return Elt.GWT_IMAGE_PATH+corpid+"/thumb/"+photoName;
+		}
+		else
+			return Elt.GWT_IMAGE_PATH+"thumb/"+photo;
+    }
 }

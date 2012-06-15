@@ -11,7 +11,6 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Provider;
-import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.presenter.AwardShopLatticePresenter.AwardShopLatticeDisplay;
 import com.omdasoft.orderonline.gwt.order.client.login.presenter.AlertErrorWidget;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.dialog.DishesDetailedDialog;
@@ -48,7 +47,9 @@ public class AwardShopLatticeWidget extends Composite implements
 		this.integral.setText(integral);
 		
 		if(!StringUtil.isEmpty(photo))
-		this.photo.setUrl(Elt.GWT_IMAGE_PATH+photo);
+		{
+			this.photo.setUrl(StringUtil.getThumbImageUrl(photo));
+		}
 		if(id!=null)
 		{
 		exchangeBtn.addClickHandler(new ClickHandler() {

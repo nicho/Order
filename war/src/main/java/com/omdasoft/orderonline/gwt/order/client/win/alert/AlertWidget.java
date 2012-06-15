@@ -11,7 +11,7 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.omdasoft.orderonline.gwt.order.client.Elt;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class AlertWidget extends Composite implements
 		AlertPresenter.AlertDisplay {
@@ -52,7 +52,7 @@ public class AlertWidget extends Composite implements
 	@Override
 	public void setImage(String url) {
 		msg.clear();
-		msg.add(new Image(Elt.GWT_IMAGE_PATH+url));
+		msg.add(new Image(StringUtil.getCompleteImageUrl(url)));
 		
 	}
 }

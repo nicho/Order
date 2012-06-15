@@ -135,7 +135,7 @@ public class OrderViewPresenterImpl extends
 				new GetValue<OrderDishesListClient, String>() {
 					@Override
 					public String getValue(OrderDishesListClient dishes) {
-						return  "<img width='50px' height='50px' src='"+Elt.GWT_IMAGE_PATH+""+dishes.getPhoto()+"'>";
+						return  "<img width='50px' height='50px' src='"+StringUtil.getThumbImageUrl(dishes.getPhoto())+"'>";
 					}
 				});
 

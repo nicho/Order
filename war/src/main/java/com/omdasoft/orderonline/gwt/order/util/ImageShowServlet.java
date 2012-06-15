@@ -87,7 +87,7 @@ public class ImageShowServlet extends HttpServlet {
 			realPath = realPath.substring(0, rootIndex);
 		}
 		
-		uploadPath = realPath + "upload";
+		uploadPath = realPath + "upload/"+request.getParameter("corpid")+"/thumb";
 
 		return uploadPath;
 	}
