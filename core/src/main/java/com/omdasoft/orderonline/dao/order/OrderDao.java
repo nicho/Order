@@ -169,12 +169,16 @@ public class OrderDao extends BaseDao<Orders> {
 
 		return query;
 	}
-	
+	@SuppressWarnings("unchecked")
 	public Orders findByOrdersPhone(String phone) {
 		try {
-			return (Orders) getEm()
+			List<Orders> orderlt=getEm()
 					.createQuery("FROM Orders o WHERE (o.orderStatus =:status_a or o.orderStatus =:status_b) AND o.orderPerson.phone = :phone order by o.placeOrderTime desc")
-					.setParameter("status_a", OrderStatus.UNHANDLED).setParameter("status_b", OrderStatus.SUCCESS).setParameter("phone", phone).getSingleResult();
+					.setParameter("status_a", OrderStatus.UNHANDLED).setParameter("status_b", OrderStatus.SUCCESS).setParameter("phone", phone).getResultList();
+			 if(orderlt!=null && orderlt.size()>0)
+				 return orderlt.get(0);
+			 else
+				 return null;
 		} catch (NoResultException e) {
 			return null;
 		}
