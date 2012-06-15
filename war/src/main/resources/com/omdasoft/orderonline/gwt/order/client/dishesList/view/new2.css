@@ -60,6 +60,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .form .eline .line-info{padding-left:50px;display:block;}
 .form .err-info{padding-left:10px;color:#FF6666;}
 .form .gray{color:#999999;}
+.labelcss{    color: #777777;    font-size: 100%;    padding-left: 20px;    vertical-align: middle;}
 
 /*table*/
 .table caption{display:none;}

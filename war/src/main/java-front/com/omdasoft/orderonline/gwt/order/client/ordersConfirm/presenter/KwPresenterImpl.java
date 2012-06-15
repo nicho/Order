@@ -50,6 +50,7 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 			if(value.indexOf(kw)!=-1)
 			{
 				cb.getElement().getFirstChildElement().setClassName("cur");
+				cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
 				selectKw.add(kw);
 			}
 			cb.addClickHandler(new ClickHandler() {
@@ -60,11 +61,13 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 					{
 						selectKw.add(kw);
 						cb.getElement().getFirstChildElement().setClassName("cur");
+						cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
 					}
 					else
 					{
 						selectKw.remove(kw);
 						cb.getElement().getFirstChildElement().setClassName("");
+						cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("");
 					}
 				}
 			});
