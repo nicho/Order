@@ -1,7 +1,9 @@
 package com.omdasoft.orderonline.controller;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
+import java.util.Properties;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -14,6 +16,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
+import com.omdasoft.orderonline.gwt.order.server.login.ImageUrlActionHandler;
 import com.omdasoft.orderonline.model.order.DishcategoryReturnModel;
 import com.omdasoft.orderonline.model.order.DishesReturnModel;
 import com.omdasoft.orderonline.model.order.LoginReturnModel;
@@ -44,7 +47,13 @@ public class CommonController {
     	String tokenid=null;
     	if(model!=null && model.getData()!=null)
     	{
-    	model.getData().setUrl("http://www.cloudviewer.me/order/rest/service/");
+    		Properties properties = new Properties();
+    		try {
+    			properties.load(ImageUrlActionHandler.class	.getResourceAsStream("configuration.properties"));
+    			model.getData().setUrl(properties.getProperty("restUrl"));
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		}
     	tokenid=model.getData().getTokenid();
     	}
     	orderService.addInvokeHistory("loginUser", new Date(), model.getFlag(),tokenid);
