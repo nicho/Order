@@ -123,13 +123,12 @@ public class OrderDao extends BaseDao<Orders> {
 		
 		if(!StringUtil.isEmptyString(vo.getPhoneorName()))
 		{
-			eql.append(" AND (UPPER(o.orderPerson.phone) LIKE :keywords "
-					+ " OR UPPER(o.orderPerson.name) LIKE :keywords "
-					+ " OR UPPER(o.contactPerson.name) LIKE :keywords "
-					+ " OR UPPER(o.contactPerson.phone) LIKE :keywords "
-					+") ");
+			eql.append(" AND ( o.orderPerson.phone LIKE :keywords "
+					+ " OR o.orderPerson.name LIKE :keywords "
+					+" OR o.code LIKE :keywords "
+					+" ) ");
 			param.put("keywords", "%"
-					+ vo.getPhoneorName().trim().toUpperCase() + "%");
+					+ vo.getPhoneorName().trim() + "%");
 
 			fal=true;
 		}

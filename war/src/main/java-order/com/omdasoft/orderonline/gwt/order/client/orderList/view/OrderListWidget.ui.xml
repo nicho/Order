@@ -13,10 +13,10 @@
 			<!--查询条件 [[ -->
 			<div class="{new2.query-wrap}">
 				<div class="{new2.form}">
-					<label for="">订单状态:</label>
+					<label class="{new2.labelcss}">订单状态:</label>
 					<g:ListBox ui:field="staffStatus" styleName="{new2.select}" /> 
 					<span class="{new2.nbspbig}"></span> 
-					<label for="">订单编号或姓名:</label>
+					<label class="{new2.labelcss}">订单编号或姓名:</label>
 					<g:TextBox maxLength="30" ui:field="staffNameorNo" styleName="{new2.text2}" />
 					<span class="{new2.nbspbig}" ></span>
     <div class="main">
