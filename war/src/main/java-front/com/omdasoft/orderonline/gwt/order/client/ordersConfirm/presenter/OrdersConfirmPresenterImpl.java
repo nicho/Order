@@ -221,7 +221,7 @@ private void initBookingTableColumns() {
 					public void update(final int index, BookingDishesClient o, String value) {
 						
 						final kwDialog dialog = kwDialogProvider.get();
-						dialog.initKW(kwlt,value);
+						dialog.initKW(o.getTasteList(),value);
 						
 						final AlertErrorWidget ae = new AlertErrorWidget();
 						final DialogBox dialogBoxae = new DialogBox();
@@ -245,7 +245,16 @@ private void initBookingTableColumns() {
 									List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
 									BookingDishesClient xxx=cellBookingTable.getVisibleItem(index);
 									if(!StringUtil.isEmpty(strkw))
-									xxx.setTaste(strkw.substring(0,strkw.length()-1));
+										xxx.setTaste(strkw.substring(0,strkw.length()-1));
+									
+									lt.add(xxx);
+									cellBookingTable.setRowData(index,lt);
+								}
+								else
+								{
+									List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+									BookingDishesClient xxx=cellBookingTable.getVisibleItem(index);
+									xxx.setTaste("");
 									lt.add(xxx);
 									cellBookingTable.setRowData(index,lt);
 								}

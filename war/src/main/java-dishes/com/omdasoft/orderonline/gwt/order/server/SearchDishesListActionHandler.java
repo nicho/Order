@@ -92,6 +92,7 @@ public class SearchDishesListActionHandler extends
 				r.setPhoto(d.getPhoto());
 				r.setPrice(d.getPrice()+"");
 				r.setRid(d.getRid());
+				r.setTaste(d.getTaste());
 				result.add(r);
 				indexNo++;
 			}

@@ -1,5 +1,6 @@
 package com.omdasoft.orderonline.gwt.order.client.dishesSave.presenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
@@ -14,6 +15,10 @@ import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteHandler;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.presenter.BreadCrumbsPresenter;
 import com.omdasoft.orderonline.gwt.order.client.core.Platform;
+import com.omdasoft.orderonline.gwt.order.client.dictionaryList.model.DictionaryListClient;
+import com.omdasoft.orderonline.gwt.order.client.dictionaryList.model.DictionaryListCriteria;
+import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListRequest;
+import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.plugin.DishesListConstants;
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.request.DishesSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.request.DishesSaveResponse;
@@ -27,6 +32,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
+import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
@@ -40,7 +46,7 @@ public class DishesSavePresenterImpl extends
 	private final SessionManager sessionManager;
 	private final Win win;
 	final ErrorHandler errorHandler;
-
+	List<String> selectKw=new ArrayList<String>();
 	private final BreadCrumbsPresenter breadCrumbs;
 	String dishesId=null;
 	@Inject
@@ -61,6 +67,7 @@ public class DishesSavePresenterImpl extends
 		{
 			breadCrumbs.loadChildPage("添加");
 			display.hiddenRid();
+			initKw(null);
 		}
 		else 
 		{
@@ -96,6 +103,14 @@ public class DishesSavePresenterImpl extends
 									}
 								}
 							}
+							if(!StringUtil.isEmpty(response.getTaste()))
+							{
+								initKw(response.getTaste());
+							}
+							else
+							{
+								initKw(null);
+							}
 							
 						}
 
@@ -118,10 +133,18 @@ public class DishesSavePresenterImpl extends
 						request.setName(display.getName().getValue());
 						request.setDescription(display.getDescription().getValue());
 						request.setDishesType(display.getDishesType().getValue(display.getDishesType().getSelectedIndex()));
-						request.setPhoto(sessionManager.getSession().getCorporationId()+"/"+display.getPhoto().getValue());
+						request.setPhoto(display.getPhoto().getValue());
 						request.setPrice(display.getPrice().getValue());
 						request.setStatus(display.getStatus());
 						request.setSession(sessionManager.getSession());
+						if(selectKw!=null && selectKw.size()>0)
+						{
+							String kwStr="";
+							for (int i = 0; i < selectKw.size(); i++) {
+								kwStr+=selectKw.get(i)+",";
+							}
+							request.setTaste(kwStr.substring(0,kwStr.length()-1));
+						}
 						dispatch.execute(request,
 								new AsyncCallback<DishesSaveResponse>() {
 									@Override
@@ -189,7 +212,7 @@ public class DishesSavePresenterImpl extends
 										String info=XmlUtil_GWT.getNormalNodeText(eventResults, "<info>", "</info>");
 												
 										if ("SUCCESS".equals(result)) {
-											display.getPhoto().setValue(info);
+											display.getPhoto().setValue(sessionManager.getSession().getCorporationId()+"/"+info);
 											String giftImageUrl = "imageshow?imageName="
 													+ info+"&corpid="+sessionManager.getSession().getCorporationId();
 											display.getGiftImage().setUrl(giftImageUrl);
@@ -239,5 +262,73 @@ public class DishesSavePresenterImpl extends
 	public void initDishes(String dishesId) {
 		this.dishesId=dishesId;
 	}
+	public void initKw(final String kwValue)
+	{
+		PaginationDetailClient pagination = new PaginationDetailClient();
+		pagination.setStart(0);
+		pagination.setLimit(0);
+		
+		DictionaryListCriteria criteria = new DictionaryListCriteria();
+		criteria.setPagination(pagination);
+		criteria.setDictionaryType(0);
+//		criteria.setDeptId(request.getRestaurantId());
+		dispatch.execute(new SearchDictionaryListRequest(criteria, null), new AsyncCallback<SearchDictionaryListResponse>() {
+			@Override
+			public void onFailure(Throwable e) {
+				errorHandler.alert(e.getMessage());
+			}
 
+			@Override
+			public void onSuccess(SearchDictionaryListResponse response) {
+				List<DictionaryListClient> result=response.getResult();
+				if(result!=null && result.size()>0)
+				{
+					display.getCheckBoxPanel().clear();
+					selectKw.clear();
+					for (final DictionaryListClient cc:result) {
+						
+						if(cc.getDictionaryType()==1)
+						{
+								final MyAnchor cb=new MyAnchor(cc.getName());
+
+								
+								if(!StringUtil.isEmpty(kwValue) && kwValue.indexOf(cc.getName())!=-1)
+								{
+									cb.getElement().getFirstChildElement().setClassName("cur");
+									cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
+									selectKw.add(cc.getName());
+								}
+								cb.addClickHandler(new ClickHandler() {
+									
+									@Override
+									public void onClick(ClickEvent event) {	
+										if(!selectKw.contains(cc.getName()))
+										{
+											selectKw.add(cc.getName());
+											cb.getElement().getFirstChildElement().setClassName("cur");
+											cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
+										}
+										else
+										{
+											selectKw.remove(cc.getName());
+											cb.getElement().getFirstChildElement().setClassName("");
+											cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("");
+										}
+									}
+								});
+								display.getCheckBoxPanel().add(cb);
+							
+							
+							
+						}
+
+					}
+
+				}
+
+				
+			}
+
+		});
+	}
 }

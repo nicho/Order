@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -37,5 +38,6 @@ public void initDishes(String orderId);
 		void setRid(String text);
 		void hiddenRid();
 		void setAddBtnDisable(boolean fal);
+		Panel getCheckBoxPanel();
 	}
 }

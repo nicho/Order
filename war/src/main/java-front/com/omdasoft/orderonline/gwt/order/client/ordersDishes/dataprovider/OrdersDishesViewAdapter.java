@@ -1,5 +1,6 @@
 package com.omdasoft.orderonline.gwt.order.client.ordersDishes.dataprovider;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
@@ -19,6 +20,7 @@ import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDi
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> {
 
@@ -85,7 +87,16 @@ public class OrdersDishesViewAdapter extends BaseDataProvider<DishesListClient> 
 				    	  if(index<giftList.size())	
 				    	  {
 				    		  DishesListClient clint=giftList.get(index);
-				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"",clint.getDescription(),clint.getPhoto(),clint.getId(),display,ordersDishesPresenter,dishesDetailedDialogProvider).asWidget());
+				    		  List<String> tasteLt=new ArrayList<String>();
+				    		  if(!StringUtil.isEmpty(clint.getTaste()))
+				    		  {
+				    			  String [] arrtasts=clint.getTaste().split(",");
+				    			  for (int i = 0; i < arrtasts.length; i++) {
+				    				  tasteLt.add(arrtasts[i]);
+								 }
+				    		  }
+				    		  
+				    		  grid.setWidget(row, col,new AwardShopLatticeWidget(clint.getName(),clint.getPrice()+"",clint.getDescription(),clint.getPhoto(),clint.getId(),display,ordersDishesPresenter,dishesDetailedDialogProvider,tasteLt).asWidget());
 				    	  	  index++;
 				    	  }
 				    	  else

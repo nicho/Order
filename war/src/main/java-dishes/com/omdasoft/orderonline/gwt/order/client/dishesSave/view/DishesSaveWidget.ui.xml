@@ -74,7 +74,26 @@
 							<g:RadioButton ui:field="status2" name="status">已停售</g:RadioButton>
 						</div>
 					</div>
-
+				<div class="{new2.form-line}">
+						<label class="{new2.label2}"><span style="color:red"></span>口味：</label>
+						<div class="{new2.element}">
+												<div class="chooseBox2 mb10">
+													<div id="J-getWap" class="getWap">
+														<div class="getParam">
+															
+															<dl>
+																<dd>
+																	<g:FlowPanel ui:field="checkBoxPanel" />
+									
+																</dd>
+															</dl>
+															<div class="clear"></div>
+														</div>
+									
+													</div>
+												</div>
+						</div>
+					</div>
 					<span class="{new2.cutline}"></span>
 					<div class="{new2.form-line} {new2.form-line-btn}">
 						<div class="{new2.element}">

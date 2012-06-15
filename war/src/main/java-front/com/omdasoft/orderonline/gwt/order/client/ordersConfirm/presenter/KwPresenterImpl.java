@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> implements	KwPresenter {
 
@@ -41,13 +42,14 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 	public void initKw(List<String> kwlt,String value) {
 		display.getCheckBoxPanel().clear();
 		selectKw.clear();
-		
+		if(kwlt!=null && kwlt.size()>0)
+		{
 		for (final String kw:kwlt) {
 			
 			final MyAnchor cb=new MyAnchor(kw);
 
 			
-			if(value.indexOf(kw)!=-1)
+			if(!StringUtil.isEmpty(value) && value.indexOf(kw)!=-1)
 			{
 				cb.getElement().getFirstChildElement().setClassName("cur");
 				cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
@@ -73,7 +75,7 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 			});
 			display.getCheckBoxPanel().add(cb);
 		}
-		
+		}
 	}
 
 	@Override

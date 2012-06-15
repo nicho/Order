@@ -25,6 +25,18 @@ public class DishesSaveRequest implements Action<DishesSaveResponse> {
 	private String photo;	
 	private String price;
 	private int status;
+	private String taste;
+
+	public String getTaste() {
+		return taste;
+	}
+
+
+
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+
 
 
 	public int getStatus() {

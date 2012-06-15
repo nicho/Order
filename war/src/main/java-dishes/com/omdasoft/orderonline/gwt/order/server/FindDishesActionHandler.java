@@ -42,6 +42,7 @@ public class FindDishesActionHandler extends
 		rep.setPrice(dictionary.getPrice()+"");
 		rep.setStatus(dictionary.getStatus());
 		rep.setRid(dictionary.getRid());
+		rep.setTaste(dictionary.getTaste());
 		return rep;
 	}
 

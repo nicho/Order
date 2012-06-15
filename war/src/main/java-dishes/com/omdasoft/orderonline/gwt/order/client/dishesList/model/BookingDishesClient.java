@@ -1,6 +1,7 @@
 package com.omdasoft.orderonline.gwt.order.client.dishesList.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class BookingDishesClient implements Serializable, Comparable<BookingDishesClient> {
 
@@ -16,7 +17,14 @@ public class BookingDishesClient implements Serializable, Comparable<BookingDish
 	private String taste;	
 	private String price;
 	private String unitprice;
+	private List<String> tasteList;
 	
+	public List<String> getTasteList() {
+		return tasteList;
+	}
+	public void setTasteList(List<String> tasteList) {
+		this.tasteList = tasteList;
+	}
 	public String getUnitprice() {
 		return unitprice;
 	}

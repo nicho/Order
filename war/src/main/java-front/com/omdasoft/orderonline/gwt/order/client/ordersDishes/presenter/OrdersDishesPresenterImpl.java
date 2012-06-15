@@ -674,7 +674,7 @@ public class OrdersDishesPresenterImpl extends
 //	}
 
 	@Override
-	public void updateDishesList(String id,String name,String price) {
+	public void updateDishesList(String id,String name,String price,List<String> tasteList) {
 		if( injector.getOrderManager().getOrderRequest()==null || injector.getOrderManager().getOrderRequest().getOrderPersonPhone()==null)
 		{
 			injector.getOrderIndexPresenter().initPresenter(injector.getOrderLoginPresenter());
@@ -710,10 +710,11 @@ public class OrdersDishesPresenterImpl extends
 				col.setNumber(1);
 				col.setPrice(price);
 				col.setUnitprice(price);
-				if(kwlt.size()>0)
-				col.setTaste(kwlt.get(0));
-				if(dwlt.size()>0)
-				col.setUnit(dwlt.get(0));
+				col.setTasteList(tasteList);
+//				if(kwlt.size()>0)
+//				col.setTaste(kwlt.get(0));
+//				if(dwlt.size()>0)
+//				col.setUnit(dwlt.get(0));
 
 				
 				List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
@@ -732,10 +733,11 @@ public class OrdersDishesPresenterImpl extends
 			col.setNumber(1);
 			col.setPrice(price);
 			col.setUnitprice(price);
-			if(kwlt.size()>0)
-			col.setTaste(kwlt.get(0));
-			if(dwlt.size()>0)
-			col.setUnit(dwlt.get(0));
+			col.setTasteList(tasteList);
+//			if(kwlt.size()>0)
+//			col.setTaste(kwlt.get(0));
+//			if(dwlt.size()>0)
+//			col.setUnit(dwlt.get(0));
 			List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
 			for (int i = 0; i < cellBookingTable.getVisibleItems().size(); i++) {
 					lt.add(cellBookingTable.getVisibleItems().get(i));

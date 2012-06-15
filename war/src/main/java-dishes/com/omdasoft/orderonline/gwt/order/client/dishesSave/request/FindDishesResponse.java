@@ -16,6 +16,15 @@ public class FindDishesResponse implements Result {
 	private String price;
 	private int status;
 	private String rid;
+	private String taste;
+	
+	public String getTaste() {
+		return taste;
+	}
+
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
 
 	public String getRid() {
 		return rid;

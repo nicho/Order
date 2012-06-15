@@ -53,6 +53,8 @@ public class DishesSaveWidget extends Composite implements DishesSaveDisplay {
 	Panel breadCrumbs;
 	@UiField
 	InlineLabel rid;
+	@UiField
+	Panel checkBoxPanel;
 	
 	private static DishesSaveWidgetUiBinder uiBinder = GWT
 			.create(DishesSaveWidgetUiBinder.class);
@@ -158,6 +160,11 @@ public class DishesSaveWidget extends Composite implements DishesSaveDisplay {
 	public void setAddBtnDisable(boolean fal) {
 		addBtn.setEnabled(fal);
 		
+	}
+
+	@Override
+	public Panel getCheckBoxPanel() {
+		return checkBoxPanel;
 	}
 
 	

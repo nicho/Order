@@ -45,6 +45,7 @@ public class DishesSaveActionHandler extends
 		vo.setPhoto(action.getPhoto());
 		vo.setPrice(Double.parseDouble(action.getPrice()));
 		vo.setStatus(action.getStatus());
+		vo.setTaste(action.getTaste());
 		if(!StringUtil.isEmptyString(action.getDishesType()))
 			vo.setDishesType(dishesService.findDishesTypeById(action.getDishesType()));
 		dishesService.saveDishes(u, vo);

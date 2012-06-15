@@ -13,7 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
 
 public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.OrdersDishesDisplay> {
-	public void updateDishesList(String id,String name,String price);
+	public void updateDishesList(String id,String name,String price,List<String> tasteList);
 
 	public void initDishesList(List<BookingDishesClient> dishesList);
 	public void refulDishes(String typeId);

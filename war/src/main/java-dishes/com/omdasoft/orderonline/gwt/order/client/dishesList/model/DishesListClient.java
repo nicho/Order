@@ -17,7 +17,14 @@ public class DishesListClient implements Serializable, Comparable<DishesListClie
 	private String photo;	
 	private String price;
 	private String indexNo;
+	private String taste;
 	
+	public String getTaste() {
+		return taste;
+	}
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
 	public String getIndexNo() {
 		return indexNo;
 	}

@@ -1,5 +1,7 @@
 package com.omdasoft.orderonline.gwt.order.client.awardShopLattice.view;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -41,7 +43,7 @@ public class AwardShopLatticeWidget extends Composite implements
 	public AwardShopLatticeWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	public AwardShopLatticeWidget(final String awardName,final String integral,final String indate,final String photo,final String id,final OrdersDishesDisplay display,final OrdersDishesPresenter ordersDishesPresenter,final Provider<DishesDetailedDialog> dishesDetailedDialogProvider) {
+	public AwardShopLatticeWidget(final String awardName,final String integral,final String indate,final String photo,final String id,final OrdersDishesDisplay display,final OrdersDishesPresenter ordersDishesPresenter,final Provider<DishesDetailedDialog> dishesDetailedDialogProvider,final List<String> tasteList) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.awardName.setText(awardName);
 		this.integral.setText(integral);
@@ -56,7 +58,7 @@ public class AwardShopLatticeWidget extends Composite implements
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				ordersDishesPresenter.updateDishesList(id, awardName, integral);
+				ordersDishesPresenter.updateDishesList(id, awardName, integral,tasteList);
 			}
 		});
 		this.awardName.addClickHandler(new ClickHandler() {
