@@ -3,10 +3,27 @@
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<ui:style src="new3.css" field="new2"></ui:style>
 	<g:HTMLPanel>
-			<div class="{new2.box}">
+		<div class="{new2.box}">
 			<div class="{new2.box-context}">
 				<div class="{new2.box-info}">
-						<g:FlowPanel ui:field="checkBoxPanel" />
+				
+					<div class="chooseBox2 mb10">
+						<div id="J-getWap" class="getWap">
+							<div class="getParam">
+								<span>口味：</span>
+
+								<dl>
+									<dd>
+										<g:FlowPanel ui:field="checkBoxPanel" />
+
+									</dd>
+								</dl>
+								<div class="clear"></div>
+							</div>
+
+						</div>
+					</div>
+
 				</div>
 				<div class="{new2.box-tools}">
 					<g:Button ui:field="buttonSelect" text="确定" styleName="{new2.box-btn-ok}" />

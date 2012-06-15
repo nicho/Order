@@ -2214,7 +2214,7 @@ ul.token-input-list-facebook3 li input {
     color: #0055AA;
 }
 .chooseBox .getBrand .multi a:hover {
-    color: #FF6600;
+ chooseBox #FF6600;
     text-decoration: none;
 }
 .chooseBox .getBrand .exit {
@@ -5916,3 +5916,681 @@ a.alink-popoo:hover {
 
 
 
+
+
+
+
+
+
+
+
+
+
+.chooseBox2 {
+ 
+    width: 350px;
+}
+.chooseBox2 .theadWap {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") repeat-x scroll 0 -220px transparent;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+}
+.chooseBox2 .theadWap .theadL {
+    float: left;
+    height: 30px;
+    margin: -1px 0 0 -1px;
+    position: relative;
+}
+.chooseBox2 .theadWap .theadL i {
+    float: left;
+    padding: 0 15px;
+}
+.chooseBox2 .theadWap .theadL i.cur {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -254px transparent;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #E7E7E7;
+    font-weight: 800;
+}
+.chooseBox2 .theadWap .theadL .icon {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -453px -288px transparent;
+    float: left;
+    height: 20px;
+    width: 12px;
+}
+.chooseBox2 .theadWap .theadLine {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -420px transparent;
+    float: left;
+    height: 29px;
+    margin-left: -3px;
+    overflow: hidden;
+    width: 2px;
+}
+.chooseBox2 .theadWap .theadR {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll left -421px transparent;
+    float: right;
+    line-height: 29px;
+    width: 74px;
+}
+.chooseBox2 .theadWap .theadR i.showTab {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -446px -390px transparent;
+    color: #333333;
+    cursor: pointer;
+    float: left;
+    height: 29px;
+    padding-left: 18px;
+    width: 54px;
+}
+.chooseBox2 .theadWap .theadR i.hiddTab {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -446px -369px transparent;
+    color: #333333;
+    cursor: pointer;
+    float: left;
+    height: 29px;
+    padding-left: 18px;
+    width: 54px;
+}
+.chooseBox2 .theadWap .theadR i a:hover {
+    text-decoration: none;
+}
+.chooseBox2 .getWap {
+    margin-top: -1px;
+    position: relative;
+    width: 788px;
+
+}
+.chooseBox2 .allBrand {
+    float: right;
+    height: 24px;
+    margin-bottom: -32px;
+    padding: 8px 5px 0 0;
+    position: relative;
+}
+.chooseBox2 .allBrand a {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -147px -289px transparent;
+    color: #333333;
+    float: right;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+    padding-left: 5px;
+    width: 64px;
+}
+.chooseBox2 .allBrand a:hover {
+    text-decoration: none;
+}
+.chooseBox2 .getParam {
+  
+    line-height: 18px;
+    margin: 0 10px;
+    padding: 7px 0 2px;
+    width: 350px;
+}
+.chooseBox2 .getParam span {
+    color: #777777;
+    float: left;
+    height: 18px;
+    overflow: hidden;
+    text-align: right;
+
+}
+.chooseBox2 .getParam em.all {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -62px -592px transparent;
+
+    overflow: hidden;
+    width: 43px;
+}
+.chooseBox2 .getParam em.all a {
+    color: #0055AA;
+
+    height: 18px;
+    text-align: center;
+   
+}
+.chooseBox2 .getParam em.all a:hover {
+    background-color: #FEE8DA;
+    color: #FF6600;
+    text-decoration: none;
+}
+.chooseBox2 .getParam em.cur a {
+    background: none repeat scroll 0 0 #FF6600;
+    color: #FFFFFF;
+}
+.chooseBox2 .getParam em.cur a:hover {
+    background: none repeat scroll 0 0 #FF6600;
+    color: #FFFFFF;
+}
+.chooseBox2 .getParam dl {
+
+    width: 640px;
+}
+.chooseBox2 .getParam dd.less {
+    height: 24px;
+    overflow: hidden;
+}
+.chooseBox2 .getParam dd i {
+    float: left;
+    height: 24px;
+    white-space: nowrap;
+}
+.chooseBox2 .getParam dd i a {
+    color: #0055AA;
+    float: left;
+    height: 18px;
+    margin-right: 18px;
+    padding: 1px 3px 0;
+}
+.chooseBox2 .getParam dd i a:hover {
+    background-color: #FEE8DA;
+    color: #FF6600;
+    text-decoration: none;
+}
+.chooseBox2 .getParam dd i a.null {
+    color: #777777;
+}
+.chooseBox2 .getParam dd i a.null:hover {
+    background: none repeat scroll 0 0 transparent;
+    cursor: text;
+}
+.chooseBox2 .getParam dd i a.cur, .chooseBox2 .getParam dd i a.cur:hover {
+    background-color: #FF6600;
+    color: #FFFFFF;
+    margin-right: 4px;
+    padding-right: 17px;
+    position: relative;
+}
+.chooseBox2 .getParam dd i a.cur em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -87px -562px transparent;
+    cursor: pointer;
+    display: inline-block;
+    height: 13px;
+    position: absolute;
+    right: 2px;
+    top: 3px;
+    width: 13px;
+}
+.chooseBox2 .getParam dd i a.cur:hover em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -578px transparent;
+}
+.chooseBox2 .getParam dd i.on a.cur em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -578px transparent;
+}
+.chooseBox2 .getParam .moreitem {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -448px -495px transparent;
+    cursor: pointer;
+    float: right;
+    margin-top: -22px;
+    padding-left: 17px;
+    width: 35px;
+}
+.chooseBox2 .getParam .lessitem {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -448px -466px transparent;
+    cursor: pointer;
+    float: right;
+    margin-top: -22px;
+    padding-left: 17px;
+    width: 35px;
+}
+.chooseBox2 .getBrand dd {
+    width: 585px;
+}
+.chooseBox2 .getBrand .multi {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -449px -321px transparent;
+    cursor: pointer;
+    float: right;
+    margin-top: -22px;
+    padding-left: 17px;
+    width: 98px;
+}
+.chooseBox2 .getBrand .multi a {
+    color: #0055AA;
+}
+.chooseBox2 .getBrand .multi a:hover {
+    color: #FF6600;
+    text-decoration: none;
+}
+.chooseBox2 .getBrand .exit {
+    display: none;
+}
+.chooseBox2 .getMulti {
+    background: none repeat scroll 0 0 #FFFBF0;
+    border: 1px solid #FF9900;
+    margin: 0;
+    padding: 6px 9px 2px;
+}
+.chooseBox2 .getMulti dd i a.cur em, .chooseBox2 .getMulti dd i a.cur:hover em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -594px transparent;
+}
+.chooseBox2 .getMulti .exit {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -89px -575px transparent;
+    display: block;
+    float: right;
+    margin: -22px -5px 0 0;
+    padding-left: 13px;
+    position: relative;
+}
+.chooseBox2 .getMulti .exit a, .chooseBox2 .getMulti .exit a:hover {
+    color: #FF6600;
+    text-decoration: none;
+}
+.chooseBox2 .getMulti .multi {
+    display: none;
+}
+.chooseBox2 .allDiv {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 510px;
+    z-index: 20;
+}
+.chooseBox2 .allDiv .allTad {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #D4E5F9;
+    border-color: #003398 #003398 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    height: 21px;
+    margin-left: 440px;
+    margin-top: 0;
+    padding: 2px 2px 0;
+    position: relative;
+    width: 64px;
+}
+.chooseBox2 .allDiv .allTad a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    display: inline-block;
+    height: 21px;
+    line-height: 21px;
+    position: absolute;
+    text-align: center;
+    width: 64px;
+}
+.chooseBox2 .allDiv .allTad a:hover {
+    text-decoration: none;
+}
+.chooseBox2 .allDiv .allTad a em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -454px -403px transparent;
+    display: inline-block;
+    height: 7px;
+    margin-left: 3px;
+    width: 7px;
+}
+.chooseBox2 .allDiv .allFat {
+    background: none repeat scroll 0 0 #D4E5F9;
+    border: 1px solid #003398;
+    height: 224px;
+    margin-top: -1px;
+    overflow: hidden;
+    padding: 2px;
+    width: 504px;
+}
+.chooseBox2 .allDiv .allFat dl {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 224px;
+    overflow: auto;
+    width: 504px;
+}
+.chooseBox2 .allDiv .allFat dd {
+    float: left;
+    line-height: 24px;
+    padding: 3px 0;
+    width: 484px;
+}
+.chooseBox2 .allDiv .allFat dd span {
+    color: #767676;
+    float: left;
+    font-family: "微软雅黑","黑体";
+    font-size: 14px;
+    font-weight: 700;
+    height: 24px;
+    padding-left: 16px;
+    width: 28px;
+}
+.chooseBox2 .allDiv .allFat dd i {
+    float: right;
+    overflow: hidden;
+    width: 440px;
+}
+.chooseBox2 .allDiv .allFat dd a {
+    color: #0055AA;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    margin-right: 6px;
+    margin-top: 6px;
+    padding: 0 4px;
+}
+.chooseBox2 .allDiv .allFat dd a.null {
+    color: #777777;
+}
+.chooseBox2 .allDiv .allFat dd a.null:hover {
+    background: none repeat scroll 0 0 transparent;
+    color: #777777;
+}
+.chooseBox2 .allDiv .allFat dd a:hover {
+    background-color: #FEE8DA;
+    color: #FF6600;
+    text-decoration: none;
+}
+.chooseBox2 .allDiv .allFat dd.dat1 {
+    background: none repeat scroll 0 0 #FAFAFA;
+}
+.chooseBox2 .selfBtn {
+    float: left;
+    line-height: 20px;
+    position: relative;
+    z-index: 10;
+}
+.chooseBox2 .selfBtn .defBtn {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -87px -313px transparent;
+    border-right: 1px solid #CDCDCD;
+    color: #333333;
+    display: inline-block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 15px 0 6px;
+    position: relative;
+    white-space: nowrap;
+}
+.chooseBox2 .selfBtn .defBtn:hover {
+    color: #333333;
+    text-decoration: none;
+}
+.chooseBox2 .selfBtn .defBtn em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -454px -382px transparent;
+    height: 4px;
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    width: 7px;
+}
+.chooseBox2 .priceDiv {
+    left: -999px;
+    position: absolute;
+    top: -999px;
+}
+.chooseBox2 .pricePos {
+    left: -1px;
+    top: -3px;
+}
+.chooseBox2 .priceDiv .priceTad {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: none repeat scroll 0 0 #D4E5F9;
+    border-color: #003398 #003398 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px medium;
+    float: left;
+    height: 20px;
+    margin-top: -112px;
+    padding: 2px 2px 0;
+    position: relative;
+}
+.chooseBox2 .priceDiv .priceTad a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 0 none;
+    color: #333333;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 14px 0 4px;
+    white-space: nowrap;
+}
+.chooseBox2 .priceDiv .priceTad a:hover {
+    text-decoration: none;
+}
+.chooseBox2 .priceDiv .priceTad a em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -454px -403px transparent;
+    height: 4px;
+    position: absolute;
+    right: 6px;
+    top: 9px;
+    width: 7px;
+}
+.chooseBox2 .priceDiv .priceFat {
+    background: none repeat scroll 0 0 #D4E5F9;
+    border: 1px solid #003398;
+    height: 84px;
+    margin-top: 21px;
+    overflow: hidden;
+    padding: 2px;
+    width: 254px;
+}
+.chooseBox2 .priceDiv .priceFat dl {
+    background: none repeat scroll 0 0 #FFFFFF;
+    float: left;
+    height: 84px;
+    overflow: hidden;
+    width: 254px;
+}
+.chooseBox2 .priceDiv .priceFat dt {
+    float: right;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    padding-right: 15px;
+}
+.chooseBox2 .priceDiv .priceFat dt input {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -610px transparent;
+    border: medium none;
+    color: #8A3202;
+    cursor: pointer;
+    font-size: 12px;
+    height: 20px;
+    text-align: center;
+    width: 50px;
+}
+.chooseBox2 .priceDiv .priceFat dd {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    width: 110px;
+}
+.chooseBox2 .priceDiv .priceFat dd input {
+    vertical-align: middle;
+}
+.chooseBox2 .priceDiv .priceFat dd a:link, .chooseBox2 .priceDiv .priceFat dd a:visited {
+    text-decoration: none;
+}
+.chooseBox2 .priceDiv .priceFat dd.s5 a:link, .chooseBox2 .priceDiv .priceFat dd.s5 a:visited {
+    text-decoration: none;
+}
+.chooseBox2 .priceDiv .priceFat dd.s1 {
+    clear: both;
+    color: #767676;
+    float: left;
+    margin-right: 0;
+    padding-left: 11px;
+    width: 170px;
+}
+.chooseBox2 .priceDiv .priceFat dd.s1 input {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    height: 16px;
+    line-height: 16px;
+    padding-left: 3px;
+}
+.chooseBox2 .priceDiv .priceFat dd.s2 {
+    background: url("http://www1.pconline.com.cn/2011/product/img/imgv_kedubiao.gif") no-repeat scroll 10px 5px transparent;
+    height: 37px;
+    margin-right: 0;
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+}
+.chooseBox2 .priceDiv .priceFat .scroll_area {
+    background: url("http://www1.pconline.com.cn/2011/product/img/img_kedubiao_on.gif") repeat-x scroll 0 0 transparent;
+    font-size: 1px;
+    height: 4px;
+    position: absolute;
+    top: 24px;
+}
+.chooseBox2 .priceDiv .priceFat dd img {
+    cursor: pointer;
+    position: absolute;
+    top: 18px;
+}
+.chooseBox2 .hadWap {
+    color: #777777;
+    line-height: 18px;
+    margin: 0 10px;
+    padding: 8px 0;
+    width: 768px;
+}
+.chooseBox2 .hadWap a:hover {
+    text-decoration: none;
+}
+.chooseBox2 .hadWap .hadL {
+    float: left;
+    width: 700px;
+}
+.chooseBox2 .hadWap .hadL strong {
+    float: left;
+    height: 22px;
+    line-height: 22px;
+    text-align: right;
+    width: 68px;
+}
+.chooseBox2 .hadWap .hadL .choose {
+    float: left;
+    width: 632px;
+}
+.chooseBox2 .hadWap .hadL a:hover {
+    color: #FFFFFF;
+}
+.chooseBox2 .hadWap .hadL a {
+    background-color: #0055AA;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 18px;
+    margin: 0 10px 3px 0;
+    padding: 0 17px 0 4px;
+    position: relative;
+    white-space: nowrap;
+}
+.chooseBox2 .hadWap .hadL a em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -87px -562px transparent;
+    cursor: pointer;
+    height: 13px;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    width: 15px;
+}
+.chooseBox2 .hadWap .hadL a:hover em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -562px transparent;
+}
+.chooseBox2 .hadWap .hadL a.on em {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -562px transparent;
+}
+.chooseBox2 .hadWap .hadL .num {
+    white-space: nowrap;
+}
+.chooseBox2 .hadWap .hadL .num i {
+    color: #CC0000;
+    font-size: 14px;
+    font-weight: 700;
+}
+.chooseBox2 .hadWap .hadR {
+    float: right;
+    height: 18px;
+    width: 68px;
+}
+.chooseBox2 .hadWap .hadR a {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -443px -348px transparent;
+    color: #333333;
+    cursor: pointer;
+    float: left;
+    height: 18px;
+    line-height: 18px;
+    padding-left: 20px;
+    width: 48px;
+}
+.chooseBox2 .hadWap .hadR a:hover {
+    color: #FF6600;
+}
+.chooseBox2 .hadWap, .chooseBox2 .getParam .clear {
+}
+.chooseBox2 .getAdvance {
+    border-bottom: 1px dashed #D1D1D1;
+    line-height: 22px;
+    margin: 0 10px;
+    overflow: hidden;
+    padding: 7px 0 2px;
+    width: 768px;
+}
+.chooseBox2 .getAdvance dt {
+    color: #777777;
+    float: left;
+    text-align: right;
+    width: 68px;
+}
+.chooseBox2 .getAdvance dd {
+    color: #0055AA;
+    float: left;
+    margin-left: -8px;
+    width: 708px;
+}
+.chooseBox2 .getAdvance dd i {
+    float: left;
+    height: 24px;
+    line-height: 22px;
+    min-width: 108px;
+    padding-left: 10px;
+    white-space: nowrap;
+}
+.chooseBox2 .getAdvance dd input {
+    height: 15px;
+    margin: -2px 5px 0 0;
+    vertical-align: middle;
+    width: 13px;
+}
+.chooseBox2 .getAdvanceEx {
+    height: 48px;
+}
+.chooseBox2 .getAdvanceAuto {
+    height: auto;
+}
+.chooseBox2 .getAdvanceEx dd {
+    width: 680px;
+}
+.chooseBox2 .moreBrand {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll -448px -495px transparent;
+    cursor: pointer;
+    float: right;
+    padding-left: 17px;
+    position: absolute;
+    right: 53px;
+    top: 33px;
+}
+.chooseBox2 .moreBrand-close {
+    background-position: -448px -467px;
+}
+.chooseBox .hadBtn {
+    padding: 11px 0;
+    text-align: center;
+}
+.chooseBox2 .hadBtn .queryBtn {
+    background: url("http://www1.pconline.com.cn/2011/product/img/list.png") no-repeat scroll 0 -469px transparent;
+    color: #8C3200;
+    display: inline-block;
+    font: 700 14px/29px 宋体,arial,sans-serif;
+    height: 29px;
+    width: 120px;
+}
+.chooseBox2 .hadBtn .queryBtn:hover {
+    text-decoration: none;
+}
+.chooseBox .getLine {
+    border-bottom: 1px solid #D1D1D1;
+}

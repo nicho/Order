@@ -7,12 +7,12 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.CheckBox;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BaseDialogPresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
+import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 
 public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> implements	KwPresenter {
 
@@ -43,21 +43,29 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 		selectKw.clear();
 		
 		for (final String kw:kwlt) {
-			final CheckBox cb=new CheckBox(kw);
+			
+			final MyAnchor cb=new MyAnchor(kw);
+
+			
 			if(value.indexOf(kw)!=-1)
 			{
-				cb.setValue(true);
+				cb.getElement().getFirstChildElement().setClassName("cur");
 				selectKw.add(kw);
 			}
 			cb.addClickHandler(new ClickHandler() {
 				
 				@Override
-				public void onClick(ClickEvent event) {
-					if(cb.getValue())
+				public void onClick(ClickEvent event) {	
+					if(!selectKw.contains(kw))
+					{
 						selectKw.add(kw);
+						cb.getElement().getFirstChildElement().setClassName("cur");
+					}
 					else
+					{
 						selectKw.remove(kw);
-					
+						cb.getElement().getFirstChildElement().setClassName("");
+					}
 				}
 			});
 			display.getCheckBoxPanel().add(cb);

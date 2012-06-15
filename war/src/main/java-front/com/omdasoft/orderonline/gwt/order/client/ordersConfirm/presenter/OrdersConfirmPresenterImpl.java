@@ -259,7 +259,7 @@ private void initBookingTableColumns() {
 						dialogBoxae.setWidth("100px");
 						dialogBoxae.setText("口味");
 	
-						dialogBoxae.setPopupPosition(x+600, y+(index*30));
+						dialogBoxae.setPopupPosition(x+400, y+(index*25));
 //						dialogBoxae.center();
 						dialogBoxae.show();
 					}

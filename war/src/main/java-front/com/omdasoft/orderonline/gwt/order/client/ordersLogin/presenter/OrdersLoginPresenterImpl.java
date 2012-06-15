@@ -89,8 +89,8 @@ public class OrdersLoginPresenterImpl extends
 						request.setMemo(response.getMemo());
 						request.setFavoriteRoom(response.getFavoriteRoom());
 						
-
-						request.setBookingDishesListClient(response.getBookingDishesList());
+						if(injector.getOrderManager()==null || injector.getOrderManager().getOrderRequest()==null || injector.getOrderManager().getOrderRequest().getBookingDishesListClient()==null)
+							request.setBookingDishesListClient(response.getBookingDishesList());
 
 					}
 					else
