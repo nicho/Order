@@ -68,6 +68,11 @@ public class SearchDictionaryListActionHandler extends
 		criteria.setDictionaryType(action.getCriteria().getDictionaryType());
 		if(!StringUtil.isEmpty(action.getCriteria().getDeptId()))
 		criteria.setDeptId(action.getCriteria().getDeptId());
+		
+		if(!StringUtil.isEmpty(action.getCriteria().getCorpId()))
+		criteria.setCorpId(action.getCriteria().getCorpId());
+		
+		
 		PageStore<Dictionary> userpage= userService.getDictionaryListList(u, criteria);
 		rep.setTotal(userpage.getResultCount());
 		

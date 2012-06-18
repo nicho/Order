@@ -1,7 +1,11 @@
 package com.omdasoft.orderonline.gwt.order.client;
 
+import java.util.List;
+import java.util.Map;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitRequest;
@@ -12,7 +16,7 @@ public class Elt implements EntryPoint {
 	public static final String GWT_MODULE_PATH = "/elt";
 	public static  String GWT_IMAGE_PATH = "upload/";
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
-
+	public static String CORPORATIONID="";
 	@Override
 	public void onModuleLoad() {
 	
@@ -26,7 +30,9 @@ public class Elt implements EntryPoint {
 					@Override
 					public void onSuccess(
 							ImageUrlInitResponse response) {
-						
+							Map<String, List<String>> maps = Window.Location.getParameterMap(); 
+							if(maps.get("cid")!=null)
+							   CORPORATIONID=maps.get("cid").get(0)+"";
 							GWT_IMAGE_PATH=response.getUrl();
 							RootLayoutPanel.get().clear();
 							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());

@@ -69,6 +69,9 @@ public class SearchDishesTypeListActionHandler extends
 		if(!StringUtil.isEmpty(action.getCriteria().getKeyName()))
 			criteria.setKeyName(action.getCriteria().getKeyName());
 		
+		if(!StringUtil.isEmpty(action.getCriteria().getCorpId()))
+		criteria.setCorporationId(action.getCriteria().getCorpId());
+		
 		PageStore<DishesType> userpage= dishesService.getDishesTypeList(u, criteria);
 		rep.setTotal(userpage.getResultCount());
 		

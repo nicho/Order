@@ -20,7 +20,13 @@ public class DishesListCriteria implements IsSerializable {
 	private String typeId;
 	private String deptId;
 	private String keyName;
-	
+	private String corpId;
+	public String getCorpId() {
+		return corpId;
+	}
+	public void setCorpId(String corpId) {
+		this.corpId = corpId;
+	}
 	
 	public String getKeyName() {
 		return keyName;

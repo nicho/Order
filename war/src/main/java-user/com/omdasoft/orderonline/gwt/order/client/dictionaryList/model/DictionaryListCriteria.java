@@ -18,6 +18,15 @@ public class DictionaryListCriteria implements IsSerializable {
 
 	private SortingDetailClient sorting;
 	private String deptId;
+	private String corpId;
+
+	public String getCorpId() {
+		return corpId;
+	}
+
+	public void setCorpId(String corpId) {
+		this.corpId = corpId;
+	}
 
 	public String getDeptId() {
 		return deptId;

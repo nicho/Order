@@ -20,6 +20,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.model.DictionaryListClient;
@@ -222,6 +223,7 @@ public class OrdersDishesPresenterImpl extends
 		DictionaryListCriteria criteria = new DictionaryListCriteria();
 		criteria.setPagination(pagination);
 		criteria.setDictionaryType(0);
+		criteria.setCorpId(Elt.CORPORATIONID);
 //		criteria.setDeptId(request.getRestaurantId());
 		dispatch.execute(new SearchDictionaryListRequest(criteria, null), new AsyncCallback<SearchDictionaryListResponse>() {
 			@Override
@@ -273,6 +275,7 @@ public class OrdersDishesPresenterImpl extends
 		
 		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
 		criteria.setPagination(pagination);
+		criteria.setCorpId(Elt.CORPORATIONID);
 //		criteria.setDeptId(request.getRestaurantId());
 		dispatch.execute(new SearchDishesTypeListRequest(criteria,null), new AsyncCallback<SearchDishesTypeListResponse>() {
 			@Override
@@ -375,6 +378,7 @@ public class OrdersDishesPresenterImpl extends
 		DishesListCriteria criteria = new DishesListCriteria();
 		if(!StringUtil.isEmpty(typeId))
 		criteria.setTypeId(typeId);
+		criteria.setCorpId(Elt.CORPORATIONID);
 //		criteria.setDeptId(request.getRestaurantId());
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
 				errorHandler, null,display,this,dishesDetailedDialogProvider);
