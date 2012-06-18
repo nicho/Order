@@ -25,6 +25,7 @@ import com.omdasoft.orderonline.model.order.OrderModel;
 import com.omdasoft.orderonline.model.order.OrderReturnModel;
 import com.omdasoft.orderonline.model.order.OrderSource;
 import com.omdasoft.orderonline.model.order.OrderStatus;
+import com.omdasoft.orderonline.model.order.RoomState;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.user.UserRole;
@@ -532,7 +533,7 @@ public class OrderServiceImpl implements OrderService {
 			order.setCorporation(order.getDepartment().getCorporation());
 		}
 		
-		
+		order.setRoomState(RoomState.HASRESERVATIONS);
 		order = orderLogic.save(ux, order);
 
 

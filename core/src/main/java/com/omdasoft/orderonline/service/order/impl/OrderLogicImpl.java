@@ -189,10 +189,12 @@ public class OrderLogicImpl implements OrderLogic{
 			OrderAndDishesModel model=new OrderAndDishesModel();
 			model.setOrder(order);
 			
-			List<OrdersDishes> dishesList=ordersDishesDao.findOrdersDishesByOrderId(order.getId());
-			if(dishesList!=null && dishesList.size()>0)
-			model.setOrdersDishesList(dishesList);
-			
+			if(order.getCarteState()!=CarteState.NOTPOINT)
+			{
+				List<OrdersDishes> dishesList=ordersDishesDao.findOrdersDishesByOrderId(order.getId());
+				if(dishesList!=null && dishesList.size()>0)
+				model.setOrdersDishesList(dishesList);
+			}
 			return model;
 		}
 		return null;

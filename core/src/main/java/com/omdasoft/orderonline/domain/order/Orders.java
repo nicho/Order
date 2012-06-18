@@ -20,6 +20,7 @@ import com.omdasoft.orderonline.model.order.CarteState;
 import com.omdasoft.orderonline.model.order.OrderSource;
 import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.order.OrderType;
+import com.omdasoft.orderonline.model.order.RoomState;
 
 @Entity
 @XmlRootElement
@@ -106,6 +107,11 @@ public class Orders implements Serializable {
 	 */
 	private CarteState carteState;
 	/**
+	 * 订房状态
+	 */
+	private RoomState roomState;
+	 
+	/**
 	 * 订单来源
 	 */
 	private OrderSource orderSource;
@@ -126,6 +132,14 @@ public class Orders implements Serializable {
 	 */
 	private String rid;
 	
+
+	public RoomState getRoomState() {
+		return roomState;
+	}
+
+	public void setRoomState(RoomState roomState) {
+		this.roomState = roomState;
+	}
 
 	public String getOrderRoom() {
 		return orderRoom;
