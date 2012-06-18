@@ -518,6 +518,12 @@ public class OrderServiceImpl implements OrderService {
 		order.setReserveTimeDateH(orderVo.getReserveTimeDateH());
 		order.setReserveTimeDateS(orderVo.getReserveTimeDateS());
 		
+		
+		if(orderVo.getOrderSource()!=null)
+			order.setOrderSource(orderVo.getOrderSource());
+		else
+			order.setOrderSource(OrderSource.ONLINE);
+		
 		if(orderVo.getOrderStatus()!=null)
 		order.setOrderStatus(orderVo.getOrderStatus());
 
@@ -710,21 +716,45 @@ public class OrderServiceImpl implements OrderService {
 				
 				SysUser user = userLogic.getSysUserByTokenId(tokenId);
 				
+				String errorStr="";
 				if (user != null) {
+					
 					UserContext context=new UserContext();
 					context.setUserId(user.getId());
 					
 				OrderVo	orderVo=new OrderVo();
-				orderVo.setRid(ordermodel.getRid());
-				orderVo.setAmountOfClient(ordermodel.getAmountOfClient());
+				
+				
+				orderVo.setCorporationId(user.getCorporation().getId());
+				
+				if(!StringUtil.isEmptyString(ordermodel.getRid()))
+					orderVo.setRid(ordermodel.getRid());
+				else
+					errorStr+="RID为空,";
+				
+				if(ordermodel.getAmountOfClient()!=0)
+					orderVo.setAmountOfClient(ordermodel.getAmountOfClient());
+				else
+					errorStr+="AmountOfClient为0,";
+
 				orderVo.setContactPersonName(ordermodel.getContactPersonName());
 				orderVo.setContactPersonPhone(ordermodel.getContactPersonPhone());
 				orderVo.setContactPersonSex(ordermodel.getContactPersonSex());
-				orderVo.setCorporationId(user.getCorporation().getId());
+				
+
 				orderVo.setFavoriteRoom(ordermodel.getFavoriteRoom());
 				orderVo.setMemo(ordermodel.getMemo());
-				orderVo.setOrderPersonName(ordermodel.getOrderPersonName());
-				orderVo.setOrderPersonPhone(ordermodel.getOrderPersonPhone());
+				
+				if(!StringUtil.isEmptyString(ordermodel.getOrderPersonName()))
+					orderVo.setOrderPersonName(ordermodel.getOrderPersonName());
+				else
+					errorStr+="OrderPersonName为空,";
+				
+				if(!StringUtil.isEmptyString(ordermodel.getOrderPersonPhone()))
+					orderVo.setOrderPersonPhone(ordermodel.getOrderPersonPhone());
+				else
+					errorStr+="OrderPersonPhone为空,";
+				
 				orderVo.setOrderPersonSex(ordermodel.getOrderPersonSex());
 				
 				if(ordermodel.getOrderStatus()==0)
@@ -742,23 +772,40 @@ public class OrderServiceImpl implements OrderService {
 				else if(ordermodel.getOrderStatus()==6)
 					orderVo.setOrderStatus(OrderStatus.ALREADYREAD);
 				
-
-				orderVo.setPlaceOrderTime(DateUtil.getStringDate(ordermodel.getPlaceOrderTime()));
-				orderVo.setReserveTimeDate(DateUtil.dateToString(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
-				orderVo.setReserveTimeDateH(DateUtil.dateToStringH(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
-				orderVo.setReserveTimeDateS(DateUtil.dateToStringS(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+				if(!StringUtil.isEmptyString(ordermodel.getPlaceOrderTime()))
+					orderVo.setPlaceOrderTime(DateUtil.getStringDatess(ordermodel.getPlaceOrderTime()));
+				else
+					errorStr+="PlaceOrderTime为空,";
 				
+				try
+				{
+					orderVo.setReserveTimeDate(DateUtil.dateToString(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+					orderVo.setReserveTimeDateH(DateUtil.dateToStringH(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+					orderVo.setReserveTimeDateS(DateUtil.dateToStringS(DateUtil.getStringDate(ordermodel.getReserveTimeDate())));
+				}catch (Exception e) {
+					errorStr+="ReserveTimeDate格式不正确（需“yyyy-MM-dd HH:mm”）,";
+				}
 				
 				if(user.getStaff().getDepartment()!=null)
 				{
-				orderVo.setRestaurantId(user.getStaff().getDepartment().getId());
-				orderVo.setCity(user.getStaff().getDepartment().getCity());
+					orderVo.setRestaurantId(user.getStaff().getDepartment().getId());
+					orderVo.setCity(user.getStaff().getDepartment().getCity());
 				}
 				
+				orderVo.setOrderSource(OrderSource.PHONE);
+				
+				if(!StringUtil.isEmptyString(errorStr))
+				{
+					returnModel.setFlag("1");
+					returnModel.setException_code("13");
+					returnModel.setException_msg(errorStr);
+				}
+				else
+				{
 					Orders order=this.saveOrdersByRoom(context, orderVo);
 					if(order!=null)
 						returnModel.setFlag("0");
-					
+				}
 					
 					return returnModel;
 				} else {

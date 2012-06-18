@@ -5,7 +5,6 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 import com.google.gwt.cell.client.TextCell;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
-import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.presenter.BreadCrumbsPresenter;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
@@ -232,7 +231,11 @@ public class OrderViewPresenterImpl extends
 		{
 			display.getReserveTime().setText(DateTool.getDateStr(request.getReserveTimeDate(), request.getReserveTimeDateH(), request.getReserveTimeDateS()));
 		}
-	
+		if(request.getPlaceOrderTime()!=null)
+		{
+			display.getPlaceOrderTime().setText(DateTool.dateToStringEn(request.getPlaceOrderTime()));
+		}
+		
 		
 		if(!StringUtil.isEmpty(request.getResult()))
 		{

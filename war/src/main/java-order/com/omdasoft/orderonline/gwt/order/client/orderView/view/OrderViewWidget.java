@@ -46,6 +46,9 @@ public class OrderViewWidget extends Composite implements OrderViewDisplay {
 	@UiField
 	InlineLabel dataCount;
 	@UiField
+	InlineLabel placeOrderTime;
+	
+	@UiField
 	Panel resultPanel;
 	@UiField
 	Panel resultpage;
@@ -168,5 +171,12 @@ public class OrderViewWidget extends Composite implements OrderViewDisplay {
 	@Override
 	public InlineLabel getResult() {
 		return result;
+	}
+
+
+
+	@Override
+	public InlineLabel getPlaceOrderTime() {
+		return placeOrderTime;
 	}
 }

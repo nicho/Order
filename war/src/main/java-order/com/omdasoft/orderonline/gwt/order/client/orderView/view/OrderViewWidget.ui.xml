@@ -91,6 +91,12 @@
 						</div>
 					</div>
 					<div class="{new2.form-line}">
+						<label class="{new2.label2}">下单时间：</label>
+						<div class="{new2.element}">
+							<g:InlineLabel ui:field="placeOrderTime" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
 						<label class="{new2.label2}">处理结果：</label>
 						<div class="{new2.element}">
 							<g:InlineLabel ui:field="result" />

@@ -146,6 +146,20 @@ public abstract class DateTool {
 		return  (d.getMonth() + 1) + "月"+d.getDate()+"日 "+d.getHours()+":"+d.getMinutes();
 	}
 	/**
+	 * 获得年月日。时分秒,(英文)时间
+	 * 
+	 * @param d
+	 * @return
+	 */
+	@SuppressWarnings("deprecation")
+	public static String dateToStringEn(Date d) {
+		if (d == null) {
+			return null;
+		}
+		return  (1900 + d.getYear()) +"-"+(d.getMonth() + 1) + "-"+d.getDate()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+	}
+	
+	/**
 	 * 精确到半年
 	 * 
 	 * @return

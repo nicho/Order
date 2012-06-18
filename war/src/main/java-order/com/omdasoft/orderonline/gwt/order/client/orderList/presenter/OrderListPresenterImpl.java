@@ -361,7 +361,7 @@ public class OrderListPresenterImpl extends
 				new GetValue<OrderListClient, String>() {
 					@Override
 					public String getValue(OrderListClient order) {
-						return DateTool.dateToString(order.getPlaceOrderTime());
+						return DateTool.dateToStringEn(order.getPlaceOrderTime());
 					}
 				}, ref, "placeOrderTime");
 		cellTable.addColumn("订单状态", new TextCell(),

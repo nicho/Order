@@ -7,12 +7,12 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BaseDialogPresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
-import com.omdasoft.orderonline.gwt.order.client.ui.MyAnchor;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> implements	KwPresenter {
@@ -46,13 +46,14 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 		{
 		for (final String kw:kwlt) {
 			
-			final MyAnchor cb=new MyAnchor(kw);
+			final CheckBox cb=new CheckBox(kw);
 
 			
 			if(!StringUtil.isEmpty(value) && value.indexOf(kw)!=-1)
 			{
-				cb.getElement().getFirstChildElement().setClassName("cur");
-				cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
+		//		cb.getElement().getFirstChildElement().setClassName("cur");
+		//		cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
+				cb.setValue(true);
 				selectKw.add(kw);
 			}
 			cb.addClickHandler(new ClickHandler() {
@@ -62,14 +63,16 @@ public class KwPresenterImpl extends	BaseDialogPresenter<KwPresenter.KwDisplay> 
 					if(!selectKw.contains(kw))
 					{
 						selectKw.add(kw);
-						cb.getElement().getFirstChildElement().setClassName("cur");
-						cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
+						//cb.getElement().getFirstChildElement().setClassName("cur");
+						//cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("cur");
+						cb.setValue(true);
 					}
 					else
 					{
 						selectKw.remove(kw);
-						cb.getElement().getFirstChildElement().setClassName("");
-						cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("");
+						//cb.getElement().getFirstChildElement().setClassName("");
+						//cb.getElement().getFirstChildElement().getFirstChildElement().getFirstChildElement().setClassName("");
+						cb.setValue(false);
 					}
 				}
 			});

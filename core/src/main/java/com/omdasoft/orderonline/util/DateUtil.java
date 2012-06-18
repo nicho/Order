@@ -189,9 +189,8 @@ public class DateUtil {
 	public static int rand(int max) {
 		return random.nextInt(max + 1);
 	}
-
-	public static Date getStringDate(String sdate) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	public static Date getStringDatess(String sdate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 		sdf.setLenient(false);
 
@@ -202,6 +201,17 @@ public class DateUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return ddate;
+	}
+	public static Date getStringDate(String sdate) throws ParseException {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+		sdf.setLenient(false);
+
+		Date ddate = null;
+
+		ddate = sdf.parse(sdate);
+
 		return ddate;
 	}
 	

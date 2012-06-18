@@ -3,6 +3,7 @@ package com.omdasoft.orderonline.model.vo;
 import java.util.Date;
 import java.util.List;
 
+import com.omdasoft.orderonline.model.order.OrderSource;
 import com.omdasoft.orderonline.model.order.OrderStatus;
 
 public class OrderVo {
@@ -53,6 +54,18 @@ public class OrderVo {
 	 * 餐厅
 	 */
 	private String restaurantId;
+	/**
+	 * 订单来源
+	 */
+	private OrderSource orderSource;
+	
+	public OrderSource getOrderSource() {
+		return orderSource;
+	}
+
+	public void setOrderSource(OrderSource orderSource) {
+		this.orderSource = orderSource;
+	}
 
 	public String getRid() {
 		return rid;

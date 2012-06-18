@@ -39,7 +39,7 @@ public void initOrder(String orderId);
 		InlineLabel getContactPersonName();
 		
 		InlineLabel getContactPersonSex();
-		
+		InlineLabel getPlaceOrderTime();
 		
 		InlineLabel getContactPersonPhone();
 		
