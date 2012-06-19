@@ -10,6 +10,7 @@ import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.order.OrderModel;
 import com.omdasoft.orderonline.model.order.OrderReturnModel;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
+import com.omdasoft.orderonline.model.order.UploadOrderReturnModel;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.vo.OrderVo;
 
@@ -141,7 +142,7 @@ public interface OrderService {
 	 * @param orderrid
 	 * @return
 	 */
-	public UpdateOrderReturnModel uploadorder(String tokenid,OrderModel ordermodel);
+	public UploadOrderReturnModel uploadorder(String tokenid,OrderModel ordermodel);
 
 	/**
 	 * 读取已取消，待读订单

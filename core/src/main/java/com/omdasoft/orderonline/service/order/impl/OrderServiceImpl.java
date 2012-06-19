@@ -27,6 +27,8 @@ import com.omdasoft.orderonline.model.order.OrderSource;
 import com.omdasoft.orderonline.model.order.OrderStatus;
 import com.omdasoft.orderonline.model.order.RoomState;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
+import com.omdasoft.orderonline.model.order.UploadOrderModel;
+import com.omdasoft.orderonline.model.order.UploadOrderReturnModel;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.model.vo.OrderDishesVo;
@@ -702,8 +704,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public UpdateOrderReturnModel uploadorder(String tokenId, OrderModel ordermodel) {
-		UpdateOrderReturnModel returnModel = new UpdateOrderReturnModel();
+	public UploadOrderReturnModel uploadorder(String tokenId, OrderModel ordermodel) {
+		UploadOrderReturnModel returnModel = new UploadOrderReturnModel();
 		try {
 			
 
@@ -805,7 +807,15 @@ public class OrderServiceImpl implements OrderService {
 				{
 					Orders order=this.saveOrdersByRoom(context, orderVo);
 					if(order!=null)
+					{
 						returnModel.setFlag("0");
+						
+						List<UploadOrderModel> omlt=new ArrayList<UploadOrderModel>();
+						UploadOrderModel om=new UploadOrderModel();
+						om.setOrderid(order.getId());
+						omlt.add(om);
+						returnModel.setData(omlt);
+					}
 				}
 					
 					return returnModel;

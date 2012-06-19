@@ -23,6 +23,7 @@ import com.omdasoft.orderonline.model.order.LoginReturnModel;
 import com.omdasoft.orderonline.model.order.OrderModel;
 import com.omdasoft.orderonline.model.order.OrderReturnModel;
 import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
+import com.omdasoft.orderonline.model.order.UploadOrderReturnModel;
 import com.omdasoft.orderonline.service.dishes.DishesService;
 import com.omdasoft.orderonline.service.order.OrderService;
 import com.omdasoft.orderonline.service.user.UserService;
@@ -316,15 +317,8 @@ public class CommonController {
     @Path("/uploadorder")
     @Produces("application/json")
     @Consumes("application/json")
-    public UpdateOrderReturnModel uploadorder(@HeaderParam("tokenid") String tokenid,OrderModel ordermodel){
-//    	 @HeaderParam("orderrid") String orderrid,
-// 		@HeaderParam("amountOfClient") String amountOfClient,@HeaderParam("code") String code,
-// 		@HeaderParam("contactPersonName") String contactPersonName,@HeaderParam("contactPersonPhone") String contactPersonPhone,
-// 		@HeaderParam("contactPersonSex") String contactPersonSex,@HeaderParam("favoriteRoom") String favoriteRoom,@HeaderParam("memo") String memo,
-// 		@HeaderParam("orderPersonName") String orderPersonName,@HeaderParam("orderPersonPhone") String orderPersonPhone,@HeaderParam("orderPersonSex") String orderPersonSex,
-// 		@HeaderParam("orderStatus") String orderStatus,@HeaderParam("placeOrderTime") String placeOrderTime,@HeaderParam("reserveTimeDate") String reserveTimeDate
-
-    	UpdateOrderReturnModel model= orderService.uploadorder(tokenid,ordermodel);
+    public UploadOrderReturnModel uploadorder(@HeaderParam("tokenid") String tokenid,OrderModel ordermodel){
+    	UploadOrderReturnModel model= orderService.uploadorder(tokenid,ordermodel);
 		orderService.addInvokeHistory("uploadorder", new Date(), model.getFlag(),tokenid);
 		return model;
    
