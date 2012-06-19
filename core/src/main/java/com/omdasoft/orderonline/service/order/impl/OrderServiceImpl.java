@@ -740,14 +740,17 @@ public class OrderServiceImpl implements OrderService {
 				else
 					errorStr+="AmountOfClient为0,";
 
-				
+				if(!StringUtil.isEmptyString(ordermodel.getContactPersonName()))
 				orderVo.setContactPersonName(new String(ordermodel.getContactPersonName().getBytes("iso-8859-1"),"utf8"));
+				if(!StringUtil.isEmptyString(ordermodel.getContactPersonPhone()))
 				orderVo.setContactPersonPhone(ordermodel.getContactPersonPhone());
-				
+				if(!StringUtil.isEmptyString(ordermodel.getContactPersonSex()))
 				orderVo.setContactPersonSex(new String(ordermodel.getContactPersonSex().getBytes("iso-8859-1"),"utf8"));
 				
 
 				orderVo.setFavoriteRoom(ordermodel.getFavoriteRoom());
+				
+				if(!StringUtil.isEmptyString(ordermodel.getMemo()))
 				orderVo.setMemo(new String(ordermodel.getMemo().getBytes("iso-8859-1"),"utf8"));
 				
 				if(!StringUtil.isEmptyString(ordermodel.getOrderPersonName()))
@@ -760,6 +763,7 @@ public class OrderServiceImpl implements OrderService {
 				else
 					errorStr+="OrderPersonPhone为空,";
 				
+				if(!StringUtil.isEmptyString(ordermodel.getOrderPersonSex()))
 				orderVo.setOrderPersonSex(new String(ordermodel.getOrderPersonSex().getBytes("iso-8859-1"),"utf8"));
 				
 				if(ordermodel.getOrderStatus()==0)
