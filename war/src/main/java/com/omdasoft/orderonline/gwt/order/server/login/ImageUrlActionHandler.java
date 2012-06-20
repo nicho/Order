@@ -40,6 +40,7 @@ public class ImageUrlActionHandler extends
 			properties.load(ImageUrlActionHandler.class
 					.getResourceAsStream("configuration.properties"));
 			resp.setUrl(properties.getProperty("imageUrl"));
+			resp.setJbossname(properties.getProperty("jbossName"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
