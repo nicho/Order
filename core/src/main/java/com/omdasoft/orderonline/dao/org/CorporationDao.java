@@ -60,4 +60,12 @@ public class CorporationDao extends BaseDao<Corporation> {
 			 sum=list.get(0);
 		 return sum;
 	}
+	@SuppressWarnings("unchecked")
+	public String getCorporationBycId(String cid) {
+		String corpid = null;
+		 List<String> list = getEm().createQuery("SELECT c.id FROM Corporation c WHERE c.cid = :cid").setParameter("cid", cid).getResultList();
+		 if(list.size()>0)
+			 corpid=list.get(0);
+		 return corpid;
+	}
 }

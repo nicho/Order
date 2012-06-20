@@ -63,6 +63,15 @@ public class Corporation extends Organization {
 	
     private  String  mailpwd;//发企业邮件的发送密码
     private  String  smtp;  //发邮件所用的smtp协议
+    private  String  cid;  //企业标识
+    
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
 
 	public String getMailpwd() {
 		return mailpwd;

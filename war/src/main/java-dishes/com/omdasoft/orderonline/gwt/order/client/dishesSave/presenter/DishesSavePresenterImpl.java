@@ -175,7 +175,7 @@ public class DishesSavePresenterImpl extends
 								System.out.println("==========="+display.getPhotoUpload());
 								
 								display.getGiftImage().setVisible(true);
-								display.getPhotoForm().setAction("fileupload?corpid="+sessionManager.getSession().getCorporationId());
+								display.getPhotoForm().setAction("fileupload?corpid="+sessionManager.getSession().getCid());
 								display.getPhotoForm().submit();
 								display.setAddBtnDisable(false);
 							}
@@ -186,7 +186,7 @@ public class DishesSavePresenterImpl extends
 						new ClickHandler() {
 							@Override
 							public void onClick(ClickEvent arg0) {
-								display.getPhotoForm().setAction("fileupload?corpid="+sessionManager.getSession().getCorporationId());
+								display.getPhotoForm().setAction("fileupload?corpid="+sessionManager.getSession().getCid());
 								display.getPhotoForm().submit();
 							}
 						}));
@@ -212,9 +212,9 @@ public class DishesSavePresenterImpl extends
 										String info=XmlUtil_GWT.getNormalNodeText(eventResults, "<info>", "</info>");
 												
 										if ("SUCCESS".equals(result)) {
-											display.getPhoto().setValue(sessionManager.getSession().getCorporationId()+"/"+info);
+											display.getPhoto().setValue(sessionManager.getSession().getCid()+"/"+info);
 											String giftImageUrl = "imageshow?imageName="
-													+ info+"&corpid="+sessionManager.getSession().getCorporationId();
+													+ info+"&corpid="+sessionManager.getSession().getCid();
 											display.getGiftImage().setUrl(giftImageUrl);
 											display.setAddBtnDisable(true);
 										} else {

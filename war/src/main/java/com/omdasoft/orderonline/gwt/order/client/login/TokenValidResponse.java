@@ -15,7 +15,16 @@ public class TokenValidResponse implements Result {
     UserRoleVo lastLoginRole;
     String photo;
     String corporationName;
+    String cid;
     
+    
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
     
 	public String getCorporationName() {
 		return corporationName;

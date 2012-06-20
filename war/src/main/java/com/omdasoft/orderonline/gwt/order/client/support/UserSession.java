@@ -14,12 +14,21 @@ public class UserSession implements Serializable {
 	String token;
 	String loginName;
 	String corporationId;
+	String cid;
 	String restaurantId;
     String photo;
     String corporationName;
     String departmentId;
     UserRoleVo lastLoginRole;
     
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
 	public UserRoleVo getLastLoginRole() {
 		return lastLoginRole;
 	}

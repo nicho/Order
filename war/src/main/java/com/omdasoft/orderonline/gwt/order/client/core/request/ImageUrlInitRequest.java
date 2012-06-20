@@ -4,25 +4,23 @@ import net.customware.gwt.dispatch.shared.Action;
 
 public class ImageUrlInitRequest implements Action<ImageUrlInitResponse> {
 
-	private String staffId;
+	private String cid;
 
 	public ImageUrlInitRequest() {
 
 	}
 
-	public ImageUrlInitRequest(String staffId) {
-		this.staffId = staffId;
+	public ImageUrlInitRequest(String cid) {
+		this.cid = cid;
 
 	}
 
-	public String getStaffId() {
-		return staffId;
+	public String getCid() {
+		return cid;
 	}
 
-	public void setStaffId(String staffId) {
-		this.staffId = staffId;
+	public void setCid(String cid) {
+		this.cid = cid;
 	}
-
-	
 
 }

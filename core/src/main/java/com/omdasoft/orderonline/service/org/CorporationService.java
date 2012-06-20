@@ -42,4 +42,10 @@ public interface CorporationService {
 	 */
 	
 	public int getCorp();
+	/**
+	 * 根据CID查找机构Id
+	 * @param id
+	 * @return
+	 */
+	public String findCorporationBycId(String cid);
 }

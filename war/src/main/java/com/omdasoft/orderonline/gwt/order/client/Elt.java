@@ -20,8 +20,12 @@ public class Elt implements EntryPoint {
 	public static String CORPORATIONID="";
 	@Override
 	public void onModuleLoad() {
-	
-		injector.getDispatch().execute(new ImageUrlInitRequest(),
+		Map<String, List<String>> maps = Window.Location.getParameterMap(); 
+		if(maps.get("cid")!=null)
+		   CORPORATIONID=maps.get("cid").get(0)+"";
+		
+		
+		injector.getDispatch().execute(new ImageUrlInitRequest(CORPORATIONID),
 				new AsyncCallback<ImageUrlInitResponse>() {
 					@Override
 					public void onFailure(Throwable e) {
@@ -31,9 +35,7 @@ public class Elt implements EntryPoint {
 					@Override
 					public void onSuccess(
 							ImageUrlInitResponse response) {
-							Map<String, List<String>> maps = Window.Location.getParameterMap(); 
-							if(maps.get("cid")!=null)
-							   CORPORATIONID=maps.get("cid").get(0)+"";
+							CORPORATIONID=response.getCorpId();
 							GWT_IMAGE_PATH=response.getUrl();
 							JBOSS_NAME=response.getJbossname();
 							RootLayoutPanel.get().clear();

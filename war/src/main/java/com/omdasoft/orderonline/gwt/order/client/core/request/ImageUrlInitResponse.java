@@ -6,6 +6,15 @@ public class ImageUrlInitResponse implements Result {
 
 	String url;
 	String jbossname;
+	String corpId;
+
+	public String getCorpId() {
+		return corpId;
+	}
+
+	public void setCorpId(String corpId) {
+		this.corpId = corpId;
+	}
 
 	public String getJbossname() {
 		return jbossname;

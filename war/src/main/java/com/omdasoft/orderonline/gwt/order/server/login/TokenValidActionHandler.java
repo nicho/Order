@@ -43,7 +43,7 @@ public class TokenValidActionHandler extends
 		tokenRep.setStaffId(userSessionVo.getStaffId());
 		tokenRep.setCorporationName(userSessionVo.getCorporationName());
 		tokenRep.setPhoto(userSessionVo.getPhoto());
-
+		tokenRep.setCid(userSessionVo.getCid());
 		}
 		return tokenRep;
 	}

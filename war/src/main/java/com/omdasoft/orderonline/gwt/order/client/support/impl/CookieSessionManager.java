@@ -238,6 +238,7 @@ public class CookieSessionManager implements SessionManager {
 			session.setDepartmentId(rep.getDepartmentId());
 			session.setRestaurantId(rep.getDepartmentId());
 			session.setPhoto(rep.getPhoto());
+			session.setCid(rep.getCid());
 			Date expires = new Date((new Date()).getTime() + COOKIE_TIMEOUT);
 			Cookies.setCookie("token", rep.getToken(), expires);
 
@@ -257,6 +258,7 @@ public class CookieSessionManager implements SessionManager {
 			session.setPhoto(rep.getPhoto());
 			session.setDepartmentId(rep.getDepartmentId());
 			session.setRestaurantId(rep.getDepartmentId());
+			session.setCid(rep.getCid());
 			Date expires = new Date((new Date()).getTime() + COOKIE_TIMEOUT);
 			Cookies.setCookie("token", rep.getToken(), expires);
 

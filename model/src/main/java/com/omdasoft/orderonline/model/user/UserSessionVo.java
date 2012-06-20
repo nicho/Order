@@ -6,12 +6,21 @@ public class UserSessionVo {
 	private String id;
 	private String username;
 	private String corporationId;
+	private String cid;
 	private String departmentId;
 	private String staffId;
 	private UserRole lastLoginRole;
 	private String photo;
 	private String corporationName;
 	private UserStatus userStatus;
+
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
 
 	public UserStatus getUserStatus() {
 		return userStatus;

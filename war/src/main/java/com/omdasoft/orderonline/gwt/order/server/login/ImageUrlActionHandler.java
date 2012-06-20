@@ -10,15 +10,15 @@ import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
-import com.omdasoft.orderonline.service.user.UserService;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
+import com.omdasoft.orderonline.service.org.CorporationService;
 
 public class ImageUrlActionHandler extends
 		BaseActionHandler<ImageUrlInitRequest, ImageUrlInitResponse> {
-	UserService userService;
-
+	CorporationService corporationService;
 	@Inject
-	public ImageUrlActionHandler(UserService userService) {
-		this.userService = userService;
+	public ImageUrlActionHandler(CorporationService corporationService) {
+		this.corporationService = corporationService;
 
 	}
 
@@ -45,6 +45,12 @@ public class ImageUrlActionHandler extends
 			e.printStackTrace();
 		}
 
+		if(!StringUtil.isEmpty(action.getCid()))
+		{
+			String corpId=corporationService.findCorporationBycId(action.getCid());
+			if(corpId!=null)
+				resp.setCorpId(corpId);
+		}
 		return resp;
 
 	}

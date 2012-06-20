@@ -137,6 +137,11 @@ public class CorporationLogicImpl implements CorporationLogic {
 		return corporationDao.getCorp();
 	}
 
+	@Override
+	public String findCorporationBycId(String cid) {
+		return corporationDao.getCorporationBycId(cid);
+	}
+
 
 	
 

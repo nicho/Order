@@ -50,5 +50,10 @@ public class CorporationServiceImpl implements CorporationService {
 		return corporationLogic.getCorp();
 		
 	}
+
+	@Override
+	public String findCorporationBycId(String cid) {
+		return corporationLogic.findCorporationBycId(cid);
+	}
    
 }
