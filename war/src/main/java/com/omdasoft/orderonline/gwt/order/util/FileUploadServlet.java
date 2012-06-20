@@ -23,6 +23,7 @@ import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.util.DateUtil;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
@@ -242,7 +243,7 @@ public class FileUploadServlet extends HttpServlet {
 				.getRealPath("/");
 		String uploadPath = null;
 		// System.out.println("============realPath:" + realPath);
-		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
+		int rootIndex = realPath.indexOf(Elt.JBOSS_NAME);
 		if (rootIndex < 0) {
 			rootIndex = realPath.indexOf("war");
 		}
@@ -273,7 +274,7 @@ public class FileUploadServlet extends HttpServlet {
 				.getRealPath("/");
 		String uploadPath = null;
 		// System.out.println("============realPath:" + realPath);
-		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
+		int rootIndex = realPath.indexOf(Elt.JBOSS_NAME);
 		if (rootIndex < 0) {
 			rootIndex = realPath.indexOf("war");
 		}
@@ -316,7 +317,7 @@ public class FileUploadServlet extends HttpServlet {
 
 	public static void main(String[] args) {
 		String realPath = "D:\\ServerRoot\\jboss-5.1.0.GA\\server";
-		realPath = realPath.substring(0, realPath.indexOf("jboss-5.1.0.GA"));
+		realPath = realPath.substring(0, realPath.indexOf(Elt.JBOSS_NAME));
 		System.out.println(realPath);
 	}
 

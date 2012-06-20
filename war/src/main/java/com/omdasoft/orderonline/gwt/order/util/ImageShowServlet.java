@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.omdasoft.orderonline.gwt.order.client.Elt;
+
 /**
  * @author yanrui
  * 
@@ -76,7 +78,7 @@ public class ImageShowServlet extends HttpServlet {
 				.getRealPath("/");
 		String uploadPath = null;
 		// System.out.println("============realPath:" + realPath);
-		int rootIndex = realPath.indexOf("jboss-5.1.0.GA");
+		int rootIndex = realPath.indexOf(Elt.JBOSS_NAME);
 		if (rootIndex < 0) {
 			rootIndex = realPath.indexOf("war");
 		}
