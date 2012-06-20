@@ -75,8 +75,7 @@ public class FileUploadServlet extends HttpServlet {
 					// BufferedInputStream inputStream = new
 					// BufferedInputStream(bytes);// 获得输入流
 
-					String uploadPath = getUploadPath(request, "upload/"
-							+ request.getParameter("corpid"));
+					String uploadPath = getUploadPath(request,  request.getParameter("corpid"));
 					if (uploadPath != null) {
 						String fileName = getOutputFileName(item);
 						String outputFilePath = getOutputFilePath(uploadPath,
@@ -88,8 +87,7 @@ public class FileUploadServlet extends HttpServlet {
 						widthdist = 144;
 						heightdist = 144;
 
-						String uploadPathmin = getUploadPathMin(request,
-								"upload/" + request.getParameter("corpid"));
+						String uploadPathmin = getUploadPathMin(request, request.getParameter("corpid"));
 						String outputFilePathMin = getOutputFilePath(
 								uploadPathmin, fileName);
 
@@ -295,7 +293,7 @@ public class FileUploadServlet extends HttpServlet {
 	private static void createFilePath(String uploadPath) {
 		File myFilePath = new File(uploadPath);
 		if (!myFilePath.exists()) {
-			myFilePath.mkdir();
+			myFilePath.mkdirs();
 			System.out.println("创建图片上传文件夹：" + myFilePath);
 		}
 	}

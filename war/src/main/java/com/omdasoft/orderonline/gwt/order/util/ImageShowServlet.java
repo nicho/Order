@@ -88,8 +88,7 @@ public class ImageShowServlet extends HttpServlet {
 		String uploadPath = null;
 
 		if (!StringUtil.isEmpty(uploadurl)) {
-			uploadPath = uploadurl + "upload/"
-					+ request.getParameter("corpid") + "/thumb";
+			uploadPath = uploadurl+ request.getParameter("corpid") + "/thumb";
 
 		} else {
 			String realPath = request.getSession().getServletContext()
@@ -107,8 +106,7 @@ public class ImageShowServlet extends HttpServlet {
 				realPath = realPath.substring(0, rootIndex);
 			}
 
-			uploadPath = realPath + "upload/" + request.getParameter("corpid")
-					+ "/thumb";
+			uploadPath = realPath + request.getParameter("corpid")	+ "/thumb";
 		}
 		return uploadPath;
 	}
