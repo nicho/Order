@@ -1,5 +1,6 @@
 package com.omdasoft.orderonline.service.order.impl;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -741,20 +742,20 @@ public class OrderServiceImpl implements OrderService {
 					errorStr+="AmountOfClient为0,";
 
 				if(!StringUtil.isEmptyString(ordermodel.getContactPersonName()))
-				orderVo.setContactPersonName(new String(ordermodel.getContactPersonName().getBytes("iso-8859-1"),"utf8"));
+				orderVo.setContactPersonName(URLDecoder.decode(ordermodel.getContactPersonName(),"UTF-8"));
 				if(!StringUtil.isEmptyString(ordermodel.getContactPersonPhone()))
 				orderVo.setContactPersonPhone(ordermodel.getContactPersonPhone());
 				if(!StringUtil.isEmptyString(ordermodel.getContactPersonSex()))
-				orderVo.setContactPersonSex(new String(ordermodel.getContactPersonSex().getBytes("iso-8859-1"),"utf8"));
+				orderVo.setContactPersonSex(URLDecoder.decode(ordermodel.getContactPersonSex(),"UTF-8"));
 				
 
 				orderVo.setFavoriteRoom(ordermodel.getFavoriteRoom());
 				
 				if(!StringUtil.isEmptyString(ordermodel.getMemo()))
-				orderVo.setMemo(new String(ordermodel.getMemo().getBytes("iso-8859-1"),"utf8"));
+				orderVo.setMemo(URLDecoder.decode(ordermodel.getMemo(), "UTF-8"));
 				
 				if(!StringUtil.isEmptyString(ordermodel.getOrderPersonName()))
-					orderVo.setOrderPersonName(new String(ordermodel.getOrderPersonName().getBytes("iso-8859-1"),"utf8"));
+					orderVo.setOrderPersonName(URLDecoder.decode(ordermodel.getOrderPersonName(), "UTF-8"));
 				else
 					errorStr+="OrderPersonName为空,";
 				
@@ -764,7 +765,7 @@ public class OrderServiceImpl implements OrderService {
 					errorStr+="OrderPersonPhone为空,";
 				
 				if(!StringUtil.isEmptyString(ordermodel.getOrderPersonSex()))
-				orderVo.setOrderPersonSex(new String(ordermodel.getOrderPersonSex().getBytes("iso-8859-1"),"utf8"));
+				orderVo.setOrderPersonSex(URLDecoder.decode(ordermodel.getOrderPersonSex(),"UTF-8"));
 				
 				if(ordermodel.getOrderStatus()==0)
 					orderVo.setOrderStatus(OrderStatus.UNHANDLED);
