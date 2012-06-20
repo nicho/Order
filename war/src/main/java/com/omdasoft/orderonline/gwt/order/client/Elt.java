@@ -15,7 +15,6 @@ public class Elt implements EntryPoint {
 
 	public static final String GWT_MODULE_PATH = "/elt";
 	public static  String GWT_IMAGE_PATH = "upload/";
-	public static  String JBOSS_NAME = "jboss-5.1.0.GA";
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	public static String CORPORATIONID="";
 	@Override
@@ -37,7 +36,6 @@ public class Elt implements EntryPoint {
 							ImageUrlInitResponse response) {
 							CORPORATIONID=response.getCorpId();
 							GWT_IMAGE_PATH=response.getUrl();
-							JBOSS_NAME=response.getJbossname();
 							RootLayoutPanel.get().clear();
 							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
 							injector.getOrderIndexPresenter().bind();

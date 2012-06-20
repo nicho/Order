@@ -7,6 +7,15 @@ public class ImageUrlInitResponse implements Result {
 	String url;
 	String jbossname;
 	String corpId;
+	String uploadUrl;
+
+	public String getUploadUrl() {
+		return uploadUrl;
+	}
+
+	public void setUploadUrl(String uploadUrl) {
+		this.uploadUrl = uploadUrl;
+	}
 
 	public String getCorpId() {
 		return corpId;

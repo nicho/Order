@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.omdasoft.orderonline.gwt.order.client.Elt;
+import com.omdasoft.orderonline.gwt.order.server.login.ImageUrlActionHandler;
 
 /**
  * @author yanrui
@@ -74,23 +75,41 @@ public class ImageShowServlet extends HttpServlet {
 	}
 
 	private static String getUploadPath(HttpServletRequest request) {
-		String realPath = request.getSession().getServletContext()
-				.getRealPath("/");
+		String uploadurl="";
+		String jbossName="";
+		Properties properties = new Properties();
+		try {
+			properties.load(ImageUrlActionHandler.class	.getResourceAsStream("configuration.properties"));
+			jbossName=properties.getProperty("jbossName");
+			uploadurl=properties.getProperty("uploadUrl");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		String uploadPath = null;
-		// System.out.println("============realPath:" + realPath);
-		int rootIndex = realPath.indexOf(Elt.JBOSS_NAME);
-		if (rootIndex < 0) {
-			rootIndex = realPath.indexOf("war");
-		}
 
-		if (rootIndex < 0) {
-			return null;
+		if (!StringUtil.isEmpty(uploadurl)) {
+			uploadPath = uploadurl + "upload/"
+					+ request.getParameter("corpid") + "/thumb";
+
 		} else {
-			realPath = realPath.substring(0, rootIndex);
-		}
-		
-		uploadPath = realPath + "upload/"+request.getParameter("corpid")+"/thumb";
+			String realPath = request.getSession().getServletContext()
+					.getRealPath("/");
 
+			// System.out.println("============realPath:" + realPath);
+			int rootIndex = realPath.indexOf(jbossName);
+			if (rootIndex < 0) {
+				rootIndex = realPath.indexOf("war");
+			}
+
+			if (rootIndex < 0) {
+				return null;
+			} else {
+				realPath = realPath.substring(0, rootIndex);
+			}
+
+			uploadPath = realPath + "upload/" + request.getParameter("corpid")
+					+ "/thumb";
+		}
 		return uploadPath;
 	}
 

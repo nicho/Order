@@ -41,6 +41,7 @@ public class ImageUrlActionHandler extends
 					.getResourceAsStream("configuration.properties"));
 			resp.setUrl(properties.getProperty("imageUrl"));
 			resp.setJbossname(properties.getProperty("jbossName"));
+			resp.setUploadUrl(properties.getProperty("uploadUrl"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
