@@ -84,6 +84,8 @@ public class OrdersWaitPresenterImpl extends
 										display.getTimeText().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
 										display.getTitletext().getElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
 									}
+									else if(response.getStatus()==null)
+										timer2.cancel();
 
 									
 								}

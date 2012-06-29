@@ -14,6 +14,7 @@ import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
+import com.omdasoft.orderonline.gwt.order.client.orderIndex.module.OrderManager;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginResponse;
@@ -97,8 +98,14 @@ public class OrdersLoginPresenterImpl extends
 					{
 						request.setOrderPersonPhone(display.getPhone().getValue());
 					}
+					OrderManager xxx=injector.getOrderManager();
+					if(xxx!=null && xxx.getOrderRequest()!=null && !xxx.getOrderRequest().getOrderPersonPhone().equals(display.getPhone().getValue()))
+						injector.getOrdersDishesPresenter().cleanDishes();
+					
 					injector.getOrderManager().setOrderRequest(request);
 				//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
+					
+				
 					
 					injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
 				

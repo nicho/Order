@@ -111,6 +111,7 @@ public class OrdersConfirmPresenterImpl extends
 										@Override
 										public void onClick(ClickEvent arg0) {
 											dialogBoxae.hide();
+											injector.getOrdersWaitPresenter().setRoomFal(false);
 											injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());
 										}
 									});

@@ -35,6 +35,7 @@ public class OrderWaitActionHandler extends
 			throws DispatchException {
 		OrderWaitResponse rep=new OrderWaitResponse();
 		Orders order=orderService.findOrderById(action.getOrderId());
+		if(order!=null && order.getOrderStatus()!=null)
 		rep.setStatus(OrderStatus.valueOf(order.getOrderStatus().toString()));
 		return rep;
 	}

@@ -212,6 +212,7 @@ public class OrdersDishesPresenterImpl extends
 				cellBookingTable.setRowData(injector.getOrderManager().getOrderRequest().getBookingDishesListClient());
 				sumNumberMoney();
 			}
+
 		}
 	}
 	public void initDwKw()
@@ -766,6 +767,16 @@ public class OrdersDishesPresenterImpl extends
 	public void initDishesList(List<BookingDishesClient> dishesList) {
 		cellBookingTable.setRowData(dishesList);
 
+	}
+
+	@Override
+	public void cleanDishes() {
+		injector.getOrderManager().getOrderRequest().setBookingDishesList(null);
+		injector.getOrderManager().getOrderRequest().setBookingDishesListClient(null);
+		List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+		cellBookingTable.setRowData(lt);
+		sumNumberMoney();
+		
 	}
 		
 	
