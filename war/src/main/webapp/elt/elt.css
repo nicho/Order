@@ -4483,7 +4483,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
     height: 150px;
 }
 .kfcLogo {
-    background: url("/elt/images/logo.gif") no-repeat scroll 0 0 transparent;
+    background: url("images/logo.gif") no-repeat scroll 0 0 transparent;
     float: left;
     height: 63px;
     width: 201px;
