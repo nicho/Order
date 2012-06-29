@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.dao.person.PersonDao;
 import com.omdasoft.orderonline.dao.user.UserRoleDao;
 import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
+import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.person.Person;
 import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
@@ -798,8 +799,21 @@ public class OrderServiceImpl implements OrderService {
 				
 				if(user.getStaff().getDepartment()!=null)
 				{
-					orderVo.setRestaurantId(user.getStaff().getDepartment().getId());
-					orderVo.setCity(user.getStaff().getDepartment().getCity());
+					if(user.getStaff().getDepartment().getName().indexOf("ROOT")!=-1)
+					{
+						//顶级部门.获取下级部门
+						 List<Department> deptList=departmentLogic.getWholeChildren(user.getStaff().getDepartment().getId(), false);
+						 if(deptList!=null && deptList.size()>0)
+						 {
+								orderVo.setRestaurantId(deptList.get(0).getId());
+								orderVo.setCity(deptList.get(0).getCity());
+						 }
+					}
+					else
+					{
+						orderVo.setRestaurantId(user.getStaff().getDepartment().getId());
+						orderVo.setCity(user.getStaff().getDepartment().getCity());
+					}
 				}
 				
 				orderVo.setOrderSource(OrderSource.PHONE);
