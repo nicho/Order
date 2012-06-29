@@ -246,7 +246,7 @@ public class OrderSubmitPresenterImpl extends
 			return false;
 		}
 		if (StringUtil.isEmpty(req.getFavoriteRoom()+"") || req.getFavoriteRoom()==0) {
-			Window.alert("请选择预定类型");
+			Window.alert("请选择预定房间类型");
 			return false;
 		}
 		if (StringUtil.isEmpty(req.getOrderPersonName())) {

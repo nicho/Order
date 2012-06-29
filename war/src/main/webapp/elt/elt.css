@@ -2968,6 +2968,7 @@ a.menu_n:hover {
     text-decoration: none;
 }
 .nav_left_n:hover {
+	cursor:pointer;
     background: url("http://www.4008823823.com.cn/kfcios/images4/a9.gif") no-repeat scroll 0 0 transparent;
 }
 a.nav_left_y:link, a.nav_left_y:visited, a.nav_left_y:active {
@@ -2982,6 +2983,7 @@ a.nav_left_y:link, a.nav_left_y:visited, a.nav_left_y:active {
     text-decoration: none;
 }
 a.nav_left_y:hover {
+	cursor:pointer;
     background: url("http://www.4008823823.com.cn/kfcios/images4/a9.gif") no-repeat scroll 0 0 transparent;
 }
 .nav_left_ul li.on a {
@@ -4550,6 +4552,7 @@ a.help_nav_1:link, a.help_nav_1:active, a.help_nav_1:visited {
 }
 .headLeft ul li a:hover {
     text-decoration: none;
+    cursor:pointer;
 }
 .headLeft ul li a.on {
     color: red;
