@@ -6,7 +6,7 @@
 
 	<g:HTMLPanel>
 		
-							 <li class=""><g:Anchor ui:field="name" styleName="nav_left_n" /> </li>
+							 <li class=""><g:Anchor href="#" ui:field="name" styleName="nav_left_n" /> </li>
 							 
 	</g:HTMLPanel>
 </ui:UiBinder>

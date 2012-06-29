@@ -18,6 +18,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Image;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.Elt;
@@ -368,11 +369,13 @@ public class OrdersDishesPresenterImpl extends
 		cellTable.setWidth(ViewConstants.page_width);
 		cellTable.setPageSize(pageSize);
 	//	cellTable.getColumn(0).setCellStyleNames("divTextLeft");
+		cellTable.setLoadingIndicator(new Image("elt/images/loadlist.gif"));
+		
 		display.getResultPanel().clear();
 		display.getResultPanel().add(cellTable);
 		display.getResultpage().clear();
 		display.getResultpage().add(pager);
-		
+	
 	}
 
 	private void doSearch(String typeId) {
