@@ -337,4 +337,13 @@ public class DepartmentDao extends BaseDao<Department> {
 
 		return query.getResultList();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public String getDepartmentBydId(String did) {
+		String deptid = null;
+		 List<String> list = getEm().createQuery("SELECT c.id FROM Department c WHERE c.did = :did").setParameter("did", did).getResultList();
+		 if(list.size()>0)
+			 deptid=list.get(0);
+		 return deptid;
+	}
 }

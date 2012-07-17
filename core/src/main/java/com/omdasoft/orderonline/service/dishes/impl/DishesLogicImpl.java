@@ -15,7 +15,6 @@ import com.omdasoft.orderonline.domain.dishes.Dishes;
 import com.omdasoft.orderonline.domain.dishes.DishesType;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
 import com.omdasoft.orderonline.domain.org.Corporation;
-import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.dishes.DishesSearchCriteria;
@@ -24,6 +23,7 @@ import com.omdasoft.orderonline.model.dishes.OrderDishesSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.service.dishes.DishesLogic;
 import com.omdasoft.orderonline.service.org.CorporationLogic;
+import com.omdasoft.orderonline.service.org.DepartmentLogic;
 import com.omdasoft.orderonline.util.StringUtil;
 
 public class DishesLogicImpl implements DishesLogic {
@@ -34,24 +34,27 @@ public class DishesLogicImpl implements DishesLogic {
 	private CorporationLogic corporationLogic;
 	private DepartmentDao departmentDao;
 	private CorporationDao corporationDao;
+	private DepartmentLogic departmentLogic;
 
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Inject
-	protected DishesLogicImpl(CorporationDao corporationDao,DishesDao dishesDao,DishesTypeDao dishesTypeDao,OrdersDishesDao ordersDishesDao,CorporationLogic corporationLogic,DepartmentDao departmentDao) {
+	protected DishesLogicImpl(DepartmentLogic departmentLogic,CorporationDao corporationDao,DishesDao dishesDao,DishesTypeDao dishesTypeDao,OrdersDishesDao ordersDishesDao,CorporationLogic corporationLogic,DepartmentDao departmentDao) {
 		this.dishesTypeDao=dishesTypeDao;
 		this.dishesDao=dishesDao;
 		this.ordersDishesDao=ordersDishesDao;
 		this.corporationLogic=corporationLogic;
 		this.departmentDao=departmentDao;
 		this.corporationDao=corporationDao;
+		this.departmentLogic=departmentLogic;
 	}
 
 	@Override
 	public Dishes saveDishes(UserContext context, Dishes dishes) {
-		if(!StringUtil.isEmptyString(context.getCorporationId()))
+		if(!StringUtil.isEmptyString(context.getCorporationId()) && !StringUtil.isEmptyString(context.getDeptId()))
 		{
 			dishes.setCorporation(corporationLogic.findCorporationById(context.getCorporationId()));
+			dishes.setDepartment(departmentLogic.findDepartmentById(context.getDeptId()));
 		}
 		if(dishes.getId()!=null)
 			return dishesDao.update(dishes);
@@ -67,11 +70,9 @@ public class DishesLogicImpl implements DishesLogic {
 			criteria.setCorporationId(context.getCorporationId());
 		}
 
-		if(!StringUtil.isEmptyString(criteria.getDeptId()))
+		if(!StringUtil.isEmptyString(context.getDeptId()))
 		{
-			Department dept=departmentDao.findById(Department.class, criteria.getDeptId());
-			if(dept!=null && dept.getCorporation()!=null)
-			criteria.setCorporationId(dept.getCorporation().getId());
+			criteria.setDeptId(context.getDeptId());
 		}
 		//没选分店。默认机构
 		if(StringUtil.isEmptyString(criteria.getCorporationId()))
@@ -110,9 +111,10 @@ public class DishesLogicImpl implements DishesLogic {
 	}
 	@Override
 	public DishesType saveDishesType(UserContext context, DishesType dishesType) {
-		if(!StringUtil.isEmptyString(context.getCorporationId()))
+		if(!StringUtil.isEmptyString(context.getCorporationId()) && !StringUtil.isEmptyString(context.getDeptId()))
 		{
 			dishesType.setCorporation(corporationLogic.findCorporationById(context.getCorporationId()));
+			dishesType.setDepartment(departmentLogic.findDepartmentById(context.getDeptId()));
 		}
 		if(dishesType.getId()!=null)
 			return dishesTypeDao.update(dishesType);
@@ -128,13 +130,11 @@ public class DishesLogicImpl implements DishesLogic {
 			criteria.setCorporationId(context.getCorporationId());
 		}
 
-		if(!StringUtil.isEmptyString(criteria.getDeptId()))
+		if(!StringUtil.isEmptyString(context.getDeptId()))
 		{
-			Department dept=departmentDao.findById(Department.class, criteria.getDeptId());
-			if(dept!=null && dept.getCorporation()!=null)
-			criteria.setCorporationId(dept.getCorporation().getId());
+			criteria.setDeptId(context.getDeptId());
 		}
-		
+
 		//没选分店。默认机构
 		if(StringUtil.isEmptyString(criteria.getCorporationId()))
 		{

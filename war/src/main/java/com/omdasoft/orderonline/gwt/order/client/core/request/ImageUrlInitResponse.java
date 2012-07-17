@@ -7,7 +7,16 @@ public class ImageUrlInitResponse implements Result {
 	String url;
 	String jbossname;
 	String corpId;
+	String deptId;
 	String uploadUrl;
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
 
 	public String getUploadUrl() {
 		return uploadUrl;

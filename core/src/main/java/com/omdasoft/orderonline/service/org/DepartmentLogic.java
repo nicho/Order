@@ -186,4 +186,10 @@ public interface DepartmentLogic {
 	public List<Department> getDepartmentsOfCorporationAndKey(String corporationId,String key);
 	public List<String> getDepartmentCityName(String corporationId);
 	public List<String[]> getDepartmentByCityName(String corporationId,String cityName);
+	/**
+	 * 根据DID查找分店Id
+	 * @param id
+	 * @return
+	 */
+	public String findDepartmentBydId(String did);
 }

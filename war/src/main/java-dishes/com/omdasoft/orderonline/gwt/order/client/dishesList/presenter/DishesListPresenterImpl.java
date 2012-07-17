@@ -157,7 +157,7 @@ public class DishesListPresenterImpl extends
 		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
 		criteria.setPagination(pagination);
 		criteria.setSession(sessionManager.getSession());
-		dispatch.execute(new SearchDishesTypeListRequest(criteria,null), new AsyncCallback<SearchDishesTypeListResponse>() {
+		dispatch.execute(new SearchDishesTypeListRequest(criteria,sessionManager.getSession()), new AsyncCallback<SearchDishesTypeListResponse>() {
 			@Override
 			public void onFailure(Throwable e) {
 				errorHandler.alert(e.getMessage());

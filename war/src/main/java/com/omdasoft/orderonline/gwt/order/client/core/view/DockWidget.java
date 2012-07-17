@@ -167,9 +167,7 @@ public class DockWidget extends Composite implements DockDisplay {
 	@Override
 	public void disableManagementCenter() {
 		btnUser.setVisible(false);
-		btnDishesMenu.setVisible(false);
 		btnUser.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
-		btnDishesMenu.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
 	}
 
 
@@ -201,6 +199,15 @@ public class DockWidget extends Composite implements DockDisplay {
 	@Override
 	public HasClickHandlers getbtnPassward() {
 		return passwardBtn;
+	}
+
+	@Override
+	public void disableDishes() {
+
+		btnDishesMenu.setVisible(false);
+
+		btnDishesMenu.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
+		
 	}
 
 }

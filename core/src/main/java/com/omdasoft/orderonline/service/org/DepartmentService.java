@@ -110,5 +110,11 @@ public interface DepartmentService {
 	public List<Department> getWholeDepartmentsOfCorporation(String corporationId);
 	public List<String> getDepartmentCityName(String corporationId);
 	public List<String[]> getDepartmentByCityName(String corporationId,String cityName);
+	/**
+	 * 根据DID查找分店Id
+	 * @param id
+	 * @return
+	 */
+	public String findDepartmentBydId(String did);
 
 }

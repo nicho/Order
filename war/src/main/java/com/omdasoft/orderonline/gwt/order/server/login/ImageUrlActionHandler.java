@@ -12,14 +12,16 @@ import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitRespon
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.service.org.CorporationService;
+import com.omdasoft.orderonline.service.org.DepartmentService;
 
 public class ImageUrlActionHandler extends
 		BaseActionHandler<ImageUrlInitRequest, ImageUrlInitResponse> {
 	CorporationService corporationService;
+	DepartmentService departmentService;
 	@Inject
-	public ImageUrlActionHandler(CorporationService corporationService) {
+	public ImageUrlActionHandler(CorporationService corporationService,DepartmentService departmentService) {
 		this.corporationService = corporationService;
-
+		this.departmentService=departmentService;
 	}
 
 	public ImageUrlActionHandler() {
@@ -51,6 +53,12 @@ public class ImageUrlActionHandler extends
 			String corpId=corporationService.findCorporationBycId(action.getCid());
 			if(corpId!=null)
 				resp.setCorpId(corpId);
+		}
+		if(!StringUtil.isEmpty(action.getDid()))
+		{
+			String deptId=departmentService.findDepartmentBydId(action.getDid());
+			if(deptId!=null)
+				resp.setDeptId(deptId);
 		}
 		return resp;
 

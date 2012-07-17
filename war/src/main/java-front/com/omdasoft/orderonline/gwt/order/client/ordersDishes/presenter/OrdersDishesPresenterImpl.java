@@ -278,7 +278,7 @@ public class OrdersDishesPresenterImpl extends
 		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
 		criteria.setPagination(pagination);
 		criteria.setCorpId(Elt.CORPORATIONID);
-//		criteria.setDeptId(request.getRestaurantId());
+		criteria.setDeptId(Elt.DEPARTMENTID);
 		dispatch.execute(new SearchDishesTypeListRequest(criteria,null), new AsyncCallback<SearchDishesTypeListResponse>() {
 			@Override
 			public void onFailure(Throwable e) {
@@ -383,7 +383,7 @@ public class OrdersDishesPresenterImpl extends
 		if(!StringUtil.isEmpty(typeId))
 		criteria.setTypeId(typeId);
 		criteria.setCorpId(Elt.CORPORATIONID);
-//		criteria.setDeptId(request.getRestaurantId());
+		criteria.setDeptId(Elt.DEPARTMENTID);
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
 				errorHandler, null,display,this,dishesDetailedDialogProvider);
 		listViewAdapter.addDataDisplay(cellTable);

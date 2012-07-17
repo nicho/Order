@@ -37,6 +37,7 @@ public class DishesTypeSaveActionHandler extends
 		UserContext u=new UserContext();
 		u.setCorporationId(action.getSession().getCorporationId());
 		u.setUserId(action.getSession().getToken());
+		u.setDeptId(action.getSession().getDepartmentId());
 		DishesType vo=new DishesType();
 		if(!StringUtil.isEmptyString(action.getId()))
 			vo.setId(action.getId());

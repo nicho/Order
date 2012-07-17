@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 import com.omdasoft.orderonline.domain.org.Corporation;
+import com.omdasoft.orderonline.domain.org.Department;
 
 
 @Entity
@@ -44,7 +45,15 @@ public class DishesType implements Serializable {
 	}
 	@ManyToOne
 	private Corporation corporation;	
+	@ManyToOne
+	private Department department;	
 	
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 	public Corporation getCorporation() {
 		return corporation;
 	}

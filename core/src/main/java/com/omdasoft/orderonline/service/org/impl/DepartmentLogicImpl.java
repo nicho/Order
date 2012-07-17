@@ -61,7 +61,12 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 
 	@Override
 	public Department findDepartmentById(String id) {
-		return departmentDao.findById(Department.class, id);
+		try {
+			return departmentDao.findById(Department.class, id);
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 	
@@ -427,6 +432,11 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 			}
 		}
 		return res;
+	}
+
+	@Override
+	public String findDepartmentBydId(String did) {
+		return departmentDao.getDepartmentBydId(did);
 	}
 
 }

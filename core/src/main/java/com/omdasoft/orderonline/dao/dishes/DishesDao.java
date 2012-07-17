@@ -79,6 +79,13 @@ public class DishesDao extends BaseDao<Dishes> {
 				param.put("corpId", vo.getCorporationId());
 	
 			}
+			if(!StringUtil.isEmptyString(vo.getDeptId()))
+			{
+				eql.append(" AND o.department.id = :departmentId ");
+				param.put("departmentId", vo.getDeptId());
+
+			}
+			
 			if(!StringUtil.isEmptyString(vo.getKeyName()))
 			{
 				eql.append(" AND o.name LIKE :keyName ");

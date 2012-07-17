@@ -135,4 +135,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 			String cityName) {
 		return departmentLogic.getDepartmentByCityName(corporationId, cityName);
 	}
+
+	@Override
+	public String findDepartmentBydId(String did) {
+		return departmentLogic.findDepartmentBydId(did);
+	}
 }

@@ -17,14 +17,17 @@ public class Elt implements EntryPoint {
 	public static  String GWT_IMAGE_PATH = "upload/";
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	public static String CORPORATIONID="";
+	public static String DEPARTMENTID="";
 	@Override
 	public void onModuleLoad() {
 		Map<String, List<String>> maps = Window.Location.getParameterMap(); 
 		if(maps.get("cid")!=null)
-		   CORPORATIONID=maps.get("cid").get(0)+"";
+		    CORPORATIONID=maps.get("cid").get(0)+"";
+		if(maps.get("did")!=null)
+			DEPARTMENTID=maps.get("did").get(0)+"";
 		
 		
-		injector.getDispatch().execute(new ImageUrlInitRequest(CORPORATIONID),
+		injector.getDispatch().execute(new ImageUrlInitRequest(CORPORATIONID,DEPARTMENTID),
 				new AsyncCallback<ImageUrlInitResponse>() {
 					@Override
 					public void onFailure(Throwable e) {
@@ -35,6 +38,7 @@ public class Elt implements EntryPoint {
 					public void onSuccess(
 							ImageUrlInitResponse response) {
 							CORPORATIONID=response.getCorpId();
+							DEPARTMENTID=response.getDeptId();
 							GWT_IMAGE_PATH=response.getUrl();
 							RootLayoutPanel.get().clear();
 							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());

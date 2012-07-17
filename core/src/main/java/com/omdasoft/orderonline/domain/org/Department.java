@@ -36,7 +36,15 @@ public class Department extends Organization {
 	@ManyToOne
 	private SysUser deptAdmin;
 	private Integer deleted;
-	
+	private  String  did;  //分店标识
+
+	public String getDid() {
+		return did;
+	}
+
+	public void setDid(String did) {
+		this.did = did;
+	}
 
 	public Integer getDeleted() {
 		return deleted;

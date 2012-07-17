@@ -27,6 +27,7 @@ public interface DockPresenter extends Presenter<DockPresenter.DockDisplay> {
 		void setMenuTitle(String title);
 		
 		void disableManagementCenter();
+		void disableDishes();
 
 		
 		void changeTopMenu(String key);
