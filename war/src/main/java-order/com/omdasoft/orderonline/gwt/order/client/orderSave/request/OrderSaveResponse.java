@@ -12,6 +12,15 @@ public class OrderSaveResponse implements Result {
 
 	private int total;
 	private String orderId;
+	private String roomState;
+
+	public String getRoomState() {
+		return roomState;
+	}
+
+	public void setRoomState(String roomState) {
+		this.roomState = roomState;
+	}
 
 	public int getTotal() {
 		return total;

@@ -70,6 +70,7 @@ public class OrdersDishesPresenterImpl extends
 	List<String> kwlt=new ArrayList<String>();
 	int pageSize=ViewConstants.per_page_number_in_12;
 	OrdersDishesPresenter ordersDishesPresenter;
+	String deptId=null;
 	private final Provider<DishesDetailedDialog> dishesDetailedDialogProvider;
 
 	@Inject
@@ -111,7 +112,7 @@ public class OrdersDishesPresenterImpl extends
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
-						if(cellBookingTable==null)
+						if(cellBookingTable==null || cellBookingTable.getVisibleItems().size()<=0)
 						{
 							Window.alert("请先点菜！");
 						}
@@ -191,7 +192,9 @@ public class OrdersDishesPresenterImpl extends
 		{
 			display.setCity(injector.getOrderManager().getOrderRequest().getCity());
 			if(injector.getOrderManager().getOrderRequest().getAmountOfClient()!=0)
-			display.setNumber(injector.getOrderManager().getOrderRequest().getAmountOfClient()+"");
+				display.setNumber(injector.getOrderManager().getOrderRequest().getAmountOfClient()+"");
+			else
+				display.setNumber("");
 			display.setOrderUser(injector.getOrderManager().getOrderRequest().getOrderPersonName());
 			display.setRestaurant(injector.getOrderManager().getOrderRequest().getRestaurantName());
 			display.setphone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
@@ -278,7 +281,14 @@ public class OrdersDishesPresenterImpl extends
 		DishesTypeListCriteria criteria = new DishesTypeListCriteria();
 		criteria.setPagination(pagination);
 		criteria.setCorpId(Elt.CORPORATIONID);
-		criteria.setDeptId(Elt.DEPARTMENTID);
+		if(!StringUtil.isEmpty(deptId))
+		{
+			criteria.setDeptId(deptId);
+		}
+		else
+		{
+			criteria.setDeptId(Elt.DEPARTMENTID);
+		}
 		dispatch.execute(new SearchDishesTypeListRequest(criteria,null), new AsyncCallback<SearchDishesTypeListResponse>() {
 			@Override
 			public void onFailure(Throwable e) {
@@ -383,7 +393,14 @@ public class OrdersDishesPresenterImpl extends
 		if(!StringUtil.isEmpty(typeId))
 		criteria.setTypeId(typeId);
 		criteria.setCorpId(Elt.CORPORATIONID);
-		criteria.setDeptId(Elt.DEPARTMENTID);
+		if(!StringUtil.isEmpty(deptId))
+		{
+			criteria.setDeptId(deptId);
+		}
+		else
+		{
+			criteria.setDeptId(Elt.DEPARTMENTID);
+		}
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
 				errorHandler, null,display,this,dishesDetailedDialogProvider);
 		listViewAdapter.addDataDisplay(cellTable);
@@ -779,6 +796,12 @@ public class OrdersDishesPresenterImpl extends
 		List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
 		cellBookingTable.setRowData(lt);
 		sumNumberMoney();
+
+	}
+
+	@Override
+	public void initDeptId(String deptId) {
+		this.deptId=deptId;
 		
 	}
 		

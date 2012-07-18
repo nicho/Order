@@ -169,11 +169,11 @@ public class OrderDao extends BaseDao<Orders> {
 		return query;
 	}
 	@SuppressWarnings("unchecked")
-	public Orders findByOrdersPhone(String phone) {
+	public Orders findByOrdersPhone(String phone,String deptId) {
 		try {
 			List<Orders> orderlt=getEm()
-					.createQuery("FROM Orders o WHERE (o.orderStatus =:status_a or o.orderStatus =:status_b or o.orderStatus =:status_c) AND o.orderPerson.phone = :phone order by o.placeOrderTime desc")
-					.setParameter("status_a", OrderStatus.UNHANDLED).setParameter("status_b", OrderStatus.SUCCESS).setParameter("status_c", OrderStatus.FAILURE).setParameter("phone", phone).getResultList();
+					.createQuery("FROM Orders o WHERE (o.orderStatus =:status_a or o.orderStatus =:status_b or o.orderStatus =:status_c) AND o.orderPerson.phone = :phone AND o.department.id=:departmentId order by o.placeOrderTime desc")
+					.setParameter("status_a", OrderStatus.UNHANDLED).setParameter("status_b", OrderStatus.SUCCESS).setParameter("status_c", OrderStatus.FAILURE).setParameter("phone", phone).setParameter("departmentId", deptId).getResultList();
 			 if(orderlt!=null && orderlt.size()>0)
 				 return orderlt.get(0);
 			 else

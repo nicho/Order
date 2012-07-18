@@ -14,6 +14,15 @@ import net.customware.gwt.dispatch.shared.Action;
 public class OrderLoginRequest implements Action<OrderLoginResponse> {
 
 	private String phone;
+	private String deptId;
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
 
 	public String getPhone() {
 		return phone;
@@ -23,8 +32,9 @@ public class OrderLoginRequest implements Action<OrderLoginResponse> {
 		this.phone = phone;
 	}
 
-	public OrderLoginRequest(String phone) {
+	public OrderLoginRequest(String phone,String deptId) {
 		this.phone=phone;
+		this.deptId=deptId;
 	}
 	public OrderLoginRequest() {
 

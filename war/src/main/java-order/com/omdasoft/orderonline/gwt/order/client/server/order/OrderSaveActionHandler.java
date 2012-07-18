@@ -16,6 +16,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResp
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.model.order.OrderStatus;
+import com.omdasoft.orderonline.model.order.RoomState;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.vo.OrderDishesVo;
 import com.omdasoft.orderonline.model.vo.OrderVo;
@@ -73,6 +74,10 @@ public class OrderSaveActionHandler extends
 			}
 			Orders order=orderService.saveOrdersByPhoneDishes(u, vo);
 			rep.setOrderId(order.getId());
+			if(order.getRoomState()!=null)
+				rep.setRoomState(order.getRoomState().toString());
+			else
+				rep.setRoomState(RoomState.NOTRESERVATION.toString());
 		}
 		else if("ROOM".equals(action.getDishesOrRoomFal()))
 		{

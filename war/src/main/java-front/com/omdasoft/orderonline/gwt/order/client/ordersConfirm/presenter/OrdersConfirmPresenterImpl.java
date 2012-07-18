@@ -89,7 +89,7 @@ public class OrdersConfirmPresenterImpl extends
 									OrderSaveResponse response) {
 								injector.getOrderManager().getOrderRequest().setId(response.getOrderId());
 								
-								if(!StringUtil.isEmpty(injector.getOrderManager().getOrderRequest().getRestaurantId()))
+								if(!"NOTRESERVATION".equals(response.getRoomState()))
 								{
 									injector.getOrdersWaitPresenter().setRoomFal(true);
 									injector.getOrderIndexPresenter().initPresenter(injector.getOrdersWaitPresenter());

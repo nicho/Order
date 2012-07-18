@@ -9,6 +9,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
@@ -19,9 +20,9 @@ import com.omdasoft.orderonline.gwt.order.util.DateTool;
 
 public class OrderSubmitWidget extends Composite implements OrderSubmitDisplay {
 	@UiField
-	ListBox city;
+	InlineLabel city;
 	@UiField
-	ListBox restaurant;
+	InlineLabel restaurant;
 	@UiField
 	ListBox reserveTime;
 	@UiField
@@ -94,12 +95,12 @@ public class OrderSubmitWidget extends Composite implements OrderSubmitDisplay {
 	}
 
 	@Override
-	public ListBox getCity() {
+	public InlineLabel getCity() {
 		return city;
 	}
 
 	@Override
-	public ListBox getrestaurant() {
+	public InlineLabel getrestaurant() {
 		return restaurant;
 	}
 

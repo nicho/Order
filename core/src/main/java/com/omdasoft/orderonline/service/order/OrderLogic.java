@@ -80,7 +80,7 @@ public interface OrderLogic {
 	 * @param phone
 	 * @return
 	 */
-	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone);
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone,String deptId);
 }
 
 

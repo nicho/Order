@@ -1,7 +1,12 @@
 package com.omdasoft.orderonline.gwt.order.client.ordersLogin.presenter;
 
+import java.util.List;
+import java.util.Map;
+
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -10,14 +15,20 @@ import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
+import com.omdasoft.orderonline.gwt.order.client.Elt;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderIndex.module.OrderManager;
+import com.omdasoft.orderonline.gwt.order.client.orderSave.request.CityInitRequest;
+import com.omdasoft.orderonline.gwt.order.client.orderSave.request.CityInitResponse;
+import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderInitRequest;
+import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderInitResponse;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginResponse;
+import com.omdasoft.orderonline.gwt.order.client.view.constant.CssStyleConstants;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 
@@ -41,6 +52,14 @@ public class OrdersLoginPresenterImpl extends
 
 	@Override
 	public void bind() {
+		
+		Map<String, List<String>> maps = Window.Location.getParameterMap(); 
+
+		if(maps.get("did")!=null)
+			display.getCity().getElement().getParentElement().addClassName(CssStyleConstants.hidden);
+		
+		
+		
 		registerHandler(display.getSubmitBtn().addClickHandler(new ClickHandler() {
 			
 			@Override
@@ -58,14 +77,76 @@ public class OrdersLoginPresenterImpl extends
 						}
 					}
 				}));
-	}
+		
+		
+		dispatch.execute(new OrderInitRequest(Elt.CORPORATIONID), new AsyncCallback<OrderInitResponse>() {
+			@Override
+			public void onFailure(Throwable e) {
+				errorHandler.alert(e.getMessage());
+			}
 
+			@Override
+			public void onSuccess(OrderInitResponse response) {
+				if (response.getCityName() != null
+						&& response.getCityName().size() > 0) {
+					display.getCity().clear();
+					for (String city : response.getCityName()) {
+						display.getCity().addItem(city, city);
+					}
+					changeCity();
+				}
+
+			}
+
+		});
+		registerHandler(display.getCity().addChangeHandler(new ChangeHandler() {
+
+			@Override
+			public void onChange(ChangeEvent arg0) {
+
+				changeCity();
+
+			}
+		}));
+	}
+	public void changeCity() {
+		dispatch.execute(
+				new CityInitRequest(Elt.CORPORATIONID, display.getCity().getValue(
+						display.getCity().getSelectedIndex())),
+				new AsyncCallback<CityInitResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						errorHandler.alert(e.getMessage());
+					}
+
+					@Override
+					public void onSuccess(CityInitResponse response) {
+						if (response.getDeptName() != null
+								&& response.getDeptName().size() > 0) {
+							display.getrestaurant().clear();
+							for (String[] restaurant : response.getDeptName()) {
+								display.getrestaurant().addItem(restaurant[1],
+										restaurant[0]);
+							}
+						}
+
+					}
+
+				});
+	}
 	void doLogin()
 	{
 		if(!StringUtil.isEmpty(display.getPhone().getValue()))
 		{
+			Map<String, List<String>> maps = Window.Location.getParameterMap(); 
+			 String deptId="";
+			if(maps.get("did")!=null)
+				deptId=Elt.DEPARTMENTID;
+			else
+				deptId=display.getrestaurant().getValue(display.getrestaurant().getSelectedIndex());
+			
 			//查询订单信息，和点菜信息
-			dispatch.execute(new OrderLoginRequest(display.getPhone().getValue()), new AsyncCallback<OrderLoginResponse>() {
+			dispatch.execute(new OrderLoginRequest(display.getPhone().getValue(),deptId), new AsyncCallback<OrderLoginResponse>() {
 				@Override
 				public void onFailure(Throwable e) {
 					errorHandler.alert(e.getMessage());
@@ -96,19 +177,29 @@ public class OrdersLoginPresenterImpl extends
 					}
 					else
 					{
+						request.setAmountOfClient(0);
 						request.setOrderPersonPhone(display.getPhone().getValue());
+						request.setCity(response.getCity());
+						request.setRestaurantName(response.getRestaurantName());
+						request.setRestaurantId(response.getRestaurantId());
 					}
 					OrderManager xxx=injector.getOrderManager();
-					if(xxx!=null && xxx.getOrderRequest()!=null && !xxx.getOrderRequest().getOrderPersonPhone().equals(display.getPhone().getValue()))
+					if((xxx!=null && xxx.getOrderRequest()!=null && !xxx.getOrderRequest().getOrderPersonPhone().equals(display.getPhone().getValue())) || (xxx!=null && xxx.getOrderRequest()!=null && !xxx.getOrderRequest().getRestaurantId().equals(display.getrestaurant().getValue(display.getrestaurant().getSelectedIndex()))))
 						injector.getOrdersDishesPresenter().cleanDishes();
 					
 					injector.getOrderManager().setOrderRequest(request);
 				//	injector.getOrdersDishesPresenter().initOrdersDishes(request);
 					
-				
-					
+						String deptId="";
+						Map<String, List<String>> maps = Window.Location.getParameterMap(); 
+						if(maps.get("did")!=null)
+							deptId=Elt.DEPARTMENTID;
+						else
+							deptId=display.getrestaurant().getValue(display.getrestaurant().getSelectedIndex());
+						
+					injector.getOrdersDishesPresenter().initDeptId(deptId);
 					injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
-				
+					
 					
 				
 					

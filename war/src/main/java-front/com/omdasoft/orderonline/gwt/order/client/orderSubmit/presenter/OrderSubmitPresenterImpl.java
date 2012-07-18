@@ -4,8 +4,6 @@ import java.util.Date;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
-import com.google.gwt.event.dom.client.ChangeEvent;
-import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
@@ -16,10 +14,6 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.orderList.model.OrderListCriteria.OrderStatus;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.CityInitRequest;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.CityInitResponse;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderInitRequest;
-import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderInitResponse;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderSave.request.OrderSaveResponse;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
@@ -91,36 +85,7 @@ public class OrderSubmitPresenterImpl extends
 				}));
 	
 
-		dispatch.execute(new OrderInitRequest(sessionManager.getSession()
-				.getCorporationId()), new AsyncCallback<OrderInitResponse>() {
-			@Override
-			public void onFailure(Throwable e) {
-				errorHandler.alert(e.getMessage());
-			}
-
-			@Override
-			public void onSuccess(OrderInitResponse response) {
-				if (response.getCityName() != null
-						&& response.getCityName().size() > 0) {
-					display.getCity().clear();
-					for (String city : response.getCityName()) {
-						display.getCity().addItem(city, city);
-					}
-					changeCity();
-				}
-
-			}
-
-		});
-		registerHandler(display.getCity().addChangeHandler(new ChangeHandler() {
-
-			@Override
-			public void onChange(ChangeEvent arg0) {
-
-				changeCity();
-
-			}
-		}));
+	
 		display.getContactPersonName().getElement().getParentElement().getParentElement().getParentElement().addClassName(CssStyleConstants.hidden);
 		registerHandler(display.getOtherPersonCheckbox().addClickHandler(new ClickHandler() {
 			
@@ -137,35 +102,17 @@ public class OrderSubmitPresenterImpl extends
 				
 			}
 		}));
+		
+		
+		if(injector.getOrderManager().getOrderRequest()!=null)
+		{
+			display.getCity().setText(injector.getOrderManager().getOrderRequest().getCity());
+			display.getrestaurant().setText(injector.getOrderManager().getOrderRequest().getRestaurantName());
+		}
 
 	}
 	
-	public void changeCity() {
-		dispatch.execute(
-				new CityInitRequest(sessionManager.getSession()
-						.getCorporationId(), display.getCity().getValue(
-						display.getCity().getSelectedIndex())),
-				new AsyncCallback<CityInitResponse>() {
-					@Override
-					public void onFailure(Throwable e) {
-						errorHandler.alert(e.getMessage());
-					}
-
-					@Override
-					public void onSuccess(CityInitResponse response) {
-						if (response.getDeptName() != null
-								&& response.getDeptName().size() > 0) {
-							display.getrestaurant().clear();
-							for (String[] restaurant : response.getDeptName()) {
-								display.getrestaurant().addItem(restaurant[1],
-										restaurant[0]);
-							}
-						}
-
-					}
-
-				});
-	}
+	
 
 
 	private void createRequest()
@@ -175,8 +122,8 @@ public class OrderSubmitPresenterImpl extends
 		 
 		if (!StringUtil.isEmpty(display.getAmountOfClient().getValue())) 
 			request.setAmountOfClient(Integer.parseInt(display.getAmountOfClient().getValue()));
-		if (display.getCity().getSelectedIndex() >= 0)
-			request.setCity(display.getCity().getValue(display.getCity().getSelectedIndex()));
+		
+			request.setCity(injector.getOrderManager().getOrderRequest().getCity());
 		
 		request.setContactPersonName(display.getContactPersonName().getValue());
 		request.setContactPersonPhone(display.getContactPersonPhone().getValue());
@@ -219,16 +166,10 @@ public class OrderSubmitPresenterImpl extends
 					.getReserveTimeS().getValue(
 							display.getReserveTimeS()
 									.getSelectedIndex()));
-		if (display.getrestaurant().getSelectedIndex() >= 0)
-		{
-			request.setRestaurantId(display.getrestaurant()
-					.getValue(
-							display.getrestaurant()
-									.getSelectedIndex()));
-			request.setRestaurantName(display.getrestaurant().getItemText(
-							display.getrestaurant()
-									.getSelectedIndex()));
-		}
+
+			request.setRestaurantId(injector.getOrderManager().getOrderRequest().getRestaurantId());
+			request.setRestaurantName(injector.getOrderManager().getOrderRequest().getRestaurantName());
+
 	
 		request.setOrderStatus(OrderStatus.UNHANDLED);
 		

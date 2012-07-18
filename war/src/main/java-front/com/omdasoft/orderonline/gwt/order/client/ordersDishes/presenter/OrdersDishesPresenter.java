@@ -17,6 +17,7 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 
 	public void initDishesList(List<BookingDishesClient> dishesList);
 	public void refulDishes(String typeId);
+	public void initDeptId(String deptId);	
 	public void cleanDishes();
 	public static interface OrdersDishesDisplay extends Display {
 

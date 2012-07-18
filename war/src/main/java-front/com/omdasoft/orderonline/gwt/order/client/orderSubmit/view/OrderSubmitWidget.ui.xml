@@ -119,7 +119,8 @@
 								<dd>
 									<span class="{new2.red} {new2.mr5}">*</span>
 									选择城市：
-									<g:ListBox ui:field="city" />
+							
+									<g:InlineLabel ui:field="city" />
 									<span id="num" class="{new2.red} {new2.ml15}"></span>
 								</dd>
 							</dl>
@@ -130,7 +131,7 @@
 								<dd>
 									<span class="{new2.red} {new2.mr5}">*</span>
 									选择餐厅：
-									<g:ListBox ui:field="restaurant" />
+									<g:InlineLabel ui:field="restaurant" />
 									<span id="num" class="{new2.red} {new2.ml15}"></span>
 								</dd>
 							</dl>

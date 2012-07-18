@@ -3,6 +3,7 @@ package com.omdasoft.orderonline.gwt.order.client.orderSubmit.presenter;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.CheckBox;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
@@ -19,9 +20,9 @@ public void initOrderPhone(String phone);
 
 		public HasClickHandlers getAddBtnClickHandlers();
 	
-		ListBox getCity();
+		InlineLabel getCity();
 		
-		ListBox getrestaurant();
+		InlineLabel getrestaurant();
 		
 		ListBox getReserveTime();
 		

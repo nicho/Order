@@ -31,9 +31,16 @@
 								 <p class="ds">麻烦再输入手机，才能找到您的<br></br>送餐信息噢！/Email pls :)</p>
 								 <input name="teleEmail" maxlength="50" id="myEmail" class="input" onclick="hidePd();" type="text"></input>
 								</div>
-								
-								
-							
+								<br></br>
+								<div>
+									选择城市：
+									<g:ListBox ui:field="city" styleName="select" />
+									<br></br>
+									<br></br>
+									选择餐厅：
+									<g:ListBox ui:field="restaurant" styleName="select" />
+								</div>
+						
 							
 								<br></br>
 								<div class="btnNext">

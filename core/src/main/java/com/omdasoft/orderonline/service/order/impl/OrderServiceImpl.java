@@ -371,8 +371,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone) {
-		return orderLogic.getOrderAndDishesModelByPhone(phone);
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone,String deptId) {
+		return orderLogic.getOrderAndDishesModelByPhone(phone,deptId);
 	}
 
 	@Override

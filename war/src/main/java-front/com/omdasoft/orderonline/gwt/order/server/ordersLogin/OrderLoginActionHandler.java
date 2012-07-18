@@ -9,6 +9,7 @@ import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.DispatchException;
 
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
+import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesClient;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.ordersLogin.request.OrderLoginResponse;
@@ -16,16 +17,19 @@ import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.model.order.OrderAndDishesModel;
 import com.omdasoft.orderonline.service.order.OrderService;
+import com.omdasoft.orderonline.service.org.DepartmentService;
 
 public class OrderLoginActionHandler extends
 		BaseActionHandler<OrderLoginRequest, OrderLoginResponse> {
 
 	OrderService orderService;
+	DepartmentService departmentService;
 	
 	@Inject
-	public OrderLoginActionHandler(OrderService orderService)
+	public OrderLoginActionHandler(OrderService orderService,DepartmentService departmentService)
 	{
 		this.orderService=orderService;
+		this.departmentService=departmentService;
 	}
 	public OrderLoginActionHandler() {
 
@@ -40,7 +44,7 @@ public class OrderLoginActionHandler extends
 			throws DispatchException {
 		OrderLoginResponse rep=new OrderLoginResponse();
 
-		OrderAndDishesModel model=orderService.getOrderAndDishesModelByPhone(action.getPhone());
+		OrderAndDishesModel model=orderService.getOrderAndDishesModelByPhone(action.getPhone(),action.getDeptId());
 		if(model!=null && model.getOrder()!=null)
 		{
 			rep.setOrderId(model.getOrder().getId());
@@ -92,6 +96,16 @@ public class OrderLoginActionHandler extends
 						dishesList.add(r);
 					}
 				rep.setBookingDishesList(dishesList);
+			}
+		}
+		else
+		{
+			Department dept=departmentService.findDepartmentById(action.getDeptId());
+			if(dept!=null)
+			{
+				rep.setCity(dept.getCity());
+				rep.setRestaurantId(dept.getId());
+				rep.setRestaurantName(dept.getName());
 			}
 		}
 		return rep;

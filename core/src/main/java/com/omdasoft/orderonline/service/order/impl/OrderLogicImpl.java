@@ -182,8 +182,8 @@ public class OrderLogicImpl implements OrderLogic{
 	}
 
 	@Override
-	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone) {
-		Orders order=orderDao.findByOrdersPhone(phone);
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone,String deptId) {
+		Orders order=orderDao.findByOrdersPhone(phone,deptId);
 		if(order!=null)
 		{
 			OrderAndDishesModel model=new OrderAndDishesModel();

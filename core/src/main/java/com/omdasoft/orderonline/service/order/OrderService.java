@@ -96,7 +96,7 @@ public interface OrderService {
 	 * @param phone
 	 * @return
 	 */
-	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone);
+	public OrderAndDishesModel getOrderAndDishesModelByPhone(String phone,String deptId);
 
 	/**
 	 * 保存订单（电话+点菜信息）
