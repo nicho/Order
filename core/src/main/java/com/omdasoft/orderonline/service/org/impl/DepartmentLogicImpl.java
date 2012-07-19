@@ -134,6 +134,7 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 			tempDepartment.setLastModifiedAt(DateUtil.getTime());
 			tempDepartment.setLastModifiedBy(caller);
 			tempDepartment.setDeptAdmin(department.getDeptAdmin());
+			tempDepartment.setDid(department.getDid());
 			departmentDao.update(tempDepartment);
 			
 			SysUserRole userRole = new SysUserRole();

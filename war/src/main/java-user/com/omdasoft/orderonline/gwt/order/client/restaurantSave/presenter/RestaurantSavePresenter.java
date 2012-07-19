@@ -23,6 +23,7 @@ public void initRestaurant(String orderId);
 		
 		TextBox getAddress();
 		TextBox getPhone();
+		TextBox getDid();
 		
 		public HasClickHandlers getChooseLeaderBtnClick();
 	    public SpecialTextArea<OrganicationClient> getLeaderArea();

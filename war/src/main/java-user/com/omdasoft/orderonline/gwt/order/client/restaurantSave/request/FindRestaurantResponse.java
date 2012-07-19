@@ -15,9 +15,22 @@ public class FindRestaurantResponse implements Result {
 	private String phone;
 	private String deptAdminStaffId;
 	private String deptAdminStaffName;
+	private String did;
 
 	public String getDeptAdminStaffName() {
 		return deptAdminStaffName;
+	}
+
+
+
+	public String getDid() {
+		return did;
+	}
+
+
+
+	public void setDid(String did) {
+		this.did = did;
 	}
 
 

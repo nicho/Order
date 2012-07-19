@@ -47,6 +47,7 @@ public class RestaurantSaveActionHandler extends
 		vo.setCity(action.getCity());
 		vo.setAddress(action.getAddress());
 		vo.setPhone(action.getPhone());
+		vo.setDid(action.getDid());
 		vo.setParent(departmentService.findDepartmentById(action.getSession().getDepartmentId()));
 		if(!StringUtil.isEmptyString(action.getDeptAdminStaffId()))
 		{

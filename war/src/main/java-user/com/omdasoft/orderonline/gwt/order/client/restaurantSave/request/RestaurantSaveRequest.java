@@ -23,6 +23,19 @@ public class RestaurantSaveRequest implements Action<RestaurantSaveResponse> {
 	private String address;
 	private String phone;
 	private String deptAdminStaffId;
+	private String did;
+
+	public String getDid() {
+		return did;
+	}
+
+
+
+	public void setDid(String did) {
+		this.did = did;
+	}
+
+
 
 	public String getDeptAdminStaffId() {
 		return deptAdminStaffId;

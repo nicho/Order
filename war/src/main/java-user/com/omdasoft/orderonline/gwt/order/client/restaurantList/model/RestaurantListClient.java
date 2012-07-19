@@ -16,8 +16,15 @@ public class RestaurantListClient implements Serializable, Comparable<Restaurant
 	private String address;
 	private String phone;
 	private String deptAdmin;
+	private String did;
 	
 	
+	public String getDid() {
+		return did;
+	}
+	public void setDid(String did) {
+		this.did = did;
+	}
 	public String getIndexNo() {
 		return indexNo;
 	}

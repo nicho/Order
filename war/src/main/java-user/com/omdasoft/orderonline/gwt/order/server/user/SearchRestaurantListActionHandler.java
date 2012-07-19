@@ -82,6 +82,7 @@ public class SearchRestaurantListActionHandler extends
 				c.setCity(r.getCity());
 				c.setAddress(r.getAddress());
 				c.setPhone(r.getPhone());
+				c.setDid(r.getDid());
 				if(r.getDeptAdmin()!=null && r.getDeptAdmin().getStaff()!=null)
 				c.setDeptAdmin(r.getDeptAdmin().getStaff().getName());
 				result.add(c);

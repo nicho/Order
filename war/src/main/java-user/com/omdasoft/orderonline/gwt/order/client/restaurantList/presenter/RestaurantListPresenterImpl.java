@@ -161,6 +161,13 @@ public class RestaurantListPresenterImpl extends
 						return restaurant.getId().substring(restaurant.getId().length()-4);
 					}
 				});
+		cellTable.addColumn("分店缩写", new TextCell(),
+				new GetValue<RestaurantListClient, String>() {
+					@Override
+					public String getValue(RestaurantListClient restaurant) {
+						return restaurant.getDid();
+					}
+				});
 		cellTable.addColumn("分店名", new TextCell(),
 				new GetValue<RestaurantListClient, String>() {
 					@Override

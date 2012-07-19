@@ -31,7 +31,9 @@ public class RestaurantSaveWidget extends Composite implements RestaurantSaveDis
 	Panel leaderPanel;
 	@UiField
 	Panel breadCrumbs;
-
+	@UiField
+	TextBox did;
+	
 	SpecialTextArea<OrganicationClient> leaderArea;	
 	SpecialTextArea<OrganicationClient> preLeaderArea;
 
@@ -96,6 +98,12 @@ public class RestaurantSaveWidget extends Composite implements RestaurantSaveDis
 	@Override
 	public SpecialTextArea<OrganicationClient> getLeaderArea() {
 		return leaderArea;
+	}
+
+
+	@Override
+	public TextBox getDid() {
+		return did;
 	}
 
 

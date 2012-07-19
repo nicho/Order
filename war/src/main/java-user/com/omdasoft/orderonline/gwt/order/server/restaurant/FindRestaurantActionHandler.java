@@ -38,6 +38,7 @@ public class FindRestaurantActionHandler extends
 		rep.setCity(dictionary.getCity());
 		rep.setAddress(dictionary.getAddress());
 		rep.setPhone(dictionary.getPhone());
+		rep.setDid(dictionary.getDid());
 		if(dictionary.getDeptAdmin()!=null && dictionary.getDeptAdmin().getStaff()!=null)
 		{
 		rep.setDeptAdminStaffId(dictionary.getDeptAdmin().getStaff().getId());

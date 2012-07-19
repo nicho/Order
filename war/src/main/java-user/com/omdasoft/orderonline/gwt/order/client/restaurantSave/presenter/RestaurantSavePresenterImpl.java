@@ -81,6 +81,7 @@ public class RestaurantSavePresenterImpl extends
 							display.getRestaurant().setValue(response.getName());
 							display.getAddress().setValue(response.getAddress());
 							display.getPhone().setValue(response.getPhone());
+							display.getDid().setValue(response.getDid());
 							if(!StringUtil.isEmpty(response.getDeptAdminStaffId()))
 							{
 								OrganicationClient org=new OrganicationClient();
@@ -111,6 +112,7 @@ public class RestaurantSavePresenterImpl extends
 						request.setName(display.getRestaurant().getValue());
 						request.setAddress(display.getAddress().getValue());
 						request.setPhone(display.getPhone().getValue());
+						request.setDid(display.getDid().getValue());
 						request.setSession(sessionManager.getSession());
 						List<OrganicationClient> org=display.getLeaderArea().getItemList();
 						if(org!=null && org.size()>0)
