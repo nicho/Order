@@ -26,7 +26,9 @@
 										<div id="china" style="display: block;">
 											<h1 class="content_box_left_main_left_h1"> 菜单</h1>
 											<span class="content_box_left_main_left_c"> <!-- weij 2011-12-22 update -->
-
+												
+													<g:TextBox ui:field="queryKey" title="输入菜品名称" width="140px" /> <g:Anchor ui:field="querybtn" text="搜索" href="#"  />
+												
 												<!-- update end -->
 												<h2 class="content_box_left_main_left_c_h2 bmargin cursor">
 													<g:InlineLabel ui:field="menutypeAll" text="全部" />

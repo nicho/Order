@@ -143,6 +143,15 @@ public class OrdersDishesPresenterImpl extends
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
+						display.getQueryKey().setValue("");
+						buildTable();
+						doSearch(null);
+					}
+				}));
+		registerHandler(display.getQuerybtn().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
 						buildTable();
 						doSearch(null);
 					}
@@ -401,6 +410,8 @@ public class OrdersDishesPresenterImpl extends
 		{
 			criteria.setDeptId(Elt.DEPARTMENTID);
 		}
+		if(!StringUtil.isEmpty(display.getQueryKey().getValue()))
+			criteria.setKeyName(display.getQueryKey().getValue());
 		listViewAdapter = new OrdersDishesViewAdapter(dispatch, criteria,
 				errorHandler, null,display,this,dishesDetailedDialogProvider);
 		listViewAdapter.addDataDisplay(cellTable);

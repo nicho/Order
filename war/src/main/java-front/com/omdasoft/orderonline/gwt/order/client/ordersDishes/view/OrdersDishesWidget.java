@@ -4,11 +4,13 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter.OrdersDishesPresenter.OrdersDishesDisplay;
 import com.omdasoft.orderonline.gwt.order.client.view.constant.CssStyleConstants;
@@ -57,6 +59,11 @@ public class OrdersDishesWidget extends Composite implements
 	ListBox pageNumber;
 	@UiField
 	Image ordernow;
+	
+	@UiField
+	TextBox queryKey;
+	@UiField
+	Anchor querybtn;
 	
 	
 	private static OrdersDishesWidgetUiBinder uiBinder = GWT
@@ -167,6 +174,14 @@ public class OrdersDishesWidget extends Composite implements
 	@Override
 	public Image getOrdernow() {
 		return ordernow;
+	}
+	@Override
+	public TextBox getQueryKey() {
+		return queryKey;
+	}
+	@Override
+	public Anchor getQuerybtn() {
+		return querybtn;
 	}
 
 }

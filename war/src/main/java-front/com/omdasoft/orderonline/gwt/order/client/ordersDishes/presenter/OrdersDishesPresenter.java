@@ -4,10 +4,12 @@ package com.omdasoft.orderonline.gwt.order.client.ordersDishes.presenter;
 import java.util.List;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Panel;
+import com.google.gwt.user.client.ui.TextBox;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.BookingDishesClient;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
@@ -44,5 +46,9 @@ public interface OrdersDishesPresenter extends Presenter<OrdersDishesPresenter.O
 		void hiddenDishesNumber(boolean fal);
 	//	Anchor getTypeall();
 		public ListBox getPageNumber();
+		
+		TextBox getQueryKey();
+		
+		Anchor getQuerybtn();
 	}
 }
