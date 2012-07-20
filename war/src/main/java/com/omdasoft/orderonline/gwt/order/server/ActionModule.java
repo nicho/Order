@@ -2,6 +2,9 @@ package com.omdasoft.orderonline.gwt.order.server;
 
 import net.customware.gwt.dispatch.server.guice.ActionHandlerModule;
 
+import com.omdasoft.orderonline.gwt.order.client.company.request.CompanyInitRequest;
+import com.omdasoft.orderonline.gwt.order.client.company.request.CompanyListRequest;
+import com.omdasoft.orderonline.gwt.order.client.companyAdd.request.CompanyAddRequest;
 import com.omdasoft.orderonline.gwt.order.client.core.request.ImageUrlInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.DictionaryDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListRequest;
@@ -53,8 +56,11 @@ import com.omdasoft.orderonline.gwt.order.client.userList.request.SearchUserList
 import com.omdasoft.orderonline.gwt.order.client.userList.request.UpdateUserPwdRequest;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.UserDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.userView.request.UserViewRequest;
+import com.omdasoft.orderonline.gwt.order.server.enterprise.CompanyAddActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.enterprise.CompanyInitActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.enterprise.EnterpriseActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.enterprise.EnterpriseInitActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.enterprise.SearchCompanyListActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.ImageUrlActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.LoginActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.TokenValidActionHandler;
@@ -146,6 +152,14 @@ public class ActionModule extends ActionHandlerModule {
 		bindHandler(OrderWaitRequest.class,OrderWaitActionHandler.class);
 		bindHandler(DishesTypePanelRequest.class,DishesTypePanelActionHandler.class);
 		bindHandler(ImageUrlInitRequest.class,ImageUrlActionHandler.class);
+		
+		
+		//公司管理
+		bindHandler(CompanyListRequest.class,SearchCompanyListActionHandler.class);
+		//公司添加
+		bindHandler(CompanyAddRequest.class,CompanyAddActionHandler.class);
+		//公司修改
+		bindHandler(CompanyInitRequest.class, CompanyInitActionHandler.class);
 		
 	}
 }

@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.ui.BreadCrumbsMenu;
+import com.omdasoft.orderonline.gwt.order.client.company.plugin.CompanyConstants;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.MenuItem;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.MenuProcessor;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.event.MenuClickEvent;
@@ -119,7 +120,8 @@ public class ButtonMenuProcessor implements MenuProcessor {
 								breadCrumbsMenu.addBreadCrumbsItemTop("订单管理", null);
 							else if (menuId.equals(DishesListConstants.MENU_DISHESLIST_SEARCH))
 								breadCrumbsMenu.addBreadCrumbsItemTop("菜单管理", null);
-						
+							else if (menuId.equals(CompanyConstants.MENU_COMPANY_SEARCH))
+								breadCrumbsMenu.addBreadCrumbsItemTop("公司管理",null);
 							
 							breadCrumbsMenu.addBreadCrumbsItem(menuItem.getTitle(),
 									menuItem);
@@ -166,6 +168,9 @@ public class ButtonMenuProcessor implements MenuProcessor {
 		{
 			items.add(DishesListConstants.MENU_DISHESLIST_SEARCH);
 			items.add(DishesTypeListConstants.MENU_DISHESTYPELIST_SEARCH);
+		}
+		else if ("Company".equals(keyname)) {
+			items.add(CompanyConstants.MENU_COMPANY_SEARCH);
 		}
 		return items;
 	}

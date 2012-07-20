@@ -16,6 +16,9 @@ public enum UserRoleVo {
 	/**
 	 * Ordinary staff.
 	 */
-	STAFF;
-
+	STAFF,
+	/**
+	 * 平台管理员
+	 */
+	PLATFORM_ADMIN;
 }

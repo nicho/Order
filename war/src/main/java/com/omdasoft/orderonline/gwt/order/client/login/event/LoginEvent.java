@@ -11,7 +11,7 @@ public class LoginEvent extends GwtEvent<LoginHandler> {
 	}
 
 	public static enum LoginStatus {
-		LOGIN_OK, LOGIN_FAILED, LOGOUT, LOGIN_EXPIRED,LOGIN_OK_STAFF,LOGIN_OK_GIFT,LOGIN_OK_DEPT
+		LOGIN_OK, LOGIN_FAILED, LOGOUT, LOGIN_EXPIRED,LOGIN_OK_STAFF,LOGIN_OK_GIFT,LOGIN_OK_DEPT,LOGIN_OK_PLATFORM_ADMIN
 	}
 
 	private final LoginStatus status;

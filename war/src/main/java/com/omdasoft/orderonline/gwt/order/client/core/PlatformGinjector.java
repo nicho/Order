@@ -18,4 +18,7 @@ public interface PlatformGinjector extends MVPGinjector, PresentersGinjector {
 	
 	@Named("order")
 	PluginSet getPluginSetOrder();
+	
+	@Named("platformAdmin")
+	PluginSet getPluginSetPlatformAdmin();
 }

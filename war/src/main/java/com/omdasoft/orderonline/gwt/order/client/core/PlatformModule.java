@@ -4,6 +4,8 @@ import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.google.inject.name.Named;
+import com.omdasoft.orderonline.gwt.order.client.company.plugin.CompanyListPluginDescriptor;
+import com.omdasoft.orderonline.gwt.order.client.companyAdd.plugin.CompanyAddPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.core.impl.CorePluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.core.impl.GinPluginManager;
 import com.omdasoft.orderonline.gwt.order.client.core.impl.InMemoryMenuRoleStore;
@@ -151,6 +153,26 @@ public class PlatformModule extends AbstractGinModule {
 //			pluginSet.registerPlugin(ordersDishes);
 
 		}
+		return pluginSet;
+	}
+	
+	
+	@Provides
+	@Named("platformAdmin")
+	PluginSet providePluginSetPlatformAdmin(
+			// ---- PLUGINS DEFINE BELOW (2) ----
+			CorePluginDescriptor core, // core
+			CompanyListPluginDescriptor companyList,
+			CompanyAddPluginDescriptor companyAddList
+			) {
+
+		if (pluginSet == null) {
+			pluginSet = new InMemoryPluginSet();
+			pluginSet.registerPlugin(core);
+			pluginSet.registerPlugin(companyList);
+			pluginSet.registerPlugin(companyAddList);
+		}
+
 		return pluginSet;
 	}
 }

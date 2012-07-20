@@ -51,8 +51,8 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .form .form-line .label{float:left;width:15%;text-align:right;vertical-align:middle;padding:6px 0;background-color:#e5e5e5;}
 .form .form-line .element{float:right;width:84%;text-align:left;padding:5px 0;}
 .form .select{border:1px solid #CCCCCC;width:120px;height:22px;}
-.form .short-text{height:18px;width:30px;border:1px solid #CCCCCC;}
-.form .text{height:22px;width:200px;border:1px solid #CCCCCC;}
+.form .short-text{height:18px;width:30px;border:1px solid #CCCCCC;line-height:18px}
+.form .text{height:22px;width:200px;border:1px solid #CCCCCC;line-height:22px}
 .form .long-text{width:371px;}
 .form .textarea{width:420px;height:50px;border:1px solid #CCCCCC;}
 .form .form-line-btn{margin-top:0px;}
@@ -131,7 +131,7 @@ a:hover{color:#010DFF;text-decoration:underline;}
 .reward-pslist{}
 .imglink{}
 /*-------------------------------------------- 员工天地 -----------------------------------------------------------------------------------------------------------*/
-
+.employee{min-width: 1024px;}
 /*框架重置*/
 .employee .head .nav{border-bottom:4px solid #055AB4;}
 .employee .head .top-nav .green{color:#336699;}
@@ -178,13 +178,16 @@ a:hover{color:#010DFF;text-decoration:underline;}
 /*内容区布局*/
 .employee .content{position:relative;}
 .employee .menu-nav{float:left;}
-.employee .reward-area{width:200px;overflow:hidden;background-color:#F7F7F7;vertical-align:top;position:absolute;right:0;top:0;}
+.employee .reward-area{width:205px;overflow:hidden;background-color:#fff;vertical-align:top;position:absolute;right:0;top:0;}
+.employee .reward-area .broadcast{background-color:#f7f7f7; border:1px solid #ccc;padding:8px;margin:2px 0px 10px;}
+.employee .reward-area .broadcast h3{text-align:center;color:#FE0100;margin-bottom:5px;}
+
 .employee .reward-section{border-top:1px solid #77A5D3;padding-top:1px;margin-bottom:20px;}
 .employee .reward-section .reward-select li{float:left;width:100px;overflow:hidden;}
 .employee .reward-section .reward-select li a{background-color:#F7F7F7;text-align:center;padding:7px 0;display:block;font-size:13px;overflow:hidden;}
 .employee .reward-section .reward-select li.on a{background-color:#E4ECF1;font-weight:bold;}
 .employee .reward-section .reward-list{background-color:#E4ECF1;padding:10px 5px 5px;clear:both;\*zoom:1;}
-.employee .reward-section .reward-list li a{display:block;background-color:#F7F7F7;margin-bottom:1px;padding:7px 0 7px 60px;font-size:13px;color:#356CA6;text-decoration:none;\_overflow:hidden;\_zoom:1;}
+.employee .reward-section .reward-list li a{display:block;background-color:#F7F7F7;margin-bottom:1px;padding:7px 0 7px 7px;font-size:13px;color:#356CA6;text-decoration:none;\_overflow:hidden;\_zoom:1;}
 .employee .reward-section .reward-list li.on a,.employee .reward-section .reward-list li a:hover{background-color:#E6E6E6;color:#000000;font-weight:bold;}
 .employee .reward-section p{text-align:right;padding:0 5px 5px 0;background-color:#E4ECF1;}
 .employee .reward-section p a{color:#8DB9FB}
@@ -253,3 +256,138 @@ a:hover{color:#010DFF;text-decoration:underline;}
 
 
 .panelClass table{width:100%}
+
+.lineLabel{float:left}
+
+/*-------------------------------------------- yunying天地 -----------------------------------------------------------------------------------------------------------*/
+.platform{min-width: 1024px;}
+/*框架重置*/
+.platform .head .nav{border-bottom:4px solid #055AB4;}
+.platform .head .top-nav .green{color:#336699;}
+.platform .head .top-nav ul .on a{background-color:#53A8DE;color:#ffffff;}
+.platform .head .menu{background-position:-194px -120px;position:relative;}
+.platform .head .menu span{background-position:right -120px;height:26px;line-height:26px;color:#4D4D4D;}
+.platform .head .menu-on{background-position:-194px -147px;}
+.platform .head .menu-on span{background-position:right -147px;color:#FFFFFF;}
+.platform .head .menu .new-tips{background-position:0 -35px;display:block;width:26px;height:21px;line-height:17px;text-align:center;position:absolute;right:-8px;top:-8px;padding:0;}
+.platform .footer .footer-wrap{background-position:0 -41px;}
+.platform .footer .footer-line{background-position:0 -37px;height:3px;}
+
+.platform .list-top{background-position:0 -322px;width:191px;height:13px;border-left:1px solid #07487E;border-right:1px solid #07487E;margin-left:1px;}
+.platform .list-bottom{background-position:0 -338px;width:191px;height:12px;border-left:1px solid #07487E;border-right:1px solid #07487E;margin-left:1px;}
+
+/*具体样式*/
+.platform .menu-nav{background-position:0 -107px;width:259px;overflow:hidden;border:1px solid #AEAEAE;border-left:1px solid #ABCEE5;border-bottom:none;}
+.platform .menu-nav h3{border-bottom:1px solid #055AB4;height:29px;line-height:29px;text-align:center;font-size:14px;}
+.platform .menu-nav .menu-border-top{background-position:0 -174px;display:block;width:259px;height:12px;overflow:hidden;}
+.platform .menu-nav .menu-border-bottom{background-position:0 -187px;\_background-position:0 -187px;display:block;width:259px;height:14px;overflow:hidden;\_zoom:1;\_margin-left:6px;}
+.platform .menu-nav .menu-content{border-left:3px solid #ABCEE5;border-right:4px solid #ABCEE5;background-color:#F7F7F7;padding:10px 0;}
+
+
+.leftmenu .menu-link {
+	display: block;
+	border-bottom: 1px solid #ff0000;
+	padding: 8px 0 8px 35px;
+	background-color: #d7e9fd;
+	color: #333333;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+
+.leftmenu .menu-link:hover {
+	background-color: #256bb1;
+	color: #333333;
+	text-decoration: none;
+}
+
+.leftmenu .menu-selected,.leftmenu .menu-link:hover {
+	background-color: #accdf0;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.platform .employee-info{margin:0 5px;}
+.platform .employee-info img{border:1px solid #DBDBDB;padding:3px;background-color:#ffffff;float:left;width:74px;height:74px;overflow:hidden;}
+.platform .employee-info .employee-ps-wrap{padding-bottom:10px;border-bottom:1px solid #DCDCDC;padding-left:10px;}
+.platform .employee-info .employee-ps{float:left;width:100px;padding-left:12px;}
+.platform .employee-info .employee-ps a{display:block;color:#356CA6;}
+.platform .employee-info .employee-ps strong{padding-left:4px;font-size:14px;display:block;padding-bottom:5px;}
+.platform .employee-info .employee-detail{clear:both;padding:10px 0 10px 10px;}
+.platform .employee-info .employee-detail p{line-height:22px;}
+.platform .color-orange{color:#FF6000;}
+.platform .color-red{color:#FF0000;font-weight:bold;}
+
+.platform .employee-menu{margin:0 2px;}
+.platform .employee-menu li{margin-bottom:1px;}
+.platform .employee-menu li a{background-color:#E8E8E8;display:block;height:32px;line-height:32px;\_height:25px;\_padding-top:7px;color:#356CA6;text-decoration:none;padding-left:45px;}
+.platform .employee-menu li a:hover,.employee .employee-menu li.on a{text-decoration:none;background-color:#DBDBDB;color:#000000;font-weight:bold;}
+.platform .employee-menu .liimg{background-position:-26px -35px;display:inline-block;width:5px;height:6px;vertical-align:middle;margin-right:2px;\_margin-top:5px;}
+
+.platform .encash{margin-top:10px;}
+.platform .encash h3{background-color:#ABCEE5;border:none;}
+.platform .encash img{border:1px solid #999999;width:82px;height:62px;overflow:hidden;}
+.platform .encash .gift{text-align:center;float:left;width:120px;margin-bottom:6px;}
+.platform .encash .gift-list{padding-top:10px;}
+.platform .encash .gift-list p .more{color:#336699;text-align:right;display:block;padding-right:10px;text-decoration:underline;}
+
+/*内容区布局*/
+.platform .content{position:relative;}
+.platform .menu-nav{float:left;}
+.platform .reward-area{width:205px;overflow:hidden;background-color:#fff;vertical-align:top;position:absolute;right:0;top:0;}
+.platform .reward-area .broadcast{background-color:#f7f7f7; border:1px solid #ccc;padding:8px;margin:2px 0px 10px;}
+.platform .reward-area .broadcast h3{text-align:center;color:#FE0100;margin-bottom:5px;}
+
+.platform .reward-section{border-top:1px solid #77A5D3;padding-top:1px;margin-bottom:20px;}
+.platform .reward-section .reward-select li{float:left;width:100px;overflow:hidden;}
+.platform .reward-section .reward-select li a{background-color:#F7F7F7;text-align:center;padding:7px 0;display:block;font-size:13px;overflow:hidden;}
+.platform .reward-section .reward-select li.on a{background-color:#E4ECF1;font-weight:bold;}
+.platform .reward-section .reward-list{background-color:#E4ECF1;padding:10px 5px 5px;clear:both;\*zoom:1;}
+.platform .reward-section .reward-list li a{display:block;background-color:#F7F7F7;margin-bottom:1px;padding:7px 0 7px 7px;font-size:13px;color:#356CA6;text-decoration:none;\_overflow:hidden;\_zoom:1;}
+.platform .reward-section .reward-list li.on a,.employee .reward-section .reward-list li a:hover{background-color:#E6E6E6;color:#000000;font-weight:bold;}
+.platform .reward-section p{text-align:right;padding:0 5px 5px 0;background-color:#E4ECF1;}
+.platform .reward-section p a{color:#8DB9FB}
+
+.platform .reward-section .imglink{background-color:#F7F8F7;padding-bottom:5px;}
+.platform .reward-section .imglink img{float:left;width:30px;height:29px;border:1px solid #DCCA69;margin:7px 5px 0 5px;}
+.platform .reward-section .imglink div{float:left;width:147px;}
+.platform .reward-section .imglink p{background-color:#F7F8F7;text-align:left;line-height:12px;padding:0 5px 0 0;}
+.platform .reward-section .imglink p a{padding-left:0;font-size:12px;}
+.platform .reward-section .reward-pslist li{margin-top:3px;}
+
+.platform .content-wrap{background:url(elt/images/employee_repeaty.png) repeat-y right top;margin-left:277px;}
+.platform .content-wrap .content-info{margin-right:218px;position:relative;}
+
+/*----------------------------------------- 员工主页面 -------------------------------------------------------*/
+.platform .content-info .note{background-color:#FEFFF4;border:1px solid #D8D9D8;padding:6px 8px;color:#F03E59;position:relative;margin-bottom:10px;}
+.platform .content-info .note .close{background-position:-32px -35px;width:8px;height:9px;position:absolute;right:8px;top:9px;cursor:pointer;}
+.platform .content-info .broadcast{background-color:#E6E7E6;padding:8px;margin-bottom:10px;}
+.platform .content-info .broadcast h3{text-align:center;color:#FE0100;margin-bottom:5px;}
+.platform .content-info .news-select{background-color:#F1F2F1;text-align:right;padding:5px 0;color:#7A9BBA;padding-right:10px;}
+.platform .content-info .news-select a{color:#7A9BBA;}
+.platform .content-info .news-select span{color:#292A29;}
+
+.platform .news-list .news{position:relative;padding:10px 0 5px 10px;border-bottom:1px solid #EDEEED;}
+.platform .news-list .news .news-icon{background-position:-41px -35px;float:left;width:16px;height:13px;position:absolute;left:9px;top:14px;\_left:0px;}
+.platform .news-list .news .news-info{margin:0 30px 0 20px;}
+.platform .news-list .news .news-info a{color:#336CA4}
+.platform .news-list .news .news-info strong{font-weight:normal;color:#346BA8;}
+.platform .news-list .news .news-info p{padding-bottom:5px;}
+
+/*----------------------------------------- 奖品商城 -------------------------------------------------------*/
+.platform .content-info .breadcrumb{background-color:#ECECEC;color:#666666;padding:8px 10px;}
+.platform .content-info .breadcrumb a{color:#666666;}
+.platform .content-info .breadcrumb span{color:#FF6102;}
+
+.platform .gift-wrap{background-color:#F6F6F6;padding:10px 17px;margin-top:10px;}
+.platform .gift-wrap .shop-gift-list{margin-top:12px;overflow:hidden;margin-bottom:-26px;\*margin-bottom:0;\*padding-bottom:10px;\_zoom:1;\_position:relative;}
+.platform .gift-wrap .shop-gift{border:1px solid #CCCCCC;padding:10px;width:180px;overflow:hidden;position:relative;background-color:#FFFFFF;float:left;margin:0 35px 35px 0;}
+.platform .gift-wrap .shop-gift p{line-height:23px;}
+.platform .gift-wrap .shop-gift img{width:180px;height:135px;overflow:hidden;}
+.platform .gift-wrap .gift-name{margin-top:5px;font-size:14px;width:180px;height:22px;overflow:hidden;}
+.platform .gift-wrap .limit-date{color:#999999;}
+.platform .gift-wrap .gift-duihuan{background-position:-97px -35px;display:block;width:77px;height:23px;position:absolute;right:0;bottom:31px;cursor:pointer;}
+
+.platform .remark-text{border:1px solid #C3C3C3;color:#C3C3C3;padding:3px 5px;width:738px;margin-top:10px;}
+
+

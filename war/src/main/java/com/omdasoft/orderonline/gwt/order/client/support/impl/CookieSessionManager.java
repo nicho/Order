@@ -128,11 +128,13 @@ public class CookieSessionManager implements SessionManager {
 				UserRoleVo role = resp.getLastLoginRole();
 				if(role!=null)
 				{
-					if (role == UserRoleVo.CORP_ADMIN)
+					 if (role == UserRoleVo.PLATFORM_ADMIN)
+						 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK_PLATFORM_ADMIN));
+					else if (role == UserRoleVo.CORP_ADMIN)
 						 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK));
 					else if (role == UserRoleVo.DEPT_MGR)
 						 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK_DEPT));
-
+					
 				}
 				else
 				{
@@ -147,7 +149,12 @@ public class CookieSessionManager implements SessionManager {
 						
 						if(roleslt.size()>0)
 						{
-							if(roleslt.contains(UserRoleVo.CORP_ADMIN))
+							 if(roleslt.contains(UserRoleVo.PLATFORM_ADMIN))
+							{
+								 role=UserRoleVo.PLATFORM_ADMIN;
+								 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK_PLATFORM_ADMIN));
+							}
+							 else if(roleslt.contains(UserRoleVo.CORP_ADMIN))
 							{
 								 role=UserRoleVo.CORP_ADMIN;
 								 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK));
@@ -304,7 +311,11 @@ public class CookieSessionManager implements SessionManager {
 									
 									if(roleslt.size()>0)
 									{
-										if(roleslt.contains(UserRoleVo.CORP_ADMIN))
+										 if(roleslt.contains(UserRoleVo.PLATFORM_ADMIN))
+										{
+											 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK_PLATFORM_ADMIN));
+										}
+										 else if(roleslt.contains(UserRoleVo.CORP_ADMIN))
 										{
 
 											 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK));

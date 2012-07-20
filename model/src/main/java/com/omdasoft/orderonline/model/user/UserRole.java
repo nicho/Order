@@ -49,6 +49,9 @@ public enum UserRole {
 	/**
 	 * Ordinary gift.
 	 */
-	GIFT
-
+	GIFT,
+	/**
+	 * 平台管理员
+	 */
+	PLATFORM_ADMIN;
 }

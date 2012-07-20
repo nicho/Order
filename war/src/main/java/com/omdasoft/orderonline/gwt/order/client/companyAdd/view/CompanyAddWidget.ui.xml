@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:p1="urn:import:com.google.gwt.user.cellview.client"
+	xmlns:d='urn:import:com.google.gwt.user.datepicker.client' xmlns:p="urn:import:javax.persistence">
+
+	<ui:style src="new2.css" field="new2"></ui:style>
+	<g:HTMLPanel>
+		<div class="{new2.frame-wrap}">
+			<!--面包屑 [[ -->
+			<g:FlowPanel ui:field="breadCrumbs" />
+			<!--面包屑 ]] -->
+
+
+			<h3><g:InlineLabel ui:field="titleText" />
+			</h3>
+			<span class="{new2.cutline}"></span>
+
+			<div class="{new2.content-wrap}">
+				<div class="{new2.form}">
+						<h3><label class="{new2.label}">企业基本信息:</label></h3>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>企业名称：</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="30" ui:field="enterpriseName" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">企业地址：</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="30" ui:field="address" styleName="{new2.text}" />
+						</div>
+					</div>
+
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>企业联系人:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="20" ui:field="linkman" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>联系电话：</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="20" ui:field="tell" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">Email：</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="50" ui:field="email" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>手机号：</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="20" ui:field="callphone" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>客户管理员:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="20" ui:field="clientController" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>管理员Email:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="50" ui:field="clientControllerEmail" styleName="{new2.text}" />
+						</div>
+					</div>
+					
+					<span class="{new2.cutline}"></span>
+					
+					<h3><label class="{new2.label}">企业登录网址设置:</label></h3>
+					<h3><label class="{new2.label}">请完善企业不同角色的登录地址设置，设置完成后，企业的不同角色可以根据此处设置的url访问！</label></h3>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>企业子域名:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="100" ui:field="enterpriseRealmName" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>企业HR登录地址:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="100" ui:field="hrLoginAddress" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>企业员工登录地址:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="100" ui:field="staffLoginAddress" styleName="{new2.text}" />
+						</div>
+					</div>
+					
+					<span class="{new2.cutline}"></span>
+					
+					<h3><label class="{new2.label}">企业图片上传:</label></h3>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">企业营业执照:</label>
+						<g:FormPanel ui:field="businessLicenseImageForm" encoding="multipart/form-data"
+								method="post">
+								<g:FileUpload ui:field="businessLicenseImageUpload" name="uploadFormElement"></g:FileUpload>
+							</g:FormPanel>
+							<g:TextBox ui:field="businessLicenseImage" visible="false"></g:TextBox>
+							<g:Button ui:field="businessLicenseImageUploadBtn" visible="false">上传
+							</g:Button>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label60}"></label>
+						<div class="{new2.element}">
+							<g:Image ui:field="businessLicenseImageShow" width="80px" height="60px" styleName="{new2.text}"
+								visible="false" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">税务登记证:</label>
+						<g:FormPanel ui:field="taxRegistrationCertificateImageForm" encoding="multipart/form-data"
+								method="post">
+								<g:FileUpload ui:field="taxRegistrationCertificateImageUpload" name="uploadFormElement"></g:FileUpload>
+							</g:FormPanel>
+							<g:TextBox ui:field="taxRegistrationCertificateImage" visible="false"></g:TextBox>
+							<g:Button ui:field="taxRegistrationCertificateImageUploadBtn" visible="false">上传
+							</g:Button>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label60}"></label>
+						<div class="{new2.element}">
+							<g:Image ui:field="taxRegistrationCertificateImageShow" width="80px" height="60px"
+								visible="false" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">组织机构代码:</label>
+						<g:FormPanel ui:field="organizationCodeImageForm" encoding="multipart/form-data"
+								method="post">
+								<g:FileUpload ui:field="organizationCodeImageUpload" name="uploadFormElement"></g:FileUpload>
+							</g:FormPanel>
+							<g:TextBox ui:field="organizationCodeImage" visible="false"></g:TextBox>
+							<g:Button ui:field="organizationCodeImageUploadBtn" visible="false">上传
+							</g:Button>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label60}"></label>
+						<div class="{new2.element}">
+							<g:Image ui:field="organizationCodeImageShow" width="80px" height="60px"
+								visible="false" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">企业Logo:</label>
+						<g:FormPanel ui:field="enterpriseLogoImageForm" encoding="multipart/form-data"
+								method="post">
+								<g:FileUpload ui:field="enterpriseLogoImageUpload" name="uploadFormElement"></g:FileUpload>
+							</g:FormPanel>
+							<g:TextBox ui:field="enterpriseLogoImage" visible="false"></g:TextBox>
+							<g:Button ui:field="enterpriseLogoImageUploadBtn" visible="false">上传
+							</g:Button>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label60}"></label>
+						<div class="{new2.element}">
+							<g:Image ui:field="enterpriseLogoImageShow" width="80px" height="60px"
+								visible="false" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">企业登录logo图片:</label>
+						<g:FormPanel ui:field="enterpriseLoginLogoImageForm" encoding="multipart/form-data"
+								method="post">
+								<g:FileUpload ui:field="enterpriseLoginLogoImageUpload" name="uploadFormElement"></g:FileUpload>
+							</g:FormPanel>
+							<g:TextBox ui:field="enterpriseLoginLogoImage" visible="false"></g:TextBox>
+							<g:Button ui:field="enterpriseLoginLogoImageUploadBtn" visible="false">上传
+							</g:Button>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label60}"></label>
+						<div class="{new2.element}">
+							<g:Image ui:field="enterpriseLoginLogoImageShow" width="80px" height="60px"
+								visible="false" />
+						</div>
+					</div>
+					
+					<span class="{new2.cutline}"></span>
+					
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>业务负责人员:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="20" ui:field="businessOwner" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>Email:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="50" ui:field="businessOwnerEmail" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}"><span style="color:red">*</span>联系电话:</label>
+						<div class="{new2.element}">
+							<g:TextBox maxLength="20" ui:field="businessOwnerTelNum" styleName="{new2.text}" />
+						</div>
+					</div>
+					<div class="{new2.form-line}">
+						<label class="{new2.label}">备注：</label>
+						<div class="{new2.element}">
+							<g:TextArea ui:field="businessRemark" visibleLines="3"
+							styleName="{new2.textarea}" />
+						</div>
+					</div>
+					
+					
+					<span class="{new2.cutline}"></span>
+					<div class="{new2.form-line} {new2.form-line-btn}">
+						<div class="{new2.element}">
+							<span class="{new2.btn}">
+								<g:Button ui:field="addBtn" text="创建" />
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,8 +1,10 @@
 package com.omdasoft.orderonline.gwt.order.client.core.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
+import com.omdasoft.orderonline.gwt.order.client.company.plugin.CompanyConstants;
 import com.omdasoft.orderonline.gwt.order.client.core.AbstractPlugin;
 import com.omdasoft.orderonline.gwt.order.client.core.Extension;
 import com.omdasoft.orderonline.gwt.order.client.core.MenuRoleStore;
@@ -13,6 +15,7 @@ import com.omdasoft.orderonline.gwt.order.client.core.ui.MenuItem;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.MenuProcessor;
 import com.omdasoft.orderonline.gwt.order.client.orderList.plugin.OrderListConstants;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
+import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 
 public class CorePlugin extends AbstractPlugin {
 
@@ -69,11 +72,32 @@ public class CorePlugin extends AbstractPlugin {
 		}
 		
 		// open editor by default.
-		 Platform.getInstance()
-		 .getEditorRegistry()
-		 .openEditor(OrderListConstants.EDITOR_ORDERLIST_SEARCH,
-		 "EDITOR_ORDERLIST_SEARCH_List", null);
-
+		
+		List <UserRoleVo> roleslt = new ArrayList<UserRoleVo>();
+		UserRoleVo [] roles=sessionManager.getSession().getUserRoles();
+		
+		if(roles.length>0)
+		{
+			for (UserRoleVo r:roles) {
+				roleslt.add(r);
+			}
+		}
+		
+		 if(roleslt.contains(UserRoleVo.PLATFORM_ADMIN))
+			{
+				Platform.getInstance()
+				.getEditorRegistry()
+				.openEditor(
+						CompanyConstants.EDITOR_COMPANY_SEARCH,
+						"EDITOR_CompanyList_SEARCH_DO_ID", null);
+			}
+		 else
+		 {
+			 Platform.getInstance()
+			 .getEditorRegistry()
+			 .openEditor(OrderListConstants.EDITOR_ORDERLIST_SEARCH,
+			 "EDITOR_ORDERLIST_SEARCH_List", null);
+		 }
 
 		// List<UserRoleVo> roles = new ArrayList<UserRoleVo>();
 		// {

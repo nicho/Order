@@ -65,6 +65,19 @@ public class Platform {
 		pluginManager.activatePlugin(STARTUP_PLUGIN_ID);
 		initialized = true;
 	}
+	public void initializePlatform(PluginSet pluginSet, RootLayoutPanel rootPanel) {
+		if (initialized) {
+			throw new RuntimeException("Platform already initialized");
+		}
+		STATIC_PLATFORM = this;
+		GWT.log("Initializing Platform");
+		pluginManager.initialize(pluginSet);
+		rootLayoutPanel = rootPanel;
+		siteManager.initializePlatform(rootPanel);
+		editorRegistry.initialize(this);
+		pluginManager.activatePlugin(STARTUP_PLUGIN_ID);
+		initialized = true;
+	}
 	public void initializeOrder(PluginSet pluginSet, RootLayoutPanel rootPanel) {
 		if (initialized) {
 			throw new RuntimeException("Platform already initialized");

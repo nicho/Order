@@ -4,6 +4,8 @@ package com.omdasoft.orderonline.gwt.order.client;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.omdasoft.orderonline.gwt.order.client.awardShopLattice.module.AwardShopLatticeModule;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.module.BreadCrumbsModule;
+import com.omdasoft.orderonline.gwt.order.client.company.module.CompanyListModule;
+import com.omdasoft.orderonline.gwt.order.client.companyAdd.module.CompanyAddModule;
 import com.omdasoft.orderonline.gwt.order.client.core.presenter.DockModule;
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.module.DictionaryListModule;
 import com.omdasoft.orderonline.gwt.order.client.dictionarySave.module.DictionarySaveModule;
@@ -66,6 +68,8 @@ public class PresenterModule extends AbstractGinModule {
 		install(new OrdersLoginModule());
 		install(new OrdersConfirmModule());
 		install(new OrdersWaitModule());
+		install(new CompanyListModule());
+		install(new CompanyAddModule());
 		
 
 	}

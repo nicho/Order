@@ -2,8 +2,10 @@ package com.omdasoft.orderonline.service.org.impl;
 
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
+import com.omdasoft.orderonline.dao.org.CorporationDao.QueryCompanyPageActionResult;
 import com.omdasoft.orderonline.domain.org.Corporation;
 import com.omdasoft.orderonline.domain.user.SysUser;
+import com.omdasoft.orderonline.model.company.CompanySearchCriteria;
 import com.omdasoft.orderonline.model.org.CorporationVo;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.service.org.CorporationLogic;
@@ -54,6 +56,12 @@ public class CorporationServiceImpl implements CorporationService {
 	@Override
 	public String findCorporationBycId(String cid) {
 		return corporationLogic.findCorporationBycId(cid);
+	}
+
+	@Override
+	public QueryCompanyPageActionResult findCorporationByCompanyListCriteria(
+			CompanySearchCriteria criteria) {
+		return corporationLogic.findCorporationByCompanyListCriteria(criteria);
 	}
    
 }

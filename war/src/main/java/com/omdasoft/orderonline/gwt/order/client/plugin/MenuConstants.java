@@ -21,6 +21,7 @@ public abstract class MenuConstants {
 	public static final int MENU_ORDER_DISHESTYPELIST_EDIT = order++;
 	public static final int MENU_ORDER_DISHESLIST_EDIT = order++;
 	public static final int MENU_ORDER_PASSWORD_SEARCH = order++;
+	public static final int MENU_ORDER_COMPANYLIST_EDIT = order++;
 
 	
 	

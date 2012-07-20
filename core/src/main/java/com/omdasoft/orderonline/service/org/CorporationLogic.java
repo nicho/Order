@@ -1,8 +1,10 @@
 package com.omdasoft.orderonline.service.org;
 
+import com.omdasoft.orderonline.dao.org.CorporationDao.QueryCompanyPageActionResult;
 import com.omdasoft.orderonline.domain.org.Corporation;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.Amount;
+import com.omdasoft.orderonline.model.company.CompanySearchCriteria;
 import com.omdasoft.orderonline.model.org.CorporationVo;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.service.exception.GetMaxConsumeErrorException;
@@ -73,4 +75,12 @@ public interface CorporationLogic {
 	 * @return
 	 */
 	public String findCorporationBycId(String cid);
+	
+	/**
+	 * Find corporation collection by Company List Criteria
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public QueryCompanyPageActionResult findCorporationByCompanyListCriteria(CompanySearchCriteria criteria);
 }

@@ -100,7 +100,12 @@ public class MainImpl implements Main, PlatformInitHandler, LoginHandler {
 					
 					if(roleslt.size()>0)
 					{
-						if(roleslt.contains(UserRoleVo.CORP_ADMIN))
+						if(roleslt.contains(UserRoleVo.PLATFORM_ADMIN))
+						{
+
+							 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK_PLATFORM_ADMIN));
+						}
+						else if(roleslt.contains(UserRoleVo.CORP_ADMIN))
 						{
 
 							 eventBus.fireEvent(new LoginEvent(LoginEvent.LoginStatus.LOGIN_OK));
@@ -148,6 +153,12 @@ public class MainImpl implements Main, PlatformInitHandler, LoginHandler {
 			rootLayoutPanel.clear();
 			login.unbind();
 			injector.getPlatform().initialize(injector.getPluginSetDept(),
+					rootLayoutPanel);
+			break;
+		case LOGIN_OK_PLATFORM_ADMIN:
+			rootLayoutPanel.clear();
+			login.unbind();
+			injector.getPlatform().initializePlatform(injector.getPluginSetPlatformAdmin(),
 					rootLayoutPanel);
 			break;
 		case LOGIN_FAILED:

@@ -1839,8 +1839,18 @@ li.token-input-input-token-facebook {
 	text-decoration: none;
 	font-weight: normal;
 }
+/*blue menu*/
 
-
+#menu2 .menu-link {
+	display: block;
+	border-bottom: 1px solid #EAEAEA;
+	padding: 8px 0 8px 30px;
+	background-color: #d7e9fd;
+	color: #333333;
+	text-decoration: none;
+	font-weight: normal;
+	
+}
 .menu-link:hover {
 	background-color: #ABAAAA;
 	color: #333333;

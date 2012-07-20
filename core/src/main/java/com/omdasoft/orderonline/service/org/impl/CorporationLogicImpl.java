@@ -7,11 +7,14 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.dao.org.CorporationDao;
+import com.omdasoft.orderonline.dao.org.CorporationDao.QueryCompanyPageActionResult;
 import com.omdasoft.orderonline.domain.org.Corporation;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.Amount;
+import com.omdasoft.orderonline.model.company.CompanySearchCriteria;
 import com.omdasoft.orderonline.model.org.CorporationVo;
 import com.omdasoft.orderonline.model.user.UserContext;
+import com.omdasoft.orderonline.model.vo.CompanySearchVo;
 import com.omdasoft.orderonline.service.exception.GetMaxConsumeErrorException;
 import com.omdasoft.orderonline.service.org.CorporationLogic;
 import com.omdasoft.orderonline.util.DateUtil;
@@ -143,6 +146,12 @@ public class CorporationLogicImpl implements CorporationLogic {
 	}
 
 
-	
+	@Override
+	public QueryCompanyPageActionResult findCorporationByCompanyListCriteria(CompanySearchCriteria criteria) {
+		CompanySearchVo searchVo = new CompanySearchVo();
+		searchVo.setName(criteria.getName());
+		
+		return corporationDao.queryCompanyPageAction(searchVo);
+	}
 
 }

@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.core.Platform;
 import com.omdasoft.orderonline.gwt.order.client.core.presenter.DockPresenter;
+import com.omdasoft.orderonline.gwt.order.client.core.presenter.PlatformPresenter;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.Dialog;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.DialogCloseListener;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.Editor;
@@ -44,6 +45,7 @@ public class SimpleSiteManager implements SiteManager, EditorCloseHandler,
 	final SessionManager sessionManager;
 
 	final DockPresenter dockPresenter;
+	final PlatformPresenter platformPresenter;
 	final OrderIndexPresenter orderIndexPresenter;
 //	final OrdersDishesPresenter ordersDishesPresenter;
 
@@ -65,11 +67,12 @@ public class SimpleSiteManager implements SiteManager, EditorCloseHandler,
 
 	@Inject
 	public SimpleSiteManager(EventBus eventBus, SessionManager sessionManager,
-			DockPresenter dockPresenter,OrderIndexPresenter orderIndexPresenter) {
+			DockPresenter dockPresenter,OrderIndexPresenter orderIndexPresenter,PlatformPresenter platformPresenter) {
 		this.eventBus = eventBus;
 		this.sessionManager = sessionManager;
 		this.dockPresenter = dockPresenter;
 		this.orderIndexPresenter=orderIndexPresenter;
+		this.platformPresenter=platformPresenter;
 //		this.ordersDishesPresenter=ordersDishesPresenter;
 	}
 
@@ -135,6 +138,35 @@ public class SimpleSiteManager implements SiteManager, EditorCloseHandler,
 
 		dockPresenter.bind();
 		rootPanel.add(dockPresenter.getDisplay().asWidget());
+
+		hookEditorCloseEvent();
+		hookHistoryEvent();
+		hookMenuClickEvent();
+	}
+	
+	public void initializePlatform(RootLayoutPanel rootPanel) {
+
+		// XXX allocate different areas in root panel
+		root = rootPanel;
+		// dock = new DockLayoutPanel(Unit.PX);
+		dock = platformPresenter.getDisplay().getDock();
+		// dock = dock.addNorth(new HTML("<h1>(Header) 欢迎你："
+		// + sessionManager.getSession().getLoginName() + "</h1>"), 100);
+		// dock.addSouth(new HTML("<em>Footer</em>"), 50);
+		// FIXME 20111130
+		platformPresenter.getDisplay().setMessage(
+				sessionManager.getSession().getLoginName());
+		// menu = new LayoutPanel();
+		menu = platformPresenter.getDisplay().getMenu();
+		// dock.addWest(menu, 200);
+
+		// initialize editors area.
+		editor = new LayoutPanel();
+		editor.setVisible(false);
+		dock.add(editor);
+
+		platformPresenter.bind();
+		rootPanel.add(platformPresenter.getDisplay().asWidget());
 
 		hookEditorCloseEvent();
 		hookHistoryEvent();
