@@ -127,7 +127,7 @@ public class DishesTypeDao extends BaseDao<DishesType> {
 	
 	public int deleteDishesTypeBydeptId(String deptId) {
 		try {
-			return  getEm()	.createQuery("delete FROM DishesType s WHERE s.department.id = :deptId")
+			return  getEm()	.createQuery("UPDATE FROM DishesType s set s.deleted=1 WHERE s.department.id = :deptId")
 					.setParameter("deptId", deptId).executeUpdate();
 		} catch (NoResultException e) {
 			return 0;
@@ -137,7 +137,7 @@ public class DishesTypeDao extends BaseDao<DishesType> {
 	@SuppressWarnings("unchecked")
 	public List<DishesType> findDishesTypeBydeptId(String deptId) {
 		try {
-			return  getEm()	.createQuery(" FROM DishesType s WHERE s.department.id = :deptId AND (o.deleted=0 or o.deleted is null)")
+			return  getEm()	.createQuery(" FROM DishesType s WHERE s.department.id = :deptId AND (s.deleted=0 or s.deleted is null)")
 					.setParameter("deptId", deptId).getResultList();
 		} catch (NoResultException e) {
 			return null;

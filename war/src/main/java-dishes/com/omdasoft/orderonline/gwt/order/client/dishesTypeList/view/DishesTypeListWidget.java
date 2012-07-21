@@ -110,7 +110,7 @@ public class DishesTypeListWidget extends Composite implements DishesTypeListDis
 
 	@Override
 	public void hiddenCopyBtn() {
-		copyBtn.getElement().getParentElement().addClassName(CssStyleConstants.hidden);
+		copyBtn.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
 		
 	}
 

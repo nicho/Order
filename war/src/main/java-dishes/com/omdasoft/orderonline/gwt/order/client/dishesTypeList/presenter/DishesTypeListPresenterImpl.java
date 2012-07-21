@@ -70,7 +70,7 @@ public class DishesTypeListPresenterImpl extends
 		{
 			for (int i = 0; i < role.length; i++) {
 				UserRoleVo re=role[i];
-				if(re==UserRoleVo.PLATFORM_ADMIN)
+				if(re==UserRoleVo.CORP_ADMIN)
 				{
 					display.hiddenCopyBtn();
 				}
