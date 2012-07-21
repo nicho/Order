@@ -64,7 +64,7 @@ public class CompanyAddActionHandler extends
 		model.setBusinessOwnerEmail(request.getBusinessOwnerEmail());
 		model.setBusinessOwnerTelNum(request.getBusinessOwnerTelNum());
 		model.setBusinessRemark(request.getBusinessRemark());
-		 
+		model.setCid(request.getCid());
 		SysUser caller = userService.findUserById(request.getSession().getToken());
 		 Corporation coporation = corporationService.saveCorporation(caller, model);
 		 if (coporation.getId() != null) {

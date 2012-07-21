@@ -8,6 +8,7 @@ package com.omdasoft.orderonline.model.org;
  */
 public class CorporationVo {
 
+	private String cid;
 	private String id;
 	private String name;
 	private String description;
@@ -47,6 +48,14 @@ public class CorporationVo {
     private String businessRemark;//业务备注
     
     
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
 	public String getClientController() {
 		return clientController;
 	}

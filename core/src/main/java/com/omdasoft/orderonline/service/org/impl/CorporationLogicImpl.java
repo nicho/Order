@@ -67,6 +67,7 @@ public class CorporationLogicImpl implements CorporationLogic {
 			corp.setCreatedBy(caller);
 			corp.setLastModifiedAt(now);
 			corp.setLastModifiedBy(caller);
+			corp.setCid(corporation.getCid());
 			corporationDao.save(corp);
 		} else {
 			// Edit a existed corporation
@@ -86,7 +87,7 @@ public class CorporationLogicImpl implements CorporationLogic {
 			corp.setLinkman(corporation.getLinkman());
 			corp.setTell(corporation.getTell());
 			corp.setWeb(corporation.getWeb());
-
+			corp.setCid(corporation.getCid());
 			corp.setCreatedAt(now);
 			corp.setCreatedBy(caller);
 			corp.setLastModifiedAt(now);

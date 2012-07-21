@@ -44,7 +44,6 @@
     <div class="{new2.nav} {new2.clearfix}">
       <ul>
         <li><g:Anchor styleName="{new2.menu} {new2.menu-on}" ui:field="btnCompany"><span>公司管理</span></g:Anchor></li>
-        <li><g:Anchor styleName="{new2.menu}" ui:field="btnDisher"><span>菜品管理</span></g:Anchor></li>
 
 
 		      </ul>

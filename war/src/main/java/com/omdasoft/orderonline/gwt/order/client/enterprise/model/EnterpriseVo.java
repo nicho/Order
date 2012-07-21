@@ -10,6 +10,7 @@ public class EnterpriseVo implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String id;
+	private String cid;
 	private String name;
 	private String description;//备注说明
 	private String txAccountId;
@@ -57,6 +58,14 @@ public class EnterpriseVo implements Serializable {
     private String businessOwnerTelNum;//业务负责人员联系电话
     private String businessRemark;//业务备注
     
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
 	public Double getBalance() {
 		return balance;
 	}

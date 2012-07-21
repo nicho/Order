@@ -19,6 +19,7 @@ public class CompanyAddRequest implements Action<CompanyAddResponse> {
 	private List<UserRoleVo> userRoleVos;
 	private UserSession session;
 	
+	private String cid;	
 	private String enterpriseId;		//企业id
 	private String enterpriseName;		//企业名称
 	private String address;				//企业地址
@@ -41,6 +42,14 @@ public class CompanyAddRequest implements Action<CompanyAddResponse> {
     private String businessOwnerTelNum;//业务负责人员联系电话
     private String businessRemark;//业务备注
     
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
 	public String getEnterpriseId() {
 		return enterpriseId;
 	}

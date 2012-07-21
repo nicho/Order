@@ -77,7 +77,7 @@ public class SearchCompanyListActionHandler extends
 			client.setLinkman(corporation.getLinkman());
 			client.setCrearteAt(corporation.getCreatedAt());
 			client.setIsCreateHrAccount(corporation.getIsCreateHrAccount());
-			
+			client.setCid(corporation.getCid());
 			lt.add(client);
 		}
 		companyResponse.setResult(lt);

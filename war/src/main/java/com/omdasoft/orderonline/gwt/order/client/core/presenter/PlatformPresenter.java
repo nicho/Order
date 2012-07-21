@@ -1,7 +1,6 @@
 package com.omdasoft.orderonline.gwt.order.client.core.presenter;
 
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.Panel;
 import com.omdasoft.orderonline.gwt.order.client.mvp.Display;
@@ -31,8 +30,6 @@ public interface PlatformPresenter extends
 		void setMenu(Panel panel);
 
 		void setMenuTitle(String title);
-
-		Anchor getBtnDisher();
 
  
 	}

@@ -7,6 +7,7 @@ public class CompanyListClient implements Serializable, Comparable<CompanyListCl
 	
 	private static final long serialVersionUID = 4934837755724323679L;
 	private String id;
+	private String cid;
 	private String companyNo;			//序号
 	private String name;       	  		//企业名称
 	private String companyAccountAddress;//企业帐号地址
@@ -17,6 +18,14 @@ public class CompanyListClient implements Serializable, Comparable<CompanyListCl
 	private Date crearteAt;			//创建时间
 	private Integer isCreateHrAccount; //是否生成公司hr管理员
 	
+	public String getCid() {
+		return cid;
+	}
+
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
 	public Integer getIsCreateHrAccount() {
 		return isCreateHrAccount;
 	}

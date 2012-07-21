@@ -14,15 +14,12 @@ import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.breadCrumbs.presenter.BreadCrumbsPresenter;
 import com.omdasoft.orderonline.gwt.order.client.company.dataprovider.CompanyListViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.company.model.CompanyListClient;
 import com.omdasoft.orderonline.gwt.order.client.company.model.CompanySearchVo;
 import com.omdasoft.orderonline.gwt.order.client.company.presenter.CompanyListPresenter.CompanyListDisplay;
-import com.omdasoft.orderonline.gwt.order.client.company.request.CompanyHrAddRequest;
-import com.omdasoft.orderonline.gwt.order.client.company.request.CompanyHrAddResponse;
 import com.omdasoft.orderonline.gwt.order.client.companyAdd.plugin.CompanyAddConstants;
 import com.omdasoft.orderonline.gwt.order.client.core.Platform;
 import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstants;
@@ -31,7 +28,6 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.ErrorHandler;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.ui.HyperLinkCell;
-import com.omdasoft.orderonline.gwt.order.client.ui.UniversalCell;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager;
 import com.omdasoft.orderonline.gwt.order.client.widget.EltNewPager.TextLocation;
 import com.omdasoft.orderonline.gwt.order.client.widget.GetValue;
@@ -150,6 +146,13 @@ public class CompanyListPresenterImpl extends BasePresenter<CompanyListDisplay> 
 						return com.getCompanyNo();
 					}
 				});
+		cellTable.addColumn("企业简称", new TextCell(),
+				new GetValue<CompanyListClient, String>() {
+					@Override
+					public String getValue(CompanyListClient com) {
+						return com.getCid();
+					}
+				});
 		cellTable.addColumn("企业名称", new TextCell(),
 				new GetValue<CompanyListClient, String>() {
 					@Override
@@ -157,20 +160,7 @@ public class CompanyListPresenterImpl extends BasePresenter<CompanyListDisplay> 
 						return com.getName();
 					}
 				}, ref, "name");
-		cellTable.addColumn("企业账号地址", new TextCell(),
-				new GetValue<CompanyListClient, String>() {
-					@Override
-					public String getValue(CompanyListClient com) {
-						return com.getCompanyAccountAddress();
-					}
-				});
-		cellTable.addColumn("企业地址", new TextCell(),
-				new GetValue<CompanyListClient, String>() {
-					@Override
-					public String getValue(CompanyListClient com) {
-						return com.getAddress();
-					}
-				});
+
 		cellTable.addColumn("联系人", new TextCell(),
 				new GetValue<CompanyListClient, String>() {
 					@Override
@@ -178,20 +168,7 @@ public class CompanyListPresenterImpl extends BasePresenter<CompanyListDisplay> 
 						return com.getLinkman();
 					}
 				});
-		cellTable.addColumn("可用积分", new TextCell(),
-				new GetValue<CompanyListClient, String>() {
-					@Override
-					public String getValue(CompanyListClient com) {
-						return com.getBalance()+"";
-					}
-				});
-		cellTable.addColumn("充值总积分", new TextCell(),
-				new GetValue<CompanyListClient, String>() {
-					@Override
-					public String getValue(CompanyListClient com) {
-						return com.getRechargeTotal()+"";
-					}
-				});
+
 		cellTable.addColumn("创建日期", new DateCell(dateFormat),
 				new GetValue<CompanyListClient, Date>() {
 					@Override
@@ -218,46 +195,6 @@ public class CompanyListPresenterImpl extends BasePresenter<CompanyListDisplay> 
 					}
 
 				});
-		cellTable.addColumn("操作", new UniversalCell(),
-				new GetValue<CompanyListClient, String>() {
-					@Override
-					public String getValue(CompanyListClient com) {
-						if(com.getIsCreateHrAccount()!=null && com.getIsCreateHrAccount()==1){
-							return "<span  style='color: rgb(221, 221, 221);'>生成帐号</span>";
-						}else{
-							return "<a style=\"color:bule;\" href=\"javascript:void(0);\">生成帐号</a>";
-						}
-					}
-				}, new FieldUpdater<CompanyListClient, String>() {
-
-					@Override
-					public void update(int index, final CompanyListClient o,
-							String value) {
-						if(o.getIsCreateHrAccount()!=1){
-							dispatch.execute(new CompanyHrAddRequest(o.getId(),sessionManager.getSession()),
-									new AsyncCallback<CompanyHrAddResponse>() {
 	
-										@Override
-										public void onFailure(Throwable t) {
-											win.alert(t.getMessage());
-										}
-	
-										@Override
-										public void onSuccess(CompanyHrAddResponse resp) {
-											if("success".equals(resp.getMessage()))
-											{
-												win.alert("生成账号成功!");
-												buildTable();
-												doSearch();
-											}else{
-												win.alert("生成账号失败!");
-											}
-											
-										}
-									});
-						}
-					}
-
-				});
 	}
 }

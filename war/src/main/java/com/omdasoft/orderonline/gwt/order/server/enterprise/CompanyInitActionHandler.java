@@ -45,7 +45,7 @@ public class CompanyInitActionHandler extends
 			 vo.setTell(corp.getTell());
 			 vo.setWeb(corp.getWeb());
 			 vo.setId(corp.getId());
-			 
+			 vo.setCid(corp.getCid());
 			 vo.setIntegralPrice(corp.getIntegralPrice());
 			 vo.setMoneyType(corp.getMoneyType());
 			 vo.setMailpwd(corp.getMailpwd());

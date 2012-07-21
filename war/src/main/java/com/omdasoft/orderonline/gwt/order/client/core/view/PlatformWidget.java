@@ -43,8 +43,7 @@ public class PlatformWidget extends Composite implements PlatformDisplay {
 
 	@UiField
 	Anchor platformManagement;
-	@UiField
-	Anchor btnDisher;
+
 	
 	// Set the format of datepicker.
 	DateTimeFormat dateFormat = DateTimeFormat
@@ -135,10 +134,6 @@ public class PlatformWidget extends Composite implements PlatformDisplay {
 		}
 	}
 
-	@Override
-	public Anchor getBtnDisher() {
-		return btnDisher;
-	}
 
 
 	
