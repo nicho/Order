@@ -20,6 +20,9 @@ import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstant
 import com.omdasoft.orderonline.gwt.order.client.dishesList.dataprovider.DishesListViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListClient;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.model.DishesListCriteria;
+import com.omdasoft.orderonline.gwt.order.client.dishesList.plugin.DishesListConstants;
+import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesCopyRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesCopyResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesDeleteResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.plugin.DishesSaveConstants;
@@ -41,6 +44,7 @@ import com.omdasoft.orderonline.gwt.order.client.widget.Sorting;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.client.win.confirm.ConfirmHandler;
 import com.omdasoft.orderonline.gwt.order.model.PaginationDetailClient;
+import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
 public class DishesListPresenterImpl extends
@@ -70,6 +74,18 @@ public class DishesListPresenterImpl extends
 
 	@Override
 	public void bind() {
+		UserRoleVo[] role=sessionManager.getSession().getUserRoles();
+		if(role!=null && role.length>0)
+		{
+			for (int i = 0; i < role.length; i++) {
+				UserRoleVo re=role[i];
+				if(re==UserRoleVo.PLATFORM_ADMIN)
+				{
+					display.hiddenCopyBtn();
+				}
+			}
+		}
+		
 		breadCrumbs.loadListPage();
 		display.setBreadCrumbs(breadCrumbs.getDisplay().asWidget());
 		init();
@@ -89,7 +105,37 @@ public class DishesListPresenterImpl extends
 				doSearch(null);
 			}
 		}));
+		registerHandler(display.getCopyBtnClickHandlers().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						win.confirm("提示","确定复制餐厅菜品?(会删除当前分店菜品)",new ConfirmHandler() {
+							
+							@Override
+							public void confirm() {
+								dispatch.execute(new DishesCopyRequest(sessionManager
+										.getSession().getDepartmentId()), new AsyncCallback<DishesCopyResponse>() {
+									@Override
+									public void onFailure(Throwable e) {
+										errorHandler.alert(e.getMessage());
+									}
 
+									@Override
+									public void onSuccess(DishesCopyResponse response) {
+										win.alert("复制成功!");
+										Platform.getInstance()
+										.getEditorRegistry()
+										.openEditor(
+												DishesListConstants.EDITOR_DISHESLIST_SEARCH,
+												"EDITOR_DISHESLIST_SEARCH_DO_ID", null);
+									}
+
+								});
+								
+							}
+						});
+					}
+				}));
 		registerHandler(display.getAddBtnClickHandlers().addClickHandler(
 				new ClickHandler() {
 					@Override
@@ -111,6 +157,7 @@ public class DishesListPresenterImpl extends
 				doSearch(null);
 			}
 		});
+		
 	}
 	String allCss="all cur";
 	List<MyAnchor> anchorList=new ArrayList<MyAnchor>();

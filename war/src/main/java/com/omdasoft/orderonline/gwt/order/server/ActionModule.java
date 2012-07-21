@@ -10,10 +10,12 @@ import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.Dictiona
 import com.omdasoft.orderonline.gwt.order.client.dictionaryList.request.SearchDictionaryListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionarySave.request.DictionarySaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.dictionarySave.request.FindDictionaryRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesCopyRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.DishesDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.request.SearchDishesListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.request.DishesSaveRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesSave.request.FindDishesRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeCopyRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.SearchDishesTypeListRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTypePanelRequest;
@@ -160,6 +162,9 @@ public class ActionModule extends ActionHandlerModule {
 		bindHandler(CompanyAddRequest.class,CompanyAddActionHandler.class);
 		//公司修改
 		bindHandler(CompanyInitRequest.class, CompanyInitActionHandler.class);
+		
+		bindHandler(DishesCopyRequest.class, DishesCopyActionHandler.class);
+		bindHandler(DishesTypeCopyRequest.class, DishesTypeCopyActionHandler.class);
 		
 	}
 }

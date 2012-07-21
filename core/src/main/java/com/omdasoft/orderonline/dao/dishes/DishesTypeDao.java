@@ -124,4 +124,23 @@ public class DishesTypeDao extends BaseDao<DishesType> {
 			return null;
 		}
 	}
+	
+	public int deleteDishesTypeBydeptId(String deptId) {
+		try {
+			return  getEm()	.createQuery("delete FROM DishesType s WHERE s.department.id = :deptId")
+					.setParameter("deptId", deptId).executeUpdate();
+		} catch (NoResultException e) {
+			return 0;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<DishesType> findDishesTypeBydeptId(String deptId) {
+		try {
+			return  getEm()	.createQuery(" FROM DishesType s WHERE s.department.id = :deptId AND (o.deleted=0 or o.deleted is null)")
+					.setParameter("deptId", deptId).getResultList();
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }

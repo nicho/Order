@@ -105,6 +105,18 @@ public interface DishesLogic {
 	 */
 	public PageStore<OrdersDishes> getOrderDishesList(UserContext context,OrderDishesSearchCriteria criteria);
 	public List<String> findDishesTypePanel();
+	/**
+	 * 复制菜品类别
+	 * @param deptId
+	 * @return
+	 */
+	public String copyDishesType(String deptId);
+	/**
+	 * 复制菜品
+	 * @param deptId
+	 * @return
+	 */
+	public String copyDishes(String deptId);
 }
 
 

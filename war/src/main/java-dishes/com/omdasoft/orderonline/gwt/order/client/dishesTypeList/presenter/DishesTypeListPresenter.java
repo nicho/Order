@@ -16,6 +16,7 @@ public interface DishesTypeListPresenter extends Presenter<DishesTypeListPresent
 
 		public HasClickHandlers getSearchBtnClickHandlers();
 		public HasClickHandlers getAddBtnClickHandlers();
+		public HasClickHandlers getcopyBtnClickHandlers();
 
 		void setDataCount(String text);
 		void setBreadCrumbs(Widget breadCrumbs);
@@ -25,5 +26,7 @@ public interface DishesTypeListPresenter extends Presenter<DishesTypeListPresent
 
 		public ListBox getPageNumber();
 		HasValue<String> getSearchName();
+		
+		void hiddenCopyBtn();
 	}
 }

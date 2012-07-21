@@ -160,4 +160,16 @@ public interface DishesService {
 	public DishesReturnModel findDishes(String tokenId);
 
 	public List<String> findDishesTypePanel();
+	/**
+	 * 复制菜品类别
+	 * @param deptId
+	 * @return
+	 */
+	public String copyDishesType(String deptId);
+	/**
+	 * 复制菜品
+	 * @param deptId
+	 * @return
+	 */
+	public String copyDishes(String deptId);
 }

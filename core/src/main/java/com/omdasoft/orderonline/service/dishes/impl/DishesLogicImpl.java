@@ -10,11 +10,11 @@ import com.omdasoft.orderonline.dao.dishes.DishesDao;
 import com.omdasoft.orderonline.dao.dishes.DishesTypeDao;
 import com.omdasoft.orderonline.dao.dishes.OrdersDishesDao;
 import com.omdasoft.orderonline.dao.org.CorporationDao;
-import com.omdasoft.orderonline.dao.org.DepartmentDao;
 import com.omdasoft.orderonline.domain.dishes.Dishes;
 import com.omdasoft.orderonline.domain.dishes.DishesType;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
 import com.omdasoft.orderonline.domain.org.Corporation;
+import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.dishes.DishesSearchCriteria;
@@ -32,19 +32,17 @@ public class DishesLogicImpl implements DishesLogic {
 	private OrdersDishesDao ordersDishesDao;
 	private DishesTypeDao dishesTypeDao;
 	private CorporationLogic corporationLogic;
-	private DepartmentDao departmentDao;
 	private CorporationDao corporationDao;
 	private DepartmentLogic departmentLogic;
 
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Inject
-	protected DishesLogicImpl(DepartmentLogic departmentLogic,CorporationDao corporationDao,DishesDao dishesDao,DishesTypeDao dishesTypeDao,OrdersDishesDao ordersDishesDao,CorporationLogic corporationLogic,DepartmentDao departmentDao) {
+	protected DishesLogicImpl(DepartmentLogic departmentLogic,CorporationDao corporationDao,DishesDao dishesDao,DishesTypeDao dishesTypeDao,OrdersDishesDao ordersDishesDao,CorporationLogic corporationLogic) {
 		this.dishesTypeDao=dishesTypeDao;
 		this.dishesDao=dishesDao;
 		this.ordersDishesDao=ordersDishesDao;
 		this.corporationLogic=corporationLogic;
-		this.departmentDao=departmentDao;
 		this.corporationDao=corporationDao;
 		this.departmentLogic=departmentLogic;
 	}
@@ -191,5 +189,58 @@ public class DishesLogicImpl implements DishesLogic {
 	@Override
 	public List<String> findDishesTypePanel() {
 		return dishesTypeDao.findDishesTypePanel();
+	}
+
+	@Override
+	public String copyDishesType(String deptId) {
+		int deleteint=dishesTypeDao.deleteDishesTypeBydeptId(deptId);
+		logger.debug("删除分店菜单"+deleteint);
+		Department nowdept=departmentLogic.findDepartmentById(deptId);
+		
+		List<DishesType> typeList=dishesTypeDao.findDishesTypeBydeptId(nowdept.getParent().getId());
+		if(typeList!=null && typeList.size()>0)
+		{
+			for (DishesType oldType:typeList) {
+				DishesType newdt=new DishesType();
+				newdt.setCorporation(oldType.getCorporation());
+				newdt.setDeleted(0);
+				newdt.setDepartment(nowdept);
+				newdt.setDishesType(oldType.getDishesType());
+				newdt.setName(oldType.getName());
+				newdt.setRid(oldType.getRid());
+				dishesTypeDao.save(newdt);
+			}
+		
+		}
+		return "SUCCESS";
+	}
+
+	@Override
+	public String copyDishes(String deptId) {
+		int deleteint=dishesDao.deleteDishesBydeptId(deptId);
+		logger.debug("删除分店菜品"+deleteint);
+		Department nowdept=departmentLogic.findDepartmentById(deptId);
+		
+		List<Dishes> typeList=dishesDao.findDishesBydeptId(nowdept.getParent().getId());
+		if(typeList!=null && typeList.size()>0)
+		{
+			for (Dishes oldType:typeList) {
+				Dishes newdt=new Dishes();
+				newdt.setCorporation(oldType.getCorporation());
+				newdt.setDeleted(0);
+				newdt.setDepartment(nowdept);
+				newdt.setName(oldType.getName());
+				newdt.setRid(oldType.getRid());
+				newdt.setDescription(oldType.getDescription());
+				newdt.setDishesType(oldType.getDishesType());
+				newdt.setPhoto(oldType.getPhoto());
+				newdt.setPrice(oldType.getPrice());
+				newdt.setStatus(oldType.getStatus());
+				newdt.setTaste(oldType.getTaste());
+				dishesDao.save(newdt);
+			}
+		
+		}
+		return "SUCCESS";
 	}
 }

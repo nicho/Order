@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.presenter.DishesListPresenter.DishesListDisplay;
+import com.omdasoft.orderonline.gwt.order.client.view.constant.CssStyleConstants;
 
 public class DishesListWidget extends Composite implements DishesListDisplay {
 
@@ -23,7 +24,9 @@ public class DishesListWidget extends Composite implements DishesListDisplay {
 	TextBox searchName;
 	@UiField
 	Button addBtn;
-
+	@UiField
+	Button copyBtn;
+	
 	@UiField
 	Button searchBtn;
 	
@@ -114,6 +117,17 @@ public class DishesListWidget extends Composite implements DishesListDisplay {
 	@Override
 	public Anchor getTypeall() {
 		return typeall;
+	}
+
+	@Override
+	public HasClickHandlers getCopyBtnClickHandlers() {
+		return copyBtn;
+	}
+
+	@Override
+	public void hiddenCopyBtn() {
+		copyBtn.getElement().getParentElement().addClassName(CssStyleConstants.hidden);
+		
 	}
 
 

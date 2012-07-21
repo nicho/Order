@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Panel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.presenter.DishesTypeListPresenter.DishesTypeListDisplay;
+import com.omdasoft.orderonline.gwt.order.client.view.constant.CssStyleConstants;
 
 public class DishesTypeListWidget extends Composite implements DishesTypeListDisplay {
 
@@ -37,6 +38,9 @@ public class DishesTypeListWidget extends Composite implements DishesTypeListDis
 	Panel breadCrumbs;
 	@UiField
 	ListBox pageNumber;
+	
+	@UiField
+	Button copyBtn;
 	private static DishesTypeListWidgetUiBinder uiBinder = GWT
 			.create(DishesTypeListWidgetUiBinder.class);
 
@@ -98,8 +102,17 @@ public class DishesTypeListWidget extends Composite implements DishesTypeListDis
 	public HasValue<String> getSearchName() {
 		return searchName;
 	}
+	@Override
+	public HasClickHandlers getcopyBtnClickHandlers() {
+		return copyBtn;
+	}
 
 
+	@Override
+	public void hiddenCopyBtn() {
+		copyBtn.getElement().getParentElement().addClassName(CssStyleConstants.hidden);
+		
+	}
 
 
 

@@ -468,4 +468,14 @@ public class DishesServiceImpl implements DishesService {
 		return dishesLogic.findDishesTypePanel();
 	}
 
+	@Override
+	public String copyDishesType(String deptId) {
+		return dishesLogic.copyDishesType(deptId);
+	}
+
+	@Override
+	public String copyDishes(String deptId) {
+		return dishesLogic.copyDishes(deptId);
+	}
+
 }

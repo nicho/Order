@@ -18,6 +18,9 @@ import com.omdasoft.orderonline.gwt.order.client.core.view.constant.ViewConstant
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.dataprovider.DishesTypeListViewAdapter;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.model.DishesTypeListClient;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.model.DishesTypeListCriteria;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.plugin.DishesTypeListConstants;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeCopyRequest;
+import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeCopyResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeDeleteRequest;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeList.request.DishesTypeDeleteResponse;
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.plugin.DishesTypeSaveConstants;
@@ -33,6 +36,7 @@ import com.omdasoft.orderonline.gwt.order.client.widget.ListCellTable;
 import com.omdasoft.orderonline.gwt.order.client.widget.Sorting;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.client.win.confirm.ConfirmHandler;
+import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 
 public class DishesTypeListPresenterImpl extends
 		BasePresenter<DishesTypeListPresenter.DishesTypeListDisplay> implements
@@ -61,6 +65,18 @@ public class DishesTypeListPresenterImpl extends
 
 	@Override
 	public void bind() {
+		UserRoleVo[] role=sessionManager.getSession().getUserRoles();
+		if(role!=null && role.length>0)
+		{
+			for (int i = 0; i < role.length; i++) {
+				UserRoleVo re=role[i];
+				if(re==UserRoleVo.PLATFORM_ADMIN)
+				{
+					display.hiddenCopyBtn();
+				}
+			}
+		}
+		
 		breadCrumbs.loadListPage();
 		display.setBreadCrumbs(breadCrumbs.getDisplay().asWidget());
 		init();
@@ -82,6 +98,38 @@ public class DishesTypeListPresenterImpl extends
 						.openEditor(
 								DishesTypeSaveConstants.EDITOR_DISHESTYPESAVE_SEARCH,
 								"EDITOR_DISHESTYPESAVE_SEARCH_DO_ID", null);
+					}
+				}));
+		
+		registerHandler(display.getcopyBtnClickHandlers().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						win.confirm("提示","确定复制餐厅菜品类别?(会删除当前分店菜品类别)",new ConfirmHandler() {
+							
+							@Override
+							public void confirm() {
+								dispatch.execute(new DishesTypeCopyRequest(sessionManager
+										.getSession().getDepartmentId()), new AsyncCallback<DishesTypeCopyResponse>() {
+									@Override
+									public void onFailure(Throwable e) {
+										errorHandler.alert(e.getMessage());
+									}
+
+									@Override
+									public void onSuccess(DishesTypeCopyResponse response) {
+										win.alert("复制成功!");
+										Platform.getInstance()
+										.getEditorRegistry()
+										.openEditor(
+												DishesTypeListConstants.EDITOR_DISHESTYPELIST_SEARCH,
+												"EDITOR_DISHESTYPELIST_SEARCH_DO_ID", null);
+									}
+
+								});
+								
+							}
+						});
 					}
 				}));
 		registerHandler(display.getPageNumber().addChangeHandler(new ChangeHandler() {			

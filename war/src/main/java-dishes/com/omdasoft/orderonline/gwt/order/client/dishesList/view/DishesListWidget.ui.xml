@@ -52,7 +52,9 @@
 						<span class="{new2.btn}">
 								<g:Button ui:field="addBtn">添加菜品</g:Button>
 						</span>
-
+						<span class="{new2.btn}">
+								<g:Button ui:field="copyBtn">复制菜品</g:Button>
+						</span>
 					</div>
 			</p>
 			<div class="{new2.divtext}">共有 <g:InlineLabel ui:field="dataCount" styleName="{new2.divfont}"></g:InlineLabel> 条</div><div  class="{new2.divend}"></div>

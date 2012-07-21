@@ -17,8 +17,9 @@ public interface DishesListPresenter extends Presenter<DishesListPresenter.Dishe
 
 		public HasClickHandlers getSearchBtnClickHandlers();
 		public HasClickHandlers getAddBtnClickHandlers();
+		public HasClickHandlers getCopyBtnClickHandlers();
 
-
+		void hiddenCopyBtn();
 		HasValue<String> getSearchName();
 
 		void setDataCount(String text);
