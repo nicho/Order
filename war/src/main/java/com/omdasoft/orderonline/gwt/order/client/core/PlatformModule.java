@@ -71,7 +71,10 @@ public class PlatformModule extends AbstractGinModule {
 			OrderSavePluginDescriptor orderSave,
 			DictionarySavePluginDescriptor dictionarySave,
 			RestaurantSavePluginDescriptor restaurantSave,
-			
+			DishesListPluginDescriptor dishesList,
+			DishesTypeListPluginDescriptor dishesTypeList,
+			DishesSavePluginDescriptor dishesSave,
+			DishesTypeSavePluginDescriptor dishesTypeSave,
 			EnterprisePluginDescriptor enterprise,
 			OrderSubmitPluginDescriptor orderSubmit,
 			OrderViewPluginDescriptor OrderView,
@@ -98,7 +101,10 @@ public class PlatformModule extends AbstractGinModule {
 			pluginSet.registerPlugin(OrderView);
 			pluginSet.registerPlugin(UserView);
 			pluginSet.registerPlugin(UserAdd);
-
+			pluginSet.registerPlugin(dishesSave);
+			pluginSet.registerPlugin(dishesTypeSave);
+			pluginSet.registerPlugin(dishesList);
+			pluginSet.registerPlugin(dishesTypeList);
 		}
 		
 		return pluginSet;

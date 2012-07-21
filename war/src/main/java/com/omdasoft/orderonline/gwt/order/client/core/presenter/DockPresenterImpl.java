@@ -63,10 +63,7 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 		{
 			display.disableManagementCenter();
 		}
-		else if(fal==true)
-		{
-			display.disableDishes();
-		}
+
 		registerHandler(display.getbtnPassward().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {

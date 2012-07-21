@@ -27,6 +27,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderList.plugin.OrderListConst
 import com.omdasoft.orderonline.gwt.order.client.restaurantList.plugin.RestaurantListConstants;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.userList.plugin.UserListConstants;
+import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 
 public class ButtonMenuProcessor implements MenuProcessor {
 
@@ -72,8 +73,19 @@ public class ButtonMenuProcessor implements MenuProcessor {
 		for (MenuItem m : items) {
 			root.appendChild(new MenuNode(m));
 		}
+		List <UserRoleVo> roleslt = new ArrayList<UserRoleVo>();
+		UserRoleVo [] roles=sessionManager.getSession().getUserRoles();
+		
+		if(roles.length>0)
+		{
+			for (UserRoleVo r:roles) {
+				roleslt.add(r);
+			}
+		}
+		 String indexMenu="Order";
+		 if(roleslt.contains(UserRoleVo.PLATFORM_ADMIN))
+			  indexMenu="Company";
 
-		String indexMenu="Order";
 		
 		ScrollPanel menuWrapper = new ScrollPanel(createButtonMenuWidget(indexMenu));
 		container.add(menuWrapper);
