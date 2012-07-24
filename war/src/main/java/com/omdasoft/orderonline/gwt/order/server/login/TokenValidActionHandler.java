@@ -6,6 +6,7 @@ import net.customware.gwt.dispatch.shared.DispatchException;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.login.TokenValidRequest;
 import com.omdasoft.orderonline.gwt.order.client.login.TokenValidResponse;
+import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.util.UserRoleTool;
 import com.omdasoft.orderonline.model.user.UserSessionVo;
@@ -44,6 +45,10 @@ public class TokenValidActionHandler extends
 		tokenRep.setCorporationName(userSessionVo.getCorporationName());
 		tokenRep.setPhoto(userSessionVo.getPhoto());
 		tokenRep.setCid(userSessionVo.getCid());
+		if(userSessionVo.getLastLoginRole()!=null)
+		{
+			tokenRep.setLastLoginRole(UserRoleVo.valueOf(userSessionVo.getLastLoginRole().toString()));
+		}
 		}
 		return tokenRep;
 	}

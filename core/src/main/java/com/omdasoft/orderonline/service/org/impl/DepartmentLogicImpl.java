@@ -119,7 +119,7 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 				List<SysUserRole> lt = userRoleDao.findUserRoleByUserId(tempDepartment.getDeptAdmin().getId());
 				if (lt.size() > 0) {
 					for (SysUserRole r : lt) {
-						if (r.getRole().getName() != UserRole.STAFF	)
+						if (r.getRole().getName() == UserRole.DEPT_MGR	)
 							userRoleDao.delete(r);
 					}
 				}

@@ -126,19 +126,7 @@ public class CookieSessionManager implements SessionManager {
 																.getLoginType()) == UserRoleVo.CORP_ADMIN) {
 															session.setLastLoginRole(UserRoleVo.CORP_ADMIN);
 
-															UserRoleVo[] tempRole = session
-																	.getUserRoles();
-															UserRoleVo[] tempRoleNew = new UserRoleVo[tempRole.length - 1];
-															if (tempRole.length > 0) {
-																int index = 0;
-																for (int i = 0; i < tempRole.length; i++) {
-																	if (tempRole[i] != UserRoleVo.DEPT_MGR) {
-																		tempRoleNew[index] = tempRole[i];
-																		index++;
-																	}
-																}
-															}
-															session.setUserRoles(tempRoleNew);
+														
 
 															eventBus.fireEvent(new LoginEvent(
 																	LoginEvent.LoginStatus.LOGIN_OK));
@@ -147,19 +135,7 @@ public class CookieSessionManager implements SessionManager {
 																.getLoginType()) == UserRoleVo.DEPT_MGR) {
 															session.setLastLoginRole(UserRoleVo.DEPT_MGR);
 
-															UserRoleVo[] tempRole = session
-																	.getUserRoles();
-															UserRoleVo[] tempRoleNew = new UserRoleVo[tempRole.length - 1];
-															if (tempRole.length > 0) {
-																int index = 0;
-																for (int i = 0; i < tempRole.length; i++) {
-																	if (tempRole[i] != UserRoleVo.CORP_ADMIN) {
-																		tempRoleNew[index] = tempRole[i];
-																		index++;
-																	}
-																}
-															}
-															session.setUserRoles(tempRoleNew);
+			
 
 															eventBus.fireEvent(new LoginEvent(
 																	LoginEvent.LoginStatus.LOGIN_OK_DEPT));

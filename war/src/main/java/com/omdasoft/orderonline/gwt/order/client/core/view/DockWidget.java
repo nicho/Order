@@ -53,8 +53,9 @@ public class DockWidget extends Composite implements DockDisplay {
 
 	@UiField
 	Anchor managementCenter;
-
-
+	@UiField
+	Anchor deptManagement;
+	
 	// Set the format of datepicker.
 	DateTimeFormat dateFormat = DateTimeFormat
 			.getFormat(ViewConstants.date_format_chinese);
@@ -83,10 +84,39 @@ public class DockWidget extends Composite implements DockDisplay {
 	String styleOn = "";
 	String styleNo = "";
 
+	
+	String btnstyleOn = "";
+	String btnstyleNo = "";
+	
 	private void init() {
 		styleOn = btnOrder.getStyleName();
 		styleNo = btnUser.getStyleName();
 
+		 btnstyleOn = managementCenter.getElement().getParentElement().getClassName();
+		 btnstyleNo = deptManagement.getElement().getParentElement().getClassName();
+
+		 
+		 managementCenter.addClickHandler(new ClickHandler() {
+
+				@Override
+				public void onClick(ClickEvent event) {
+					managementCenter.getElement().getParentElement().setClassName(btnstyleOn);
+					deptManagement.getElement().getParentElement().setClassName(btnstyleNo);
+
+
+				}
+			});
+		 deptManagement.addClickHandler(new ClickHandler() {
+
+				@Override
+				public void onClick(ClickEvent event) {
+					managementCenter.getElement().getParentElement().setClassName(btnstyleNo);
+					deptManagement.getElement().getParentElement().setClassName(btnstyleOn);
+
+				}
+			});
+		 
+		 
 		btnUser.addClickHandler(new ClickHandler() {
 
 			@Override
@@ -208,6 +238,28 @@ public class DockWidget extends Composite implements DockDisplay {
 
 		btnDishesMenu.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
 		
+	}
+
+	@Override
+	public HasClickHandlers getDeptManagement() {
+		return deptManagement;
+	}
+
+	@Override
+	public void displayCorp() {
+		managementCenter.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
+		
+	}
+
+	@Override
+	public void displayDept() {
+		deptManagement.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
+		
+	}
+
+	@Override
+	public HasClickHandlers getCorpManagement() {
+		return managementCenter;
 	}
 
 }

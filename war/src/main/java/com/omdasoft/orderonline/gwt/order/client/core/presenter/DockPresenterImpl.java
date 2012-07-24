@@ -4,6 +4,8 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
@@ -14,6 +16,8 @@ import com.omdasoft.orderonline.gwt.order.client.core.ui.DialogCloseListener;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.MenuProcessor;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.event.MenuClickEvent;
 import com.omdasoft.orderonline.gwt.order.client.dishesList.plugin.DishesListConstants;
+import com.omdasoft.orderonline.gwt.order.client.login.LastLoginRoleRequest;
+import com.omdasoft.orderonline.gwt.order.client.login.LastLoginRoleResponse;
 import com.omdasoft.orderonline.gwt.order.client.login.event.LoginEvent;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
@@ -47,7 +51,8 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 	}
 
 	public void bind() {
-		boolean fal=false;
+		boolean fal1=false;
+		boolean fal2=false;
 		UserRoleVo[] role=sessionManager.getSession().getUserRoles();
 		if(role!=null && role.length>0)
 		{
@@ -55,11 +60,20 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 				UserRoleVo re=role[i];
 				if(re==UserRoleVo.CORP_ADMIN)
 				{
-					fal=true;
+					fal1=true;
+				}
+				if(re==UserRoleVo.DEPT_MGR)
+				{
+					fal2=true;
 				}
 			}
 		}
-		if(fal==false)
+		if(fal1==false)
+			display.displayCorp();
+		if(fal2==false)
+			display.displayDept();
+		
+		if(sessionManager.getSession().getLastLoginRole()!=UserRoleVo.CORP_ADMIN)
 		{
 			display.disableManagementCenter();
 		}
@@ -119,7 +133,64 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 										.getMenuItem(DishesListConstants.MENU_DISHESLIST_SEARCH)));
 					}
 				}));
+		
+		
+		registerHandler(display.getDeptManagement().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dispatchAsync.execute(new LastLoginRoleRequest(
+								sessionManager.getSession().getToken(),
+								UserRoleVo.DEPT_MGR),
+								new AsyncCallback<LastLoginRoleResponse>() {
 
+									@Override
+									public void onFailure(Throwable e) {
+										// Window.alert("系统切换出错");
+									}
+
+									@Override
+									public void onSuccess(
+											LastLoginRoleResponse resp) {
+										// 成功
+										if ("success".equals(resp.getFal()))
+											Window.Location.reload();
+										else
+											Window.alert("系统切换出错");
+
+									}
+								});
+						
+					}
+				}));
+		registerHandler(display.getCorpManagement().addClickHandler(
+				new ClickHandler() {
+					@Override
+					public void onClick(ClickEvent event) {
+						dispatchAsync.execute(new LastLoginRoleRequest(
+								sessionManager.getSession().getToken(),
+								UserRoleVo.CORP_ADMIN),
+								new AsyncCallback<LastLoginRoleResponse>() {
+
+									@Override
+									public void onFailure(Throwable e) {
+										// Window.alert("系统切换出错");
+									}
+
+									@Override
+									public void onSuccess(
+											LastLoginRoleResponse resp) {
+										// 成功
+										if ("success".equals(resp.getFal()))
+											Window.Location.reload();
+										else
+											Window.alert("系统切换出错");
+
+									}
+								});
+						
+					}
+				}));
 	}
 
 	public DockDisplay getDisplay() {

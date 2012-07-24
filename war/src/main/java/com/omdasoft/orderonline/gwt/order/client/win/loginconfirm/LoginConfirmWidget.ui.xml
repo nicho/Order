@@ -8,7 +8,7 @@
 			<div class="{new2.box-context}">
 				<div class="{new2.box-info}">
 					请选择以下一种身份登录:
-					<g:RadioButton name="loginType" ui:field="hr_type" checked="true" >HR总监</g:RadioButton><g:RadioButton name="loginType" ui:field="dept_type"  >部门leader</g:RadioButton>
+					<g:RadioButton name="loginType" ui:field="hr_type" checked="true" >总店管理员</g:RadioButton><g:RadioButton name="loginType" ui:field="dept_type"  >分店管理员</g:RadioButton>
 				</div>
 				<div class="{new2.box-tools}">
 					<g:Button ui:field="ok" text="确定" styleName="{new2.box-btn-ok}" />
