@@ -126,14 +126,14 @@ public class ButtonMenuProcessor implements MenuProcessor {
 							button.setStyleName("menu-link menu-selected");
 							breadCrumbsMenu.cleanBreadCrumbsItemTop();
 							if (menuId.equals(UserListConstants.MENU_USERLIST_SEARCH))
-								breadCrumbsMenu.addBreadCrumbsItemTop("用户管理", null);
+								breadCrumbsMenu.addBreadCrumbsItemTop("用户管理", menuItem);
 							else if (menuId
 									.equals(OrderListConstants.MENU_ORDERLIST_SEARCH))
-								breadCrumbsMenu.addBreadCrumbsItemTop("订单管理", null);
+								breadCrumbsMenu.addBreadCrumbsItemTop("订单管理", menuItem);
 							else if (menuId.equals(DishesListConstants.MENU_DISHESLIST_SEARCH))
-								breadCrumbsMenu.addBreadCrumbsItemTop("菜单管理", null);
+								breadCrumbsMenu.addBreadCrumbsItemTop("菜单管理", menuItem);
 							else if (menuId.equals(CompanyConstants.MENU_COMPANY_SEARCH))
-								breadCrumbsMenu.addBreadCrumbsItemTop("公司管理",null);
+								breadCrumbsMenu.addBreadCrumbsItemTop("公司管理",menuItem);
 							
 							breadCrumbsMenu.addBreadCrumbsItem(menuItem.getTitle(),
 									menuItem);
@@ -181,7 +181,7 @@ public class ButtonMenuProcessor implements MenuProcessor {
 			items.add(DishesListConstants.MENU_DISHESLIST_SEARCH);
 			items.add(DishesTypeListConstants.MENU_DISHESTYPELIST_SEARCH);
 		}
-		else if ("Company".equals(keyname)) {
+		if ("Company".equals(keyname)) {
 			items.add(CompanyConstants.MENU_COMPANY_SEARCH);
 		}
 		return items;

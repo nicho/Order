@@ -58,7 +58,7 @@ public class CompanyListPluginDescriptor implements PluginDescriptor {
 
 					@Override
 					public String getTitle() {
-						return "公司列表";
+						return "餐厅列表";
 					}
 
 					@Override

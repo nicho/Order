@@ -128,10 +128,7 @@ public class DishesLogicImpl implements DishesLogic {
 			criteria.setCorporationId(context.getCorporationId());
 		}
 
-		if(!StringUtil.isEmptyString(context.getDeptId()))
-		{
-			criteria.setDeptId(context.getDeptId());
-		}
+
 
 		//没选分店。默认机构
 		if(StringUtil.isEmptyString(criteria.getCorporationId()))

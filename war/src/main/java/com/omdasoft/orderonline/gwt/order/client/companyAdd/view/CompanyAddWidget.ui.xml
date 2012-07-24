@@ -17,28 +17,28 @@
 
 			<div class="{new2.content-wrap}">
 				<div class="{new2.form}">
-						<h3><label class="{new2.label}">企业基本信息:</label></h3>
+						<h3><label class="{new2.label}">餐厅基本信息:</label></h3>
 					<div class="{new2.form-line}">
-						<label class="{new2.label}"><span style="color:red">*</span>企业简称：</label>
+						<label class="{new2.label}"><span style="color:red">*</span>餐厅缩写：</label>
 						<div class="{new2.element}">
 							<g:TextBox maxLength="30" ui:field="cid" styleName="{new2.text}" />
 						</div>
 					</div>
 					<div class="{new2.form-line}">
-						<label class="{new2.label}"><span style="color:red">*</span>企业名称：</label>
+						<label class="{new2.label}"><span style="color:red">*</span>餐厅名称：</label>
 						<div class="{new2.element}">
 							<g:TextBox maxLength="30" ui:field="enterpriseName" styleName="{new2.text}" />
 						</div>
 					</div>
 					<div class="{new2.form-line}">
-						<label class="{new2.label}">企业地址：</label>
+						<label class="{new2.label}">餐厅地址：</label>
 						<div class="{new2.element}">
 							<g:TextBox maxLength="30" ui:field="address" styleName="{new2.text}" />
 						</div>
 					</div>
 
 					<div class="{new2.form-line}">
-						<label class="{new2.label}"><span style="color:red">*</span>企业联系人:</label>
+						<label class="{new2.label}"><span style="color:red">*</span>餐厅联系人:</label>
 						<div class="{new2.element}">
 							<g:TextBox maxLength="20" ui:field="linkman" styleName="{new2.text}" />
 						</div>

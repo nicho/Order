@@ -16,6 +16,9 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Image;
@@ -154,6 +157,16 @@ public class OrdersDishesPresenterImpl extends
 					public void onClick(ClickEvent event) {
 						buildTable();
 						doSearch(null);
+					}
+				}));
+		registerHandler(display.getQueryKey().addKeyUpHandler(
+				new KeyUpHandler() {
+					@Override
+					public void onKeyUp(KeyUpEvent e) {
+						if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
+							buildTable();
+							doSearch(null);
+						}
 					}
 				}));
 	}

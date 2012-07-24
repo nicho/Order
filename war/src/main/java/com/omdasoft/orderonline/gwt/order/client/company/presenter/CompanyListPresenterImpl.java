@@ -146,14 +146,14 @@ public class CompanyListPresenterImpl extends BasePresenter<CompanyListDisplay> 
 						return com.getCompanyNo();
 					}
 				});
-		cellTable.addColumn("企业简称", new TextCell(),
+		cellTable.addColumn("餐厅缩写", new TextCell(),
 				new GetValue<CompanyListClient, String>() {
 					@Override
 					public String getValue(CompanyListClient com) {
 						return com.getCid();
 					}
 				});
-		cellTable.addColumn("企业名称", new TextCell(),
+		cellTable.addColumn("餐厅名称", new TextCell(),
 				new GetValue<CompanyListClient, String>() {
 					@Override
 					public String getValue(CompanyListClient com) {
