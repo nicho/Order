@@ -7,8 +7,8 @@ import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.login.event.LoginEvent;
-import com.omdasoft.orderonline.gwt.order.client.login.event.LoginHandler;
 import com.omdasoft.orderonline.gwt.order.client.login.event.LoginEvent.LoginStatus;
+import com.omdasoft.orderonline.gwt.order.client.login.event.LoginHandler;
 import com.omdasoft.orderonline.gwt.order.client.login.presenter.LoginPresenter.LoginDisplay;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
@@ -18,7 +18,6 @@ public class LoginPresenterImpl extends BasePresenter<LoginDisplay> implements
 		LoginPresenter {
 
 	final SessionManager sessionManager;
-
 	@Inject
 	public LoginPresenterImpl(EventBus eventBus, LoginDisplay display,
 			SessionManager sessionManager) {
@@ -43,7 +42,7 @@ public class LoginPresenterImpl extends BasePresenter<LoginDisplay> implements
 						}
 					}
 				}));
-		registerHandler(display.getVerifyCodeKeyUpHandlers().addKeyUpHandler(
+		registerHandler(display.getPasswordBox().addKeyUpHandler(
 				new KeyUpHandler() {
 					@Override
 					public void onKeyUp(KeyUpEvent e) {
@@ -52,11 +51,13 @@ public class LoginPresenterImpl extends BasePresenter<LoginDisplay> implements
 						}
 					}
 				}));
+
+
 	}
 
 	protected void doLogin() {
 		sessionManager.authenticate(display.getUsername().getValue(), display
-				.getPassword().getValue(),display.getVerifyCode().getValue());
+				.getPassword().getValue(),display.getVerifyCode().getValue(),display);
 	}
 
 }

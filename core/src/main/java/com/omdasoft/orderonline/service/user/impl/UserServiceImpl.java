@@ -10,6 +10,7 @@ import com.omdasoft.orderonline.model.order.LoginReturnModel;
 import com.omdasoft.orderonline.model.user.DictionarySearchCriteria;
 import com.omdasoft.orderonline.model.user.RestaurantSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
+import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.model.user.UserSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserSessionVo;
 import com.omdasoft.orderonline.service.user.UserLogic;
@@ -127,6 +128,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String updateUserPwd(String staffId, String pwd, String byUserId) {
 		return userLogic.updateUserPwd(staffId, pwd, byUserId);
+	}
+	@Override
+	public String updateLastLoginRole(String userId, UserRole role) {
+		return userLogic.updateLastLoginRole(userId, role);
 	}
 
 }

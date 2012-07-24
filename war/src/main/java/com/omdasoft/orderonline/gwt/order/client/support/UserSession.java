@@ -14,12 +14,14 @@ public class UserSession implements Serializable {
 	String token;
 	String loginName;
 	String corporationId;
-	String cid;
-	String restaurantId;
+	String departmentId;
+	String staffId;
+	String staffName;
+    UserRoleVo lastLoginRole;
     String photo;
     String corporationName;
-    String departmentId;
-    UserRoleVo lastLoginRole;
+    String cid;
+    
     
 	public String getCid() {
 		return cid;
@@ -29,28 +31,12 @@ public class UserSession implements Serializable {
 		this.cid = cid;
 	}
 
-	public UserRoleVo getLastLoginRole() {
-		return lastLoginRole;
+	public String getStaffName() {
+		return staffName;
 	}
 
-	public void setLastLoginRole(UserRoleVo lastLoginRole) {
-		this.lastLoginRole = lastLoginRole;
-	}
-
-	public String getDepartmentId() {
-		return departmentId;
-	}
-
-	public void setDepartmentId(String departmentId) {
-		this.departmentId = departmentId;
-	}
-
-	public String getRestaurantId() {
-		return restaurantId;
-	}
-
-	public void setRestaurantId(String restaurantId) {
-		this.restaurantId = restaurantId;
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 
 	public String getCorporationName() {
@@ -69,9 +55,31 @@ public class UserSession implements Serializable {
 		this.photo = photo;
 	}
 
+	public UserRoleVo getLastLoginRole() {
+		return lastLoginRole;
+	}
+
+	public void setLastLoginRole(UserRoleVo lastLoginRole) {
+		this.lastLoginRole = lastLoginRole;
+	}
+
+	public String getStaffId() {
+		return staffId;
+	}
+
+	public void setStaffId(String staffId) {
+		this.staffId = staffId;
+	}
 
 	UserRoleVo[] userRoles;
 
+	public String getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(String departmentId) {
+		this.departmentId = departmentId;
+	}
 
 	public String getLoginName() {
 		return loginName;

@@ -4,11 +4,12 @@ import java.util.List;
 
 public class UserSessionVo {
 	private String id;
+	private String cid;
 	private String username;
 	private String corporationId;
-	private String cid;
 	private String departmentId;
 	private String staffId;
+	private String staffName;
 	private UserRole lastLoginRole;
 	private String photo;
 	private String corporationName;
@@ -20,6 +21,14 @@ public class UserSessionVo {
 
 	public void setCid(String cid) {
 		this.cid = cid;
+	}
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 
 	public UserStatus getUserStatus() {

@@ -13,6 +13,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -42,7 +43,10 @@ public class LoginWidget extends Composite implements LoginDisplay {
 
 	@UiField
 	Anchor prompt;
-
+	@UiField
+	Anchor license;
+	@UiField
+	InlineLabel message;
 	interface LoginWidgetBinder extends UiBinder<Widget, LoginWidget> {
 	}
 
@@ -112,7 +116,7 @@ public class LoginWidget extends Composite implements LoginDisplay {
 	}
 
 	public HasKeyUpHandlers getVerifyCodeKeyUpHandlers() {
-		return password;
+		return codeCheck;
 	}
 	public HasValue<String> getVerifyCode() {
 		return codeCheck;
@@ -123,6 +127,21 @@ public class LoginWidget extends Composite implements LoginDisplay {
 		int rand = Random.nextInt();
 		String url = "kaptcha.jpg?dt=" + rand;
 		verifyImage.setUrl(url);
+	}
+
+	@Override
+	public HasClickHandlers getLicenseClickHandlers() {
+		return license;
+	}
+
+	@Override
+	public void setMessage(String text) {
+		message.setText(text);
+	}
+
+	@Override
+	public PasswordTextBox getPasswordBox() {
+		return password;
 	}
 
 }

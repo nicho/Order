@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{ height:100%;}
+body,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,fieldset,legend,input,select,textarea,button,th,td,blockquote,address,pre{margin:0;padding:0; font-family:"微软雅黑", "宋体",Arial, Helvetica, sans-serif; font-size:12px; }
+h1,h2,h3,h4,h5,h6,input,textarea,select,button,label{font-size:100%;vertical-align:middle;}
+ul,dl,ol{list-style:none;}
+img,fieldset{border:none;}
+img{display:inline-block;overflow:hidden;vertical-align:top;}
+em,address{font-style:normal;}
+sup,sub{vertical-align:baseline;}
+table{border-collapse:collapse;border-spacing:0;}
+q:before{content:"";}
+q:after{content:"";}
+button{cursor:pointer;}
+textarea{word-wrap:break-word;resize:none;}
+.red{ color:#ff0000;}
+.cl{ clear:both}
+
+
+/*form*/
+.form .form-line:after{content:".";display:block;clear:both;height:0;visibility:hidden;}
+.form .form-line{*zoom:1;margin-bottom:10px;}
+.form .form-line .label{float:left;width:30%;text-align:right;vertical-align:middle;}
+.form .form-line .element{float:right;width:69%;text-align:left;}
+.form .select{border:1px solid #569A01;width:120px;height:22px;}
+.form .short-text{height:18px;width:30px;border:1px solid #bbb;}
+.form .text{height:22px;width:200px;color:#999999;border:1px solid #bbb;}
+.form .long-text{width:371px;}
+.form .textarea{width:420px;height:50px;border:1px solid #bbb;overflow:auto;}
+.form .form-line-btn{margin-top:30px;}
+.form .eline{margin-bottom:10px;}
+.form .line-info{color:#999999;}
+.form .eline .line-info{padding-left:50px;display:block;}
+.form .err-info{padding-left:10px;color:#FF6666;}
+.form .gray{color:#999999;}
+
+/*table*/
+.table caption{display:none;}
+.table table{width:100%;}
+.table table,.table td,.table th{border:1px solid #DDDDDD;text-align:center;}
+.table td,.table th{padding:10px 0;}
+.table th{background-color:#CCCCCC;font-size:12px;font-weight:normal;color:#666666;}
+.table td{background-color:#FFFFFF;}
+
+/*pager*/
+.pager:after{content:".";display:block;clear:both;height:0;visibility:hidden;}
+.pager{*zoom:1;padding:15px 10px 0px 10px;color:#569B01;overflow:hidden; border:1px solid #ddd; border-top:none;}
+.pager .pager-left{float:left;width:20%;text-align:left;}
+.pager .pager-right{float:right;width:79%;text-align:right;}
+.pager .pager-right a{border:1px solid #C7C7C7;padding:2px 8px;color:#569B01;display:inline-block;vertical-align:middle;}
+.pager .pager-right a:hover{text-decoration:none;background-color:#569B01;color:#FFFFFF;}
+.pager .pager-right .edge{background-color:#E8E8E8}
+
+
+/* login */
+.all{ width:100%; height:100%; position:relative}
+.elt{ width:100%; height:100%; position:relative; background:url(images/elt_bg_2.jpg) center no-repeat #dfdfdf}
+#login{ width:690px; height:380px; position:absolute; top:50%; left:50%; margin-left:-345px; margin-top:-190px;}
+#login .bottom{ width:688px; height:27px; margin:1px; color:#444; text-align:center; padding-top:10px; }
+#login .logo,#login .form_login{ margin-top:30px;}
+#login .logo{ width:320px; height:200px; float:left; text-align:center;}
+#login .logo img{ margin-top:40px;}
+#login .form_login{ width:350px; float:left;  padding:10px 0px;}
+
+
+.form_login:after{content:".";display:block;clear:both;height:0;visibility:hidden;}
+.form_login{*zoom:1;overflow:hidden;}
+.form_login img{vertical-align:middle; border:1px solid #c7d3b9}
+.form_login .form .text{color:#333; width:200px;}
+.form_login .form .label{width:100px;font-size:12px;}
+.form_login .form .short-text{width:50px;}
+.form_login .form-line-btn{margin-top:13px;}
+.form_login .post{ width:90%; margin:0 auto; line-height:24px; padding:2px; text-align:center}
+
+
+
+.hr .top,.hr button.login,.employee .top,.employee button.login{ background:url(images/login_2.jpg) no-repeat; }
+.hr .form_login img,.hr .form_login .text,.hr .form_login .short-text{border:1px solid #c7d3b9}
+.employee .form_login img,.employee .form_login .text,.employee .form_login .short-text{border:1px solid #cfdbe5}
+.hr,.employee{width:690px; height:340px;}
+.hr .form_login,.employee .form_login{border-left:1px dashed #ccc;}
+.hr button.login,.employee button.login{border:none; cursor:pointer}
+.hr .top,.employee .top{ width:688px; height:67px; margin:1px; }
+.hr{ border:1px solid #c7d3b9;}
+.hr .top{ background-position:0px -71px; }
+.hr button.login{ width:55px; height:25px; background-position:0px -150px; }
+.hr .form_login .post{background-color:#f4f9ee; color:#668127;}
+.hr .form_login .form a{color:#668127;}
+.employee{ border:1px solid #cfdbe5;}
+.employee .top{ background-position:0px 0px;}
+.employee button.login{ width:55px; height:25px; background-position:-72px -150px; }
+.employee .form_login .post{background-color:#f5f9fc; color:#206baa;}
+.employee .form_login .form a{color:#206baa;}
+
+.elt #login{width:690px; height:380px; position:absolute; top:50%; left:50%; margin-left:-345px; margin-top:-150px;}
+.elt_login{width:690px; height:270px; }
+.elt_login button.login{width:55px; height:25px; background:url(images/login_2.jpg) no-repeat -72px -150px; border:none; cursor:pointer }
+.elt_login .form_login .post{color:#15609d;}
+.elt_login .form_login .form a{color:#07487e;}

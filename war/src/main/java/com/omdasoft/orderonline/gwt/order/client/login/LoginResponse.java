@@ -1,8 +1,8 @@
 package com.omdasoft.orderonline.gwt.order.client.login;
 
-import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
-
 import net.customware.gwt.dispatch.shared.Result;
+
+import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 
 public class LoginResponse implements Result {
 	private String token;
@@ -10,6 +10,7 @@ public class LoginResponse implements Result {
 	String corporationId;
 	String departmentId;
 	String staffId;
+	String staffName;
     UserRoleVo lastLoginRole;
     String photo;
     String corporationName;
@@ -22,6 +23,14 @@ public class LoginResponse implements Result {
 
 	public void setCid(String cid) {
 		this.cid = cid;
+	}
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
 	}
 
 	public String getCorporationName() {

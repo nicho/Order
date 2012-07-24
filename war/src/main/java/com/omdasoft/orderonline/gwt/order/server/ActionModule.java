@@ -23,6 +23,7 @@ import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.DishesTy
 import com.omdasoft.orderonline.gwt.order.client.dishesTypeSave.request.FindDishesTypeRequest;
 import com.omdasoft.orderonline.gwt.order.client.enterprise.request.EnterpriseInitRequest;
 import com.omdasoft.orderonline.gwt.order.client.enterprise.request.EnterpriseRequest;
+import com.omdasoft.orderonline.gwt.order.client.login.LastLoginRoleRequest;
 import com.omdasoft.orderonline.gwt.order.client.login.LoginRequest;
 import com.omdasoft.orderonline.gwt.order.client.login.TokenValidRequest;
 import com.omdasoft.orderonline.gwt.order.client.orderList.request.OrderDeleteRequest;
@@ -66,6 +67,7 @@ import com.omdasoft.orderonline.gwt.order.server.enterprise.SearchCompanyListAct
 import com.omdasoft.orderonline.gwt.order.server.login.ImageUrlActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.LoginActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.login.TokenValidActionHandler;
+import com.omdasoft.orderonline.gwt.order.server.login.UpdatelastLoginRoleActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.ordersLogin.OrderLoginActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.ordersLogin.OrderWaitActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.register.RegisterActionHandler;
@@ -97,6 +99,7 @@ public class ActionModule extends ActionHandlerModule {
 	protected void configureHandlers() {
 		// login module
 		bindHandler(LoginRequest.class, LoginActionHandler.class);
+		bindHandler(LastLoginRoleRequest.class, UpdatelastLoginRoleActionHandler.class);
 
 		// 登录验证token
 		bindHandler(TokenValidRequest.class, TokenValidActionHandler.class);

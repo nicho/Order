@@ -320,4 +320,12 @@ public class UserLogicImpl implements UserLogic {
 		}
 			
 	}
+	@Override
+	public String updateLastLoginRole(String userId, UserRole role) {
+		SysUser user=userDao.findById(SysUser.class, userId);
+		user.setLastLoginRole(role);
+		userDao.update(user);
+		return "success";
+	}
+
 }

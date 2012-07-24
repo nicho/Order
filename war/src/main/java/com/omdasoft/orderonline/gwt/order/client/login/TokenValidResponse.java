@@ -12,6 +12,7 @@ public class TokenValidResponse implements Result {
 	String departmentId;
 	UserRoleVo[] userRoles;
 	String staffId;
+	String staffName;
     UserRoleVo lastLoginRole;
     String photo;
     String corporationName;
@@ -25,7 +26,15 @@ public class TokenValidResponse implements Result {
 	public void setCid(String cid) {
 		this.cid = cid;
 	}
-    
+
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
 	public String getCorporationName() {
 		return corporationName;
 	}
