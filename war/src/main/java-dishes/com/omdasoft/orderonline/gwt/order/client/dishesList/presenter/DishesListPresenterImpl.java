@@ -74,17 +74,12 @@ public class DishesListPresenterImpl extends
 
 	@Override
 	public void bind() {
-		UserRoleVo[] role=sessionManager.getSession().getUserRoles();
-		if(role!=null && role.length>0)
+
+		if(UserRoleVo.CORP_ADMIN==sessionManager.getSession().getLastLoginRole())
 		{
-			for (int i = 0; i < role.length; i++) {
-				UserRoleVo re=role[i];
-				if(re==UserRoleVo.CORP_ADMIN)
-				{
-					display.hiddenCopyBtn();
-				}
-			}
+			display.hiddenCopyBtn();
 		}
+		
 		
 		breadCrumbs.loadListPage();
 		display.setBreadCrumbs(breadCrumbs.getDisplay().asWidget());
@@ -114,7 +109,7 @@ public class DishesListPresenterImpl extends
 							@Override
 							public void confirm() {
 								dispatch.execute(new DishesCopyRequest(sessionManager
-										.getSession().getDepartmentId()), new AsyncCallback<DishesCopyResponse>() {
+										.getSession().getToken()), new AsyncCallback<DishesCopyResponse>() {
 									@Override
 									public void onFailure(Throwable e) {
 										errorHandler.alert(e.getMessage());

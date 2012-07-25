@@ -62,16 +62,9 @@ public class DishesTypeListPresenterImpl extends
 
 	@Override
 	public void bind() {
-		UserRoleVo[] role=sessionManager.getSession().getUserRoles();
-		if(role!=null && role.length>0)
+		if(UserRoleVo.CORP_ADMIN==sessionManager.getSession().getLastLoginRole())
 		{
-			for (int i = 0; i < role.length; i++) {
-				UserRoleVo re=role[i];
-				if(re==UserRoleVo.CORP_ADMIN)
-				{
-					display.hiddenCopyBtn();
-				}
-			}
+			display.hiddenCopyBtn();
 		}
 		
 		breadCrumbs.loadListPage();
