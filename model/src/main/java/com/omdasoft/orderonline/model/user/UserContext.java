@@ -24,8 +24,16 @@ public class UserContext {
 	public String deptId;
 
 	public UserRole[] userRoles;
-
+	public UserRole lastRole;
 	public String loginName;
+
+	public UserRole getLastRole() {
+		return lastRole;
+	}
+
+	public void setLastRole(UserRole lastRole) {
+		this.lastRole = lastRole;
+	}
 
 	public String getDeptId() {
 		return deptId;

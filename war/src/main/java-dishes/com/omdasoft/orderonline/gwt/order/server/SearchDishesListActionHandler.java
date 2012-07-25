@@ -18,6 +18,7 @@ import com.omdasoft.orderonline.model.common.PaginationDetail;
 import com.omdasoft.orderonline.model.common.SortingDetail;
 import com.omdasoft.orderonline.model.dishes.DishesSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
+import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.service.dishes.DishesService;
 
 public class SearchDishesListActionHandler extends
@@ -48,6 +49,7 @@ public class SearchDishesListActionHandler extends
 			u.setCorporationId(action.getSession().getCorporationId());
 			u.setUserId(action.getSession().getToken());
 			u.setDeptId(action.getSession().getDepartmentId());
+			u.setLastRole(UserRole.valueOf(action.getSession().getLastLoginRole().toString()));
 		}
 		DishesSearchCriteria criteria=new DishesSearchCriteria();
 		if (action.getCriteria().getPagination() != null) {
