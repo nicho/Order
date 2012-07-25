@@ -171,5 +171,5 @@ public interface DishesService {
 	 * @param deptId
 	 * @return
 	 */
-	public String copyDishes(String deptId);
+	public String copyDishes(String userId);
 }

@@ -123,9 +123,7 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 							userRoleDao.delete(r);
 					}
 				}
-				Staff staff=tempDepartment.getDeptAdmin().getStaff();
-				staff.setDepartment(department);
-				staffDao.update(staff);
+
 			}
 			tempDepartment.setName(department.getName());
 			tempDepartment.setCity(department.getCity());
@@ -438,6 +436,11 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 	@Override
 	public String findDepartmentBydId(String did) {
 		return departmentDao.getDepartmentBydId(did);
+	}
+
+	@Override
+	public Department findDepartmentByAdminUserId(String userId) {
+		return departmentDao.findDepartmentByAdminUserId(userId);
 	}
 
 }

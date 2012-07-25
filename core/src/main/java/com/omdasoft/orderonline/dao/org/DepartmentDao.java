@@ -346,4 +346,16 @@ public class DepartmentDao extends BaseDao<Department> {
 			 deptid=list.get(0);
 		 return deptid;
 	}
+	
+	public Department findDepartmentByAdminUserId(String userId) {
+		try {
+			Department dept = (Department) getEm()
+					.createQuery(
+							"FROM Department dept WHERE dept.deptAdmin.id = :userId ")
+					.setParameter("userId", userId).getSingleResult();
+			return dept;
+		} catch (NoResultException e) {
+			return null;
+		}
+	}
 }

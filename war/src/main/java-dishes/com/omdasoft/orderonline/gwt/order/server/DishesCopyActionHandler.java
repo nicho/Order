@@ -31,7 +31,7 @@ public class DishesCopyActionHandler extends
 	public DishesCopyResponse execute(DishesCopyRequest action, ExecutionContext context)
 			throws DispatchException {
 		DishesCopyResponse rep=new DishesCopyResponse();
-		String fal=dishesService.copyDishes(action.getDeptId());
+		String fal=dishesService.copyDishes(action.getUserId());
 		rep.setFal(fal);
 		return rep;
 	}

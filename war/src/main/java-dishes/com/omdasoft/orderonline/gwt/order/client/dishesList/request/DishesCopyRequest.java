@@ -13,32 +13,25 @@ import net.customware.gwt.dispatch.shared.Action;
  */
 public class DishesCopyRequest implements Action<DishesCopyResponse> {
 
-	private String deptId;
-
-
-
+	private String userId;
 
 	public DishesCopyRequest() {
 	}
-
 
 	/**
 	 * 
 	 * @param DishesListVo
 	 */
-	public DishesCopyRequest(String deptId) {
-		this.deptId=deptId;
+	public DishesCopyRequest(String userId) {
+		this.userId = userId;
 	}
 
-
-	public String getDeptId() {
-		return deptId;
+	public String getUserId() {
+		return userId;
 	}
 
-
-	public void setDeptId(String deptId) {
-		this.deptId = deptId;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-
 
 }

@@ -20,6 +20,7 @@ import com.omdasoft.orderonline.model.common.PaginationDetail;
 import com.omdasoft.orderonline.model.common.SortingDetail;
 import com.omdasoft.orderonline.model.order.OrderListCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
+import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.service.order.OrderService;
 import com.omdasoft.orderonline.util.StringUtil;
 
@@ -50,6 +51,9 @@ public class SearchOrderListActionHandler extends
 		u.setUserId(action.getSession().getToken());
 		u.setUserRoles(UserRoleTool.adaptToRole(action.getSession().getUserRoles()));
 		u.setDeptId(action.getSession().getDepartmentId());
+		u.setLastRole(UserRole.valueOf(action.getSession().getLastLoginRole().toString()));
+		
+		
 		OrderListCriteria criteria=new OrderListCriteria();
 		if (action.getCriteria().getPagination() != null) {
 			PaginationDetail detail = new PaginationDetail();

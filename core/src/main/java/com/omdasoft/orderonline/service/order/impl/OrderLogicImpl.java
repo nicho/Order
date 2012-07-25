@@ -12,6 +12,7 @@ import com.omdasoft.orderonline.dao.order.OrderDao;
 import com.omdasoft.orderonline.dao.rest.InvokeHistoryDao;
 import com.omdasoft.orderonline.domain.order.Orders;
 import com.omdasoft.orderonline.domain.order.OrdersDishes;
+import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.rest.InvokeHistory;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.model.common.PageStore;
@@ -23,6 +24,7 @@ import com.omdasoft.orderonline.model.order.UpdateOrderReturnModel;
 import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.service.order.OrderLogic;
+import com.omdasoft.orderonline.service.org.DepartmentLogic;
 import com.omdasoft.orderonline.service.user.UserLogic;
 import com.omdasoft.orderonline.util.DateUtil;
 import com.omdasoft.orderonline.util.StringUtil;
@@ -32,15 +34,17 @@ public class OrderLogicImpl implements OrderLogic{
 	private OrdersDishesDao ordersDishesDao;
 	private InvokeHistoryDao invokeHistoryDao;
 	private UserLogic userLogic;
+	private DepartmentLogic departmentLogic;
 
 
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Inject
-	protected OrderLogicImpl(OrderDao orderDao,InvokeHistoryDao invokeHistoryDao,UserLogic userLogic,OrdersDishesDao ordersDishesDao){
+	protected OrderLogicImpl(OrderDao orderDao,InvokeHistoryDao invokeHistoryDao,UserLogic userLogic,OrdersDishesDao ordersDishesDao,DepartmentLogic departmentLogic){
 		this.orderDao = orderDao;
 		this.invokeHistoryDao=invokeHistoryDao;
 		this.userLogic=userLogic;
 		this.ordersDishesDao=ordersDishesDao;
+		this.departmentLogic=departmentLogic;
 	}
 	
 	@Override
@@ -85,21 +89,21 @@ public class OrderLogicImpl implements OrderLogic{
 	@Override
 	public PageStore<Orders> getOrderList(UserContext context,
 			OrderListCriteria criteria) {
-		UserRole[] role=context.getUserRoles();
-		if(role!=null && role.length>0)
+
+		if(UserRole.CORP_ADMIN==context.getLastRole())
 		{
-			for (int i = 0; i < role.length; i++) {
-				UserRole re=role[i];
-				if(re==UserRole.CORP_ADMIN)
-				{
-					criteria.setCorpId(context.getCorporationId());
-				}
-				else if(re==UserRole.DEPT_MGR)
-				{
-					criteria.setDeptId(context.getDeptId());
-				}
+			criteria.setCorpId(context.getCorporationId());
+		}
+		else if(UserRole.DEPT_MGR==context.getLastRole())
+		{
+			//查询管理的部门
+			Department dept=departmentLogic.findDepartmentByAdminUserId(context.getUserId());
+			if(dept!=null)
+			{
+				criteria.setDeptId(dept.getId());
 			}
 		}
+		
 		return orderDao.queryOrderPageAction(criteria);
 	}
 	@Override
@@ -112,19 +116,17 @@ public class OrderLogicImpl implements OrderLogic{
 		}
 		else
 		{
-			UserRole[] role=context.getUserRoles();
-			if(role!=null && role.length>0)
+			if(UserRole.CORP_ADMIN==context.getLastRole())
 			{
-				for (int i = 0; i < role.length; i++) {
-					UserRole re=role[i];
-					if(re==UserRole.CORP_ADMIN)
-					{
-						criteria.setCorpId(context.getCorporationId());
-					}
-					else if(re==UserRole.DEPT_MGR)
-					{
-						criteria.setDeptId(context.getDeptId());
-					}
+				criteria.setCorpId(context.getCorporationId());
+			}
+			else if(UserRole.DEPT_MGR==context.getLastRole())
+			{
+				//查询管理的部门
+				Department dept=departmentLogic.findDepartmentByAdminUserId(context.getUserId());
+				if(dept!=null)
+				{
+					criteria.setDeptId(dept.getId());
 				}
 			}
 		}

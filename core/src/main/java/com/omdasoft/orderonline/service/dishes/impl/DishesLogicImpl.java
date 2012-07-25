@@ -21,6 +21,7 @@ import com.omdasoft.orderonline.model.dishes.DishesSearchCriteria;
 import com.omdasoft.orderonline.model.dishes.DishesTypeSearchCriteria;
 import com.omdasoft.orderonline.model.dishes.OrderDishesSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserContext;
+import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.service.dishes.DishesLogic;
 import com.omdasoft.orderonline.service.org.CorporationLogic;
 import com.omdasoft.orderonline.service.org.DepartmentLogic;
@@ -72,6 +73,17 @@ public class DishesLogicImpl implements DishesLogic {
 		{
 			criteria.setDeptId(context.getDeptId());
 		}
+		
+		if(UserRole.DEPT_MGR==context.getLastRole())
+		{
+			//查询管理的部门
+			Department dept=departmentLogic.findDepartmentByAdminUserId(context.getUserId());
+			if(dept!=null)
+			{
+				criteria.setDeptId(dept.getId());
+			}
+		}
+		
 		//没选分店。默认机构
 		if(StringUtil.isEmptyString(criteria.getCorporationId()))
 		{
@@ -213,10 +225,16 @@ public class DishesLogicImpl implements DishesLogic {
 	}
 
 	@Override
-	public String copyDishes(String deptId) {
-		int deleteint=dishesDao.deleteDishesBydeptId(deptId);
+	public String copyDishes(String userId) {
+		
+		
+		//查询管理的部门
+		Department dept=departmentLogic.findDepartmentByAdminUserId(userId);
+		
+		
+		int deleteint=dishesDao.deleteDishesBydeptId(dept.getId());
 		logger.debug("删除分店菜品"+deleteint);
-		Department nowdept=departmentLogic.findDepartmentById(deptId);
+		Department nowdept=departmentLogic.findDepartmentById(dept.getId());
 		
 		List<Dishes> typeList=dishesDao.findDishesBydeptId(nowdept.getParent().getId());
 		if(typeList!=null && typeList.size()>0)

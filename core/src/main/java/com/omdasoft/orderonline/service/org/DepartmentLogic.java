@@ -192,4 +192,11 @@ public interface DepartmentLogic {
 	 * @return
 	 */
 	public String findDepartmentBydId(String did);
+	
+	/**
+	 * 根据部门管理员工Id查找部门
+	 * @param staffId
+	 * @return
+	 */
+	public Department findDepartmentByAdminUserId(String userId);
 }

@@ -474,8 +474,8 @@ public class DishesServiceImpl implements DishesService {
 	}
 
 	@Override
-	public String copyDishes(String deptId) {
-		return dishesLogic.copyDishes(deptId);
+	public String copyDishes(String userId) {
+		return dishesLogic.copyDishes(userId);
 	}
 
 }
