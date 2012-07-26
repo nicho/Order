@@ -7,7 +7,6 @@ import net.customware.gwt.dispatch.client.DispatchAsync;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.gwt.order.client.core.ui.event.PlatformInitEvent;
@@ -16,9 +15,6 @@ import com.omdasoft.orderonline.gwt.order.client.login.event.LoginEvent;
 import com.omdasoft.orderonline.gwt.order.client.login.event.LoginHandler;
 import com.omdasoft.orderonline.gwt.order.client.login.presenter.LoginPresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
-import com.omdasoft.orderonline.gwt.order.client.register.model.OrgInitVo;
-import com.omdasoft.orderonline.gwt.order.client.register.request.RegisterInitRequest;
-import com.omdasoft.orderonline.gwt.order.client.register.request.RegisterInitResponse;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
 import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
@@ -50,37 +46,37 @@ public class MainImpl implements Main, PlatformInitHandler, LoginHandler {
 		this.rootLayoutPanel = panel;
 		eventBus.addHandler(PlatformInitEvent.getType(), this);
 		eventBus.addHandler(LoginEvent.getType(), this);
-
-		dispatchAsync.execute(new RegisterInitRequest(),
-				new AsyncCallback<RegisterInitResponse>() {
-					public void onFailure(Throwable caught) {
-
-						Window.alert("初始化失败");
-					}
-
-					@Override
-					public void onSuccess(RegisterInitResponse response) {
-						OrgInitVo vo = response.getOrgInitVo();
-						if (vo == null || vo.getCorpInit() == 0) {// 初始化企业
-							RootLayoutPanel.get().clear();
-							injector.getRegisterPresenter().bind();
-							RootLayoutPanel.get().add(
-									injector.getRegisterPresenter()
-											.getDisplay().asWidget());
-						} else if (vo != null && vo.getCorpInit() != 0
-								&& vo.getHrInit() == 0) {// 初始化HR账户
-							RootLayoutPanel.get().clear();
-							injector.getRegisterHrPresenter().bind();
-							RootLayoutPanel.get().add(
-									injector.getRegisterHrPresenter()
-											.getDisplay().asWidget());
-						} else {
-							sessionManager.initialize();
-						}
-
-					}
-
-				});
+		sessionManager.initialize();
+//		dispatchAsync.execute(new RegisterInitRequest(),
+//				new AsyncCallback<RegisterInitResponse>() {
+//					public void onFailure(Throwable caught) {
+//
+//						Window.alert("初始化失败");
+//					}
+//
+//					@Override
+//					public void onSuccess(RegisterInitResponse response) {
+//						OrgInitVo vo = response.getOrgInitVo();
+//						if (vo == null || vo.getCorpInit() == 0) {// 初始化企业
+//							RootLayoutPanel.get().clear();
+//							injector.getRegisterPresenter().bind();
+//							RootLayoutPanel.get().add(
+//									injector.getRegisterPresenter()
+//											.getDisplay().asWidget());
+//						} else if (vo != null && vo.getCorpInit() != 0
+//								&& vo.getHrInit() == 0) {// 初始化HR账户
+//							RootLayoutPanel.get().clear();
+//							injector.getRegisterHrPresenter().bind();
+//							RootLayoutPanel.get().add(
+//									injector.getRegisterHrPresenter()
+//											.getDisplay().asWidget());
+//						} else {
+//						
+//						}
+//
+//					}
+//
+//				});
 
 	}
 

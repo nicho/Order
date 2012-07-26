@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
+import com.omdasoft.orderonline.dao.org.CorporationDao;
 import com.omdasoft.orderonline.dao.org.DepartmentDao;
 import com.omdasoft.orderonline.dao.org.StaffDao;
 import com.omdasoft.orderonline.dao.org.StaffDao.QueryStaffPageActionResult;
@@ -17,7 +18,6 @@ import com.omdasoft.orderonline.dao.user.UserRoleDao;
 import com.omdasoft.orderonline.domain.org.Corporation;
 import com.omdasoft.orderonline.domain.org.Department;
 import com.omdasoft.orderonline.domain.org.Staff;
-import com.omdasoft.orderonline.domain.user.SysRole;
 import com.omdasoft.orderonline.domain.user.SysUser;
 import com.omdasoft.orderonline.domain.user.SysUserRole;
 import com.omdasoft.orderonline.model.staff.StaffProcess;
@@ -47,11 +47,12 @@ public class StaffLogicImpl implements StaffLogic {
 	private final UserDao userDao;
 	private final UserRoleDao userRoleDao;
 	private final RoleDao roleDao;
+	private final CorporationDao corporationDao;
 
 	MD5 md5 = new MD5();
 
 	@Inject
-	public StaffLogicImpl(StaffDao staffDao, DepartmentLogic deptLogic,
+	public StaffLogicImpl(CorporationDao corporationDao,StaffDao staffDao, DepartmentLogic deptLogic,
 			CorporationLogic corporationLogic, DepartmentDao depDao,
 			 UserDao userDao,
 			 UserRoleDao userRoleDao, RoleDao roleDao) {
@@ -60,7 +61,7 @@ public class StaffLogicImpl implements StaffLogic {
 		this.corporationLogic = corporationLogic;
 		this.depDao = depDao;
 		this.userDao = userDao;
-	
+		this.corporationDao=corporationDao;
 		this.userRoleDao = userRoleDao;
 		this.roleDao = roleDao;
 
@@ -351,8 +352,9 @@ public class StaffLogicImpl implements StaffLogic {
 	}
 
 	public String createHrUser(StaffUserProcess staffProcess) {
-		Corporation corporation = corporationLogic
-				.findCorporationById(staffProcess.getCorpId());
+		Corporation corporation = corporationLogic.findCorporationById(staffProcess.getCorpId());
+		
+
 		// 创建部门为顶级部门
 		Department rootdepart = depDao.addRootDepartment(corporation);
 		Staff ff = new Staff();
@@ -375,7 +377,7 @@ public class StaffLogicImpl implements StaffLogic {
 		// ==================创建用户
 		String password = "";
 		try {
-			password = md5.MD5(staffProcess.getPassword());// 初始密码123
+			password = md5.MD5(staffProcess.getPassword());// 初始密码 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -393,19 +395,19 @@ public class StaffLogicImpl implements StaffLogic {
 		user.setStatus(UserStatus.Active);
 		user.setStaff(newstaff);
 		user = userDao.save(user);
-		// 初始化增加角色表数据
-		SysRole role1 = new SysRole();
-		role1.setName(UserRole.CORP_ADMIN);
-		roleDao.save(role1);
-		SysRole role2 = new SysRole();
-		role2.setName(UserRole.GIFT);
-		roleDao.save(role2);
-		SysRole role3 = new SysRole();
-		role3.setName(UserRole.DEPT_MGR);
-		roleDao.save(role3);
-		SysRole role4 = new SysRole();
-		role4.setName(UserRole.STAFF);
-		roleDao.save(role4);
+//		// 初始化增加角色表数据
+//		SysRole role1 = new SysRole();
+//		role1.setName(UserRole.CORP_ADMIN);
+//		roleDao.save(role1);
+//		SysRole role2 = new SysRole();
+//		role2.setName(UserRole.GIFT);
+//		roleDao.save(role2);
+//		SysRole role3 = new SysRole();
+//		role3.setName(UserRole.DEPT_MGR);
+//		roleDao.save(role3);
+//		SysRole role4 = new SysRole();
+//		role4.setName(UserRole.STAFF);
+//		roleDao.save(role4);
 		// 创建用户角色
 		for (int i = 0; i < staffProcess.getRoles().size(); i++) {
 			SysUserRole userRole = new SysUserRole();
@@ -419,6 +421,9 @@ public class StaffLogicImpl implements StaffLogic {
 			userRoleDao.createUserRole(userRole);
 
 		}
+		corporation.setStaff(newstaff);
+		corporation.setIsCreateHrAccount(1);
+		corporationDao.save(corporation);
 		return user.getId();
 	}
 

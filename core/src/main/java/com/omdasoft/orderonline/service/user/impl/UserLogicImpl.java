@@ -128,6 +128,8 @@ public class UserLogicImpl implements UserLogic {
 	@Override
 	public PageStore<SysUser> getUserList(UserContext context,
 			UserSearchCriteria criteria) {
+		if(!StringUtil.isEmptyString(context.getCorporationId()))
+			criteria.setCorporationId(context.getCorporationId());
 		return userDao.queryUserPageAction(criteria);
 	}
 

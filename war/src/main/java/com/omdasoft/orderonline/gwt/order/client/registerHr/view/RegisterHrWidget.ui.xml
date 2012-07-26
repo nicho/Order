@@ -41,12 +41,7 @@
 								styleName="{new2.text}"></g:PasswordTextBox>
 						</div>
 					</div>
-					<div class="{new2.form-line}">
-						<label class="{new2.label}">姓名：</label>
-						<div class="{new2.element}">
-							<g:TextBox maxLength="10" ui:field="name" styleName="{new2.text}" />
-						</div>
-					</div>
+
 					<div class="{new2.form-line}">
 						<label class="{new2.label}">联系电话：</label>
 						<div class="{new2.element}">

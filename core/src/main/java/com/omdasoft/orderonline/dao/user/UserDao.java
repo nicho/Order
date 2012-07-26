@@ -169,6 +169,12 @@ public class UserDao extends BaseDao<SysUser> {
 			eql.append(" SELECT COUNT(o) FROM SysUser o where  1=1 ");
 
 		}
+		
+		
+		if (!StringUtil.isEmptyString(vo.getCorporationId())) {
+			eql.append(" AND o.corporation.id = :corporationId");
+			param.put("corporationId", vo.getCorporationId());
+		}
 
 		
 		if (SEARCH.equals(type)) {

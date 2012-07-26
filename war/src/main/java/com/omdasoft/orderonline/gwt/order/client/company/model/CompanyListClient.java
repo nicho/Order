@@ -17,7 +17,25 @@ public class CompanyListClient implements Serializable, Comparable<CompanyListCl
 	private double rechargeTotal;	//充值总积分
 	private Date crearteAt;			//创建时间
 	private Integer isCreateHrAccount; //是否生成公司hr管理员
+	private String staffName; 
+	private String staffId; 
 	
+	public String getStaffName() {
+		return staffName;
+	}
+
+	public void setStaffName(String staffName) {
+		this.staffName = staffName;
+	}
+
+	public String getStaffId() {
+		return staffId;
+	}
+
+	public void setStaffId(String staffId) {
+		this.staffId = staffId;
+	}
+
 	public String getCid() {
 		return cid;
 	}

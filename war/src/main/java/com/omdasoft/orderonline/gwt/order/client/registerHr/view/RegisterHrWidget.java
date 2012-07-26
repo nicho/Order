@@ -25,8 +25,7 @@ public class RegisterHrWidget extends Composite implements RegisterHrDisplay {
 	PasswordTextBox password;
 	@UiField
 	PasswordTextBox validatePassword;
-	@UiField
-	TextBox name;
+ 
 	@UiField
 	TextBox tell;
 	
@@ -64,10 +63,7 @@ public class RegisterHrWidget extends Composite implements RegisterHrDisplay {
 		return tell;
 	}
 
-	@Override
-	public HasValue<String> getName() {
-		return name;
-	}
+ 
 
 	@Override
 	public HasValue<String> getEmail() {

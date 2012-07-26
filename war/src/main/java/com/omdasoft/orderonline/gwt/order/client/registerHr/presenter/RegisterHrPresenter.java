@@ -8,13 +8,12 @@ import com.omdasoft.orderonline.gwt.order.client.mvp.Presenter;
 
 public interface RegisterHrPresenter extends Presenter<RegisterHrPresenter.RegisterHrDisplay> {
 	
-	public void initRegister(String instanceId);
+	public void initRegisterCorp(String corpId);
 	public static interface RegisterHrDisplay extends Display {
 
 		public HasClickHandlers getRegisterHrClickHandlers();
 		public HasValue<String> getUsername();
 		public HasValue<String> getTell();
-		public HasValue<String> getName();
 		public HasValue<String> getEmail();
 		public HasValue<String> getPassword();
 		public HasValue<String> getValidatePassword();

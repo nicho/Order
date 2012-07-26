@@ -5,21 +5,20 @@ import java.util.List;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.inject.Inject;
-import com.omdasoft.orderonline.gwt.order.client.EltGinjector;
-import com.omdasoft.orderonline.gwt.order.client.login.presenter.AlertErrorWidget;
+import com.omdasoft.orderonline.gwt.order.client.company.plugin.CompanyConstants;
+import com.omdasoft.orderonline.gwt.order.client.core.Platform;
 import com.omdasoft.orderonline.gwt.order.client.mvp.BasePresenter;
 import com.omdasoft.orderonline.gwt.order.client.mvp.EventBus;
 import com.omdasoft.orderonline.gwt.order.client.registerHr.model.HrVo;
 import com.omdasoft.orderonline.gwt.order.client.registerHr.request.RegisterHrRequest;
 import com.omdasoft.orderonline.gwt.order.client.registerHr.request.RegisterHrResponse;
 import com.omdasoft.orderonline.gwt.order.client.support.SessionManager;
-import com.omdasoft.orderonline.gwt.order.client.ui.DialogBox;
+import com.omdasoft.orderonline.gwt.order.client.win.Win;
 import com.omdasoft.orderonline.gwt.order.model.user.UserRoleVo;
 import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 
@@ -28,14 +27,16 @@ public class RegisterHrPresenterImpl extends
 		RegisterHrPresenter {
 
 	private final DispatchAsync dispatcher;
-	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	final SessionManager sessionManager;
+	final Win win;
+	String corpId="";
 	@Inject
 	public RegisterHrPresenterImpl(EventBus eventBus,SessionManager sessionManager,
-			RegisterHrDisplay display, DispatchAsync dispatcher	) {
+			RegisterHrDisplay display, DispatchAsync dispatcher,Win win) {
 		super(eventBus, display);
 		this.dispatcher = dispatcher;
 		this.sessionManager = sessionManager;
+		this.win=win;
 	}
 
 	@Override
@@ -43,125 +44,23 @@ public class RegisterHrPresenterImpl extends
 		registerHandler(display.getRegisterHrClickHandlers().addClickHandler(
 				new ClickHandler() {
 					public void onClick(ClickEvent paramClickEvent) {
-						
-						if (StringUtil.isEmpty(display.getName().getValue())) {
-							final AlertErrorWidget ae = new AlertErrorWidget();
-							final DialogBox dialogBoxae = new DialogBox();
-							ae.getOkBtn().addClickHandler(new ClickHandler() {
-								@Override
-								public void onClick(ClickEvent arg0) {
-									dialogBoxae.hide();
-								}
-							});
-							ae.setMessage("名字不能为空!");
-							dialogBoxae.setWidget(ae);
-							dialogBoxae.setGlassEnabled(true);
-							dialogBoxae.setAnimationEnabled(true);
-							dialogBoxae.setWidth("350px");
-							dialogBoxae.setText("提示");
-							dialogBoxae.center();
-							dialogBoxae.show();
-							
+						if (StringUtil.isEmpty(display.getUsername().getValue())) {
+
+							win.alert("用户名不能为空!");
 							return;
 						}
 						if (StringUtil.isEmpty(display.getPassword().getValue())) {
-							final AlertErrorWidget ae = new AlertErrorWidget();
-							final DialogBox dialogBoxae = new DialogBox();
-							ae.getOkBtn().addClickHandler(new ClickHandler() {
-								@Override
-								public void onClick(ClickEvent arg0) {
-									dialogBoxae.hide();
-								}
-							});
-							ae.setMessage("密码不能为空!");
-							dialogBoxae.setWidget(ae);
-							dialogBoxae.setGlassEnabled(true);
-							dialogBoxae.setAnimationEnabled(true);
-							dialogBoxae.setWidth("350px");
-							dialogBoxae.setText("提示");
-							dialogBoxae.center();
-							dialogBoxae.show();
-							
+							win.alert("密码不能为空!");
 							return;
 						}
-						if (StringUtil.isEmpty(display.getUsername().getValue())) {
-							final AlertErrorWidget ae = new AlertErrorWidget();
-							final DialogBox dialogBoxae = new DialogBox();
-							ae.getOkBtn().addClickHandler(new ClickHandler() {
-								@Override
-								public void onClick(ClickEvent arg0) {
-									dialogBoxae.hide();
-								}
-							});
-							ae.setMessage("用户名不能为空!");
-							dialogBoxae.setWidget(ae);
-							dialogBoxae.setGlassEnabled(true);
-							dialogBoxae.setAnimationEnabled(true);
-							dialogBoxae.setWidth("350px");
-							dialogBoxae.setText("提示");
-							dialogBoxae.center();
-							dialogBoxae.show();
-							
-							return;
-						}
+ 
 						if (!display.getPassword().getValue().equals(display.getValidatePassword().getValue())) {
-							final AlertErrorWidget ae = new AlertErrorWidget();
-							final DialogBox dialogBoxae = new DialogBox();
-							ae.getOkBtn().addClickHandler(new ClickHandler() {
-								@Override
-								public void onClick(ClickEvent arg0) {
-									dialogBoxae.hide();
-								}
-							});
-							ae.setMessage("密码和确认密码不一致!");
-							dialogBoxae.setWidget(ae);
-							dialogBoxae.setGlassEnabled(true);
-							dialogBoxae.setAnimationEnabled(true);
-							dialogBoxae.setWidth("350px");
-							dialogBoxae.setText("提示");
-							dialogBoxae.center();
-							dialogBoxae.show();
-							
+							win.alert("密码和确认密码不一致!");
 							return;
 						}
-						if (StringUtil.isEmpty(display.getEmail().getValue())) {
-							final AlertErrorWidget ae = new AlertErrorWidget();
-							final DialogBox dialogBoxae = new DialogBox();
-							ae.getOkBtn().addClickHandler(new ClickHandler() {
-								@Override
-								public void onClick(ClickEvent arg0) {
-									dialogBoxae.hide();
-								}
-							});
-							ae.setMessage("电子邮件不能为空!");
-							dialogBoxae.setWidget(ae);
-							dialogBoxae.setGlassEnabled(true);
-							dialogBoxae.setAnimationEnabled(true);
-							dialogBoxae.setWidth("350px");
-							dialogBoxae.setText("提示");
-							dialogBoxae.center();
-							dialogBoxae.show();
-							return;
-						}
-						else if(!StringUtil.isValidEmail(display.getEmail().getValue()))
+						if(!StringUtil.isValidEmail(display.getEmail().getValue()))
 						{
-							final AlertErrorWidget ae = new AlertErrorWidget();
-							final DialogBox dialogBoxae = new DialogBox();
-							ae.getOkBtn().addClickHandler(new ClickHandler() {
-								@Override
-								public void onClick(ClickEvent arg0) {
-									dialogBoxae.hide();
-								}
-							});
-							ae.setMessage("Email格式不正确,请重新填写Email!!");
-							dialogBoxae.setWidget(ae);
-							dialogBoxae.setGlassEnabled(true);
-							dialogBoxae.setAnimationEnabled(true);
-							dialogBoxae.setWidth("350px");
-							dialogBoxae.setText("提示");
-							dialogBoxae.center();
-							dialogBoxae.show();
-							
+							win.alert("Email格式不正确,请重新填写Email!");
 							return;
 						}
 						doRegisterHr();
@@ -172,12 +71,12 @@ public class RegisterHrPresenterImpl extends
 	protected void doRegisterHr() {
 
 		HrVo vo = new HrVo();
-		vo.setName(display.getName().getValue());
+		vo.setName(display.getUsername().getValue());
 		vo.setEmail(display.getEmail().getValue());
 		vo.setTell(display.getTell().getValue());
 		vo.setPassword(display.getPassword().getValue());
 		vo.setUsername(display.getUsername().getValue());
-		
+		vo.setCorpId(corpId);
 		List<UserRoleVo> userRoleVos=new ArrayList<UserRoleVo>();
 		
 		userRoleVos.add(UserRoleVo.CORP_ADMIN);
@@ -193,31 +92,22 @@ public class RegisterHrPresenterImpl extends
 
 					@Override
 					public void onSuccess(RegisterHrResponse response) {
-						final AlertErrorWidget ae = new AlertErrorWidget();
-						final DialogBox dialogBoxae = new DialogBox();
-						ae.getOkBtn().addClickHandler(new ClickHandler() {
-							@Override
-							public void onClick(ClickEvent arg0) {
-								dialogBoxae.hide();
-							}
-						});
-						ae.setMessage("管理员注册成功!");
-						dialogBoxae.setWidget(ae);
-						dialogBoxae.setGlassEnabled(true);
-						dialogBoxae.setAnimationEnabled(true);
-						dialogBoxae.setWidth("350px");
-						dialogBoxae.setText("提示");
-						dialogBoxae.center();
-						dialogBoxae.show();
-						sessionManager.initialize();
+						win.alert("餐厅管理员创建成功!");
+						Platform.getInstance()
+						.getEditorRegistry()
+						.openEditor(
+								CompanyConstants.EDITOR_COMPANY_SEARCH,
+								"EDITOR_CompanyList_SEARCH_DO_ID", null);
 					}
 				});
 	}
 
 	@Override
-	public void initRegister(String instanceId) {
-	//	this.instanceId=instanceId;
+	public void initRegisterCorp(String corpId) {
+		this.corpId=corpId;
 		
 	}
+
+	 
 
 }

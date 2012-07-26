@@ -78,6 +78,11 @@ public class SearchCompanyListActionHandler extends
 			client.setCrearteAt(corporation.getCreatedAt());
 			client.setIsCreateHrAccount(corporation.getIsCreateHrAccount());
 			client.setCid(corporation.getCid());
+			if(corporation.getStaff()!=null)
+			{
+			client.setStaffId(corporation.getStaff().getId());
+			client.setStaffName(corporation.getStaff().getName());
+			}
 			lt.add(client);
 		}
 		companyResponse.setResult(lt);

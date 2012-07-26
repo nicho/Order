@@ -28,6 +28,7 @@ import com.omdasoft.orderonline.gwt.order.client.orderList.plugin.OrderListPlugi
 import com.omdasoft.orderonline.gwt.order.client.orderSave.plugin.OrderSavePluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.orderSubmit.plugin.OrderSubmitPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.orderView.plugin.OrderViewPluginDescriptor;
+import com.omdasoft.orderonline.gwt.order.client.registerHr.plugin.RegisterHrPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.restaurantList.plugin.RestaurantListPluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.restaurantSave.plugin.RestaurantSavePluginDescriptor;
 import com.omdasoft.orderonline.gwt.order.client.userAdd.plugin.UserAddPluginDescriptor;
@@ -169,7 +170,8 @@ public class PlatformModule extends AbstractGinModule {
 			// ---- PLUGINS DEFINE BELOW (2) ----
 			CorePluginDescriptor core, // core
 			CompanyListPluginDescriptor companyList,
-			CompanyAddPluginDescriptor companyAddList
+			CompanyAddPluginDescriptor companyAddList,
+			RegisterHrPluginDescriptor registerhr
 			) {
 
 		if (pluginSet == null) {
@@ -177,6 +179,7 @@ public class PlatformModule extends AbstractGinModule {
 			pluginSet.registerPlugin(core);
 			pluginSet.registerPlugin(companyList);
 			pluginSet.registerPlugin(companyAddList);
+			pluginSet.registerPlugin(registerhr);
 		}
 
 		return pluginSet;

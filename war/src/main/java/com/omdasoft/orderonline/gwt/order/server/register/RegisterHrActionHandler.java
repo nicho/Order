@@ -14,6 +14,7 @@ import com.omdasoft.orderonline.gwt.order.client.registerHr.request.RegisterHrRe
 import com.omdasoft.orderonline.gwt.order.client.registerHr.request.RegisterHrResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
 import com.omdasoft.orderonline.gwt.order.server.logger.InjectLogger;
+import com.omdasoft.orderonline.gwt.order.util.StringUtil;
 import com.omdasoft.orderonline.model.staff.StaffUserProcess;
 import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.service.org.OrgInitService;
@@ -33,9 +34,9 @@ public class RegisterHrActionHandler extends
 	OrgInitService orgInitService;
 	IStaffService staffService;
 
-
 	@Inject
-	public RegisterHrActionHandler(IStaffService staffService,OrgInitService orgInitService) {
+	public RegisterHrActionHandler(IStaffService staffService,
+			OrgInitService orgInitService) {
 		this.staffService = staffService;
 		this.orgInitService = orgInitService;
 	}
@@ -51,19 +52,24 @@ public class RegisterHrActionHandler extends
 		process.setEmail(request.getHrvo().getEmail());
 		process.setPassword(request.getHrvo().getPassword());
 		process.setTell(request.getHrvo().getTell());
-		//process.setDeptId(request.getHrvo().getDeptId());
-        process.setCorpId(request.getHrvo().getCorpId());
-		List<UserRole> roles=new ArrayList<UserRole>();
+		// process.setDeptId(request.getHrvo().getDeptId());
+		process.setCorpId(request.getHrvo().getCorpId());
+		List<UserRole> roles = new ArrayList<UserRole>();
 		for (int i = 0; i < request.getHrvo().getUserRoleVos().size(); i++) {
-			roles.add(UserRole.valueOf(request.getHrvo().getUserRoleVos().get(i).toString()));
+			roles.add(UserRole.valueOf(request.getHrvo().getUserRoleVos()
+					.get(i).toString()));
 		}
 		process.setRoles(roles);
-		 OrgInit init=  orgInitService.getOrgInit();
-		  init.setCorpInit(1);
-		  init.setHrInit(1);
-		 orgInitService.save(init);
-		process.setCorpId(init.getCorpId());
-		String userId=staffService.createHrUser(process);
+
+		if (StringUtil.isEmpty(process.getCorpId())) {
+			OrgInit init = orgInitService.getOrgInit();
+			init.setCorpInit(1);
+			init.setHrInit(1);
+			orgInitService.save(init);
+			process.setCorpId(init.getCorpId());
+		}
+
+		String userId = staffService.createHrUser(process);
 		hrResponse.setUserId(userId);
 		return hrResponse;
 	}

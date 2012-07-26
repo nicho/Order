@@ -13,6 +13,7 @@ import com.omdasoft.orderonline.gwt.order.client.userList.model.UserListClient;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.SearchUserListRequest;
 import com.omdasoft.orderonline.gwt.order.client.userList.request.SearchUserListResponse;
 import com.omdasoft.orderonline.gwt.order.server.BaseActionHandler;
+import com.omdasoft.orderonline.gwt.order.util.UserRoleTool;
 import com.omdasoft.orderonline.model.common.PageStore;
 import com.omdasoft.orderonline.model.common.PaginationDetail;
 import com.omdasoft.orderonline.model.common.SortingDetail;
@@ -42,7 +43,12 @@ public class SearchUserListActionHandler extends
 	public SearchUserListResponse execute(SearchUserListRequest action, ExecutionContext context)
 			throws DispatchException {
 		SearchUserListResponse rep=new SearchUserListResponse();
-		UserContext u=new UserContext();
+		UserContext u=new UserContext();	
+		u.setCorporationId(action.getSession().getCorporationId());
+		u.setUserId(action.getSession().getToken());
+		u.setLoginName(action.getSession().getLoginName());
+		u.setUserRoles(UserRoleTool.adaptToRole(action.getSession().getUserRoles()));
+	
 		UserSearchCriteria criteria=new UserSearchCriteria();
 		if (action.getCriteria().getPagination() != null) {
 			PaginationDetail detail = new PaginationDetail();
