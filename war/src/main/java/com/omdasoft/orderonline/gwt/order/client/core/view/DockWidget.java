@@ -36,7 +36,10 @@ public class DockWidget extends Composite implements DockDisplay {
 	
 	@UiField
 	InlineLabel message;
-
+	
+	@UiField
+	InlineLabel messageTop;
+	
 	@UiField
 	Anchor btnUser;
 
@@ -85,36 +88,13 @@ public class DockWidget extends Composite implements DockDisplay {
 	String styleNo = "";
 
 	
-	String btnstyleOn = "";
-	String btnstyleNo = "";
+ 
 	
 	private void init() {
 		styleOn = btnOrder.getStyleName();
 		styleNo = btnUser.getStyleName();
 
-		 btnstyleOn = managementCenter.getElement().getParentElement().getClassName();
-		 btnstyleNo = deptManagement.getElement().getParentElement().getClassName();
 
-		 
-		 managementCenter.addClickHandler(new ClickHandler() {
-
-				@Override
-				public void onClick(ClickEvent event) {
-					managementCenter.getElement().getParentElement().setClassName(btnstyleOn);
-					deptManagement.getElement().getParentElement().setClassName(btnstyleNo);
-
-
-				}
-			});
-		 deptManagement.addClickHandler(new ClickHandler() {
-
-				@Override
-				public void onClick(ClickEvent event) {
-					managementCenter.getElement().getParentElement().setClassName(btnstyleNo);
-					deptManagement.getElement().getParentElement().setClassName(btnstyleOn);
-
-				}
-			});
 		 
 		 
 		btnUser.addClickHandler(new ClickHandler() {
@@ -198,9 +178,7 @@ public class DockWidget extends Composite implements DockDisplay {
 	public void disableManagementCenter() {
 		btnUser.setVisible(false);
 		btnUser.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
-		
-		managementCenter.getElement().getParentElement().setClassName(btnstyleNo);
-		deptManagement.getElement().getParentElement().setClassName(btnstyleOn);
+
 	}
 
 
@@ -243,26 +221,38 @@ public class DockWidget extends Composite implements DockDisplay {
 		
 	}
 
-	@Override
-	public HasClickHandlers getDeptManagement() {
-		return deptManagement;
-	}
+
 
 	@Override
 	public void displayCorp() {
-		managementCenter.setEnabled(false);
+		managementCenter.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
 		
 	}
 
 	@Override
 	public void displayDept() {
-		deptManagement.setEnabled(false);
+		deptManagement.getElement().getParentElement().setClassName(CssStyleConstants.hidden);
 		
 	}
 
 	@Override
 	public HasClickHandlers getCorpManagement() {
 		return managementCenter;
+	}
+
+	@Override
+	public Anchor getManagementCenter() {
+		return managementCenter;
+	}
+
+	@Override
+	public Anchor getDeptManagement() {
+		return deptManagement;
+	}
+
+	@Override
+	public void setMessageTop(String text) {
+		messageTop.setText(text);
 	}
 
 }

@@ -18,6 +18,7 @@ public class Elt implements EntryPoint {
 	private final EltGinjector injector = GWT.create(EltGinjector.class);
 	public static String CORPORATIONID="";
 	public static String DEPARTMENTID="";
+	public static String ADMINPAGE="";
 	@Override
 	public void onModuleLoad() {
 		Map<String, List<String>> maps = Window.Location.getParameterMap(); 
@@ -25,6 +26,9 @@ public class Elt implements EntryPoint {
 		    CORPORATIONID=maps.get("cid").get(0)+"";
 		if(maps.get("did")!=null)
 			DEPARTMENTID=maps.get("did").get(0)+"";
+		if(maps.get("page")!=null)
+			ADMINPAGE=maps.get("page").get(0)+"";
+		
 		
 		
 		injector.getDispatch().execute(new ImageUrlInitRequest(CORPORATIONID,DEPARTMENTID),
@@ -41,9 +45,15 @@ public class Elt implements EntryPoint {
 							DEPARTMENTID=response.getDeptId();
 							GWT_IMAGE_PATH=response.getUrl();
 							RootLayoutPanel.get().clear();
-							injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
-							injector.getOrderIndexPresenter().bind();
-							RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+							
+							if("ADMIN".equals(ADMINPAGE))
+								injector.getMain().init(RootLayoutPanel.get());
+							else
+							{
+								injector.getOrderIndexPresenter().initPresenter(injector.getOrdersDishesPresenter());
+								injector.getOrderIndexPresenter().bind();
+								RootLayoutPanel.get().add(injector.getOrderIndexPresenter().getDisplay().asWidget());
+							}
 						}
 				
 				});

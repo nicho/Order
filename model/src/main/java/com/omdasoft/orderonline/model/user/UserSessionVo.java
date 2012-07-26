@@ -14,7 +14,14 @@ public class UserSessionVo {
 	private String photo;
 	private String corporationName;
 	private UserStatus userStatus;
+	private String departmentName;
+	public String getDepartmentName() {
+		return departmentName;
+	}
 
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
 	public String getCid() {
 		return cid;
 	}

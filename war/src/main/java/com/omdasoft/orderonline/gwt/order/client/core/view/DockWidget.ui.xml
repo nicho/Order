@@ -35,7 +35,7 @@
         <li ><g:Anchor text="分店管理中心" styleName="{new2.newa}" ui:field="deptManagement" /> </li>
       </ul>
       <div class="{new2.green}">
-      <g:InlineLabel ui:field="message"></g:InlineLabel>   <g:Anchor ui:field="logBtn" styleName="{new2.newa}">安全退出</g:Anchor> <g:Anchor  ui:field="passwardBtn" styleName="{new2.newa}">修改密码</g:Anchor>   <g:Anchor  ui:field="collectionBtn" styleName="{new2.newa}">加为收藏</g:Anchor>
+   <g:InlineLabel ui:field="messageTop"></g:InlineLabel>    <g:InlineLabel ui:field="message"></g:InlineLabel>  <g:Anchor ui:field="logBtn" styleName="{new2.newa}">安全退出</g:Anchor> <g:Anchor  ui:field="passwardBtn" styleName="{new2.newa}">修改密码</g:Anchor>   <g:Anchor  ui:field="collectionBtn" styleName="{new2.newa}">加为收藏</g:Anchor>
       </div>
     </div>
     <g:Image resource="{logo_new}" styleName="{new2.logo}" width="255px" height="75px"/>

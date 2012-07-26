@@ -15,7 +15,14 @@ public class LoginResponse implements Result {
     String photo;
     String corporationName;
     String cid;
-    
+	 String departmentName;
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
     
 	public String getCid() {
 		return cid;

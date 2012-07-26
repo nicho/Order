@@ -70,6 +70,7 @@ public class LoginServiceImpl extends RemoteServiceServlet implements
 			resp.setLoginName(u.getUsername());
 			resp.setToken(u.getId());
 			resp.setDepartmentId(u.getDepartmentId());
+			resp.setDepartmentName(u.getDepartmentName());
 			resp.setUserRoles(UserRoleTool.adaptToRoleVo(u.getUserRoles()));
 			resp.setStaffId(u.getStaffId());
 			resp.setStaffName(u.getStaffName());

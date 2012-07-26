@@ -22,7 +22,15 @@ public class UserSession implements Serializable {
     String corporationName;
     String cid;
     
-    
+	String departmentName;
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+
 	public String getCid() {
 		return cid;
 	}

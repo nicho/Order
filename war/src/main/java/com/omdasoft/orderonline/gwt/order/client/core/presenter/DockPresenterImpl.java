@@ -49,10 +49,12 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 		this.dispatchAsync = dispatchAsync;
 		this.passwordDialogProvider=passwordDialogProvider;
 	}
-
-	public void bind() {
+	 String btnstyleOn = display.getManagementCenter().getElement().getParentElement().getClassName();
+	 String btnstyleNo = display.getDeptManagement().getElement().getParentElement().getClassName();
 		boolean fal1=false;
 		boolean fal2=false;
+	public void bind() {
+
 		UserRoleVo[] role=sessionManager.getSession().getUserRoles();
 		if(role!=null && role.length>0)
 		{
@@ -68,14 +70,18 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 				}
 			}
 		}
-		if(fal1==false)
-			display.displayCorp();
-		if(fal2==false)
-			display.displayDept();
+
 		
 		if(sessionManager.getSession().getLastLoginRole()!=UserRoleVo.CORP_ADMIN)
 		{
 			display.disableManagementCenter();
+			display.getManagementCenter().getElement().getParentElement().setClassName(btnstyleNo);
+			display.getDeptManagement().getElement().getParentElement().setClassName(btnstyleOn);
+			display.setMessageTop("分店:"+sessionManager.getSession().getDepartmentName());
+		}
+		else
+		{
+			display.setMessageTop("总店:"+sessionManager.getSession().getCorporationName());
 		}
 
 		registerHandler(display.getbtnPassward().addClickHandler(new ClickHandler() {
@@ -135,38 +141,53 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 				}));
 		
 		
-		registerHandler(display.getDeptManagement().addClickHandler(
-				new ClickHandler() {
-					@Override
-					public void onClick(ClickEvent event) {
-						dispatchAsync.execute(new LastLoginRoleRequest(
-								sessionManager.getSession().getToken(),
-								UserRoleVo.DEPT_MGR),
-								new AsyncCallback<LastLoginRoleResponse>() {
 
-									@Override
-									public void onFailure(Throwable e) {
-										// Window.alert("系统切换出错");
-									}
+		
 
-									@Override
-									public void onSuccess(
-											LastLoginRoleResponse resp) {
-										// 成功
-										if ("success".equals(resp.getFal()))
-											Window.Location.reload();
-										else
-											Window.alert("系统切换出错");
-
-									}
-								});
-						
-					}
-				}));
+		if(fal1==true && fal2==true)
+		{
+			registerHandler(display.getDeptManagement().addClickHandler(
+					new ClickHandler() {
+						@Override
+						public void onClick(ClickEvent event) {
+							 
+							display.getManagementCenter().getElement().getParentElement().setClassName(btnstyleNo);
+							display.getDeptManagement().getElement().getParentElement().setClassName(btnstyleOn);
+							
+							dispatchAsync.execute(new LastLoginRoleRequest(
+									sessionManager.getSession().getToken(),
+									UserRoleVo.DEPT_MGR),
+									new AsyncCallback<LastLoginRoleResponse>() {
+	
+										@Override
+										public void onFailure(Throwable e) {
+											// Window.alert("系统切换出错");
+										}
+	
+										@Override
+										public void onSuccess(
+												LastLoginRoleResponse resp) {
+											// 成功
+											if ("success".equals(resp.getFal()))
+												Window.Location.reload();
+											else
+												Window.alert("系统切换出错");
+	
+										}
+									});
+							
+						}
+					}));
+	
+		
+	
 		registerHandler(display.getCorpManagement().addClickHandler(
 				new ClickHandler() {
 					@Override
 					public void onClick(ClickEvent event) {
+						display.getManagementCenter().getElement().getParentElement().setClassName(btnstyleOn);
+						display.getDeptManagement().getElement().getParentElement().setClassName(btnstyleNo);
+						
 						dispatchAsync.execute(new LastLoginRoleRequest(
 								sessionManager.getSession().getToken(),
 								UserRoleVo.CORP_ADMIN),
@@ -191,6 +212,14 @@ public class DockPresenterImpl extends BasePresenter<DockDisplay> implements
 						
 					}
 				}));
+		}
+		else
+		{
+			if(fal1==false)
+			display.displayCorp();
+			if(fal2==false)
+			display.displayDept();
+		}
 	}
 
 	public DockDisplay getDisplay() {

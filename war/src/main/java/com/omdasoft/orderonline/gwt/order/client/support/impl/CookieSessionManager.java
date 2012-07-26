@@ -274,6 +274,7 @@ public class CookieSessionManager implements SessionManager {
 			session.setCorporationId(rep.getCorporationId());
 			session.setUserRoles(rep.getUserRoles());
 			session.setDepartmentId(rep.getDepartmentId());
+			session.setDepartmentName(rep.getDepartmentName());
 			session.setStaffId(rep.getStaffId());
 			session.setStaffName(rep.getStaffName());
 			session.setLastLoginRole(rep.getLastLoginRole());
@@ -295,6 +296,7 @@ public class CookieSessionManager implements SessionManager {
 			session.setCorporationId(rep.getCorporationId());
 			session.setUserRoles(rep.getUserRoles());
 			session.setDepartmentId(rep.getDepartmentId());
+			session.setDepartmentName(rep.getDepartmentName());
 			session.setStaffId(rep.getStaffId());
 			session.setStaffName(rep.getStaffName());
 			session.setLastLoginRole(rep.getLastLoginRole());
@@ -346,42 +348,11 @@ public class CookieSessionManager implements SessionManager {
 
 								if (role != null && roleslt.contains(role)) {
 									if (role == UserRoleVo.CORP_ADMIN) {
-										if (roleslt
-												.contains(UserRoleVo.DEPT_MGR)) {
-											UserRoleVo[] tempRole = session
-													.getUserRoles();
-											UserRoleVo[] tempRoleNew = new UserRoleVo[tempRole.length - 1];
-											if (tempRole.length > 0) {
-												int index = 0;
-												for (int i = 0; i < tempRole.length; i++) {
-													if (tempRole[i] != UserRoleVo.DEPT_MGR) {
-														tempRoleNew[index] = tempRole[i];
-														index++;
-													}
-												}
-											}
 
-											session.setUserRoles(tempRoleNew);
-										}
 										eventBus.fireEvent(new LoginEvent(
 												LoginEvent.LoginStatus.LOGIN_OK));
 									} else if (role == UserRoleVo.DEPT_MGR) {
-										if (roleslt
-												.contains(UserRoleVo.CORP_ADMIN)) {
-											UserRoleVo[] tempRole = session
-													.getUserRoles();
-											UserRoleVo[] tempRoleNew = new UserRoleVo[tempRole.length - 1];
-											if (tempRole.length > 0) {
-												int index = 0;
-												for (int i = 0; i < tempRole.length; i++) {
-													if (tempRole[i] != UserRoleVo.CORP_ADMIN) {
-														tempRoleNew[index] = tempRole[i];
-														index++;
-													}
-												}
-											}
-											session.setUserRoles(tempRoleNew);
-										}
+								
 										eventBus.fireEvent(new LoginEvent(
 												LoginEvent.LoginStatus.LOGIN_OK_DEPT));
 

@@ -67,7 +67,7 @@
 									<span class="login-btn">
 										无法登录，请
 										<g:Anchor ui:field="license" text="点击这里" styleName="anchor"></g:Anchor>
-										或致电400-6688-998获得帮助。
+										或致电000-0000-000获得帮助。
 									</span>
 								</div>
 							</form>
@@ -75,7 +75,7 @@
 
 					</div>
 					<div class="bottom cl">
-						<p>版权所有 @积享通信息技术有限公司</p>
+						<p>www.OMDASOFT.com Copyright 2012, All Rights Reserved</p>
 					</div>
 				</div>
 

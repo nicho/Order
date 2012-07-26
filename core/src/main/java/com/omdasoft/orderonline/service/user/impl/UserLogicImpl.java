@@ -31,6 +31,7 @@ import com.omdasoft.orderonline.model.user.UserContext;
 import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.model.user.UserSearchCriteria;
 import com.omdasoft.orderonline.model.user.UserSessionVo;
+import com.omdasoft.orderonline.service.org.DepartmentLogic;
 import com.omdasoft.orderonline.service.user.UserLogic;
 import com.omdasoft.orderonline.util.DateUtil;
 import com.omdasoft.orderonline.util.MD5;
@@ -44,12 +45,13 @@ public class UserLogicImpl implements UserLogic {
 	private TokenDao tokenDao;
 	private CorporationDao corporationDao;
 	private DepartmentDao departmentDao;
+	private DepartmentLogic departmentLogic;
 
     MD5 md5 =new  MD5();
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Inject
-	protected UserLogicImpl(CorporationDao corporationDao,UserDao userDao,RestaurantDao restaurantDao,DictionaryDao dictionaryDao,UserRoleDao userRoleDao,TokenDao tokenDao,DepartmentDao departmentDao) {
+	protected UserLogicImpl(DepartmentLogic departmentLogic,CorporationDao corporationDao,UserDao userDao,RestaurantDao restaurantDao,DictionaryDao dictionaryDao,UserRoleDao userRoleDao,TokenDao tokenDao,DepartmentDao departmentDao) {
 		this.userDao = userDao;
 		this.restaurantDao=restaurantDao;
 		this.dictionaryDao=dictionaryDao;
@@ -57,6 +59,7 @@ public class UserLogicImpl implements UserLogic {
 		this.tokenDao=tokenDao;
 		this.corporationDao=corporationDao;
 		this.departmentDao=departmentDao;
+		this.departmentLogic=departmentLogic;
 	}
 
 	@Override
@@ -103,7 +106,13 @@ public class UserLogicImpl implements UserLogic {
 		vo.setUsername(user.getUserName());
 		vo.setUserRoles(userRoles);
 		if(user.getStaff().getDepartment()!=null)
-		vo.setDepartmentId(user.getStaff().getDepartment().getId());
+		{
+			vo.setDepartmentId(user.getStaff().getDepartment().getId());
+			
+			Department dept=departmentLogic.findDepartmentByAdminUserId(user.getId());
+			if(dept!=null)
+				vo.setDepartmentName(dept.getName());
+		}
 		vo.setStaffId(user.getStaff().getId());
 		vo.setLastLoginRole(user.getLastLoginRole());
 		vo.setUserStatus(user.getStatus());

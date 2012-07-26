@@ -45,6 +45,7 @@ public class TokenValidActionHandler extends
 		tokenRep.setCorporationName(userSessionVo.getCorporationName());
 		tokenRep.setPhoto(userSessionVo.getPhoto());
 		tokenRep.setCid(userSessionVo.getCid());
+		tokenRep.setDepartmentName(userSessionVo.getDepartmentName());
 		if(userSessionVo.getLastLoginRole()!=null)
 		{
 			tokenRep.setLastLoginRole(UserRoleVo.valueOf(userSessionVo.getLastLoginRole().toString()));
