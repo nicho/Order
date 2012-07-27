@@ -127,6 +127,8 @@ public class SearchOrderListActionHandler extends
 				}
 				if(order.getOrderStatus()!=null)
 				r.setOrderStatus(OrderStatus.valueOf(order.getOrderStatus().toString()));
+				if(order.getRoomState()!=null)
+				r.setRoomState(order.getRoomState().getDisplayName());
 				result.add(r);
 				indexNo++;
 			}

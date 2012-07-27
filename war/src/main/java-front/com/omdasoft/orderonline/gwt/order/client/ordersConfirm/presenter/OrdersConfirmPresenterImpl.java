@@ -76,7 +76,9 @@ public class OrdersConfirmPresenterImpl extends
 				request.setOrderPersonPhone(injector.getOrderManager().getOrderRequest().getOrderPersonPhone());
 				request.setDishesOrRoomFal("DISHES");
 				request.setBookingDishesList(injector.getOrderManager().getOrderRequest().getBookingDishesList());
-					
+				request.setRestaurantId(injector.getOrderManager().getOrderRequest().getRestaurantId());
+				request.setRestaurantName(injector.getOrderManager().getOrderRequest().getRestaurantName());
+				request.setCity(injector.getOrderManager().getOrderRequest().getCity());
 				dispatch.execute(request,
 						new AsyncCallback<OrderSaveResponse>() {
 							@Override

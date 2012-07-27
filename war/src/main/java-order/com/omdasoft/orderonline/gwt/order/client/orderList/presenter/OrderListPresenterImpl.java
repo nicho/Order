@@ -374,6 +374,16 @@ public class OrderListPresenterImpl extends
 						return "";
 					}
 				});
+		cellTable.addColumn("订房状态", new TextCell(),
+				new GetValue<OrderListClient, String>() {
+					@Override
+					public String getValue(OrderListClient order) {
+						if(!StringUtil.isEmpty(order.getRoomState()))
+						return order.getRoomState();
+						else
+						return "";
+					}
+				});
 		cellTable.addColumn("处理结果", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override

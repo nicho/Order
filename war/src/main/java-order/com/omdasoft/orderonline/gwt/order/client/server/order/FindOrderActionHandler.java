@@ -1,7 +1,5 @@
 package com.omdasoft.orderonline.gwt.order.client.server.order;
 
-import java.util.Date;
-
 import javax.inject.Inject;
 
 import net.customware.gwt.dispatch.server.ExecutionContext;
@@ -42,7 +40,7 @@ public class FindOrderActionHandler extends
 		rep.setCity(order.getCity());
 		rep.setFavoriteRoom(order.getFavoriteRoom());
 		rep.setMemo(order.getMemo());
-		rep.setPlaceOrderTime(new Date());
+		rep.setPlaceOrderTime(order.getPlaceOrderTime());
 		rep.setReserveTimeDate(order.getReserveTimeDate());
 		rep.setReserveTimeDateH(order.getReserveTimeDateH());
 		rep.setReserveTimeDateS(order.getReserveTimeDateS());

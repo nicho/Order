@@ -57,7 +57,9 @@ public class OrderSaveActionHandler extends
 		{
 			//订房电话
 			vo.setOrderPersonPhone(action.getOrderPersonPhone());
-			
+			vo.setPlaceOrderTime(new Date());
+			vo.setRestaurantId(action.getRestaurantId());
+			vo.setCity(action.getCity());
 			if(action.getBookingDishesList()!=null && action.getBookingDishesList().size()>0)
 			{
 				List<OrderDishesVo> ordersDishesList=new ArrayList<OrderDishesVo>();

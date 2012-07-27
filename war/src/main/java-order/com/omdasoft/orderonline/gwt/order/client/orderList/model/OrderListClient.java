@@ -18,7 +18,14 @@ public class OrderListClient implements Serializable, Comparable<OrderListClient
 	private Date lastUpdateTime;
 	private Date completeTime;
 	private String result;
+	private String roomState;
 
+	public String getRoomState() {
+		return roomState;
+	}
+	public void setRoomState(String roomState) {
+		this.roomState = roomState;
+	}
 	public String getIndexNo() {
 		return indexNo;
 	}

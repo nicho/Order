@@ -90,10 +90,19 @@ public class OrdersLoginPresenterImpl extends
 				if (response.getCityName() != null
 						&& response.getCityName().size() > 0) {
 					display.getCity().clear();
+					int x=0;
+					int i=0;
 					for (String city : response.getCityName()) {
 						display.getCity().addItem(city, city);
+						if(injector.getOrderManager()!=null && injector.getOrderManager().getOrderRequest() !=null && injector.getOrderManager().getOrderRequest().getCity()!=null)
+							if(city.equals(injector.getOrderManager().getOrderRequest().getCity()))
+								x=i;
+						i++;
 					}
+					display.getCity().setSelectedIndex(x);
 					changeCity();
+					
+
 				}
 
 			}
@@ -125,9 +134,21 @@ public class OrdersLoginPresenterImpl extends
 								&& response.getDeptName().size() > 0) {
 							display.getrestaurant().clear();
 							for (String[] restaurant : response.getDeptName()) {
-								display.getrestaurant().addItem(restaurant[1],
-										restaurant[0]);
+								display.getrestaurant().addItem(restaurant[1],restaurant[0]);
 							}
+							
+							
+							if(injector.getOrderManager()!=null && injector.getOrderManager().getOrderRequest() !=null && injector.getOrderManager().getOrderRequest().getRestaurantId()!=null 
+									&& display.getCity().getValue(display.getCity().getSelectedIndex()).equals(injector.getOrderManager().getOrderRequest().getCity()) )
+							{
+								for(int j=0;j<display.getrestaurant().getItemCount();j++)
+								{
+									if(injector.getOrderManager().getOrderRequest().getRestaurantId().equals(display.getrestaurant().getValue(j)))
+										display.getrestaurant().setSelectedIndex(j);
+								}
+								
+							}
+							
 						}
 
 					}

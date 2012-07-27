@@ -8,7 +8,6 @@ import java.util.List;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 import com.omdasoft.orderonline.dao.dishes.OrdersDishesDao;
-import com.omdasoft.orderonline.dao.org.CorporationDao;
 import com.omdasoft.orderonline.dao.person.PersonDao;
 import com.omdasoft.orderonline.dao.user.UserRoleDao;
 import com.omdasoft.orderonline.domain.order.Orders;
@@ -52,13 +51,12 @@ public class OrderServiceImpl implements OrderService {
 	private final DishesLogic dishesLogic;
 	private final OrdersDishesDao ordersDishesDao;
 	private UserRoleDao userRoleDao;
-	private CorporationDao corporationDao;
 	
 
 	@Inject
 	public OrderServiceImpl(OrderLogic orderLogic, UserLogic userLogic,
 			PersonDao personDao, DepartmentLogic departmentLogic,
-			DishesLogic dishesLogic, OrdersDishesDao ordersDishesDao,UserRoleDao userRoleDao,CorporationDao corporationDao) {
+			DishesLogic dishesLogic, OrdersDishesDao ordersDishesDao,UserRoleDao userRoleDao) {
 		this.userLogic = userLogic;
 		this.orderLogic = orderLogic;
 		this.personDao = personDao;
@@ -66,7 +64,6 @@ public class OrderServiceImpl implements OrderService {
 		this.dishesLogic = dishesLogic;
 		this.ordersDishesDao = ordersDishesDao;
 		this.userRoleDao=userRoleDao;
-		this.corporationDao=corporationDao;
 	}
 
 	@Override
@@ -417,7 +414,14 @@ public class OrderServiceImpl implements OrderService {
 				order.setOrderPerson(p2);
 			}
 			
-			order.setCorporation(corporationDao.getDeCorp());
+		 
+			if (!StringUtil.isEmptyString(orderVo.getRestaurantId())) {
+				order.setDepartment(departmentLogic.findDepartmentById(orderVo.getRestaurantId()));
+				order.setCorporation(order.getDepartment().getCorporation());
+			}
+			order.setPlaceOrderTime(orderVo.getPlaceOrderTime());
+			order.setCity(orderVo.getCity());
+	 
 		}
 
 

@@ -818,6 +818,7 @@ public class OrdersDishesPresenterImpl extends
 		injector.getOrderManager().getOrderRequest().setBookingDishesList(null);
 		injector.getOrderManager().getOrderRequest().setBookingDishesListClient(null);
 		List<BookingDishesClient> lt=new ArrayList<BookingDishesClient>();
+		if(cellBookingTable!=null)
 		cellBookingTable.setRowData(lt);
 		sumNumberMoney();
 
