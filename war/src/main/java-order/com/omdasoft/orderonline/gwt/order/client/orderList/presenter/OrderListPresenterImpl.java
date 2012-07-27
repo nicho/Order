@@ -333,7 +333,7 @@ public class OrderListPresenterImpl extends
 						else
 							return "";
 					}
-				});
+				}, ref, "reserveTimeDate");
 		cellTable.addColumn("就餐人数", new TextCell(),
 				new GetValue<OrderListClient, String>() {
 					@Override
