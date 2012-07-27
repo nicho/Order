@@ -280,6 +280,7 @@ public class CookieSessionManager implements SessionManager {
 			session.setLastLoginRole(rep.getLastLoginRole());
 			session.setCorporationName(rep.getCorporationName());
 			session.setPhoto(rep.getPhoto());
+			session.setCid(rep.getCid());
 			Date expires = new Date((new Date()).getTime() + COOKIE_TIMEOUT);
 			Cookies.setCookie("token", rep.getToken(), expires);
 
@@ -302,6 +303,7 @@ public class CookieSessionManager implements SessionManager {
 			session.setLastLoginRole(rep.getLastLoginRole());
 			session.setCorporationName(rep.getCorporationName());
 			session.setPhoto(rep.getPhoto());
+			session.setCid(rep.getCid());
 			Date expires = new Date((new Date()).getTime() + COOKIE_TIMEOUT);
 			Cookies.setCookie("token", rep.getToken(), expires);
 
