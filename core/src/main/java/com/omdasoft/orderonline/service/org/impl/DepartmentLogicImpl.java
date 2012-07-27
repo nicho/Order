@@ -443,4 +443,5 @@ public class DepartmentLogicImpl implements DepartmentLogic {
 		return departmentDao.findDepartmentByAdminUserId(userId);
 	}
 
+
 }

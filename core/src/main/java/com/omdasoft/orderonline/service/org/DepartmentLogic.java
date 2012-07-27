@@ -199,4 +199,5 @@ public interface DepartmentLogic {
 	 * @return
 	 */
 	public Department findDepartmentByAdminUserId(String userId);
+
 }

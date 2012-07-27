@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import com.google.inject.Inject;
 import com.omdasoft.orderonline.dao.org.CorporationDao;
-import com.omdasoft.orderonline.dao.org.DepartmentDao;
 import com.omdasoft.orderonline.dao.org.StaffDao;
 import com.omdasoft.orderonline.dao.org.StaffDao.QueryStaffPageActionResult;
 import com.omdasoft.orderonline.dao.user.RoleDao;
@@ -43,7 +42,6 @@ public class StaffLogicImpl implements StaffLogic {
 	private final StaffDao staffDao;
 	private final DepartmentLogic deptLogic;
 	private final CorporationLogic corporationLogic;
-	private final DepartmentDao depDao;
 	private final UserDao userDao;
 	private final UserRoleDao userRoleDao;
 	private final RoleDao roleDao;
@@ -53,13 +51,12 @@ public class StaffLogicImpl implements StaffLogic {
 
 	@Inject
 	public StaffLogicImpl(CorporationDao corporationDao,StaffDao staffDao, DepartmentLogic deptLogic,
-			CorporationLogic corporationLogic, DepartmentDao depDao,
+			CorporationLogic corporationLogic,
 			 UserDao userDao,
 			 UserRoleDao userRoleDao, RoleDao roleDao) {
 		this.staffDao = staffDao;
 		this.deptLogic = deptLogic;
 		this.corporationLogic = corporationLogic;
-		this.depDao = depDao;
 		this.userDao = userDao;
 		this.corporationDao=corporationDao;
 		this.userRoleDao = userRoleDao;
@@ -354,9 +351,9 @@ public class StaffLogicImpl implements StaffLogic {
 	public String createHrUser(StaffUserProcess staffProcess) {
 		Corporation corporation = corporationLogic.findCorporationById(staffProcess.getCorpId());
 		
-
-		// 创建部门为顶级部门
-		Department rootdepart = depDao.addRootDepartment(corporation);
+//查找货添加顶级部门
+		Department rootdepart = deptLogic.getRootDepartmentOfCorporation(corporation.getId());
+		
 		Staff ff = new Staff();
 		// 默认当前用户部门为顶级部门Root_
 		ff.setDepartment(rootdepart);
