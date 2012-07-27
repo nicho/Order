@@ -434,7 +434,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		
 		order.setOrderStatus(OrderStatus.UNHANDLED);
-
+		order.setRoomState(RoomState.HASRESERVATIONS);
 		
 
 		
