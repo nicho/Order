@@ -50,20 +50,20 @@ public interface DishesLogic {
 	 * @param order
 	 * @return
 	 */
-	public Dishes findDishesByrId(String rid);
+	public Dishes findDishesByrId(String rid,String cid);
 	
 	/**
 	 * 删除菜品根据rID
 	 * @param id
 	 * @return
 	 */
-	public int deleteDishes(SysUser caller,String id);
+	public int deleteDishes(SysUser caller,String id,String cid);
 	/**
 	 * 删除菜品类别根据rID
 	 * @param id
 	 * @return
 	 */
-	public int deleteDishesType(SysUser caller,String id);
+	public int deleteDishesType(SysUser caller,String id,String cid);
 	
 	/**
 	 * 删除菜品根据rID
@@ -96,7 +96,7 @@ public interface DishesLogic {
 	 * @param id
 	 * @return
 	 */
-	public DishesType findDishesTypeByrId(String rid);
+	public DishesType findDishesTypeByrId(String rid,String cid);
 	/**
 	 *Order Dishes 列表
 	 * @param context

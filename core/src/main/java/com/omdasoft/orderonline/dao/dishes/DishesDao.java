@@ -122,11 +122,11 @@ public class DishesDao extends BaseDao<Dishes> {
 
 		return query;
 	}
-	public Dishes findDishesByrId(String rid) {
+	public Dishes findDishesByrId(String rid,String cid) {
 		try {
 			return  (Dishes) getEm()
-					.createQuery("FROM Dishes s WHERE s.rid = :rid")
-					.setParameter("rid", rid).getSingleResult();
+					.createQuery("FROM Dishes s WHERE s.rid = :rid AND s.corporation.id=:cid")
+					.setParameter("rid", rid).setParameter("cid", cid).getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}

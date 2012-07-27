@@ -100,8 +100,8 @@ public class DishesLogicImpl implements DishesLogic {
 	}
 
 	@Override
-	public int deleteDishes(SysUser caller, String id) {
-		Dishes dishes = dishesDao.findDishesByrId(id);
+	public int deleteDishes(SysUser caller, String id,String cid) {
+		Dishes dishes = dishesDao.findDishesByrId(id,cid);
 		if (dishes != null) {
 			dishes.setDeleted(1);
 			dishesDao.update(dishes);
@@ -110,8 +110,9 @@ public class DishesLogicImpl implements DishesLogic {
 			return 1;
 	}
 	@Override
-	public int deleteDishesType(SysUser caller, String id) {
-		DishesType dishes = dishesTypeDao.findDishesTypeByrId(id);
+	public int deleteDishesType(SysUser caller, String id,String cid) {
+ 
+		DishesType dishes = dishesTypeDao.findDishesTypeByrId(id,cid);
 		if (dishes != null) {
 			dishes.setDeleted(1);
 			dishesTypeDao.update(dishes);
@@ -165,13 +166,13 @@ public class DishesLogicImpl implements DishesLogic {
 	}
 
 	@Override
-	public Dishes findDishesByrId(String rid) {
-		return dishesDao.findDishesByrId(rid);
+	public Dishes findDishesByrId(String rid,String cid) {
+		return dishesDao.findDishesByrId(rid,cid);
 	}
 
 	@Override
-	public DishesType findDishesTypeByrId(String rid) {
-		return dishesTypeDao.findDishesTypeByrId(rid);
+	public DishesType findDishesTypeByrId(String rid,String cid) {
+		return dishesTypeDao.findDishesTypeByrId(rid,cid);
 	}
 
 	@Override

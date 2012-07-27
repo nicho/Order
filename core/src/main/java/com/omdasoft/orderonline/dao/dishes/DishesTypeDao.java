@@ -100,11 +100,11 @@ public class DishesTypeDao extends BaseDao<DishesType> {
 		return query;
 	}
 
-	public DishesType findDishesTypeByrId(String rid) {
+	public DishesType findDishesTypeByrId(String rid,String corpId) {
 		try {
 			return  (DishesType) getEm()
-					.createQuery("FROM DishesType s WHERE s.rid = :rid")
-					.setParameter("rid", rid).getSingleResult();
+					.createQuery("FROM DishesType s WHERE s.rid = :rid AND s.corporation.id=:corpId ")
+					.setParameter("rid", rid).setParameter("corpId", corpId).getSingleResult();
 		} catch (NoResultException e) {
 			return null;
 		}

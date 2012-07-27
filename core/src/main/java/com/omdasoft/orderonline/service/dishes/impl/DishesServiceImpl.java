@@ -18,6 +18,7 @@ import com.omdasoft.orderonline.model.order.DishesReturnModel;
 import com.omdasoft.orderonline.model.order.DishesTypeModel;
 import com.omdasoft.orderonline.model.order.MyDishesModel;
 import com.omdasoft.orderonline.model.user.UserContext;
+import com.omdasoft.orderonline.model.user.UserRole;
 import com.omdasoft.orderonline.model.vo.MenuVo;
 import com.omdasoft.orderonline.service.dishes.DishesLogic;
 import com.omdasoft.orderonline.service.dishes.DishesService;
@@ -101,7 +102,7 @@ public class DishesServiceImpl implements DishesService {
 			} else {
 				SysUser user = userLogic.getSysUserByTokenId(tokenId);
 				if (user != null) {
-					int flag = dishesLogic.deleteDishesType(user, category_id);
+					int flag = dishesLogic.deleteDishesType(user, category_id,user.getCorporation().getId());
 					returnModel.setFlag(flag + "");
 
 				} else {
@@ -187,7 +188,7 @@ public class DishesServiceImpl implements DishesService {
 				SysUser user = userLogic.getSysUserByTokenId(tokenId);
 				if (user != null) {
 
-					dishesLogic.deleteDishes(user, dishes_id);
+					dishesLogic.deleteDishes(user, dishes_id,user.getCorporation().getId());
 					returnModel.setFlag("0");
 
 				} else {
@@ -221,6 +222,8 @@ public class DishesServiceImpl implements DishesService {
 					// 加入机构.等信息查询
 					UserContext uc=new UserContext();
 					uc.setCorporationId(user.getCorporation().getId());
+					uc.setUserId(user.getId());
+					uc.setLastRole(UserRole.DEPT_MGR);
 					DishesSearchCriteria cr=new DishesSearchCriteria();
 					PageStore<Dishes> list = dishesLogic.getDishesList(uc,
 							cr);
@@ -335,7 +338,7 @@ public class DishesServiceImpl implements DishesService {
 			else {
 				SysUser user = userLogic.getSysUserByTokenId(tokenId);
 				if (user != null) {
-					DishesType type = dishesLogic.findDishesTypeByrId(category_id);
+					DishesType type = dishesLogic.findDishesTypeByrId(category_id,user.getCorporation().getId());
 					if(type==null)
 					{
 						returnModel.setFlag("1");
@@ -422,7 +425,7 @@ public class DishesServiceImpl implements DishesService {
 				SysUser user = userLogic.getSysUserByTokenId(tokenId);
 				if (user != null) {
 					
-					Dishes dishes = dishesLogic.findDishesByrId(dishes_id);
+					Dishes dishes = dishesLogic.findDishesByrId(dishes_id,user.getCorporation().getId());
 					if(dishes==null)
 					{
 						returnModel.setFlag("1");
